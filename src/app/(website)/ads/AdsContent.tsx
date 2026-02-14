@@ -8,11 +8,11 @@ import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
 import {
-    Phone, ChevronRight, ChevronDown, Brain, Globe, HeartHandshake,
+    Phone, ChevronRight, ChevronDown, Brain, Globe,
     ShieldCheck, Sparkles, Clock, Users, MapPin, Star, CheckCircle,
-    AlertCircle, Heart, Zap, HandHeart, Stethoscope, Home, Car, UserCheck,
+    AlertCircle, Heart, Stethoscope, Home, Car, UserCheck,
     MessageCircleQuestion, PhoneCall, Handshake, Rocket, ArrowRight, Send,
-    Award, BadgeCheck, Shield
+    Award, BadgeCheck, Shield, Search, Calculator
 } from "lucide-react";
 
 /* ──────────────────────── CTA BUTTON (reused everywhere) ──────────────────────── */
@@ -500,7 +500,98 @@ const TestimonialsSection = () => (
     </section>
 );
 
-/* ──────────────────────── SECTION 9: FAQ ACCORDION ──────────────────────── */
+/* ──────────────────────── SECTION 9: FREE NDIS TOOLS ──────────────────────── */
+const ndisTools = [
+    {
+        title: "NDIS Price Guide",
+        description: "Search and compare NDIS support item prices across all Australian regions. Get detailed pricing information and claim requirements.",
+        icon: Search,
+        href: "/tools/ndis-price-guide",
+        color: "bg-[#ABB3F1]",
+        features: ["Search by name or code", "Regional price comparison", "Detailed claim rules"],
+    },
+    {
+        title: "Budget Calculator",
+        description: "Estimate your annual NDIS support costs. Add items, set frequency, and get a detailed budget breakdown you can download or print.",
+        icon: Calculator,
+        href: "/tools/ndis-budget-calculator",
+        color: "bg-[#F1ABAB]",
+        features: ["Calculate annual costs", "Add multiple support items", "Download summary"],
+    },
+    {
+        title: "Service Matcher",
+        description: "Answer a few quick questions and we'll match you with the right JS Choice services for your needs. Get personalised recommendations.",
+        icon: Users,
+        href: "/tools/service-matcher",
+        color: "bg-[#ABB3F1]",
+        features: ["Quick questionnaire", "Personalised matching", "Free consultation"],
+    },
+];
+
+const ToolsSection = () => (
+    <section id="tools" className="relative py-24 bg-[#F8FAFC] overflow-hidden">
+        <div className="absolute top-0 right-0 w-1/3 h-full bg-[#ABB3F1]/5 -skew-x-12 pointer-events-none" />
+        <div className="absolute bottom-0 left-0 w-64 h-64 bg-[#F1ABAB]/5 rounded-full blur-[80px] pointer-events-none" />
+
+        <div className="max-w-8xl mx-auto px-4 md:px-6 lg:px-8 relative z-10">
+            <div className="text-center max-w-3xl mx-auto mb-16">
+                <motion.div initial={{ opacity: 0, y: 30 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }}>
+                    <div className="flex items-center justify-center gap-2 text-[#F1ABAB] font-black uppercase text-xs tracking-[0.3em] mb-4">
+                        <Calculator size={18} />
+                        Free NDIS Tools
+                    </div>
+                    <h2 className="text-3xl md:text-5xl lg:text-6xl font-black text-[#2D3748] leading-tight uppercase tracking-tighter mb-4">
+                        Plan Your NDIS <span className="text-[#ABB3F1]">Budget</span>
+                    </h2>
+                    <p className="text-lg text-gray-600 font-medium leading-relaxed">
+                        Use our free tools to explore prices, estimate costs, and find the right services — before you even pick up the phone.
+                    </p>
+                </motion.div>
+            </div>
+
+            <div className="grid grid-cols-1 lg:grid-cols-3 gap-8">
+                {ndisTools.map((tool, index) => (
+                    <motion.div
+                        key={tool.title}
+                        initial={{ opacity: 0, y: 30 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }}
+                        transition={{ delay: index * 0.1 }}
+                    >
+                        <Link href={tool.href} className="group h-full block">
+                            <div className="h-full bg-white rounded-[2rem] border border-gray-100 p-8 md:p-10 shadow-lg hover:shadow-2xl transition-all duration-300 hover:-translate-y-2 flex flex-col">
+                                <div className={`w-16 h-16 ${tool.color} rounded-2xl flex items-center justify-center mb-6 shadow-md group-hover:scale-110 transition-transform duration-300`}>
+                                    <tool.icon className="w-8 h-8 text-[#1A202C]" />
+                                </div>
+                                <h3 className="text-xl font-black text-[#2D3748] mb-3 group-hover:text-[#ABB3F1] transition-colors uppercase tracking-tight">
+                                    {tool.title}
+                                </h3>
+                                <p className="text-base text-gray-600 mb-6 leading-relaxed font-medium">{tool.description}</p>
+                                <ul className="space-y-3 mb-8 flex-grow">
+                                    {tool.features.map((feature) => (
+                                        <li key={feature} className="flex items-center text-sm font-medium text-gray-700">
+                                            <div className="w-2 h-2 bg-[#F1ABAB] rounded-full mr-3 shrink-0" />
+                                            {feature}
+                                        </li>
+                                    ))}
+                                </ul>
+                                <div className="mt-auto">
+                                    <span className="inline-flex items-center gap-2 text-[#ABB3F1] font-bold uppercase tracking-wider text-sm group-hover:gap-4 transition-all duration-300">
+                                        Try It Free <ArrowRight className="w-4 h-4" />
+                                    </span>
+                                </div>
+                            </div>
+                        </Link>
+                    </motion.div>
+                ))}
+            </div>
+
+            <div className="mt-14 text-center">
+                <QuoteCTA label="Need Help? Get a Free Quote" variant="dark" />
+            </div>
+        </div>
+    </section>
+);
+
+/* ──────────────────────── SECTION 10: FAQ ACCORDION ──────────────────────── */
 const faqs = [
     { q: "What is the NDIS and am I eligible?", a: "The National Disability Insurance Scheme (NDIS) provides funding for Australians under 65 with a permanent and significant disability. If you have an NDIS plan, we can support you immediately. If you're unsure about eligibility, our team can guide you through the access request process." },
     { q: "How do I get started with JS Choice?", a: "Simply fill out the form below or call us. We'll arrange a free consultation to understand your goals, review your NDIS plan, and match you with the right support workers. There are no obligations — just a friendly chat." },
@@ -773,6 +864,8 @@ const AdsContent = () => (
         <TrustBadges />
         <ServicesSection />
         <WhyChooseSection />
+                <ToolsSection />
+
         <ProblemSolution />
         <HowItWorks />
         <AreasSection />
