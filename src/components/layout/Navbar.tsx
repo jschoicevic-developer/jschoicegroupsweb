@@ -10,9 +10,9 @@ import {
     HeartHandshake, Brain, Stethoscope,
     ShieldAlert, Users, Car,
     MapPin, Network, Activity,
-    Megaphone, FileText, Lightbulb, Home, Wrench, GraduationCap
+     FileText, Lightbulb, Home, Wrench, GraduationCap
 } from "lucide-react";
-import { motion, AnimatePresence, useScroll, useMotionValueEvent, useSpring } from "framer-motion";
+import { motion, AnimatePresence, useScroll, useSpring } from "framer-motion";
 import { cn } from "@/lib/utils";
 
 
