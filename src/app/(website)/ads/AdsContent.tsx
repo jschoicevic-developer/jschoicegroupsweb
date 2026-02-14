@@ -864,8 +864,7 @@ const AdsContent = () => (
         <TrustBadges />
         <ServicesSection />
         <WhyChooseSection />
-                <ToolsSection />
-
+        <ToolsSection />
         <ProblemSolution />
         <HowItWorks />
         <AreasSection />
