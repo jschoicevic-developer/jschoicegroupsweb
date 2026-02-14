@@ -1,0 +1,419 @@
+@import "tailwindcss";
+@import "tw-animate-css";
+
+@custom-variant dark (&:is(.dark *));
+
+@theme inline {
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --font-sans: var(--font-poppins);
+  --font-heading: var(--font-dosis);
+  --font-mono: var(--font-geist-mono);
+  --color-sidebar-ring: var(--sidebar-ring);
+  --color-sidebar-border: var(--sidebar-border);
+  --color-sidebar-accent-foreground: var(--sidebar-accent-foreground);
+  --color-sidebar-accent: var(--sidebar-accent);
+  --color-sidebar-primary-foreground: var(--sidebar-primary-foreground);
+  --color-sidebar-primary: var(--sidebar-primary);
+  --color-sidebar-foreground: var(--sidebar-foreground);
+  --color-sidebar: var(--sidebar);
+  --color-chart-5: var(--chart-5);
+  --color-chart-4: var(--chart-4);
+  --color-chart-3: var(--chart-3);
+  --color-chart-2: var(--chart-2);
+  --color-chart-1: var(--chart-1);
+  --color-ring: var(--ring);
+  --color-input: var(--input);
+  --color-border: var(--border);
+  --color-destructive: var(--destructive);
+  --color-accent-foreground: var(--accent-foreground);
+  --color-accent: var(--accent);
+  --color-muted-foreground: var(--muted-foreground);
+  --color-muted: var(--muted);
+  --color-secondary-foreground: var(--secondary-foreground);
+  --color-secondary: var(--secondary);
+  --color-primary-foreground: var(--primary-foreground);
+  --color-primary: var(--primary);
+  --color-popover-foreground: var(--popover-foreground);
+  --color-popover: var(--popover);
+  --color-card-foreground: var(--card-foreground);
+  --color-card: var(--card);
+
+  /* Plan Partners Budget Calculator Colors */
+  --color-teal-primary: #0d7377;
+  --color-teal-dark: #0a5c5f;
+  --color-gold-accent: #f5c518;
+  --color-mint-bg: #e8f5f5;
+  --color-blue-bg: #f0f9f9;
+  --color-purple-link: #7b2d8e;
+  --color-table-header: #1a3a4a;
+
+  --radius-sm: calc(var(--radius) - 4px);
+  --radius-md: calc(var(--radius) - 2px);
+  --radius-lg: var(--radius);
+  --radius-xl: calc(var(--radius) + 4px);
+  --radius-2xl: calc(var(--radius) + 8px);
+  --radius-3xl: calc(var(--radius) + 12px);
+  --radius-4xl: calc(var(--radius) + 16px);
+
+  @keyframes pulse-slow {
+
+    0%,
+    100% {
+      opacity: 1;
+    }
+
+    50% {
+      opacity: 0.85;
+    }
+  }
+
+  --animation-pulse-slow: pulse-slow 4s cubic-bezier(0.4, 0, 0.6, 1) infinite;
+}
+
+:root {
+  --radius: 0.75rem;
+  --background: #F7FAFC;
+  /* Light background from design.md */
+  --foreground: #1A202C;
+  /* Dark text from design.md */
+  --card: #ffffff;
+  --card-foreground: #1A202C;
+  --popover: #ffffff;
+  --popover-foreground: #1A202C;
+
+  /* Well Defined Brand Colors from design.md */
+  --primary: #ABB3F1;
+  /* Sleek Lavender Blue */
+  --primary-foreground: #FFFFFF;
+  /* White text on primary */
+
+  --secondary: #F1ABAB;
+  /* Modern Coral Pink */
+  --secondary-foreground: #FFFFFF;
+  /* White text on secondary */
+
+  --accent: #E8EAFF;
+  /* Light lavender backdrop */
+  --accent-foreground: #1A202C;
+
+  --muted: #EDF2F7;
+  --muted-foreground: #4A5568;
+
+  --destructive: #E53E3E;
+  --destructive-foreground: #FFFFFF;
+
+  --border: #E2E8F0;
+  --input: #E2E8F0;
+  --ring: #ABB3F1;
+
+  --success: #68D391;
+
+  /* Chart Colors */
+  --chart-1: #ABB3F1;
+  --chart-2: #F1ABAB;
+  --chart-3: #68D391;
+  --chart-4: #E8EAFF;
+  --chart-5: #1A202C;
+
+  /* Sidebar */
+  --sidebar: #F7FAFC;
+  --sidebar-foreground: #1A202C;
+  --sidebar-primary: #ABB3F1;
+  --sidebar-primary-foreground: #FFFFFF;
+  --sidebar-accent: #E8EAFF;
+  --sidebar-accent-foreground: #1A202C;
+  --sidebar-border: #E2E8F0;
+  --sidebar-ring: #ABB3F1;
+}
+
+.dark {
+  --background: #0F172A;
+  --foreground: #F8FAFC;
+  --card: #1E293B;
+  --card-foreground: #F8FAFC;
+  --popover: #1E293B;
+  --popover-foreground: #F8FAFC;
+  --primary: #ABB3F1;
+  --primary-foreground: #FFFFFF;
+  --secondary: #F1ABAB;
+  --secondary-foreground: #FFFFFF;
+  --muted: #334155;
+  --muted-foreground: #94A3B8;
+  --accent: #1E293B;
+  --accent-foreground: #F8FAFC;
+  --destructive: #991B1B;
+  --destructive-foreground: #FFFFFF;
+  --border: #334155;
+  --input: #334155;
+  --ring: #ABB3F1;
+  --sidebar: #0F172A;
+  --sidebar-foreground: #F8FAFC;
+  --sidebar-primary: #ABB3F1;
+  --sidebar-primary-foreground: #FFFFFF;
+  --sidebar-accent: #1E293B;
+  --sidebar-accent-foreground: #F8FAFC;
+  --sidebar-border: #334155;
+  --sidebar-ring: #ABB3F1;
+}
+
+@layer base {
+  * {
+    @apply border-border outline-ring/50;
+  }
+
+  /* Hide scrollbar for Chrome, Safari and Opera */
+  ::-webkit-scrollbar {
+    width: 0px !important;
+    height: 0px !important;
+    background: transparent !important;
+    display: none !important;
+  }
+
+  /* Hide scrollbar for IE, Edge and Firefox */
+  html,
+  body {
+    -ms-overflow-style: none !important;
+    /* IE and Edge */
+    scrollbar-width: none !important;
+    /* Firefox */
+  }
+
+  body {
+    @apply bg-background text-foreground;
+    font-family: var(--font-poppins);
+  }
+
+  h1,
+  h2,
+  h3,
+  h4,
+  h5,
+  h6 {
+    font-family: var(--font-dosis);
+    color: #000000;
+  }
+
+  /* Force Black Text on Primary and Secondary Buttons for better contrast */
+  button.bg-primary,
+  button.btn-primary,
+  .bg-primary button,
+  .bg-secondary button,
+  button.bg-secondary,
+  button.btn-secondary {
+    color: #1A202C !important;
+    position: relative;
+    overflow: hidden;
+  }
+
+  /* Dot pattern inside buttons */
+  button.bg-primary::before,
+  button.bg-secondary::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    opacity: 0.15;
+    background-image: radial-gradient(#000 0.5px, transparent 0.5px);
+    background-size: 4px 4px;
+    pointer-events: none;
+  }
+}
+
+@layer components {
+  .bg-dot-pattern {
+    background-image: radial-gradient(var(--primary) 0.5px, transparent 0.5px);
+    background-size: 24px 24px;
+  }
+
+  .glass {
+    @apply bg-white/70 backdrop-blur-md border border-white/20 shadow-xl;
+  }
+
+  .glass-dark {
+    @apply bg-black/40 backdrop-blur-md border border-white/10 shadow-2xl;
+  }
+
+  .glass-card {
+    @apply bg-white/40 backdrop-blur-lg border border-white/30 shadow-lg hover:shadow-2xl transition-all duration-500;
+  }
+
+  .text-gradient {
+    @apply bg-clip-text text-transparent bg-gradient-to-r from-[var(--primary)] to-[var(--secondary)];
+  }
+
+  .btn-primary {
+    @apply bg-primary text-[#1A202C] hover:brightness-110 shadow-lg hover:shadow-primary/30;
+  }
+
+  .btn-secondary {
+    @apply bg-secondary text-[#1A202C] hover:brightness-110 shadow-lg hover:shadow-secondary/30;
+  }
+}
+
+/* Plan Partners Budget Calculator Animations */
+@keyframes slideDown {
+  from {
+    opacity: 0;
+    max-height: 0;
+    transform: translateY(-20px);
+  }
+
+  to {
+    opacity: 1;
+    max-height: 500px;
+    transform: translateY(0);
+  }
+}
+
+.question-reveal {
+  animation: slideDown 0.3s ease-out;
+}
+
+/* Mobile-specific enhancements */
+@media (max-width: 640px) {
+
+  /* Make dropdowns full width on mobile */
+  .budget-calculator select,
+  .budget-calculator button[aria-haspopup="listbox"] {
+    width: 100%;
+    min-width: 100%;
+  }
+
+  /* Larger touch targets on mobile */
+  .budget-calculator button,
+  .budget-calculator input[type="number"] {
+    min-height: 44px;
+  }
+
+  /* Better spacing for mobile */
+  .budget-calculator .p-8 {
+    padding: 1.5rem;
+  }
+}
+
+/* Print Styles for Budget Calculator */
+@media print {
+
+  /* Reset page margins */
+  @page {
+    margin: 1.5cm;
+    size: A4;
+  }
+
+  /* Hide everything except print view */
+  body * {
+    visibility: hidden;
+  }
+
+  .print-only,
+  .print-only * {
+    visibility: visible;
+  }
+
+  .print-only {
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 100%;
+  }
+
+  /* Hide navigation and unnecessary elements */
+  nav,
+  header,
+  footer,
+  button,
+  .no-print,
+  .fixed,
+  .sticky {
+    display: none !important;
+  }
+
+  /* Body styles */
+  body {
+    background: white !important;
+    color: black !important;
+    font-size: 11pt;
+    line-height: 1.4;
+  }
+
+  /* Ensure table fits on page */
+  table {
+    page-break-inside: auto;
+    width: 100%;
+  }
+
+  tr {
+    page-break-inside: avoid;
+    page-break-after: auto;
+  }
+
+  /* Avoid page breaks inside these */
+  .break-inside-avoid {
+    page-break-inside: avoid;
+  }
+
+  /* Remove shadows and decorative styles */
+  .shadow-md,
+  .shadow-lg,
+  .shadow-xl,
+  .shadow-2xl {
+    box-shadow: none !important;
+  }
+
+  /* Ensure good contrast for print */
+  .bg-teal-primary,
+  .text-teal-primary {
+    color: #000 !important;
+    font-weight: bold;
+  }
+
+  /* Remove backgrounds except intentional ones */
+  .bg-gradient-to-r,
+  .bg-gradient-to-br {
+    background: none !important;
+  }
+
+  /* Keep borders visible */
+  .border,
+  .border-2,
+  .border-t,
+  .border-b {
+    border-color: #000 !important;
+  }
+
+  /* Links should be plain text in print */
+  a {
+    color: inherit;
+    text-decoration: none;
+  }
+
+  /* Hide inputs in print */
+  input,
+  select {
+    border: none;
+    background: transparent;
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    appearance: none;
+    font-weight: bold;
+  }
+
+  /* Ensure headings are bold */
+  h1,
+  h2,
+  h3,
+  h4,
+  h5,
+  h6 {
+    font-weight: bold;
+    color: #000;
+  }
+}
+
+@utility max-w-8xl {
+  max-width: 1450px;
+}
+
+@utility container-8xl {
+  @apply max-w-8xl mx-auto px-4 sm:px-6 lg:px-8;
+}

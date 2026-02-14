@@ -1,0 +1,43 @@
+
+
+# Contact Form variables
+CONTACT_TO_EMAIL=ummehabiba989@gmail.com
+CONTACT_FROM_EMAIL=MetroGuards<admin@metroguards.com.au>
+RESEND_API_KEY=re_6AaaMbYv_Ct8uib3vEHCN73Lm1Tdj3cdY
+
+# Signin Variables
+JWT_SECRET=131b180d691d03a8b776121aad07c5bbd220d57c5c588eff8545191b0a0cc623
+#NEXT_PUBLIC_BASE_URL=http://localhost:3000/
+
+# Cloudinary variables in Richtextbox
+NEXT_PUBLIC_CLOUDINARY_CLOUD_NAME=dbc5nf8oq
+NEXT_PUBLIC_CLOUDINARY_UPLOAD_PRESET=unsigned_preset
+
+#Load More Page Variable
+process.env.NEXT_PUBLIC_SITE_URL=http://localhost:3000
+
+NEXT_PUBLIC_SUPABASE_ANON_KEY="eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6InhhaWFucnR3eXNvZmNvbnhtcXJ5Iiwicm9sZSI6ImFub24iLCJpYXQiOjE3NjY5OTc2MDEsImV4cCI6MjA4MjU3MzYwMX0.PMmc2hsXO5BF411vAS8FMLuqTNYb_ymbRxQmaIrY_Es"
+NEXT_PUBLIC_SUPABASE_PUBLISHABLE_KEY="sb_publishable_G5rAZbigpz9LqTHaAHdNGg_156VZWWT"
+NEXT_PUBLIC_SUPABASE_URL="https://xaianrtwysofconxmqry.supabase.co"
+POSTGRES_DATABASE="postgres"
+POSTGRES_HOST="db.xaianrtwysofconxmqry.supabase.co"
+POSTGRES_PASSWORD="ZyQl5ql5E3XtajPM"
+POSTGRES_PRISMA_URL="postgres://postgres.xaianrtwysofconxmqry:ZyQl5ql5E3XtajPM@aws-1-us-east-1.pooler.supabase.com:5432/postgres?sslmode=require&pgbouncer=true"
+POSTGRES_URL="postgres://postgres.xaianrtwysofconxmqry:ZyQl5ql5E3XtajPM@aws-1-us-east-1.pooler.supabase.com:5432/postgres?sslmode=require&supa=base-pooler.x"
+POSTGRES_URL_NON_POOLING="postgres://postgres.xaianrtwysofconxmqry:ZyQl5ql5E3XtajPM@aws-1-us-east-1.pooler.supabase.com:5432/postgres?sslmode=require"
+POSTGRES_USER="postgres"
+NEXT_PUBLIC_SUPABASE_ANON_KEY="eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6InhhaWFucnR3eXNvZmNvbnhtcXJ5Iiwicm9sZSI6ImFub24iLCJpYXQiOjE3NjY5OTc2MDEsImV4cCI6MjA4MjU3MzYwMX0.PMmc2hsXO5BF411vAS8FMLuqTNYb_ymbRxQmaIrY_Es"
+SUPABASE_JWT_SECRET="706CO8YdhAPRJ6F8JCVpkodGw6kW5hE4y391X59dgQ+17XzpGidGUUDr6xeuEC3Uqq+rj0ETLdoBZ4kXZUY/rg=="
+SUPABASE_PUBLISHABLE_KEY="sb_publishable_G5rAZbigpz9LqTHaAHdNGg_156VZWWT"
+SUPABASE_SECRET_KEY="sb_secret_aM8azo2LmpyJVmFA8YAymg_Pxzq5dhR"
+SUPABASE_SERVICE_ROLE_KEY="eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6InhhaWFucnR3eXNvZmNvbnhtcXJ5Iiwicm9sZSI6InNlcnZpY2Vfcm9sZSIsImlhdCI6MTc2Njk5NzYwMSwiZXhwIjoyMDgyNTczNjAxfQ.8rDcnBeVnaJSg7TwV5sYxTNxSxOMj4KX_T6Bo-pux50"
+SUPABASE_URL="https://xaianrtwysofconxmqry.supabase.co"
+
+
+
+
+#rechapcha
+RECAPTCHA_SECRET_KEY=6Lffx_0rAAAAAFhcCdpsdJHGXJQT3tR6kh-mSsTm
+NEXT_PUBLIC_RECAPTCHA_SITE_KEY=6Lffx_0rAAAAAD3Krasm_8BDMYyLiiM4Ja0T9Pu7
+
+NEXT_PUBLIC_GTM_ID=GTM-5F54P4MC

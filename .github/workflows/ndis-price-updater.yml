@@ -1,0 +1,114 @@
+# ============================================================================
+# NDIS Price Guide Auto-Updater - GitHub Actions Workflow
+# ============================================================================
+# 
+# This workflow runs every Monday at 6 AM AEST to check for NDIS price updates.
+# It downloads the latest NDIS Support Catalogue and updates Supabase if changed.
+#
+# SETUP INSTRUCTIONS:
+# 1. Save this file as: .github/workflows/ndis-price-updater.yml
+# 2. Add these secrets to your GitHub repository (Settings → Secrets → Actions):
+#    - SUPABASE_URL: Your Supabase project URL
+#    - SUPABASE_SERVICE_KEY: Your Supabase service role key (not anon key!)
+#    - NOTIFICATION_EMAIL: Email to notify when updates occur (optional)
+#
+# ============================================================================
+
+name: NDIS Price Guide Updater
+
+on:
+  # Run every Monday at 6 AM AEST (Sunday 8 PM UTC)
+  schedule:
+    - cron: '0 20 * * 0'
+  
+  # Allow manual trigger from GitHub Actions tab
+  workflow_dispatch:
+    inputs:
+      force_update:
+        description: 'Force update even if no changes detected'
+        required: false
+        default: 'false'
+        type: boolean
+
+env:
+  PYTHON_VERSION: '3.11'
+
+jobs:
+  check-and-update:
+    name: Check for NDIS Price Updates
+    runs-on: ubuntu-latest
+    
+    steps:
+      # ========================================
+      # SETUP
+      # ========================================
+      
+      - name: Checkout repository
+        uses: actions/checkout@v4
+      
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: ${{ env.PYTHON_VERSION }}
+      
+      - name: Install dependencies
+        run: |
+          python -m pip install --upgrade pip
+          pip install requests pandas openpyxl beautifulsoup4 supabase python-dotenv
+      
+      # ========================================
+      # CHECK FOR UPDATES
+      # ========================================
+      
+      - name: Run NDIS Price Checker
+        id: price_check
+        env:
+          SUPABASE_URL: ${{ secrets.SUPABASE_URL }}
+          SUPABASE_SERVICE_KEY: ${{ secrets.SUPABASE_SERVICE_KEY }}
+          FORCE_UPDATE: ${{ github.event.inputs.force_update || 'false' }}
+        run: |
+          python scripts/github_price_updater.py
+      
+      # ========================================
+      # NOTIFICATIONS (Optional)
+      # ========================================
+      
+      - name: Send notification on update
+        if: steps.price_check.outputs.updated == 'true'
+        uses: dawidd6/action-send-mail@v3
+        with:
+          server_address: smtp.gmail.com
+          server_port: 587
+          username: ${{ secrets.SMTP_USER }}
+          password: ${{ secrets.SMTP_PASS }}
+          subject: "✅ NDIS Price Guide Updated - JS Choice Website"
+          body: |
+            The NDIS Support Catalogue has been updated on the JS Choice website.
+            
+            Update Summary:
+            - Total Items: ${{ steps.price_check.outputs.total_items }}
+            - Items Added: ${{ steps.price_check.outputs.items_added }}
+            - Items Removed: ${{ steps.price_check.outputs.items_removed }}
+            - Prices Changed: ${{ steps.price_check.outputs.prices_changed }}
+            
+            Timestamp: ${{ steps.price_check.outputs.timestamp }}
+            
+            View the changes at: https://jschoicegroup.com.au/tools/ndis-price-guide
+          to: ${{ secrets.NOTIFICATION_EMAIL }}
+          from: JS Choice Website <noreply@jschoicegroup.com.au>
+        continue-on-error: true
+      
+      # ========================================
+      # SUMMARY
+      # ========================================
+      
+      - name: Job Summary
+        run: |
+          echo "## NDIS Price Check Results" >> $GITHUB_STEP_SUMMARY
+          echo "" >> $GITHUB_STEP_SUMMARY
+          echo "| Metric | Value |" >> $GITHUB_STEP_SUMMARY
+          echo "|--------|-------|" >> $GITHUB_STEP_SUMMARY
+          echo "| Status | ${{ steps.price_check.outputs.status }} |" >> $GITHUB_STEP_SUMMARY
+          echo "| Updated | ${{ steps.price_check.outputs.updated }} |" >> $GITHUB_STEP_SUMMARY
+          echo "| Total Items | ${{ steps.price_check.outputs.total_items }} |" >> $GITHUB_STEP_SUMMARY
+          echo "| Timestamp | ${{ steps.price_check.outputs.timestamp }} |" >> $GITHUB_STEP_SUMMARY
