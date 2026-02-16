@@ -1350,7 +1350,7 @@ const handleSubmit = async (e: FormEvent) => {
 ### CTAs (Call-to-Actions)
 
 **Primary CTAs:**
-- "Request Support" → Contact form
+- "Get Consultations" → Contact form
 - "Call Us: 130057246423" → Tel link
 - "Get Started" → Service matcher tool
 - "Calculate Budget" → Budget calculator

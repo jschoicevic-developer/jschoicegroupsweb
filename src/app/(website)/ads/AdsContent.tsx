@@ -16,7 +16,7 @@ import {
 } from "lucide-react";
 
 /* ──────────────────────── CTA BUTTON (reused everywhere) ──────────────────────── */
-const QuoteCTA = ({ label = "Get a Free Quote", variant = "primary" }: { label?: string; variant?: "primary" | "secondary" | "dark" | "white" }) => {
+const QuoteCTA = ({ label = "Get Consultations", variant = "primary" }: { label?: string; variant?: "primary" | "secondary" | "dark" | "white" }) => {
     const base = "inline-flex h-12 px-8 rounded-full font-bold text-sm uppercase tracking-wider shadow-md hover:shadow-lg hover:-translate-y-0.5 transition-all duration-300 items-center gap-2";
     const styles = {
         primary: `${base} bg-[#ABB3F1] hover:bg-[#9CA5E5] text-[#1A202C]`,
@@ -85,7 +85,7 @@ const HeroSection = () => (
 
                     {/* CTAs */}
                     <motion.div initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} transition={{ delay: 0.6 }} className="flex flex-col sm:flex-row items-start gap-4">
-                        <QuoteCTA label="Get Your Free Quote" />
+                        <QuoteCTA label="Get Consultations" />
                         <a href="tel:130057246423" className="h-14 px-8 rounded-full border border-white/30 hover:bg-white/10 flex items-center gap-3 text-white transition-all hover:scale-105">
                             <Phone size={18} />
                             <span className="font-semibold tracking-wide">130057246423</span>
@@ -585,7 +585,7 @@ const ToolsSection = () => (
             </div>
 
             <div className="mt-14 text-center">
-                <QuoteCTA label="Need Help? Get a Free Quote" variant="dark" />
+                <QuoteCTA label="Need Help? Get Consultations" variant="dark" />
             </div>
         </div>
     </section>
@@ -778,7 +778,7 @@ const QuoteForm = () => {
                         className="bg-white p-8 md:p-12 rounded-[2.5rem] shadow-2xl border border-white/50"
                     >
                         <h3 className="text-2xl md:text-3xl font-black text-[#2D3748] mb-2 uppercase tracking-tight">
-                            Get Your Free <span className="text-[#F1ABAB]">Quote</span>
+                            Get Your Free <span className="text-[#F1ABAB]">Consultations</span>
                         </h3>
                         <p className="text-gray-500 font-medium mb-8">No obligations. We&apos;ll respond within 24 hours.</p>
 
@@ -850,7 +850,7 @@ const FinalCTA = () => (
                         </div>
                         <span className="text-sm font-black uppercase tracking-widest">Call: 130057246423</span>
                     </a>
-                    <QuoteCTA label="Enquire Online" variant="primary" />
+                    <QuoteCTA label="Get Consultations" variant="primary" />
                 </div>
             </motion.div>
         </div>

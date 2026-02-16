@@ -192,7 +192,7 @@ const Navbar = () => {
                         >
                             <Link href="/referral" className="flex items-center gap-2">
                                 <HeartHandshake size={18} strokeWidth={1.5} className="text-black" />
-                                <span className="text-black font-semibold">Collaborations</span>
+                                <span className="text-black font-semibold">Get Consultations</span>
                             </Link>
                         </Button>
                     </div>
@@ -270,7 +270,7 @@ const Navbar = () => {
                                 >
                                     <Link href="/referral" className="flex items-center justify-center gap-2">
                                         <HeartHandshake size={20} className="text-black" strokeWidth={1.5} />
-                                        <span className="text-black font-bold">Collaborations</span>
+                                        <span className="text-black font-bold">Get Consultations</span>
                                     </Link>
                                 </Button>
                             </div>

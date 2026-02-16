@@ -127,7 +127,7 @@ const Hero = () => {
                         className="h-14 px-10 rounded-full bg-[#ABB3F1] hover:bg-[#9CA5E5] text-[#1A202C] font-bold text-base shadow-lg hover:shadow-xl hover:-translate-y-1 transition-all duration-300"
                     >
                         <Link href="/referral" className="flex items-center gap-2">
-                            Request Support
+                            Get Consultations
                             <ChevronRight size={18} strokeWidth={3} />
                         </Link>
                     </Button>

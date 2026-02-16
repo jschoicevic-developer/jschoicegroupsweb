@@ -520,23 +520,9 @@ const ReferralForm = () => {
         <section className="py-12 md:py-20 bg-gray-50/50 min-h-screen">
             <div ref={formTopRef} className="max-w-4xl mx-auto px-4 md:px-6 lg:px-8">
 
-                {/* Progress Indicator */}
+                {/* Progress Bar */}
                 <div className="mb-8 md:mb-12">
-                    <div className="flex justify-between text-sm font-bold text-gray-500 mb-2 uppercase tracking-wide">
-                        <span>Step {currentStep} of {steps.length}</span>
-                        <span className="text-primary hidden md:inline">{steps[currentStep - 1].title}</span>
-                    </div>
-                    <Progress value={progressValue} className="h-3 bg-gray-200" indicatorClassName="bg-primary transition-all duration-500 ease-out" />
-
-                    {/* Desktop Steps Visualizer */}
-                    <div className="hidden md:flex justify-between mt-4 px-2">
-                        {steps.map((step) => (
-                            <div key={step.id} className={`flex flex-col items-center ${step.id <= currentStep ? 'text-gray-900' : 'text-gray-400'}`}>
-                                <div className={`w-3 h-3 rounded-full mb-2 transition-colors duration-300 ${step.id <= currentStep ? 'bg-primary' : 'bg-gray-300'}`} />
-                                <span className="text-xs font-bold uppercase">{step.title}</span>
-                            </div>
-                        ))}
-                    </div>
+                    <Progress value={progressValue} className="h-3 bg-gray-200 rounded-full" indicatorClassName="bg-primary transition-all duration-500 ease-out rounded-full" />
                 </div>
 
                 <div className="bg-white rounded-[2.5rem] p-6 md:p-12 shadow-xl shadow-gray-200/50 border border-gray-100 overflow-hidden relative min-h-[500px]">
