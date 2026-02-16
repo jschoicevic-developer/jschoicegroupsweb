@@ -11,7 +11,7 @@ const Topbar = () => {
             initial={{ y: -50, opacity: 0 }}
             animate={{ y: 0, opacity: 1 }}
             transition={{ duration: 0.8, delay: 1.5, ease: [0.22, 1, 0.36, 1] }}
-            className="bg-secondary text-foreground py-2 relative z-[110] border-b border-foreground/10 shadow-sm"
+            className="bg-secondary text-foreground py-2 relative z-110 border-b border-foreground/10 shadow-sm"
         >
             <div className="max-w-8xl mx-auto px-4 md:px-6 lg:px-8">
                 <div className="flex flex-row justify-between items-center gap-4 md:gap-0 font-semibold text-[13px] tracking-tight">

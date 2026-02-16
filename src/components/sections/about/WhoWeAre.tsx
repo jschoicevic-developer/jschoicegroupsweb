@@ -42,7 +42,7 @@ const WhoWeAre = () => {
                         transition={{ duration: 0.8 }}
                         className="lg:col-span-5 relative"
                     >
-                        <div className="relative rounded-[2.5rem] overflow-hidden shadow-2xl border-[10px] border-white z-10 w-full aspect-[4/3]">
+                        <div className="relative rounded-[2.5rem] overflow-hidden shadow-2xl border-10 border-white z-10 w-full aspect-[4/3]">
                             <Image
                                 src="/images/about/about-img.webp"
                                 alt="Who We Are - Js Choice"
@@ -74,7 +74,7 @@ const WhoWeAre = () => {
                         transition={{ duration: 0.8 }}
                         className="lg:col-span-5 relative order-1"
                     >
-                        <div className="relative rounded-[2.5rem] overflow-hidden shadow-2xl border-[10px] border-white z-10 w-full aspect-[3/4]">
+                        <div className="relative rounded-[2.5rem] overflow-hidden shadow-2xl border-10 border-white z-10 w-full aspect-3/4">
                             <Image
                                 src="/JanImage.jpeg"
                                 alt="Jan Fardowsi - Director"

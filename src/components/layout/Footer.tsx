@@ -26,7 +26,7 @@ const Footer = () => {
     return (
         <footer className="bg-[#0F172A] text-white pt-24 overflow-hidden relative">
             {/* Background Decorative Element */}
-            <div className="absolute top-0 right-0 w-1/4 h-1/4 bg-[#ABB3F1]/5 rounded-full blur-[100px] -z-0" />
+            <div className="absolute top-0 right-0 w-1/4 h-1/4 bg-[#ABB3F1]/5 rounded-full blur-[100px] z-0" />
 
             <div className="max-w-8xl mx-auto px-4 md:px-6 lg:px-8 relative z-10">
                 <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-12 gap-12 lg:gap-16 mb-20">
@@ -66,7 +66,7 @@ const Footer = () => {
                     <div className="lg:col-span-4">
                         <div className="mb-10 text-xl font-black uppercase tracking-[0.2em] text-[#ABB3F1] flex items-center gap-4">
                             Services
-                            <span className="h-px flex-grow bg-white/10" />
+                            <span className="h-px grow bg-white/10" />
                         </div>
                         <div className="grid grid-cols-1 sm:grid-cols-2 gap-8 lg:gap-12">
                             <ul className="space-y-4">
@@ -96,7 +96,7 @@ const Footer = () => {
                     <div className="lg:col-span-3">
                         <div className="mb-10 text-xl font-black uppercase tracking-[0.2em] text-[#6366F1] flex items-center gap-4">
                             Resources
-                            <span className="h-px flex-grow bg-white/10" />
+                            <span className="h-px grow bg-white/10" />
                         </div>
                         <ul className="space-y-4">
                             <li>
@@ -130,7 +130,7 @@ const Footer = () => {
                     <div className="lg:col-span-3">
                         <div className="mb-10 text-xl font-black uppercase tracking-[0.2em] text-[#F1ABAB] flex items-center gap-4">
                             Contact Us
-                            <span className="h-px flex-grow bg-white/10" />
+                            <span className="h-px grow bg-white/10" />
                         </div>
                         <ul className="space-y-6">
                             <li className="flex items-start gap-4">
@@ -202,7 +202,7 @@ const Footer = () => {
                     <p className="text-[10px] md:text-xs font-black text-gray-500 uppercase tracking-[0.2em] leading-relaxed">
                         Copyright © 2026 JS CHOICE GROUP PTY LTD • Design by <a href="https://cruxlabs.com.au/" target="_blank" className="text-[#ABB3F1] hover:underline">CruxLabs</a>
                     </p>
-                    <div className="flex flex-wrap justify-center gap-4 mt-3 text-[10px] font-black text-[#5A67D8] tracking-[0.1em] opacity-80 uppercase">
+                    <div className="flex flex-wrap justify-center gap-4 mt-3 text-[10px] font-black text-[#5A67D8] tracking-widest opacity-80 uppercase">
                         <span>ABN : 54 644 196 270</span>
                         <span className="hidden sm:inline opacity-30">|</span>
                         <span>Licence no : 4050118332</span>
