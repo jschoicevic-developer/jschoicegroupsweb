@@ -4,7 +4,9 @@
       "Bash(npm install:*)",
       "Bash(find:*)",
       "Bash(ls:*)",
-      "Bash(npx next build:*)"
+      "Bash(npx next build:*)",
+      "Bash(pip show:*)",
+      "Bash(pip install:*)"
     ]
   },
   "enableAllProjectMcpServers": true
