@@ -10,7 +10,7 @@ import {
     HeartHandshake, Brain, Stethoscope,
     ShieldAlert, Users, Car,
     MapPin, Network, Activity,
-     FileText, Lightbulb, Home, Wrench, GraduationCap
+    FileText, Lightbulb, Home, Wrench, GraduationCap
 } from "lucide-react";
 import { motion, AnimatePresence, useScroll, useSpring } from "framer-motion";
 import { cn } from "@/lib/utils";
@@ -62,6 +62,7 @@ const Navbar = () => {
         { name: "About Us", href: "/about-us" },
         { name: "Gallery", href: "/gallery" },
         { name: "Blog", href: "/blog" },
+        { name: "Resources", href: "/resources" },
         { name: "Contact Us", href: "/contact-us" },
     ];
 
@@ -191,7 +192,7 @@ const Navbar = () => {
                         >
                             <Link href="/referral" className="flex items-center gap-2">
                                 <HeartHandshake size={18} strokeWidth={1.5} className="text-black" />
-                                <span className="text-black font-semibold">Partner</span>
+                                <span className="text-black font-semibold">Collaborations</span>
                             </Link>
                         </Button>
                     </div>
@@ -269,7 +270,7 @@ const Navbar = () => {
                                 >
                                     <Link href="/referral" className="flex items-center justify-center gap-2">
                                         <HeartHandshake size={20} className="text-black" strokeWidth={1.5} />
-                                        <span className="text-black font-bold">Partner</span>
+                                        <span className="text-black font-bold">Collaborations</span>
                                     </Link>
                                 </Button>
                             </div>

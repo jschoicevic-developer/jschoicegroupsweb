@@ -118,10 +118,10 @@ export default function ToolsPage() {
             </p>
             <div className="flex flex-col sm:flex-row gap-6 justify-center">
               <a
-                href="tel:0421622262"
+                href="tel:130057246423"
                 className="h-14 px-10 rounded-full bg-primary hover:brightness-110 text-[#1A202C] font-black text-sm uppercase tracking-wider shadow-xl hover:shadow-2xl hover:-translate-y-1 transition-all duration-300 flex items-center justify-center"
               >
-                Call: 0421 622 262
+                Call: 130057246423
               </a>
               <Link
                 href="/contact-us"

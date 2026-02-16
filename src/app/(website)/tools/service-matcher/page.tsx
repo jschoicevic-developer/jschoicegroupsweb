@@ -150,10 +150,10 @@ export default function ServiceMatcherPage() {
           </p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
             <a
-              href="tel:0421622262"
+              href="tel:130057246423"
               className="h-16 px-10 flex items-center justify-center bg-primary text-[#1A202C] font-black uppercase tracking-wider text-sm rounded-full shadow-lg hover:shadow-xl hover:scale-105 transition-all duration-300"
             >
-              Call: 0421 622 262
+              Call: 130057246423
             </a>
             <a
               href="mailto:info@jschoicegroup.com.au"

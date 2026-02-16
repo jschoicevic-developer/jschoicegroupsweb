@@ -6,17 +6,18 @@ import { Phone, Mail, MapPin, Clock, Send, CheckCircle, AlertCircle } from "luci
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
+import { CONTACT_DETAILS } from "@/config/contact";
 
 const contactInfo = [
     {
         icon: Phone,
         title: "Call Us",
         content: (
-            <>
-                <a href="tel:0393946305" className="hover:text-primary transition-colors">03 9394 6305</a>
-                <span className="mx-2">/</span>
-                <a href="tel:0421622262" className="hover:text-primary transition-colors">0421 622 262</a>
-            </>
+            <div className="flex flex-col gap-1">
+                <a href={`tel:${CONTACT_DETAILS.national.tel}`} className="hover:text-primary transition-colors font-bold" aria-label={`Call ${CONTACT_DETAILS.national.display}`}>{CONTACT_DETAILS.national.display}</a>
+                {/* Mobile number kept only on Contact Us page as per requirement */}
+                <a href={`tel:${CONTACT_DETAILS.mobile.tel}`} className="hover:text-primary transition-colors text-sm">{CONTACT_DETAILS.mobile.display} (Mobile)</a>
+            </div>
         )
     },
     {

@@ -2,7 +2,8 @@
 
 import Link from "next/link";
 import Image from "next/image";
- 
+import { CONTACT_DETAILS } from "@/config/contact";
+
 const Footer = () => {
     const servicesLeft = [
         { name: "Assistance with daily life", href: "https://jschoicegroup.com.au/assistance-with-daily-life" },
@@ -137,8 +138,7 @@ const Footer = () => {
                                     <Image src="/images/footer/call.webp" alt="Call" fill className="object-contain" />
                                 </div>
                                 <div className="flex flex-col gap-1 pt-0.5">
-                                    <a href="tel:0421622262" className="text-md font-black hover:text-[#ABB3F1] transition-colors">0421 622 262</a>
-                                    <a href="tel:0393946305" className="text-md font-black hover:text-[#ABB3F1] transition-colors">03 9394 6305</a>
+                                    <a href={`tel:${CONTACT_DETAILS.national.tel}`} className="text-md font-black hover:text-[#ABB3F1] transition-colors" aria-label={`Call ${CONTACT_DETAILS.national.display}`}>{CONTACT_DETAILS.national.display}</a>
                                 </div>
                             </li>
                             <li className="flex items-start gap-4">

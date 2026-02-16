@@ -3,6 +3,7 @@
 import Link from "next/link";
 import { motion } from "framer-motion";
 import { Mail, Phone, Facebook, Instagram, Headset, Clock } from "lucide-react";
+import { CONTACT_DETAILS } from "@/config/contact";
 
 const Topbar = () => {
     return (
@@ -19,13 +20,11 @@ const Topbar = () => {
                     <div className="flex flex-wrap items-center justify-center md:justify-start gap-x-8">
                         {/* Phone */}
                         <div className="flex items-center gap-2 group">
-                            <a href="tel:0393946305" className="text-foreground/80 group-hover:text-foreground transition-colors">
+                            <a href={`tel:${CONTACT_DETAILS.national.tel}`} className="text-foreground/80 group-hover:text-foreground transition-colors" aria-label={`Call ${CONTACT_DETAILS.national.display}`}>
                                 <Phone size={15} strokeWidth={2} />
                             </a>
                             <div className="hidden md:flex items-center gap-2 text-[#1F2937]">
-                                <a href="tel:0393946305" className="hover:text-foreground/70 transition-colors">0393 946 305</a>
-                                <span className="text-foreground/30">|</span>
-                                <a href="tel:0421622262" className="hover:text-foreground/70 transition-colors">0421 622 262</a>
+                                <a href={`tel:${CONTACT_DETAILS.national.tel}`} className="hover:text-foreground/70 transition-colors font-bold">{CONTACT_DETAILS.national.display}</a>
                             </div>
                         </div>
 

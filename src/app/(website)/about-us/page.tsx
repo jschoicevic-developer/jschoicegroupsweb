@@ -1,5 +1,5 @@
 import PageHeader from "@/components/ui/PageHeader";
-import WhoWeAre from "@/components/sections/about/WhoWeAre";
+import WhoWeAre from "@/components/sections/about/WhoWeAre"; // Includes Director Profile
 import WhyChooseUs from "@/components/sections/home/WhyChooseUs";
 import AreasServed from "@/components/sections/home/AreasServed";
 import SeamlessNDIS from "@/components/sections/home/SeamlessNDIS";

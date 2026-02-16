@@ -1,0 +1,75 @@
+name: Supabase Keep-Alive
+
+on:
+  schedule:
+    # Run every 12 hours to be safe (Supabase pauses after ~7 days of inactivity, but daily is good practice)
+    - cron: '0 */12 * * *'
+  workflow_dispatch: # Allow manual trigger
+
+jobs:
+  ping-supabase:
+    runs-on: ubuntu-latest
+    timeout-minutes: 5
+    
+    steps:
+      - name: Check Secrets
+        run: |
+          if [ -z "${{ secrets.SUPABASE_URL }}" ]; then
+            echo "Error: SUPABASE_URL secret is missing."
+            exit 1
+          fi
+          if [ -z "${{ secrets.SUPABASE_ANON_KEY }}" ]; then
+            echo "Error: SUPABASE_ANON_KEY secret is missing."
+            exit 1
+          fi
+
+      - name: Ping Supabase Database (Keep-Alive)
+        id: ping
+        env:
+          SUPABASE_URL: ${{ secrets.SUPABASE_URL }}
+          SUPABASE_ANON_KEY: ${{ secrets.SUPABASE_ANON_KEY }}
+          # Default to 'jschoice_services' table which we know exists and is public. 
+          # You can override this by setting a repository variable KEEPALIVE_TABLE.
+          TABLE: ${{ vars.KEEPALIVE_TABLE || 'jschoice_services' }}
+        run: |
+          echo "Starting Keep-Alive Ping..."
+          echo "Target: $SUPABASE_URL/rest/v1/$TABLE?select=count"
+          
+          # Retry loop (3 attempts)
+          MAX_RETRIES=3
+          RETRY_DELAY=5
+          
+          for ((i=1; i<=MAX_RETRIES; i++)); do
+            echo "Attempt $i of $MAX_RETRIES..."
+            
+            # Perform GET request
+            # -s: Silent (no progress bar)
+            # -o /dev/null: Discard body
+            # -w "%{http_code}": Print status code
+            # --connect-timeout 10: Fail if connection takes too long
+            HTTP_CODE=$(curl -s -o /dev/null -w "%{http_code}" \
+              --connect-timeout 10 \
+              --retry 0 \
+              -X GET "$SUPABASE_URL/rest/v1/$TABLE?select=count" \
+              -H "apikey: $SUPABASE_ANON_KEY" \
+              -H "Authorization: Bearer $SUPABASE_ANON_KEY" \
+              -H "Range: 0-1") # Request minimal data
+            
+            echo "Response Status: $HTTP_CODE"
+            
+            # Check for success (200 OK or 206 Partial Content due to Range header)
+            if [ "$HTTP_CODE" -eq 200 ] || [ "$HTTP_CODE" -eq 206 ]; then
+              echo "✅ Success: Supabase is active."
+              exit 0
+            fi
+            
+            echo "⚠️ Request failed."
+            
+            if [ $i -lt $MAX_RETRIES ]; then
+              echo "Waiting ${RETRY_DELAY}s before retry..."
+              sleep $RETRY_DELAY
+            fi
+          done
+          
+          echo "❌ Error: Failed to ping Supabase after $MAX_RETRIES attempts."
+          exit 1

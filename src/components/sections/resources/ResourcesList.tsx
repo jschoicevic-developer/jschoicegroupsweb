@@ -1,9 +1,10 @@
 "use client";
 
 import { motion } from "framer-motion";
-import { ExternalLink, Globe, ShieldCheck, HeartPulse, ChevronRight } from "lucide-react";
+import { ExternalLink, Globe, ShieldCheck, HeartPulse, GraduationCap } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import Link from "next/link";
+import { CONTACT_DETAILS } from "@/config/contact";
 
 const resources = [
     {
@@ -29,6 +30,14 @@ const resources = [
         icon: HeartPulse,
         color: "bg-rose-500/10",
         textColor: "text-rose-600"
+    },
+    {
+        title: "Worker Mandatory Training Modules",
+        description: "Official NDIS Workforce training modules to ensure quality, safety, and compliance in support delivery.",
+        url: "https://www.ndiscommission.gov.au/workforce/online-training-modules",
+        icon: GraduationCap,
+        color: "bg-orange-500/10",
+        textColor: "text-orange-600"
     }
 ];
 
@@ -107,7 +116,7 @@ const ResourcesList = () => {
                         </p>
                         <div className="pt-4 flex flex-wrap justify-center gap-4">
                             <Button asChild size="lg" className="h-14 px-8 rounded-full bg-primary hover:bg-primary/90 text-[#1A202C] font-black shadow-lg shadow-primary/20">
-                                <a href="tel:0421622262">Call 0421 622 262</a>
+                                <a href={`tel:${CONTACT_DETAILS.national.tel}`}>Call {CONTACT_DETAILS.national.display}</a>
                             </Button>
                             <Button variant="outline" asChild size="lg" className="h-14 px-8 rounded-full border-2 border-white/20 text-white hover:bg-white hover:text-[#2D3748] font-black bg-transparent transition-all">
                                 <Link href="/contact-us">Send a Message</Link>

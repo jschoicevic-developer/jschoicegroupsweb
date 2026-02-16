@@ -133,11 +133,11 @@ const Hero = () => {
                     </Button>
 
                     <a
-                        href="tel:0421622262"
+                        href="tel:130057246423"
                         className="h-14 px-8 rounded-full border border-white/30 hover:bg-white/10 flex items-center gap-3 text-white transition-all hover:scale-105"
                     >
                         <Phone size={18} />
-                        <span className="font-semibold tracking-wide">0421 622 262</span>
+                        <span className="font-semibold tracking-wide">130057246423</span>
                     </a>
                 </motion.div>
 

@@ -166,8 +166,8 @@ function generateClientConfirmationHtml(lead: Lead, fullName: string): string {
                     </a>
                   </td>
                   <td>
-                     <a href="tel:0421622262" style="color: ${COLORS.text}; text-decoration: none; font-weight: bold;">
-                      or 0421 622 262
+                     <a href="tel:130057246423" style="color: ${COLORS.text}; text-decoration: none; font-weight: bold;">
+                      or 130057246423
                     </a>
                   </td>
                 </tr>
