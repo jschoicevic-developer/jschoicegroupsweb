@@ -54,17 +54,15 @@ const WhyFamiliesChoose = () => {
             {/* Background with Parallax */}
             <div className="absolute inset-0 z-0">
                 <div
-                    className="absolute inset-0 bg-cover bg-center bg-no-repeat"
+                    className="absolute inset-0 bg-cover bg-center bg-no-repeat bg-scroll md:bg-fixed"
                     style={{
                         backgroundImage: "url('/banner-frame-img.webp')",
-                        backgroundAttachment: "fixed",
                     }}
                 />
                 <div
-                    className="absolute inset-0 bg-cover bg-center bg-no-repeat opacity-90"
+                    className="absolute inset-0 bg-cover bg-center bg-no-repeat opacity-90 bg-scroll md:bg-fixed"
                     style={{
                         backgroundImage: "url('/images/home/choose-us-bg.webp')",
-                        backgroundAttachment: "fixed",
                     }}
                 />
                 <div className="absolute inset-0 bg-black/65" />

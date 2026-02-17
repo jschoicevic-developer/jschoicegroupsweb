@@ -90,7 +90,7 @@ const OurCommitment = () => {
                                     Building Futures <span className="text-[#ABB3F1]">Together</span>
                                 </h3>
 
-                                <div className="space-y-4 text-base md:text-lg text-gray-600 font-medium leading-relaxed text-justify">
+                                <div className="space-y-4 text-base md:text-lg text-gray-600 font-medium leading-relaxed text-left lg:text-justify">
                                     <p>
                                         JS Choice Group exists because we believe in possibility. We believe in the potential within every individual, the strength within every family, and the transformative power of support that genuinely understands your journey.
                                     </p>
