@@ -420,8 +420,8 @@ const ReferralForm = () => {
                 location: formData.address,
                 ndis_number: formData.ndisNumber,
                 source: "referral",
-                source_page: "/referral",
-                message: `Referral Submission from ${formData.firstName} ${formData.lastName} (${formData.referrerType})`,
+                source_page: "/consultations",
+                message: `Consultations Submission from ${formData.firstName} ${formData.lastName} (${formData.referrerType})`,
                 source_details: {
                     ...formData,
                     // Remove redundant fields that are already top-level columns
@@ -502,7 +502,7 @@ const ReferralForm = () => {
                     <div className="mx-auto w-20 h-20 bg-green-100 rounded-full flex items-center justify-center mb-6">
                         <CheckCircle2 className="w-10 h-10 text-green-600" />
                     </div>
-                    <h2 className="text-3xl font-black text-gray-900 mb-4">Referral Received!</h2>
+                    <h2 className="text-3xl font-black text-gray-900 mb-4">Consultations Received!</h2>
                     <p className="text-gray-600 mb-8 text-lg">
                         Thank you for submitting a referral. Our team has received your details and will be in touch shortly to discuss the next steps.
                     </p>

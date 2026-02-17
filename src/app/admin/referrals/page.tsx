@@ -149,7 +149,7 @@ export default function ReferralsPage() {
             <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-2">
                 <div>
                     <h1 className="text-2xl sm:text-3xl font-bold text-gray-900 font-heading">
-                        Referral <span className="text-gradient">Management</span>
+                        Consultations <span className="text-gradient">Management</span>
                     </h1>
                     <p className="text-gray-500 mt-2 text-sm sm:text-base">Manage and track all incoming referrals.</p>
                 </div>
@@ -369,7 +369,7 @@ export default function ReferralsPage() {
                 </>
             )}
 
-            {/* Referral Detail Modal */}
+            {/* Consultations Detail Modal */}
             {selectedLead && (
                 <div className="fixed inset-0 bg-black/50 backdrop-blur-sm flex items-center justify-center z-50 p-4">
                     <motion.div
@@ -384,7 +384,7 @@ export default function ReferralsPage() {
                                     <h3 className="text-2xl font-bold text-white">
                                         {selectedLead.first_name} {selectedLead.last_name}
                                     </h3>
-                                    <p className="text-green-100 text-sm mt-1">Referral Details</p>
+                                    <p className="text-green-100 text-sm mt-1">Consultations Details</p>
                                 </div>
                                 <button
                                     onClick={() => setSelectedLead(null)}
@@ -429,7 +429,7 @@ export default function ReferralsPage() {
                                 <div className="border-t border-gray-100 pt-6">
                                     <h4 className="flex items-center gap-2 text-lg font-bold text-gray-900 mb-4">
                                         <FileText size={20} className="text-primary" />
-                                        Full Referral Data
+                                        Full Consultations Data
                                     </h4>
                                     <div className="grid grid-cols-1 md:grid-cols-2 gap-x-6 gap-y-4">
                                         {Object.entries(selectedLead.source_details).map(([key, value]) => (
@@ -447,7 +447,7 @@ export default function ReferralsPage() {
                             )}
 
                             {/* Message if any */}
-                            {selectedLead.message && !selectedLead.message.startsWith("Referral Submission") && (
+                            {selectedLead.message && !selectedLead.message.startsWith("Consultations Submission") && (
                                 <div className="mt-6">
                                     <p className="text-sm font-bold text-gray-500 mb-2">Additional Message</p>
                                     <div className="bg-gray-50 rounded-lg p-4">
