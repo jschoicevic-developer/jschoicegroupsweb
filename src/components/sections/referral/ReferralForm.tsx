@@ -48,7 +48,8 @@ const steps = [
     { id: 3, title: "Cultural", description: "Background & Needs" },
     { id: 4, title: "Services", description: "Requested Support" },
     { id: 5, title: "Booking", description: "Preferences" },
-    { id: 6, title: "NDIS Info", description: "Plan Details" }
+    { id: 6, title: "NDIS Info", description: "Plan Details" },
+    { id: 7, title: "Review", description: "Summary & Submit" }
 ];
 
 // --- Sub-components for each step ---
@@ -86,8 +87,17 @@ const Step2ParticipantDetails = ({ formData, handleChange }: { formData: FormDat
             <Input required className="h-14 bg-gray-50 border-gray-200 rounded-xl focus:ring-primary" value={formData.lastName} onChange={(e) => handleChange('lastName', e.target.value)} />
         </div>
         <div className="space-y-3">
-            <Label className="font-bold text-gray-700">Date of Birth</Label>
-            <Input type="date" className="h-14 bg-gray-50 border-gray-200 rounded-xl" value={formData.dob} onChange={(e) => handleChange('dob', e.target.value)} />
+            <Label className="font-bold text-gray-700">Year of Birth</Label>
+            <Select value={formData.dob} onValueChange={(val) => handleChange('dob', val)}>
+                <SelectTrigger className="h-14 bg-gray-50 border-gray-200 rounded-xl">
+                    <SelectValue placeholder="Select Year" />
+                </SelectTrigger>
+                <SelectContent className="max-h-[300px]">
+                    {Array.from({ length: 110 }, (_, i) => new Date().getFullYear() - i).map((year) => (
+                        <SelectItem key={year} value={String(year)}>{year}</SelectItem>
+                    ))}
+                </SelectContent>
+            </Select>
         </div>
         <div className="space-y-3">
             <Label className="font-bold text-gray-700">Gender</Label>
@@ -157,16 +167,17 @@ const Step3CulturalDetails = ({ formData, handleChange }: { formData: FormData, 
             <Input className="h-14 bg-gray-50 border-gray-200 rounded-xl" value={formData.culturalConsiderations} onChange={(e) => handleChange('culturalConsiderations', e.target.value)} />
         </div>
         <div className="space-y-3 col-span-full">
-            <Label className="font-bold text-gray-700">Identifies as Aboriginal or Torres Strait Islander?</Label>
-            <Select value={formData.isIndigenous} onValueChange={(val) => handleChange('isIndigenous', val)}>
-                <SelectTrigger className="h-14 bg-gray-50 border-gray-200 rounded-xl">
-                    <SelectValue placeholder="Select..." />
-                </SelectTrigger>
-                <SelectContent>
-                    <SelectItem value="yes">Yes</SelectItem>
-                    <SelectItem value="no">No</SelectItem>
-                </SelectContent>
-            </Select>
+            <Label className="font-bold text-gray-700 mb-2 block">Identifies as Aboriginal or Torres Strait Islander?</Label>
+            <RadioGroup value={formData.isIndigenous} onValueChange={(val) => handleChange('isIndigenous', val)} className="flex gap-6">
+                <div className="flex items-center space-x-2">
+                    <RadioGroupItem value="yes" id="indigenous-yes" />
+                    <Label htmlFor="indigenous-yes">Yes</Label>
+                </div>
+                <div className="flex items-center space-x-2">
+                    <RadioGroupItem value="no" id="indigenous-no" />
+                    <Label htmlFor="indigenous-no">No</Label>
+                </div>
+            </RadioGroup>
         </div>
     </div>
 );
@@ -282,7 +293,11 @@ const Step6NDISInfo = ({ formData, handleChange }: { formData: FormData, handleC
                 </SelectContent>
             </Select>
         </div>
+    </div>
+);
 
+const Step7Review = ({ formData }: { formData: FormData }) => (
+    <div className="space-y-6">
         <div className="bg-blue-50/50 p-6 rounded-2xl border border-blue-100/50 mt-4 space-y-3">
             <h4 className="font-bold text-blue-900 text-lg flex items-center gap-2">
                 Review Your Details
@@ -303,6 +318,14 @@ const Step6NDISInfo = ({ formData, handleChange }: { formData: FormData, handleC
                 <div className="bg-white/50 p-3 rounded-lg">
                     <span className="font-bold block text-blue-900/70 text-xs uppercase tracking-wider">Primary Service</span>
                     {formData.primaryService || 'Not selected'}
+                </div>
+                <div className="bg-white/50 p-3 rounded-lg">
+                    <span className="font-bold block text-blue-900/70 text-xs uppercase tracking-wider">Year of Birth</span>
+                    {formData.dob || 'Not provided'}
+                </div>
+                <div className="bg-white/50 p-3 rounded-lg">
+                    <span className="font-bold block text-blue-900/70 text-xs uppercase tracking-wider">NDIS Plan Type</span>
+                    {formData.ndisPlanType || 'Not selected'}
                 </div>
             </div>
             <p className="text-xs text-blue-600/80 mt-2 pt-2 border-t border-blue-200/50">
@@ -408,6 +431,10 @@ const ReferralForm = () => {
 
     const handleSubmit = async (e: React.FormEvent) => {
         e.preventDefault();
+
+        // Prevent accidental submission if not on the final step
+        if (currentStep !== steps.length) return;
+
         setLoading(true);
         setError(null);
 
@@ -563,6 +590,7 @@ const ReferralForm = () => {
                                 {currentStep === 4 && <Step4ServicesRequest formData={formData} handleChange={handleChange} />}
                                 {currentStep === 5 && <Step5BookingDetails formData={formData} handleChange={handleChange} handleCheckboxChange={handleCheckboxChange} />}
                                 {currentStep === 6 && <Step6NDISInfo formData={formData} handleChange={handleChange} />}
+                                {currentStep === 7 && <Step7Review formData={formData} />}
 
                             </motion.div>
                         </AnimatePresence>
@@ -581,6 +609,7 @@ const ReferralForm = () => {
 
                             {currentStep < steps.length ? (
                                 <Button
+                                    key="next-btn"
                                     type="button"
                                     onClick={nextStep}
                                     className="h-12 px-8 rounded-xl bg-gray-900 text-white font-bold hover:bg-gray-800 shadow-lg hover:shadow-xl hover:-translate-y-0.5 transition-all"
@@ -589,6 +618,7 @@ const ReferralForm = () => {
                                 </Button>
                             ) : (
                                 <Button
+                                    key="submit-btn"
                                     disabled={loading}
                                     type="submit"
                                     className="h-14 px-10 rounded-xl bg-primary hover:brightness-110 text-[#1A202C] font-black text-sm uppercase tracking-widest shadow-xl hover:shadow-2xl hover:-translate-y-1 transition-all duration-300 min-w-[200px]"
@@ -598,7 +628,7 @@ const ReferralForm = () => {
                                             <Loader2 className="animate-spin mr-2" /> Processing
                                         </>
                                     ) : (
-                                        "Submit Referral"
+                                        "Submit"
                                     )}
                                 </Button>
                             )}

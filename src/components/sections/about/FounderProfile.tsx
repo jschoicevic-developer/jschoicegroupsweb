@@ -124,7 +124,7 @@ const FounderProfile = () => {
                             </div>
                         </div>
 
-                        <div className="space-y-5 text-base md:text-lg text-gray-600 font-medium leading-relaxed text-justify">
+                        <div className="space-y-5 text-base md:text-lg text-gray-600 font-medium leading-relaxed text-left lg:text-justify">
                             <p>
                                 <span className="font-bold text-[#2D3748]">Jan Fardowsi</span>, Founder and Director of JS Choice Group, brings an extraordinary combination of professional expertise and profound personal insight to disability support services. Her journey into this sector wasn&apos;t merely a career decision — it was a calling born from her own experiences as a devoted mother of children with special needs.
                             </p>
@@ -161,7 +161,7 @@ const FounderProfile = () => {
                                 </div>
 
                                 {/* Content */}
-                                <div className="space-y-4 text-base md:text-lg text-gray-600 font-medium leading-relaxed text-justify pl-0 md:pl-[4.5rem]">
+                                <div className="space-y-4 text-base md:text-lg text-gray-600 font-medium leading-relaxed text-left lg:text-justify pl-0 md:pl-[4.5rem]">
                                     {sub.paragraphs.map((para, pIdx) => (
                                         <p key={pIdx}>{para}</p>
                                     ))}

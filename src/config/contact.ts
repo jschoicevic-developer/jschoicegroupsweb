@@ -1,6 +1,6 @@
 export const CONTACT_DETAILS = {
     national: {
-        display: "1300 JS CHOICE",
+        display: "1300 572 464",
         tel: "1300572464",
         numericDisplay: "1300 57 246 423",
     },

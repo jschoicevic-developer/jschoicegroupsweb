@@ -6,7 +6,7 @@ import Image from "next/image";
 const WhoWeAre = () => {
     return (
         <section className="py-20 lg:py-32 bg-white overflow-hidden">
-            <div className="max-w-8xl mx-auto px-4 md:px-6 lg:px-8 relative z-10 text-justify">
+            <div className="max-w-8xl mx-auto px-4 md:px-6 lg:px-8 relative z-10 text-left lg:text-justify">
                 <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-20 items-center">
 
                     {/* Text Column (Left - 7 cols) */}
@@ -15,7 +15,7 @@ const WhoWeAre = () => {
                         whileInView={{ opacity: 1, x: 0 }}
                         viewport={{ once: true }}
                         transition={{ duration: 0.8 }}
-                        className="lg:col-span-7 flex flex-col space-y-8"
+                        className="lg:col-span-7 flex flex-col space-y-8 text-left lg:text-justify"
                     >
                         <h2 className="text-3xl md:text-5xl lg:text-6xl font-black text-[#2D3748] leading-[1.1] tracking-tight uppercase">
                             Who We <span className="text-[#ABB3F1]">Are</span>
@@ -63,7 +63,7 @@ const WhoWeAre = () => {
             <div className="h-24 lg:h-32" />
 
             {/* DIRECTOR PROFILE SECTION */}
-            <div className="max-w-8xl mx-auto px-4 md:px-6 lg:px-8 relative z-10 text-justify">
+            <div className="max-w-8xl mx-auto px-4 md:px-6 lg:px-8 relative z-10 text-left lg:text-justify">
                 <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-20 items-start">
 
                     {/* Image Column (Left - 5 cols) */}

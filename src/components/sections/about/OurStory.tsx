@@ -60,7 +60,7 @@ const OurStory = () => {
                         transition={{ duration: 0.8 }}
                         className="lg:col-span-7 flex flex-col space-y-6"
                     >
-                        <div className="space-y-6 text-lg text-gray-600 font-medium leading-relaxed text-justify">
+                        <div className="space-y-6 text-lg text-gray-600 font-medium leading-relaxed text-left lg:text-justify">
                             <p>
                                 <span className="font-bold text-[#5A67D8]">JS Choice Group</span> was founded on a profound belief: that exceptional disability support begins with genuine understanding. We&apos;re not just another NDIS provider — we&apos;re a family-led organization built by someone who has walked the same path as the families we serve.
                             </p>
