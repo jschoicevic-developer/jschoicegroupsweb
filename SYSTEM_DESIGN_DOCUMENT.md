@@ -55,7 +55,7 @@ JS Choice Care & Support is a comprehensive digital platform designed for a Melb
 1. **Digital Presence**: Establish a modern, accessible online presence for JS Choice Care & Support
 2. **Lead Generation**: Capture and manage participant inquiries through multiple touchpoints
 3. **Service Discovery**: Enable participants to explore NDIS services and pricing
-4. **Operational Efficiency**: Streamline lead management, referral processing, and communication
+4. **Operational Efficiency**: Streamline lead management, consultationsprocessing, and communication
 5. **Content Management**: Maintain an active blog for community engagement and SEO
 6. **Compliance**: Ensure WCAG 2.1 AA accessibility and NDIS regulatory compliance
 
@@ -74,7 +74,7 @@ JS Choice Care & Support is a comprehensive digital platform designed for a Melb
 |-----------|-------------|-----------|----------------------|
 | **NDIS Participants** | Individuals with disabilities seeking support services | Service information, pricing transparency, easy contact | Low to Medium |
 | **Families/Carers** | Support persons researching services for participants | Detailed service descriptions, trust signals, accessibility | Medium |
-| **Referral Partners** | Healthcare providers, social workers making referrals | Quick referral process, service matching | Medium |
+| **Consultations Partners** | Healthcare providers, social workers making referrals | Quick consultationsprocess, service matching | Medium |
 | **Admin Staff** | JS Choice internal team managing operations | Lead management, communication tools, reporting | Medium to High |
 | **Support Coordinators** | NDIS coordinators guiding participants | Service catalog, pricing tools, contact options | Medium |
 
@@ -446,7 +446,7 @@ graph TB
     subgraph "External Actors"
         A[NDIS Participants]
         B[Families/Carers]
-        C[Referral Partners]
+        C[Consultations Partners]
         D[Admin Staff]
         E[Support Coordinators]
     end
@@ -1115,7 +1115,7 @@ sequenceDiagram
 | 1 | **Homepage** | `/` | Main landing page with hero, services overview, CTAs | Hero, About, Services, Features, FAQ, SeamlessNDIS | None | Critical |
 | 2 | **About Us** | `/about-us` | Company background, values, team | PageHeader, WhoWeAre, WhyChooseUs, AreasServed | None | High |
 | 3 | **Contact Us** | `/contact-us` | Contact form and information | PageHeader, ContactContent (form + map) | POST /api/leads | High |
-| 4 | **Referral** | `/referral` | Referral submission form | PageHeader, ReferralForm | POST /api/leads | Medium |
+| 4 | **Referral** | `/consultations` | Consultations submission form | PageHeader, ReferralForm | POST /api/leads | Medium |
 | 5 | **Career** | `/career` | Job application form | PageHeader, CareerForm | POST /api/leads | Medium |
 | 6 | **Thank You** | `/thank-you` | Form submission confirmation | Checkmark animation, CTA buttons | None | Low |
 | 7 | **Blog List** | `/blog` | Blog posts listing | PageHeader, BlogList | GET /api/blog | High |
@@ -1285,7 +1285,7 @@ export async function generateMetadata({ params }): Promise<Metadata> {
 | Page Type | State Strategy | Persistence | Example |
 |-----------|----------------|-------------|---------|
 | Static Pages | None | N/A | About Us, Service pages |
-| Forms | Local useState | Session (if needed) | Contact, Referral forms |
+| Forms | Local useState | Session (if needed) | Contact, Consultations forms |
 | Blog List | URL params | Query string | Pagination, filters |
 | NDIS Tools | Local + URL | Local storage | Calculator state |
 | Search | Debounced state | None | Price guide search |
@@ -1357,7 +1357,7 @@ const handleSubmit = async (e: FormEvent) => {
 
 **Secondary CTAs:**
 - "Learn More" → Service detail pages
-- "Refer Someone" → Referral form
+- "Refer Someone" → Consultations form
 - "Download Guide" → PDF resources
 
 ### UI Behavior Patterns
@@ -1381,7 +1381,7 @@ const handleSubmit = async (e: FormEvent) => {
 admin/
 ├── Dashboard               # Overview & quick stats
 ├── Leads Management       # Lead tracking & communication
-├── Referrals              # Referral processing
+├── Referrals              # Consultations processing
 ├── Blog Management        # Content creation & scheduling
 ├── Gallery Management     # Image/media management
 ├── Analytics & Reporting  # Business intelligence
@@ -1394,7 +1394,7 @@ admin/
 |--------|-------------|----------------|------|--------------|--------------|
 | **Dashboard** | High-level overview | `leads`, `blog_posts`, `lead_tasks` | /api/analytics/overview | Admin only | Quick stats, recent activities, weekly chart, engagement overview |
 | **Leads** | Inquiry & participant management | `leads`, `lead_activities`, `lead_tasks` | /api/leads, /api/leads/[id], /api/leads/[id]/email | Admin only | List/filter, view details, send email, update status, delete, export CSV |
-| **Referrals** | Referral partner submissions | `leads` (source='referral') | /api/leads (filtered) | Admin only | Extended fields, referrer details, source JSON display |
+| **Referrals** | Consultations partner submissions | `leads` (source='referral') | /api/leads (filtered) | Admin only | Extended fields, referrer details, source JSON display |
 | **Blog** | Content management system | `blog_posts`, `blog_categories` | /api/blog, /api/blog/[slug], /api/blog/upload | Admin only | WYSIWYG editor, draft/publish/schedule, image upload, SEO fields, tags/categories |
 | **Gallery** | Visual content manager | `gallery_items` | /api/gallery, /api/gallery/upload | Admin only | Multi-image upload (max 5), card grid, category grouping, display order |
 | **Analytics** | Business intelligence dashboard | `leads`, `lead_activities` | /api/analytics/leads | Admin only | Time range filters, growth charts, source breakdown, status distribution, conversion metrics |
@@ -1831,7 +1831,7 @@ interface AnalyticsStats {
 **Sources:**
 - Contact Form (blue)
 - Service Matcher (purple)
-- Referral (green)
+- Consultations (green)
 - Budget Calculator (orange)
 - Other (gray)
 
@@ -1993,7 +1993,7 @@ erDiagram
         varchar last_name "Optional"
         varchar email UK "UNIQUE email"
         varchar phone "Contact number"
-        varchar source "contact_form/service_matcher/referral"
+        varchar source "contact_form/service_matcher/consultations"
         text source_page "Originating URL"
         jsonb source_details "Extended JSON data"
         varchar status "new/contacted/qualified/converted/lost"
@@ -2251,7 +2251,7 @@ EXECUTE FUNCTION update_updated_at_column();
 | `phone` | varchar(50) | NULL | - | Contact number |
 | `source` | varchar(100) | NOT NULL | 'contact_form' | Lead origin |
 | `source_page` | text | NULL | - | Originating page URL |
-| `source_details` | jsonb | NULL | - | Extended data (referral info, etc.) |
+| `source_details` | jsonb | NULL | - | Extended data (consultationsinfo, etc.) |
 | `interested_services` | text[] | NULL | - | Array of service slugs |
 | `ndis_participant` | boolean | NULL | - | NDIS participation status |
 | `ndis_status` | varchar(50) | NULL | - | 'funded', 'pending', 'applying' |

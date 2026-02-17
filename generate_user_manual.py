@@ -281,7 +281,7 @@ def generate_document():
         "6. Admin Panel (CRM) \u2013 User Manual",
         "    6.1 Dashboard Overview",
         "    6.2 Lead Management",
-        "    6.3 Referral Management",
+        "    6.3 Consultations Management",
         "    6.4 Blog Management",
         "    6.5 Gallery Management",
         "    6.6 Analytics & Reports",
@@ -519,7 +519,7 @@ def generate_document():
             ["Home", "/", "Landing page with hero slider, about, services, FAQ, areas served, CTA sections"],
             ["About Us", "/about-us", "Company story, founder profile, values, commitment, why choose us"],
             ["Contact Us", "/contact-us", "Contact form with fields for name, email, phone, message + map"],
-            ["Referral", "/referral", "Multi-step referral form (6 sections) for NDIS participants"],
+            ["Referral", "/consultations", "Multi-step consultationsform (6 sections) for NDIS participants"],
             ["Blog", "/blog", "Blog listing with search, categories, featured posts"],
             ["Blog Post", "/blog/[slug]", "Individual blog post with rich content, author, tags"],
             ["Gallery", "/gallery", "Photo gallery with multi-image cards and categories"],
@@ -667,7 +667,7 @@ def generate_document():
         ["Source", "Origin"],
         [
             ["contact_form", "Main contact page form submission"],
-            ["referral", "Referral form submission"],
+            ["referral", "Consultations form submission"],
             ["service_matcher", "Interactive service matching quiz"],
             ["budget_calculator", "NDIS budget calculator"],
             ["blog", "Blog page inquiry"],
@@ -678,17 +678,17 @@ def generate_document():
         col_widths=[2.0, 4.5]
     )
 
-    # 6.3 Referral Management
-    add_heading_styled(doc, "6.3 Referral Management", level=2)
+    # 6.3 Consultations Management
+    add_heading_styled(doc, "6.3 Consultations Management", level=2)
     add_styled_paragraph(
         doc,
-        "The Referral module works identically to Lead Management but is filtered to show only "
-        "referral submissions. Referrals contain additional details such as participant conditions, "
+        "The Consultations module works identically to Lead Management but is filtered to show only "
+        "consultationssubmissions. Referrals contain additional details such as participant conditions, "
         "service hours requested, cultural considerations, guardian info, and NDIS plan type.",
         font_size=11, space_after=8
     )
 
-    add_styled_paragraph(doc, "Referral Form Fields Captured:", font_size=11, bold=True, space_after=4)
+    add_styled_paragraph(doc, "Consultations Form Fields Captured:", font_size=11, bold=True, space_after=4)
     add_bullet_list(doc, [
         "Referrer type (self or someone else)",
         "Participant details (name, DOB, gender, address, phone, email, NDIS number)",
@@ -885,7 +885,7 @@ def generate_document():
         font_size=11, space_after=6
     )
     add_bullet_list(doc, [
-        "Admin Notifications \u2013 Instant alert when a new lead/referral is submitted",
+        "Admin Notifications \u2013 Instant alert when a new lead/consultationsis submitted",
         "Client Confirmation \u2013 Auto-reply to the person who submitted a form",
         "Direct Email \u2013 Send emails to leads directly from the CRM communication panel",
         "Follow-Up Reminders \u2013 Email reminders for overdue tasks",
@@ -957,13 +957,13 @@ def generate_document():
 
     features = [
         ["CRM & Lead Management", "Full pipeline tracking, activity logging, task management, email communication, export"],
-        ["Multi-Step Referral Form", "6-section referral with participant details, cultural info, service requests, NDIS plan details"],
+        ["Multi-Step Consultations Form", "6-section consultationswith participant details, cultural info, service requests, NDIS plan details"],
         ["NDIS Price Guide", "Search 5,000+ support items, filter by category, view region-specific pricing"],
         ["NDIS Budget Calculator", "Add items to budget, set frequency, calculate annual costs, PDF export"],
         ["Service Matcher Quiz", "Interactive questionnaire that recommends services based on participant needs"],
         ["Blog System", "Rich text editor, image uploads, scheduling, SEO fields, categories, tags"],
         ["Photo Gallery", "Multi-image cards, categories, display ordering, Supabase storage"],
-        ["Contact Forms", "Contact page form, referral form \u2013 all auto-create CRM leads"],
+        ["Contact Forms", "Contact page form, consultationsform \u2013 all auto-create CRM leads"],
         ["Email Automation", "Admin alerts, client confirmations, direct emails from CRM, HTML templates"],
         ["Analytics Dashboard", "Lead growth charts, source breakdown, status distribution, conversion rates"],
         ["User Management", "Admin profiles, avatars, roles (admin/manager/staff), notification preferences"],

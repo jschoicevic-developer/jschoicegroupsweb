@@ -1,8 +1,8 @@
-# Lead Qualification Strategy & Competitor Analysis for NDIS Referral Forms
+# Lead Qualification Strategy & Competitor Analysis for NDIS Consultations Forms
 
 ## Competitor Analysis & UX Best Practices
 
-Based on research into high-performing NDIS and healthcare referral forms, the following best practices are recommended to maximize conversion and lead quality:
+Based on research into high-performing NDIS and healthcare consultationsforms, the following best practices are recommended to maximize conversion and lead quality:
 
 ### 1. Structure & Progressive Disclosure
 *   **Chunking:** Top competitors break long forms into 4-6 clear, logical steps. Your current 6-step implementation follows this best practice perfectly.

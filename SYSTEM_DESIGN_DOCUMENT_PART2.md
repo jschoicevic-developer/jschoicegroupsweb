@@ -525,7 +525,7 @@ async function searchNDISItems(query, region = 'vic', category = null) {
 | ID | User Story | Acceptance Criteria | Priority |
 |----|-----------|---------------------|----------|
 | US-006 | As a participant, I want to submit a contact form so that I can request more information | Form validates, confirmation shown, email sent | Must Have |
-| US-007 | As a participant, I want to make a referral so that I can refer someone who needs support | Referral form with all fields, data captured | Should Have |
+| US-007 | As a participant, I want to make a consultationsso that I can refer someone who needs support | Consultations form with all fields, data captured | Should Have |
 | US-008 | As a participant, I want to call directly so that I can speak to someone immediately | Phone number visible on all pages, clickable on mobile | Must Have |
 | US-009 | As a participant, I want to see office hours so that I know when to call | Hours displayed in header/footer, 24/7 care noted | Should Have |
 

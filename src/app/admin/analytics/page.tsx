@@ -202,7 +202,7 @@ export default function AnalyticsPage() {
                         Analytics <span className="text-primary">& Reports</span>
                     </h1>
                     <p className="text-gray-500 font-medium mt-1">
-                        Detailed insights into your leads and referral performance.
+                        Detailed insights into your leads and consultationsperformance.
                     </p>
                 </div>
                 <div className="flex gap-2 sm:gap-3 flex-wrap">

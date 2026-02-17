@@ -1746,7 +1746,7 @@ async function createLead(data) {
 | **Mobile App (React Native)** | High | Very High | 16 |
 | **Invoice Generation** | Medium | Medium | 4 |
 | **Payment Gateway** | High | Medium | 5 |
-| **Referral Partner Portal** | Medium | High | 10 |
+| **Consultations Partner Portal** | Medium | High | 10 |
 
 ---
 
