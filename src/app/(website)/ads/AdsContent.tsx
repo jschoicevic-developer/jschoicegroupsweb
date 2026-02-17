@@ -86,9 +86,9 @@ const HeroSection = () => (
                     {/* CTAs */}
                     <motion.div initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} transition={{ delay: 0.6 }} className="flex flex-col sm:flex-row items-start gap-4">
                         <QuoteCTA label="Get Consultations" />
-                        <a href="tel:130057246423" className="h-14 px-8 rounded-full border border-white/30 hover:bg-white/10 flex items-center gap-3 text-white transition-all hover:scale-105">
+                        <a href="tel:1300572464" className="h-14 px-8 rounded-full border border-white/30 hover:bg-white/10 flex items-center gap-3 text-white transition-all hover:scale-105">
                             <Phone size={18} />
-                            <span className="font-semibold tracking-wide">130057246423</span>
+                            <span className="font-semibold tracking-wide">1300572464</span>
                         </a>
                     </motion.div>
                 </div>
@@ -750,7 +750,7 @@ const QuoteForm = () => {
 
                         <div className="space-y-5">
                             {[
-                                { icon: Phone, label: "Call Us", value: "130057246423", href: "tel:130057246423" },
+                                { icon: Phone, label: "Call Us", value: "1300572464", href: "tel:1300572464" },
                                 { icon: Phone, label: "Office", value: "03 9394 6305", href: "tel:0393946305" },
                                 { icon: MapPin, label: "Location", value: "Suite 106, Level 1, 2 Main St, Point Cook VIC 3030" },
                                 { icon: Clock, label: "Hours", value: "Office 8am–6pm | Care 24/7" },
@@ -844,11 +844,11 @@ const FinalCTA = () => (
                     Together, let&apos;s make the NDIS work <span className="text-[#ABB3F1]">seamlessly</span> for you.
                 </h2>
                 <div className="flex flex-col sm:flex-row items-center justify-center gap-6">
-                    <a href="tel:130057246423" className="h-14 px-8 rounded-full bg-white/10 hover:bg-white/20 text-white flex items-center justify-center gap-3 shadow-xl transition-all min-w-[240px] border border-white/20">
+                    <a href="tel:1300572464" className="h-14 px-8 rounded-full bg-white/10 hover:bg-white/20 text-white flex items-center justify-center gap-3 shadow-xl transition-all min-w-[240px] border border-white/20">
                         <div className="w-8 h-8 rounded-full bg-white/10 flex items-center justify-center">
                             <Phone size={18} />
                         </div>
-                        <span className="text-sm font-black uppercase tracking-widest">Call: 130057246423</span>
+                        <span className="text-sm font-black uppercase tracking-widest">Call: 1300572464</span>
                     </a>
                     <QuoteCTA label="Get Consultations" variant="primary" />
                 </div>

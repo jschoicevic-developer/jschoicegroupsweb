@@ -104,10 +104,10 @@ const AssistanceWithDailyLife = () => {
                                         Referral
                                     </Button>
                                 </Link>
-                                <Link href="tel:130057246423">
+                                <Link href="tel:1300572464">
                                     <Button variant="outline" className="h-14 px-8 rounded-full border-2 border-primary text-[#2D3748] hover:bg-gray-50 font-bold text-sm uppercase tracking-widest w-full sm:w-auto flex flex-col items-start leading-tight py-1 gap-0">
                                         <span className="text-[10px] text-gray-500 font-medium">Talk to Us</span>
-                                        <span className="text-lg">130057246423</span>
+                                        <span className="text-lg">1300572464</span>
                                     </Button>
                                 </Link>
                             </div>

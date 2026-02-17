@@ -1,12 +1,12 @@
 export const CONTACT_DETAILS = {
     national: {
         display: "1300 JS CHOICE",
-        tel: "130057246423",
+        tel: "1300572464",
         numericDisplay: "1300 57 246 423",
     },
     mobile: {
-        display: "130057246423",
-        tel: "130057246423",
+        display: "1300572464",
+        tel: "1300572464",
     },
     landline: {
         display: "03 9394 6305",

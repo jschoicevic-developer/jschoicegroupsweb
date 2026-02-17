@@ -7,8 +7,7 @@ import { Phone, ChevronRight, HeartHandshake, Brain, Globe } from "lucide-react"
 import Link from "next/link";
 
 const heroImages = [
-    "/images/home/about-3.webp",
-    "/images/home/hero2.webp",
+     "/images/home/hero2.webp",
     "/images/home/hero3.webp",
     "/images/home/hero1.webp",
 ];
@@ -133,11 +132,11 @@ const Hero = () => {
                     </Button>
 
                     <a
-                        href="tel:130057246423"
+                        href="tel:1300572464"
                         className="h-14 px-8 rounded-full border border-white/30 hover:bg-white/10 flex items-center gap-3 text-white transition-all hover:scale-105"
                     >
                         <Phone size={18} />
-                        <span className="font-semibold tracking-wide">130057246423</span>
+                        <span className="font-semibold tracking-wide">1300572464</span>
                     </a>
                 </motion.div>
 

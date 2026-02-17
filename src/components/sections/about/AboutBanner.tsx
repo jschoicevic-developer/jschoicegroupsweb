@@ -79,7 +79,7 @@ const AboutBanner = () => {
                             <div className="w-8 h-8 rounded-full bg-white/10 flex items-center justify-center">
                                 <Phone size={16} />
                             </div>
-                            <span className="text-sm font-bold tracking-wider">130057246423</span>
+                            <span className="text-sm font-bold tracking-wider">1300572464</span>
                         </motion.a>
                     </motion.div>
                 </motion.div>

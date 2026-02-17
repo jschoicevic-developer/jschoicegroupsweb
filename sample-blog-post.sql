@@ -58,7 +58,7 @@ INSERT INTO blog_posts (
 <h2>Conclusion</h2>
 <p>Support workers play a vital role in making NDIS Short Term Accommodation safe, positive, and rewarding for children and families alike. Through caring supervision, structured routines, and meaningful activities, they help young participants feel secure while building confidence and everyday skills.</p>
 
-<p>With open communication and family-focused care, the right support team can turn every short stay into a valuable step forward. All you need to do is to get in touch with us at Js Choice – Care and Support. Call us at 03 9394 6305 or 130057246423 to talk to us, or fill out the contact form and submit it. We will get in touch with you immediately.</p>',
+<p>With open communication and family-focused care, the right support team can turn every short stay into a valuable step forward. All you need to do is to get in touch with us at Js Choice – Care and Support. Call us at 03 9394 6305 or 1300572464 to talk to us, or fill out the contact form and submit it. We will get in touch with you immediately.</p>',
     '/images/blog/blog-1.webp',
     'admin',
     'published',

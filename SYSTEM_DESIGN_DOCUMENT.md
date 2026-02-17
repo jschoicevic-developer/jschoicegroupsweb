@@ -1351,7 +1351,7 @@ const handleSubmit = async (e: FormEvent) => {
 
 **Primary CTAs:**
 - "Get Consultations" → Contact form
-- "Call Us: 130057246423" → Tel link
+- "Call Us: 1300572464" → Tel link
 - "Get Started" → Service matcher tool
 - "Calculate Budget" → Budget calculator
 
