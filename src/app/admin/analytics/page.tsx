@@ -13,7 +13,8 @@ import {
     BarChart as BarChartIcon,
     ArrowUpRight,
     ArrowDownRight,
-    Loader2
+    Loader2,
+    Image as ImageIcon
 } from 'lucide-react';
 import {
     AreaChart,
@@ -57,6 +58,7 @@ export default function AnalyticsPage() {
     const [loading, setLoading] = useState(true);
     const [timeRange, setTimeRange] = useState<TimeRange>('30d');
     const [rawData, setRawData] = useState<any[]>([]);
+    const [galleryCount, setGalleryCount] = useState(0);
 
     useEffect(() => {
         fetchAnalyticsData();
@@ -73,6 +75,9 @@ export default function AnalyticsPage() {
                 .from('leads')
                 .select('*')
                 .order('created_at', { ascending: true });
+
+            const { count: galleryTotal } = await supabase.from('gallery_items').select('*', { count: 'exact', head: true });
+            setGalleryCount(galleryTotal || 0);
 
             if (error) throw error;
             setRawData(data || []);
@@ -252,15 +257,15 @@ export default function AnalyticsPage() {
 
                 <div className="glass-card p-6 rounded-2xl">
                     <div className="flex items-center justify-between mb-4">
-                        <div className="p-3 bg-purple-100 text-purple-600 rounded-xl">
-                            <TrendingUp size={24} />
+                        <div className="p-3 bg-orange-100 text-orange-600 rounded-xl">
+                            <ImageIcon size={24} />
                         </div>
-                        <div className="bg-purple-50 text-purple-700 text-xs font-bold px-2 py-1 rounded-full">
-                            Rate
+                        <div className="bg-orange-50 text-orange-700 text-xs font-bold px-2 py-1 rounded-full">
+                            Active
                         </div>
                     </div>
-                    <div className="text-3xl font-black text-gray-900">{stats.conversion.toFixed(1)}%</div>
-                    <div className="text-sm font-medium text-gray-500 mt-1">Conversion Rate (Qualified+)</div>
+                    <div className="text-3xl font-black text-gray-900">{galleryCount}</div>
+                    <div className="text-sm font-medium text-gray-500 mt-1">Gallery Items</div>
                 </div>
 
                 <div className="glass-card p-6 rounded-2xl">

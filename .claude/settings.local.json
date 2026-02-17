@@ -6,7 +6,8 @@
       "Bash(ls:*)",
       "Bash(npx next build:*)",
       "Bash(pip show:*)",
-      "Bash(pip install:*)"
+      "Bash(pip install:*)",
+      "Bash(python generate_user_manual.py:*)"
     ]
   },
   "enableAllProjectMcpServers": true

@@ -5,14 +5,14 @@ import { useEffect, useState } from "react";
 import {
     Users,
     FileText,
-    TrendingUp,
     ArrowUpRight,
     Clock,
     UserPlus,
     BarChart3,
     ArrowRight,
     ClipboardList,
-    Loader2
+    Loader2,
+    Image as ImageIcon
 } from "lucide-react";
 import { cn } from "@/lib/utils";
 import {
@@ -56,7 +56,8 @@ export default function AdminDashboard() {
     const [stats, setStats] = useState({
         leads: { total: 0, new: 0 },
         referrals: { total: 0, new: 0 },
-        blogs: { total: 0, published: 0 }
+        blogs: { total: 0, published: 0 },
+        gallery: { total: 0 }
     });
     const [recentActivities, setRecentActivities] = useState<any[]>([]);
 
@@ -77,10 +78,14 @@ export default function AdminDashboard() {
                 const { count: totalBlogs } = await supabase.from('blog_posts').select('*', { count: 'exact', head: true });
                 const { count: publishedBlogs } = await supabase.from('blog_posts').select('*', { count: 'exact', head: true }).eq('status', 'published');
 
+                // 4. Gallery Stats
+                const { count: totalGalleryItems } = await supabase.from('gallery_items').select('*', { count: 'exact', head: true });
+
                 setStats({
                     leads: { total: totalLeads || 0, new: newLeads || 0 },
                     referrals: { total: totalReferrals || 0, new: newReferrals || 0 },
-                    blogs: { total: totalBlogs || 0, published: publishedBlogs || 0 }
+                    blogs: { total: totalBlogs || 0, published: publishedBlogs || 0 },
+                    gallery: { total: totalGalleryItems || 0 }
                 });
 
                 // 4. Recent Activities
@@ -127,10 +132,10 @@ export default function AdminDashboard() {
             iconColor: "text-green-600"
         },
         {
-            name: "Conversion Rate",
-            value: "N/A", // Placeholder as calculation is complex
-            subValue: "Analytics",
-            icon: TrendingUp,
+            name: "Gallery Items",
+            value: stats.gallery.total.toString(),
+            subValue: "Active Collections",
+            icon: ImageIcon,
             color: "bg-orange-100 text-orange-600",
             iconColor: "text-orange-600"
         },

@@ -116,7 +116,7 @@ export default async function PriceDetailPage({ params }: PageProps) {
             </div>
             <div className="flex flex-col sm:flex-row gap-4">
               <a
-                href="tel:130057246423"
+                href="tel:1300572464"
                 className="flex-1 h-16 flex items-center justify-center rounded-full bg-primary hover:brightness-110 text-[#1A202C] font-black text-sm uppercase tracking-wider shadow-xl hover:shadow-2xl hover:-translate-y-1 transition-all duration-300"
               >
                 Call Now
