@@ -16,7 +16,7 @@ const contactInfo = [
             <div className="flex flex-col gap-1">
                 <a href={`tel:${CONTACT_DETAILS.national.tel}`} className="hover:text-primary transition-colors font-bold" aria-label={`Call ${CONTACT_DETAILS.national.display}`}>{CONTACT_DETAILS.national.display}</a>
                 {/* Mobile number kept only on Contact Us page as per requirement */}
-                <a href={`tel:${CONTACT_DETAILS.mobile.tel}`} className="hover:text-primary transition-colors text-sm">{CONTACT_DETAILS.mobile.display} (Mobile)</a>
+                <a href={`tel:${CONTACT_DETAILS.mobile.tel}`} className="hover:text-primary transition-colors text-sm">{CONTACT_DETAILS.mobile.display} (Landline)</a>
             </div>
         )
     },
@@ -32,7 +32,7 @@ const contactInfo = [
     {
         icon: MapPin,
         title: "Address",
-        content: "Suite 106, Level 1, C5 , 2 Main Street, Point Cook VICTORIA 3030"
+        content: "Suite 106, Level 1, C5, 2 Main Street, Point Cook VIC 3030"
     },
     {
         icon: Mail,

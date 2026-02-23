@@ -261,7 +261,7 @@ const Navbar = () => {
                                     onClick={() => setIsOpen(false)}
                                 >
                                     <Wrench size={20} className="text-black" strokeWidth={1.5} />
-                                    <span className="text-black font-bold">Business Tools</span>
+                                    <span className="text-black font-bold">Tools</span>
                                 </Link>
                                 <Button
                                     asChild

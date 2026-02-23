@@ -136,7 +136,7 @@ const Hero = () => {
                         className="h-14 px-8 rounded-full border border-white/30 hover:bg-white/10 flex items-center gap-3 text-white transition-all hover:scale-105"
                     >
                         <Phone size={18} />
-                        <span className="font-semibold tracking-wide">1300572464</span>
+                        <span className="font-semibold tracking-wide">1300 572 464</span>
                     </a>
                 </motion.div>
 

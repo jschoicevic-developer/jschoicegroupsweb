@@ -59,9 +59,9 @@ const generatePDFDocument = async (items: PlanPartnersBudgetItem[]): Promise<jsP
   doc.setFontSize(9);
   doc.setTextColor(80);
   currentY += 5;
-  doc.text('ABN: 12 345 678 901', pageWidth - 14, currentY, { align: 'right' });
+  doc.text('ABN: 54 644 196 270', pageWidth - 14, currentY, { align: 'right' });
   currentY += 4;
-  doc.text('Phone: 03 9394 6305', pageWidth - 14, currentY, { align: 'right' });
+  doc.text('Phone: 1300 572 464', pageWidth - 14, currentY, { align: 'right' });
   currentY += 4;
   doc.text('Email: info@jschoicegroup.com.au', pageWidth - 14, currentY, { align: 'right' });
 
@@ -244,7 +244,7 @@ const generatePDFDocument = async (items: PlanPartnersBudgetItem[]): Promise<jsP
   currentY += 5;
   doc.setFont('helvetica', 'normal');
   doc.setFontSize(8);
-  doc.text('Phone: 03 9394 6305  |  Email: info@jschoicegroup.com.au  |  Web: www.jschoicegroup.com.au', 18, currentY);
+  doc.text('Phone: 1300 572 464  |  Email: info@jschoicegroup.com.au  |  Web: www.jschoicegroup.com.au', 18, currentY);
 
   currentY += 4;
   doc.text('Our friendly team is here to help you understand your NDIS budget and support options.', 18, currentY);

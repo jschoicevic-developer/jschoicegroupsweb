@@ -71,7 +71,7 @@ const AboutBanner = () => {
                         </Button>
 
                         <motion.a
-                            href="tel:0421622262"
+                            href="tel:1300572464"
                             whileHover={{ scale: 1.05 }}
                             whileTap={{ scale: 0.95 }}
                             className="h-14 px-8 rounded-full bg-white/10 backdrop-blur-sm border border-white/20 hover:bg-white/20 text-white flex items-center justify-center gap-3 shadow-lg transition-all"
@@ -79,7 +79,7 @@ const AboutBanner = () => {
                             <div className="w-8 h-8 rounded-full bg-white/10 flex items-center justify-center">
                                 <Phone size={16} />
                             </div>
-                            <span className="text-sm font-bold tracking-wider">1300572464</span>
+                            <span className="text-sm font-bold tracking-wider">1300 572 464</span>
                         </motion.a>
                     </motion.div>
                 </motion.div>

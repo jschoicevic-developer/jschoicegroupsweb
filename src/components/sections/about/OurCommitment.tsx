@@ -137,7 +137,7 @@ const OurCommitment = () => {
                         <div className="flex flex-col sm:flex-row items-center justify-center gap-5 mt-10">
                             {/* Call Button */}
                             <motion.a
-                                href="tel:0421622262"
+                                href="tel:1300572464"
                                 whileHover={{ scale: 1.05 }}
                                 whileTap={{ scale: 0.95 }}
                                 className="h-14 px-8 rounded-full bg-[#2D3748] hover:bg-black text-white flex items-center justify-center gap-3 shadow-xl hover:shadow-2xl transition-all min-w-[240px]"
@@ -145,7 +145,7 @@ const OurCommitment = () => {
                                 <div className="w-8 h-8 rounded-full bg-white/10 flex items-center justify-center">
                                     <Phone size={18} />
                                 </div>
-                                <span className="text-sm font-black uppercase tracking-widest">Call Us: 1300572464</span>
+                                <span className="text-sm font-black uppercase tracking-widest">Call Us: 1300 572 464</span>
                             </motion.a>
 
                             {/* Enquire Button */}

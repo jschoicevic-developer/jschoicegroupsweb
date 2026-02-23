@@ -153,7 +153,7 @@ export default function ServiceMatcherPage() {
               href="tel:1300572464"
               className="h-16 px-10 flex items-center justify-center bg-primary text-[#1A202C] font-black uppercase tracking-wider text-sm rounded-full shadow-lg hover:shadow-xl hover:scale-105 transition-all duration-300"
             >
-              Call: 1300572464
+              Call: 1300 572 464
             </a>
             <a
               href="mailto:info@jschoicegroup.com.au"

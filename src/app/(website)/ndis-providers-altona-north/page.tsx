@@ -107,7 +107,7 @@ const faqs = [
     },
     {
         question: "How do I make a complaint if I’m not satisfied with the service?",
-        answer: "Contact us at 03 9394 6305 directly, and we will work to resolve your concerns promptly."
+        answer: "Contact us at 1300 572 464 directly, and we will work to resolve your concerns promptly."
     },
     {
         question: "Are your services available outside of standard business hours?",

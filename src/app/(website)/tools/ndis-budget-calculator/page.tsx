@@ -118,7 +118,7 @@ export default async function BudgetCalculatorPage() {
               href="tel:1300572464"
               className="h-14 px-8 flex items-center justify-center rounded-full bg-primary hover:brightness-110 text-[#1A202C] font-black text-sm uppercase tracking-wider shadow-xl hover:shadow-2xl hover:-translate-y-1 transition-all duration-300"
             >
-              Call: 1300572464
+              Call: 1300 572 464
             </a>
             <Link
               href="/tools/service-matcher"
