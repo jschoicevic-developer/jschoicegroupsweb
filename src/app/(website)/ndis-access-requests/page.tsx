@@ -23,7 +23,7 @@ import {
 const accessSteps = [
     {
         title: "Step 1: The Conversation",
-        description: "Call us on 1300572464. We will discuss your situation and explain the process in plain English.",
+        description: "Call us on 1300 572 464. We will discuss your situation and explain the process in plain English.",
         icon: Phone
     },
     {

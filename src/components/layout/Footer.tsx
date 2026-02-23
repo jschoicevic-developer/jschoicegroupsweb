@@ -154,7 +154,7 @@ const Footer = () => {
                                     <Image src="/images/footer/location.webp" alt="Loc" fill className="object-contain" />
                                 </div>
                                 <p className="pt-1 text-xs md:text-sm font-bold text-gray-400 leading-relaxed">
-                                    Suite 106, Level 1, C5 , 2 Main Street, Point Cook VICTORIA 3030
+                                    Suite 106, Level 1, C5, 2 Main Street, Point Cook VIC 3030
                                 </p>
                             </li>
                             <li className="flex items-start gap-4">
@@ -206,6 +206,11 @@ const Footer = () => {
                         <span>ABN : 54 644 196 270</span>
                         <span className="hidden sm:inline opacity-30">|</span>
                         <span>Licence no : 4050118332</span>
+                    </div>
+                    <div className="flex flex-wrap justify-center gap-6 mt-4 text-[10px] font-black tracking-widest uppercase">
+                        <a href="/privacy-policy" className="text-gray-600 hover:text-[#ABB3F1] transition-colors">Privacy Policy</a>
+                        <span className="text-gray-700 opacity-30">|</span>
+                        <a href="/terms-and-conditions" className="text-gray-600 hover:text-[#ABB3F1] transition-colors">Terms &amp; Conditions</a>
                     </div>
                 </div>
             </div>

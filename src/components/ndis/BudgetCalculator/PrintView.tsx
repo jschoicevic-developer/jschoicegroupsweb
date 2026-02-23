@@ -179,7 +179,7 @@ export default function PrintView({ items }: Props) {
           <div className="font-black text-[#2D3748] uppercase tracking-wider">Note:</div>
           <div className="font-medium leading-relaxed">
             As you would understand, JS Choice can only reimburse costs that are approved by the NDIS.
-            Any questions? Call our friendly team on <span className="font-bold text-[#2D3748]">03 9394 6305</span>.
+            Any questions? Call our friendly team on <span className="font-bold text-[#2D3748]">1300 572 464</span>.
           </div>
         </div>
         <p className="text-xs text-gray-400 italic">

@@ -161,13 +161,8 @@ function generateClientConfirmationHtml(lead: Lead, fullName: string): string {
               <table border="0" cellpadding="0" cellspacing="0">
                 <tr>
                   <td style="padding-right: 20px;">
-                    <a href="tel:0393946305" style="display: inline-block; background-color: ${COLORS.secondary}; color: ${COLORS.text}; text-decoration: none; font-weight: bold; padding: 12px 24px; border-radius: 50px;">
-                      📞 03 9394 6305
-                    </a>
-                  </td>
-                  <td>
-                     <a href="tel:1300572464" style="color: ${COLORS.text}; text-decoration: none; font-weight: bold;">
-                      or 1300572464
+                    <a href="tel:1300572464" style="display: inline-block; background-color: ${COLORS.secondary}; color: ${COLORS.text}; text-decoration: none; font-weight: bold; padding: 12px 24px; border-radius: 50px;">
+                      📞 1300 572 464
                     </a>
                   </td>
                 </tr>
@@ -450,7 +445,7 @@ ${message}
               <td style="background-color: #F7FAFC; padding: 30px; text-align: center; border-top: 1px solid ${COLORS.border};">
                 <p style="font-size: 12px; color: #A0AEC0;">
                   Suite 106, Level 1, C5, 2 Main Street, Point Cook VIC 3030<br>
-                  <a href="mailto:info@jschoicegroup.com.au" style="color: ${COLORS.primary}; text-decoration: none;">info@jschoicegroup.com.au</a> | 03 9394 6305
+                  <a href="mailto:info@jschoicegroup.com.au" style="color: ${COLORS.primary}; text-decoration: none;">info@jschoicegroup.com.au</a> | 1300 572 464
                 </p>
               </td>
             </tr>

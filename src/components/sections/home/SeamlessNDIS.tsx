@@ -45,7 +45,7 @@ const SeamlessNDIS = () => {
                             <div className="w-8 h-8 rounded-full bg-white/10 flex items-center justify-center">
                                 <Phone size={18} />
                             </div>
-                            <span className="text-sm font-black uppercase tracking-widest">Call Us: 1300572464</span>
+                            <span className="text-sm font-black uppercase tracking-widest">Call Us: 1300 572 464</span>
                         </motion.a>
 
                         {/* Enquire Button */}
