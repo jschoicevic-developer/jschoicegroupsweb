@@ -252,7 +252,7 @@ export default function GalleryAdminPage() {
                             <div className="relative aspect-[4/3] overflow-hidden bg-gray-100">
                                 {item.images && item.images.length > 0 ? (
                                     <>
-                                        <Image
+                                        <Image quality={80}
                                             src={item.images[0]}
                                             alt={item.title}
                                             fill
@@ -347,7 +347,7 @@ export default function GalleryAdminPage() {
                                         <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-5 gap-4">
                                             {formData.images.map((url, idx) => (
                                                 <div key={idx} className="relative aspect-square rounded-xl overflow-hidden border border-gray-100 group">
-                                                    <Image src={url} alt={`Image ${idx + 1}`} fill className="object-cover" />
+                                                    <Image quality={80} src={url} alt={`Image ${idx + 1}`} fill className="object-cover" />
                                                     <button
                                                         type="button"
                                                         onClick={() => removeImage(idx)}

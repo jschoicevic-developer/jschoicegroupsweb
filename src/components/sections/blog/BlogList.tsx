@@ -138,7 +138,7 @@ const BlogList = () => {
                                             <div className="relative h-[250px] md:h-[400px] overflow-hidden">
                                                 <Link href={`/blog/${post.slug}`}>
                                                     <div className="absolute inset-0 bg-black/20 group-hover:bg-black/10 transition-colors z-10" />
-                                                    <Image
+                                                    <Image quality={80}
                                                         src={(post.featured_image?.startsWith('http') || post.featured_image?.startsWith('/')) ? post.featured_image : '/1.png'}
                                                         alt={post.title}
                                                         fill

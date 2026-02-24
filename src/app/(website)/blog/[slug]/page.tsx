@@ -141,7 +141,7 @@ export default async function BlogPostPage({ params, searchParams }: BlogPostPag
             <div className="relative h-[400px] md:h-[500px] w-full overflow-hidden bg-gradient-to-br from-primary/10 to-secondary/10">
                 <div className="absolute inset-0">
                     {isValidImageUrl(post.featured_image) && (
-                        <Image
+                        <Image quality={80}
                             src={post.featured_image!}
                             alt={post.title}
                             fill
@@ -254,7 +254,7 @@ export default async function BlogPostPage({ params, searchParams }: BlogPostPag
                                 >
                                     <div className="relative h-48 overflow-hidden">
                                         {isValidImageUrl(relatedPost.featured_image) && (
-                                            <Image
+                                            <Image quality={80}
                                                 src={relatedPost.featured_image!}
                                                 alt={relatedPost.title}
                                                 fill

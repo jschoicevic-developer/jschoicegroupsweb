@@ -113,7 +113,7 @@ function LoginContent() {
                             className="flex items-center gap-3 mb-12"
                         >
                             <div className="w-12 h-12 relative flex-shrink-0">
-                                <Image
+                                <Image quality={80}
                                     src={logoImage}
                                     alt="JS Choice Logo"
                                     className="object-contain"
@@ -255,7 +255,7 @@ function LoginContent() {
                                 <div className="absolute inset-0 bg-gradient-to-tr from-white/60 via-transparent to-transparent opacity-50" />
 
                                 {/* Logo */}
-                                <Image
+                                <Image quality={80}
                                     src={logoImage}
                                     alt="JS Choice Logo"
                                     className="relative z-20 w-3/4 h-3/4 object-contain drop-shadow-2xl transition-transform duration-700 group-hover:scale-105"

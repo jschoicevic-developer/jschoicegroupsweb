@@ -98,7 +98,7 @@ const ClientFamilyAdvocacy = () => {
                         >
                             <div className="absolute inset-0 bg-primary/20 translate-x-4 translate-y-4 rounded-[2.5rem] -z-10 group-hover:translate-x-2 group-hover:translate-y-2 transition-transform duration-500" />
                             <div className="relative h-[500px] w-full">
-                                <Image
+                                <Image quality={80}
                                     src="/images/advocacy/advocacy-1.webp"
                                     alt="Client and Family Advocacy"
                                     fill
@@ -251,7 +251,7 @@ const ClientFamilyAdvocacy = () => {
                         </div>
                         <div className="flex-1 w-full relative h-[400px] rounded-[2.5rem] overflow-hidden">
                             {/* Reusing a relevant image or keeping a placeholder graphic */}
-                            <Image
+                            <Image quality={80}
                                 src="/images/advocacy/advocacy-1.webp"
                                 alt="When to reach out"
                                 fill

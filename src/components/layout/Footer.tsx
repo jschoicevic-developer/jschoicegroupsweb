@@ -34,7 +34,7 @@ const Footer = () => {
                     {/* Brand Section (2 Cols) */}
                     <div className="lg:col-span-2 space-y-8">
                         <Link href="https://jschoicegroup.com.au/">
-                            <Image
+                            <Image quality={80}
                                 src="/JCGLogoWhite.png"
                                 alt="JS Choice"
                                 width={200}
@@ -44,16 +44,16 @@ const Footer = () => {
                         </Link>
 
                         <div className="flex items-center gap-4">
-                            <a href="https://www.facebook.com/profile.php?id=100091940106564&amp;mibextid=dGKdO6" target="_blank" className="w-10 h-10 rounded-full bg-white/5 flex items-center justify-center hover:bg-white/20 hover:scale-110 transition-all duration-300 shadow-lg relative">
-                                <Image src="/images/footer/facebook.webp" alt="FB" fill className="p-2 object-contain" />
+                            <a href="https://www.facebook.com/profile.php?id=100091940106564&amp;mibextid=dGKdO6" target="_blank" rel="noopener noreferrer" className="w-10 h-10 rounded-full bg-white/5 flex items-center justify-center hover:bg-white/20 hover:scale-110 transition-all duration-300 shadow-lg relative">
+                                <Image quality={80} src="/images/footer/facebook.webp" alt="FB" fill className="p-2 object-contain" />
                             </a>
-                            <a href="https://www.instagram.com/jschoicegroup?igsh=MWJ5eDJ1MTVzZWY3cQ%3D%3D&amp;utm_source=qr" target="_blank" className="w-10 h-10 rounded-full bg-white/5 flex items-center justify-center hover:bg-white/20 hover:scale-110 transition-all duration-300 shadow-lg relative">
-                                <Image src="/images/footer/instagram.webp" alt="Insta" fill className="p-2 object-contain" />
+                            <a href="https://www.instagram.com/jschoicegroup?igsh=MWJ5eDJ1MTVzZWY3cQ%3D%3D&amp;utm_source=qr" target="_blank" rel="noopener noreferrer" className="w-10 h-10 rounded-full bg-white/5 flex items-center justify-center hover:bg-white/20 hover:scale-110 transition-all duration-300 shadow-lg relative">
+                                <Image quality={80} src="/images/footer/instagram.webp" alt="Insta" fill className="p-2 object-contain" />
                             </a>
                         </div>
 
                         <div className="pt-4 border-t border-white/10 relative h-24 w-40">
-                            <Image
+                            <Image quality={80}
                                 src="/images/footer/ndis.webp"
                                 alt="NDIS"
                                 fill
@@ -135,7 +135,7 @@ const Footer = () => {
                         <ul className="space-y-6">
                             <li className="flex items-start gap-4">
                                 <div className="p-1 shrink-0 relative w-6 h-6 mt-1">
-                                    <Image src="/images/footer/call.webp" alt="Call" fill className="object-contain" />
+                                    <Image quality={80} src="/images/footer/call.webp" alt="Call" fill className="object-contain" />
                                 </div>
                                 <div className="flex flex-col gap-1.5 pt-0.5">
                                     <span className="text-xs text-slate-400 italic mb-1 leading-snug">
@@ -148,7 +148,7 @@ const Footer = () => {
                             </li>
                             <li className="flex items-start gap-4">
                                 <div className="p-1 shrink-0 relative w-6 h-6">
-                                    <Image src="/images/footer/email.webp" alt="Email" fill className="object-contain" />
+                                    <Image quality={80} src="/images/footer/email.webp" alt="Email" fill className="object-contain" />
                                 </div>
                                 <a href="mailto:info@jschoicegroup.com.au" className="pt-1.5 text-sm font-bold text-gray-400 hover:text-white transition-colors truncate">
                                     info@jschoicegroup.com.au
@@ -156,7 +156,7 @@ const Footer = () => {
                             </li>
                             <li className="flex items-start gap-4">
                                 <div className="p-1 shrink-0 relative w-6 h-6">
-                                    <Image src="/images/footer/location.webp" alt="Loc" fill className="object-contain" />
+                                    <Image quality={80} src="/images/footer/location.webp" alt="Loc" fill className="object-contain" />
                                 </div>
                                 <p className="pt-1 text-xs md:text-sm font-bold text-gray-400 leading-relaxed">
                                     Suite 106, Level 1, C5, 2 Main Street, Point Cook VIC 3030
@@ -164,7 +164,7 @@ const Footer = () => {
                             </li>
                             <li className="flex items-start gap-4">
                                 <div className="p-1 shrink-0 relative w-6 h-6">
-                                    <Image src="/images/footer/po-box.webp" alt="PO" fill className="object-contain" />
+                                    <Image quality={80} src="/images/footer/po-box.webp" alt="PO" fill className="object-contain" />
                                 </div>
                                 <p className="pt-1 text-xs md:text-sm font-bold text-gray-400 leading-relaxed">
                                     PO Box 6282 Point Cook 3030 Victoria
@@ -172,7 +172,7 @@ const Footer = () => {
                             </li>
                             <li className="flex items-start gap-4">
                                 <div className="p-1 shrink-0 relative w-6 h-6">
-                                    <Image src="/images/footer/clock.webp" alt="Clock" fill className="object-contain" />
+                                    <Image quality={80} src="/images/footer/clock.webp" alt="Clock" fill className="object-contain" />
                                 </div>
                                 <div className="pt-1 text-xs md:text-sm font-black flex flex-col gap-1 text-gray-400">
                                     <span className="group-hover:text-white transition-colors">Office - 8 am to 6 pm</span>
@@ -186,7 +186,7 @@ const Footer = () => {
                 {/* Acknowledgement Section */}
                 <div className="border-t border-white/5 pt-16 pb-16">
                     <div className="max-w-4xl mx-auto flex flex-col items-center text-center space-y-6">
-                        <Image
+                        <Image quality={80}
                             src="/images/footer/acknowledgement.webp"
                             alt="Acknowledge"
                             width={300}
@@ -205,7 +205,7 @@ const Footer = () => {
             <div className="bg-black/40 border-t border-white/5 py-8">
                 <div className="max-w-8xl mx-auto px-4 text-center">
                     <p className="text-[10px] md:text-xs font-black text-gray-500 uppercase tracking-[0.2em] leading-relaxed">
-                        Copyright © 2026 JS CHOICE GROUP PTY LTD • Design by <a href="https://cruxlabs.com.au/" target="_blank" className="text-[#ABB3F1] hover:underline">CruxLabs</a>
+                        Copyright © 2026 JS CHOICE GROUP PTY LTD • Design by <a href="https://cruxlabs.com.au/" target="_blank" rel="noopener noreferrer" className="text-[#ABB3F1] hover:underline">CruxLabs</a>
                     </p>
                     <div className="flex flex-wrap justify-center gap-4 mt-3 text-[10px] font-black text-[#5A67D8] tracking-widest opacity-80 uppercase">
                         <span>ABN : 54 644 196 270</span>

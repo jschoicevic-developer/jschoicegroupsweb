@@ -128,7 +128,7 @@ export default function AdminHeader({ onMenuClick }: AdminHeaderProps) {
                 {/* External Website Link */}
                 <Link
                     href="/"
-                    target="_blank"
+                    target="_blank" rel="noopener noreferrer"
                     className="p-2.5 text-gray-500 hover:bg-gray-50 hover:text-primary rounded-xl transition-all relative group"
                     title="View Website"
                 >

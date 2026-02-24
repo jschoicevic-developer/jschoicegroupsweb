@@ -109,7 +109,7 @@ const AssistanceWithNursingCare = () => {
                         >
                             <div className="absolute inset-0 bg-primary/20 translate-x-4 translate-y-4 rounded-[2.5rem] -z-10 group-hover:translate-x-2 group-hover:translate-y-2 transition-transform duration-500" />
                             <div className="relative w-full h-[500px]">
-                                <Image
+                                <Image quality={80}
                                     src="/images/nursing/nursing-care-img01.webp"
                                     alt="Nursing Care"
                                     fill
@@ -181,7 +181,7 @@ const AssistanceWithNursingCare = () => {
                             transition={{ duration: 0.8 }}
                         >
                             <div className="relative w-full h-[400px]">
-                                <Image
+                                <Image quality={80}
                                     src="/images/nursing/nursing-care-img02.webp"
                                     alt="What is Community Nursing"
                                     fill
@@ -206,7 +206,7 @@ const AssistanceWithNursingCare = () => {
                         >
                             <div className="absolute inset-0 bg-primary/20 rounded-[2rem] -rotate-3 z-0" />
                             <div className="relative w-full h-[500px]">
-                                <Image
+                                <Image quality={80}
                                     src="/images/nursing/nursing-care-img03.webp"
                                     alt="How Nursing Works"
                                     fill
@@ -292,7 +292,7 @@ const AssistanceWithNursingCare = () => {
                             className="relative order-first lg:order-last"
                         >
                             <div className="relative w-full h-[500px]">
-                                <Image
+                                <Image quality={80}
                                     src="/images/nursing/nursing-care-img04.webp"
                                     alt="Services Included"
                                     fill
@@ -315,7 +315,7 @@ const AssistanceWithNursingCare = () => {
                             transition={{ duration: 0.8 }}
                         >
                             <div className="relative w-full h-[500px]">
-                                <Image
+                                <Image quality={80}
                                     src="/images/nursing/nursing-care-img05.webp"
                                     alt="Why Choose Us"
                                     fill

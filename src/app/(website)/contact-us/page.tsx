@@ -18,6 +18,16 @@ export default function ContactPage() {
                 ]}
             />
 
+            {/* Added SEO Content to resolve Thin Content warning */}
+            <section className="bg-white py-12 px-4 shadow-sm border-b border-gray-100">
+                <div className="max-w-4xl mx-auto text-center space-y-4">
+                    <h2 className="text-2xl font-bold text-[#2D3748]">Why Choose JS Choice Facilities?</h2>
+                    <p className="text-gray-600 leading-relaxed font-medium">
+                        At JS Choice Care & Support, delivering exceptional NDIS facilities is our top priority. We understand that finding the right disability service provider can be overwhelming. That is why our dedicated team in Melbourne provides personalized assistance, ensuring every participant receives comprehensive care right in their community. Reach out through the form below to learn how our tailored plans can transform your daily living, and let us help you achieve a more autonomous and fulfilling life.
+                    </p>
+                </div>
+            </section>
+
             <ContactContent />
         </main>
     );

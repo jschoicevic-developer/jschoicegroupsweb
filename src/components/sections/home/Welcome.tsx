@@ -61,7 +61,7 @@ const Welcome = () => {
                     >
                         {/* Smaller Image (Left) */}
                         <div className="w-1/2 h-[350px] relative rounded-[2rem] overflow-hidden shadow-xl mt-12 transform hover:rotate-1 transition-transform duration-500 border-4 border-white">
-                            <Image
+                            <Image quality={80}
                                 src="/images/home/welcome-1.webp"
                                 alt="Support worker helping"
                                 fill
@@ -71,7 +71,7 @@ const Welcome = () => {
 
                         {/* Large Image (Right) */}
                         <div className="w-1/2 h-[450px] relative rounded-[2rem] overflow-hidden shadow-2xl transform -hover:rotate-1 transition-transform duration-500 border-4 border-white">
-                            <Image
+                            <Image quality={80}
                                 src="/1.webp"
                                 alt="Carer assisting participant"
                                 fill

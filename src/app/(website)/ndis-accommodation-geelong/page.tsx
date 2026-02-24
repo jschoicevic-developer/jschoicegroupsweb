@@ -139,7 +139,7 @@ const NdisAccommodationGeelong = () => {
                         >
                             <div className="absolute inset-0 bg-primary/20 translate-x-4 translate-y-4 rounded-[2.5rem] -z-10 group-hover:translate-x-2 group-hover:translate-y-2 transition-transform duration-500" />
                             <div className="relative h-[500px] w-full">
-                                <Image
+                                <Image quality={80}
                                     src="/images/geelong/ndis-accommodation-geelong-1.webp"
                                     alt="NDIS Accommodation Geelong"
                                     fill
@@ -159,9 +159,9 @@ const NdisAccommodationGeelong = () => {
                                     <MapPin className="w-5 h-5" />
                                     Geelong
                                 </span>
-                                <h1 className="text-4xl lg:text-5xl font-black text-[#2D3748] leading-tight">
+                                <h2 className="text-4xl lg:text-5xl font-black text-[#2D3748] leading-tight">
                                     NDIS Accommodation in Geelong <span className="text-primary block mt-2">for Independent Living</span>
-                                </h1>
+                                </h2>
                             </div>
                             <div className="space-y-6 text-lg text-gray-600 leading-relaxed">
                                 <p>
@@ -231,7 +231,7 @@ const NdisAccommodationGeelong = () => {
                             className="relative"
                         >
                             <div className="relative h-[500px] w-full">
-                                <Image
+                                <Image quality={80}
                                     src="/images/geelong/ndis-accommodation-geelong-2.webp"
                                     alt="NDIS Short Term Accommodation Geelong"
                                     fill
@@ -305,7 +305,7 @@ const NdisAccommodationGeelong = () => {
                     <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
                         <div className="lg:order-2">
                             <div className="relative h-[500px] w-full">
-                                <Image
+                                <Image quality={80}
                                     src="/images/geelong/ndis-accommodation-geelong-3.webp"
                                     alt="NDIS Medium Term Accommodation"
                                     fill
@@ -373,7 +373,7 @@ const NdisAccommodationGeelong = () => {
                     <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
                         <div className="">
                             <div className="relative h-[500px] w-full">
-                                <Image
+                                <Image quality={80}
                                     src="/images/geelong/ndis-accommodation-geelong-4.webp"
                                     alt="NDIS Supported Independent Living"
                                     fill

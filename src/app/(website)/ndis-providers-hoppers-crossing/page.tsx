@@ -159,7 +159,7 @@ const NdisProvidersHoppersCrossing = () => {
                         >
                             <div className="absolute inset-0 bg-primary/20 translate-x-4 translate-y-4 rounded-[2.5rem] -z-10 group-hover:translate-x-2 group-hover:translate-y-2 transition-transform duration-500" />
                             <div className="relative h-[500px] w-full">
-                                <Image
+                                <Image quality={80}
                                     src="/images/hoppers-crossing/ndis-provider-hoppers-crossing-1.webp"
                                     alt="NDIS Providers Hoppers Crossing"
                                     fill
@@ -179,9 +179,9 @@ const NdisProvidersHoppersCrossing = () => {
                                     <MapPin className="w-5 h-5" />
                                     Hoppers Crossing
                                 </span>
-                                <h1 className="text-4xl lg:text-5xl font-black text-[#2D3748] leading-tight">
+                                <h2 className="text-4xl lg:text-5xl font-black text-[#2D3748] leading-tight">
                                     Experienced NDIS Providers in Hoppers Crossing <span className="text-primary block mt-2">Offering Personalised Services</span>
-                                </h1>
+                                </h2>
                             </div>
                             <div className="space-y-6 text-lg text-gray-600 leading-relaxed">
                                 <p>
@@ -245,7 +245,7 @@ const NdisProvidersHoppersCrossing = () => {
                             className="relative"
                         >
                             <div className="relative h-[500px] w-full">
-                                <Image
+                                <Image quality={80}
                                     src="/images/hoppers-crossing/ndis-provider-hoppers-crossing-2.webp"
                                     alt="Why Choose Us"
                                     fill
@@ -306,7 +306,7 @@ const NdisProvidersHoppersCrossing = () => {
                         </div>
                         <div className="lg:order-1 relative sticky top-24">
                             <div className="relative h-[600px] w-full">
-                                <Image
+                                <Image quality={80}
                                     src="/images/hoppers-crossing/ndis-provider-hoppers-crossing-3.webp"
                                     alt="NDIS Services"
                                     fill

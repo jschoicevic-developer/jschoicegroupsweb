@@ -34,7 +34,7 @@ const Hero = () => {
                     transition={{ duration: 1.5 }}
                     className="absolute inset-0 z-0"
                 >
-                    <Image
+                    <Image quality={80}
                         src={heroImages[currentImage]}
                         alt="Hero Background"
                         fill

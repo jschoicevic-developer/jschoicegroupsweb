@@ -284,7 +284,7 @@ export default function BlogAdminPage() {
                                                 <div className="flex items-center justify-end gap-2">
                                                     <Link
                                                         href={`/blog/${post.slug}${post.status !== 'published' ? '?preview=true' : ''}`}
-                                                        target="_blank"
+                                                        target="_blank" rel="noopener noreferrer"
                                                         className="p-2 hover:bg-blue-50 rounded-lg transition-colors group"
                                                         title="View Post"
                                                     >
@@ -346,7 +346,7 @@ export default function BlogAdminPage() {
                                     <div className="flex items-center justify-end gap-3 pt-2">
                                         <Link
                                             href={`/blog/${post.slug}`}
-                                            target="_blank"
+                                            target="_blank" rel="noopener noreferrer"
                                             className="flex items-center gap-1 text-xs font-bold text-blue-600 bg-blue-50 px-3 py-1.5 rounded-lg"
                                         >
                                             <Eye size={14} /> View

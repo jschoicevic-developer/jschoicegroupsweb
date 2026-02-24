@@ -66,7 +66,7 @@ export default function BudgetItemRow({ item, onUpdate, onRemove }: BudgetItemRo
       <div className="col-span-12 lg:col-span-4 pr-4">
         <Link
           href={`/tools/ndis-price-guide/${item.supportItem.support_item_number}`}
-          target="_blank"
+          target="_blank" rel="noopener noreferrer"
           className="font-bold text-[#805AD5] hover:text-[#6B46C1] hover:underline flex items-start gap-2 mb-1 leading-tight"
         >
           {item.supportItem.support_item_name}

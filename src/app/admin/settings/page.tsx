@@ -282,7 +282,7 @@ export default function SettingsPage() {
                                     <div className="relative group">
                                         <div className="w-24 h-24 rounded-full bg-gray-100 flex items-center justify-center text-gray-400 text-3xl font-bold overflow-hidden border-4 border-white shadow-lg relative">
                                             {avatarUrl ? (
-                                                <Image src={avatarUrl} alt={displayName} fill className="object-cover" />
+                                                <Image quality={80} src={avatarUrl} alt={displayName} fill className="object-cover" />
                                             ) : displayName ? (
                                                 displayName.charAt(0).toUpperCase()
                                             ) : (

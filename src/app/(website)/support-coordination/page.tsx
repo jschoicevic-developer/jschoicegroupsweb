@@ -125,7 +125,7 @@ const SupportCoordination = () => {
                         >
                             <div className="absolute inset-0 bg-primary/20 translate-x-4 translate-y-4 rounded-[2.5rem] -z-10 group-hover:translate-x-2 group-hover:translate-y-2 transition-transform duration-500" />
                             <div className="relative h-[500px] w-full">
-                                <Image
+                                <Image quality={80}
                                     src="/images/support-coordination/support-1.webp"
                                     alt="NDIS Plan Into Action"
                                     fill
@@ -265,7 +265,7 @@ const SupportCoordination = () => {
                             className="order-1 lg:order-2 relative"
                         >
                             <div className="relative w-full h-[500px]">
-                                <Image
+                                <Image quality={80}
                                     src="/images/support-coordination/support-2.webp"
                                     alt="Why Choose JS Choice"
                                     fill

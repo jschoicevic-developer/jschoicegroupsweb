@@ -51,7 +51,7 @@ const Topbar = () => {
                     <div className="flex items-center gap-4 text-foreground/80">
                         <Link
                             href="https://www.facebook.com/profile.php?id=100091940106564&mibextid=dGKdO6"
-                            target="_blank"
+                            target="_blank" rel="noopener noreferrer"
                             className="hover:text-foreground transition-colors"
                             aria-label="Facebook"
                         >
@@ -59,7 +59,7 @@ const Topbar = () => {
                         </Link>
                         <Link
                             href="https://www.instagram.com/jschoicegroup?igsh=MWJ5eDJ1MTVzZWY3cQ%3D%3D&utm_source=qr"
-                            target="_blank"
+                            target="_blank" rel="noopener noreferrer"
                             className="hover:text-foreground transition-colors"
                             aria-label="Instagram"
                         >

@@ -11,10 +11,15 @@ export const metadata: Metadata = {
 export default async function PriceGuidePage() {
   // Fetch categories for filter
   const supabase = await createServerClient();
-  const { data: categories } = await supabase
+  const { data: categories, error } = await supabase
     .from('ndis_categories')
     .select('*')
     .order('category_number', { ascending: true });
+
+  if (error || !categories || categories.length === 0) {
+    const { notFound } = await import('next/navigation');
+    notFound();
+  }
 
   return (
     <div className="w-full bg-white">

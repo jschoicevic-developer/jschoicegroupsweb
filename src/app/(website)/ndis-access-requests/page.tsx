@@ -100,7 +100,7 @@ const NdisAccessRequests = () => {
                         >
                             <div className="absolute inset-0 bg-primary/20 translate-x-4 translate-y-4 rounded-[2.5rem] -z-10 group-hover:translate-x-2 group-hover:translate-y-2 transition-transform duration-500" />
                             <div className="relative h-[500px] w-full">
-                                <Image
+                                <Image quality={80}
                                     src="/images/access-requests/access-1.webp"
                                     alt="NDIS Access Requests"
                                     fill
@@ -249,7 +249,7 @@ const NdisAccessRequests = () => {
                             </div>
                         </div>
                         <div className="relative h-[400px] w-full rounded-[2.5rem] overflow-hidden">
-                            <Image
+                            <Image quality={80}
                                 src="/images/access-requests/access-1.webp"
                                 alt="Why Ask For Help"
                                 fill

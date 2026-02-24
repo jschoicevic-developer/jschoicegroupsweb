@@ -157,7 +157,7 @@ const Features = () => {
                     >
                         <div className="relative rounded-[3rem] overflow-hidden shadow-[0_20px_60px_rgba(0,0,0,0.15)] border-[12px] border-white group aspect-[4/5] w-full">
                             <div className="absolute inset-0 bg-gradient-to-t from-black/40 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500 z-10" />
-                            <Image
+                            <Image quality={80}
                                 src="/images/home/feature1.webp"
                                 alt="Why choose us"
                                 fill
@@ -172,7 +172,7 @@ const Features = () => {
                             <div className="flex -space-x-2 mt-2">
                                 {[1, 2, 3, 4].map((i) => (
                                     <div key={i} className="w-8 h-8 rounded-full border-2 border-white bg-gray-100 overflow-hidden relative">
-                                        <Image
+                                        <Image quality={80}
                                             src={`/images/home/avatar-${i}.webp`}
                                             alt="Avatar"
                                             fill

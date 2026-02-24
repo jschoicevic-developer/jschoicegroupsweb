@@ -69,7 +69,7 @@ const AssistanceWithDailyLife = () => {
                         >
                             <div className="absolute inset-0 bg-primary/20 translate-x-4 translate-y-4 rounded-[2.5rem] -z-10 group-hover:translate-x-2 group-hover:translate-y-2 transition-transform duration-500" />
                             <div className="relative w-full h-[500px]">
-                                <Image
+                                <Image quality={80}
                                     src="/images/daily-life/daily-living-img01.webp"
                                     alt="Daily Living Assistance"
                                     fill
@@ -135,7 +135,7 @@ const AssistanceWithDailyLife = () => {
                                 Our support is comprehensive and flexible. We offer a wide range of services aimed at promoting your well-being and fostering a sense of pride in your home and appearance.
                             </p>
                             <div className="pt-4 relative h-[300px]">
-                                <Image
+                                <Image quality={80}
                                     src="/images/daily-life/daily-living-img02.webp"
                                     alt="Care Services"
                                     fill
@@ -177,7 +177,7 @@ const AssistanceWithDailyLife = () => {
                         className="rounded-[3rem] overflow-hidden h-[400px] relative shadow-2xl"
                     >
                         <div className="absolute inset-0 bg-black/30 z-10" />
-                        <Image
+                        <Image quality={80}
                             src="/images/daily-life/daily-living-img03.webp"
                             alt="Lifestyle Support"
                             fill
@@ -205,7 +205,7 @@ const AssistanceWithDailyLife = () => {
                         >
                             <div className="absolute -inset-4 bg-primary/20 rounded-[2.5rem] blur-xl" />
                             <div className="relative w-full h-[500px]">
-                                <Image
+                                <Image quality={80}
                                     src="/images/daily-life/daily-living-img04.webp"
                                     alt="Why Choose Us"
                                     fill
