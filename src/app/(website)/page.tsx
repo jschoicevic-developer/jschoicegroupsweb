@@ -6,6 +6,13 @@ import GettingStarted from "@/components/sections/home/GettingStarted";
 import Faq from "@/components/sections/home/Faq";
 import AreasServed from "@/components/sections/home/AreasServed";
 import SeamlessNDIS from "@/components/sections/home/SeamlessNDIS";
+import type { Metadata } from "next";
+
+export const metadata: Metadata = {
+  alternates: {
+    canonical: "/",
+  },
+};
 
 export default function Home() {
   return (

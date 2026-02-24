@@ -138,7 +138,7 @@ const InnovativeCommunityParticipation = () => {
                         >
                             <div className="absolute inset-0 bg-primary/20 translate-x-4 translate-y-4 rounded-[2.5rem] -z-10 group-hover:translate-x-2 group-hover:translate-y-2 transition-transform duration-500" />
                             <div className="relative h-[500px] w-full">
-                                <Image
+                                <Image quality={80}
                                     src="/images/innovative/innovative-1.webp"
                                     alt="Innovative Community Participation"
                                     fill
@@ -231,7 +231,7 @@ const InnovativeCommunityParticipation = () => {
                             className="relative"
                         >
                             <div className="relative h-[500px] w-full">
-                                <Image
+                                <Image quality={80}
                                     src="/images/innovative/innovative-2.webp"
                                     alt="Innovative Approach"
                                     fill
@@ -314,7 +314,7 @@ const InnovativeCommunityParticipation = () => {
                             </div>
                         </div>
                         <div className="relative h-[500px] w-full rounded-[2.5rem] overflow-hidden shadow-xl">
-                            <Image
+                            <Image quality={80}
                                 src="/images/innovative/innovative-3.webp"
                                 alt="Benefits"
                                 fill
@@ -330,7 +330,7 @@ const InnovativeCommunityParticipation = () => {
                 <div className="container-8xl">
                     <div className="grid grid-cols-1 md:grid-cols-2 gap-12 items-center">
                         <div className="relative h-[400px] w-full rounded-[2.5rem] overflow-hidden shadow-xl">
-                            <Image
+                            <Image quality={80}
                                 src="/images/innovative/innovative-1.webp"
                                 alt="Why Choose JS Choice"
                                 fill

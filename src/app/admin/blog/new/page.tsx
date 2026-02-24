@@ -305,7 +305,7 @@ export default function NewBlogPostPage() {
                                     </div>
                                     {formData.featured_image && (
                                         <div className="relative aspect-video rounded-xl overflow-hidden border border-gray-100 shadow-inner group">
-                                            <Image
+                                            <Image quality={80}
                                                 src={formData.featured_image.startsWith('http') || formData.featured_image.startsWith('/') ? formData.featured_image : '/1.png'}
                                                 alt="Preview"
                                                 fill

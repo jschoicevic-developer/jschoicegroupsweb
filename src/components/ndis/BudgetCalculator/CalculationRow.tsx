@@ -68,7 +68,7 @@ export default function CalculationRow({ item, onUpdate, onDelete, mobile = fals
           </div>
           <Link
             href={`/tools/ndis-price-guide/${item.supportItem.support_item_number}`}
-            target="_blank"
+            target="_blank" rel="noopener noreferrer"
             className="text-[#2D3748] hover:text-primary font-bold text-lg leading-tight flex items-start gap-1 transition-colors"
           >
             <span className="flex-1">{item.supportItem.support_item_name}</span>
@@ -161,7 +161,7 @@ export default function CalculationRow({ item, onUpdate, onDelete, mobile = fals
       <td className="px-6 py-6">
         <Link
           href={`/tools/ndis-price-guide/${item.supportItem.support_item_number}`}
-          target="_blank"
+          target="_blank" rel="noopener noreferrer"
           className="text-[#2D3748] hover:text-primary font-bold flex items-start gap-1 transition-colors text-base"
         >
           <span className="flex-1 line-clamp-2">{item.supportItem.support_item_name}</span>

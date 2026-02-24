@@ -111,7 +111,7 @@ const AlliedHealthAssistance = () => {
                         >
                             <div className="absolute inset-0 bg-secondary/20 translate-x-4 translate-y-4 rounded-[2.5rem] -z-10 group-hover:translate-x-2 group-hover:translate-y-2 transition-transform duration-500" />
                             <div className="relative w-full h-[500px]">
-                                <Image
+                                <Image quality={80}
                                     src="/images/allied-health/img32.webp"
                                     alt="Allied Health Services"
                                     fill
@@ -205,7 +205,7 @@ const AlliedHealthAssistance = () => {
                         >
                             <div className="absolute -inset-4 bg-primary/20 rounded-[2.5rem] blur-xl opacity-70" />
                             <div className="relative w-full h-[600px]">
-                                <Image
+                                <Image quality={80}
                                     src="/images/allied-health/img33.webp"
                                     alt="AHA Services"
                                     fill
@@ -258,7 +258,7 @@ const AlliedHealthAssistance = () => {
                             className="order-2 lg:order-1 relative"
                         >
                             <div className="relative w-full h-[500px]">
-                                <Image
+                                <Image quality={80}
                                     src="/images/allied-health/img35.webp"
                                     alt="Benefits of Hiring AHA"
                                     fill
@@ -327,7 +327,7 @@ const AlliedHealthAssistance = () => {
                         <div className="relative h-[400px] w-full rounded-[2.5rem] overflow-hidden shadow-xl bg-gray-100 flex items-center justify-center">
                             {/* Placeholder for an image or just a graphic element if no image specifically for this section */}
                             <div className="text-center p-8">
-                                <Image
+                                <Image quality={80}
                                     src="/images/allied-health/img32.webp" // Reusing the hero image or another relevant one if available, as a placeholder
                                     alt="Why Choose Us"
                                     fill

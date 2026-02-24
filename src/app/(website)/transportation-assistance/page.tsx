@@ -131,7 +131,7 @@ const TransportationAssistance = () => {
                         >
                             <div className="absolute inset-0 bg-primary/20 translate-x-4 translate-y-4 rounded-[2.5rem] -z-10 group-hover:translate-x-2 group-hover:translate-y-2 transition-transform duration-500" />
                             <div className="relative h-[500px] w-full">
-                                <Image
+                                <Image quality={80}
                                     src="/images/transport/transport-1.webp"
                                     alt="Reliable NDIS Transport"
                                     fill
@@ -221,7 +221,7 @@ const TransportationAssistance = () => {
                         >
                             <div className="absolute -inset-4 bg-secondary/20 rounded-[2.5rem] blur-xl opacity-70" />
                             <div className="relative w-full h-[500px]">
-                                <Image
+                                <Image quality={80}
                                     src="/images/transport/transport-2.webp"
                                     alt="Friendly Support Worker Driver"
                                     fill
@@ -307,7 +307,7 @@ const TransportationAssistance = () => {
                             className="order-1 lg:order-2 relative"
                         >
                             <div className="relative w-full h-[500px]">
-                                <Image
+                                <Image quality={80}
                                     src="/images/transport/transport-3.webp"
                                     alt="Safe Transport"
                                     fill

@@ -91,7 +91,7 @@ export default function GalleryPage() {
                                 >
                                     <div className="relative aspect-[4/5] rounded-[3rem] overflow-hidden shadow-2xl shadow-gray-200/50 bg-white">
                                         {item.images && item.images.length > 0 && (
-                                            <Image
+                                            <Image quality={80}
                                                 src={item.images[0]}
                                                 alt={item.title}
                                                 fill
@@ -164,7 +164,7 @@ export default function GalleryPage() {
                                         transition={{ duration: 0.4 }}
                                         className="relative w-full h-full"
                                     >
-                                        <Image
+                                        <Image quality={80}
                                             src={selectedItem.images[activeImageIndex]}
                                             alt={selectedItem.title}
                                             fill
@@ -233,7 +233,7 @@ export default function GalleryPage() {
                                                         : "border-transparent opacity-40 hover:opacity-80 scale-90"
                                                 )}
                                             >
-                                                <Image src={img} alt="Thumbnail" fill className="object-cover" />
+                                                <Image quality={80} src={img} alt="Thumbnail" fill className="object-cover" />
                                             </button>
                                         ))}
                                     </div>

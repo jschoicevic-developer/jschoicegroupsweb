@@ -60,7 +60,6 @@ const Navbar = () => {
     const navLinks = [
         { name: "Home", href: "/" },
         { name: "About Us", href: "/about-us" },
-        { name: "Gallery", href: "/gallery" },
         { name: "Blog", href: "/blog" },
         { name: "Resources", href: "/resources" },
         { name: "Contact Us", href: "/contact-us" },
@@ -78,7 +77,7 @@ const Navbar = () => {
 
                     {/* Logo Section */}
                     <Link href="/" className="flex items-center gap-2 relative z-50 shrink-0">
-                        <Image
+                        <Image quality={80}
                             src="/JCGLogo.png"
                             alt="JS Choice Group"
                             width={135}

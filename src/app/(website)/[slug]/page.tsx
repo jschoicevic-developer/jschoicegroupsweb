@@ -103,7 +103,7 @@ export default function DynamicLocationPage({ params }: PageProps) {
                         <div className="relative">
                             <div className="absolute -inset-4 bg-secondary/10 rounded-[2rem] transform rotate-3 z-0" />
                             <div className="relative rounded-[2rem] overflow-hidden shadow-2xl z-10 aspect-[4/3]">
-                                <Image
+                                <Image quality={80}
                                     src={heroImage}
                                     alt={data.heroTitle}
                                     fill

@@ -109,7 +109,7 @@ const EmergencyRespite = () => {
                         >
                             <div className="absolute inset-0 bg-primary/20 translate-x-4 translate-y-4 rounded-[2.5rem] -z-10 group-hover:translate-x-2 group-hover:translate-y-2 transition-transform duration-500" />
                             <div className="relative h-[500px] w-full">
-                                <Image
+                                <Image quality={80}
                                     src="/images/emergency-respite/respite-1.webp"
                                     alt="Emergency Respite Care"
                                     fill
@@ -181,7 +181,7 @@ const EmergencyRespite = () => {
                             transition={{ duration: 0.8 }}
                         >
                             <div className="relative h-[400px] w-full">
-                                <Image
+                                <Image quality={80}
                                     src="/images/emergency-respite/respite-2.webp"
                                     alt="Emergency Respite Explained"
                                     fill
@@ -206,7 +206,7 @@ const EmergencyRespite = () => {
                         >
                             <div className="absolute inset-0 bg-primary/20 rounded-[2rem] -rotate-3 z-0" />
                             <div className="relative w-full h-[500px]">
-                                <Image
+                                <Image quality={80}
                                     src="/images/emergency-respite/respite-3.webp"
                                     alt="How Emergency Respite Works"
                                     fill
@@ -292,7 +292,7 @@ const EmergencyRespite = () => {
                             className="relative order-first lg:order-last"
                         >
                             <div className="relative w-full h-[500px]">
-                                <Image
+                                <Image quality={80}
                                     src="/images/emergency-respite/respite-4.webp"
                                     alt="Services Included"
                                     fill
@@ -315,7 +315,7 @@ const EmergencyRespite = () => {
                             transition={{ duration: 0.8 }}
                         >
                             <div className="relative w-full h-[500px]">
-                                <Image
+                                <Image quality={80}
                                     src="/images/emergency-respite/respite-5.webp"
                                     alt="Why Choose Us"
                                     fill

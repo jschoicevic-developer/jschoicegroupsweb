@@ -15,7 +15,7 @@ INSERT INTO blog_posts (
 ) VALUES (
     'The Role of Support Workers in NDIS Short-Term Accommodation Support',
     'the-role-of-support-workers-in-ndis-short-term-accommodation-support',
-    'Short Term Accommodation (STA) under the NDIS gives families breathing space and offers children a chance to build confidence in a safe, supportive environment. At the centre of every successful stay are skilled support workers who guide routines, encourage participation, and create a positive experience from day one.',
+    'Discover how NDIS Short Term Accommodation (STA) provides essential respite for families while empowering children to build confidence and essential life skills in a secure, professionally supported environment.',
     '<p>Short Term Accommodation (STA) under the NDIS gives families breathing space and offers children a chance to build confidence in a safe, supportive environment. At the centre of every successful stay are skilled support workers who guide routines, encourage participation, and create a positive experience from day one.</p>
 
 <p>For families across Melbourne''s growing suburbs, including those working with NDIS providers in Craigieburn, understanding what support workers actually do during STA can make all the difference.</p>

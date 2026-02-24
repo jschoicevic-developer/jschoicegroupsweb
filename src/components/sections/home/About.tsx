@@ -93,7 +93,7 @@ const About = () => {
                                 className="relative aspect-[4/3] lg:aspect-[1.3] overflow-hidden shadow-2xl group border-8 border-white"
                                 style={{ borderRadius: '40% 60% 70% 30% / 40% 50% 60% 70%' }}
                             >
-                                <Image
+                                <Image quality={80}
                                     src="/images/home/about-1.webp"
                                     alt="Care in Melbourne"
                                     fill
@@ -226,7 +226,7 @@ const About = () => {
                         {/* Primary Image - Fill cell better */}
                         <div className="w-[100%] aspect-[4/4] relative z-10 overflow-hidden shadow-2xl border-[12px] border-white transition-transform duration-700 hover:scale-[1.03]"
                             style={{ borderRadius: '30% 70% 40% 60% / 50% 30% 70% 50%' }}>
-                            <Image
+                            <Image quality={80}
                                 src="/images/home/about-2.webp"
                                 alt="Care worker"
                                 fill
@@ -237,7 +237,7 @@ const About = () => {
                         {/* Secondary Image - Closer overlap */}
                         <div className="w-[70%] aspect-square absolute -left-[20%] -bottom-10 z-20 overflow-hidden shadow-[0_20px_60px_rgba(0,0,0,0.25)] border-[10px] border-white transition-transform duration-700 hover:scale-[1.05]"
                             style={{ borderRadius: '60% 40% 70% 30% / 40% 70% 30% 60%' }}>
-                            <Image
+                            <Image quality={80}
                                 src="/images/home/about-3.webp"
                                 alt="Support session"
                                 fill

@@ -37,7 +37,7 @@ const HeroSection = () => (
     <section id="hero" className="relative w-full min-h-[90vh] overflow-hidden bg-[#2D3748] flex items-center">
         {/* Background Image */}
         <div className="absolute inset-0 z-0">
-            <Image src="/images/home/hero1.webp" alt="NDIS Care Melbourne" fill className="object-cover" priority />
+            <Image quality={80} src="/images/home/hero1.webp" alt="NDIS Care Melbourne" fill className="object-cover" priority />
             <div className="absolute inset-0 bg-gradient-to-r from-[#1A202C]/90 via-[#1A202C]/70 to-[#1A202C]/30 z-10" />
             <div className="absolute inset-0 bg-[#2D3748]/20 mix-blend-multiply z-10" />
         </div>

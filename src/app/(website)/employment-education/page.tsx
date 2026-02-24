@@ -97,7 +97,7 @@ const EmploymentEducationPage = () => {
                         >
                             <div className="absolute inset-0 bg-primary/20 translate-x-4 translate-y-4 rounded-[2.5rem] -z-10 group-hover:translate-x-2 group-hover:translate-y-2 transition-transform duration-500" />
                             <div className="relative h-[500px] w-full">
-                                <Image
+                                <Image quality={80}
                                     src="https://images.unsplash.com/photo-1521737604893-d14cc237f11d?q=80&w=1484&auto=format&fit=crop"
                                     alt="Employment and Education Support"
                                     fill
@@ -249,7 +249,7 @@ const EmploymentEducationPage = () => {
                             </ul>
                         </div>
                         <div className="flex-1 w-full relative h-[400px] rounded-[2.5rem] overflow-hidden">
-                            <Image
+                            <Image quality={80}
                                 src="https://images.unsplash.com/photo-1517245386807-bb43f82c33c4?q=80&w=1470&auto=format&fit=crop"
                                 alt="Get ready for success"
                                 fill

@@ -106,7 +106,7 @@ const PsychosocialRecoveryCoach = () => {
                             transition={{ duration: 0.8 }}
                             className="relative h-[400px] lg:h-[600px] rounded-[3rem] overflow-hidden shadow-2xl border-8 border-white"
                         >
-                            <Image
+                            <Image quality={80}
                                 src="/images/recovery-coach/coach-1.webp" // Using a generic placeholder for now
                                 alt="Psychosocial Recovery Coach"
                                 fill
@@ -215,7 +215,7 @@ const PsychosocialRecoveryCoach = () => {
                             transition={{ duration: 0.8 }}
                             className="relative h-[400px] lg:h-[500px] w-full rounded-[3rem] overflow-hidden shadow-2xl border-8 border-gray-50 bg-gray-200"
                         >
-                            <Image
+                            <Image quality={80}
                                 src="/images/recovery-coach/coach-3.webp"
                                 alt="Lived Experience Coach"
                                 fill

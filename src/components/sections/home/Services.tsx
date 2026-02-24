@@ -62,7 +62,7 @@ const Services = () => {
         <section className="relative py-24 overflow-hidden min-h-screen flex flex-col justify-center">
             {/* BACKGROUND IMAGE & OVERLAY */}
             <div className="absolute inset-0 z-0">
-                <Image
+                <Image quality={80}
                     src="/services-bg-img.webp"
                     alt="Services Background"
                     fill
@@ -173,7 +173,7 @@ const Services = () => {
                                     {/* Inner lavender circle */}
                                     <div className="absolute inset-2 border-2 border-[var(--primary)]/10 rounded-full" />
                                     <div className="relative w-20 h-20 z-10 p-2">
-                                        <Image
+                                        <Image quality={80}
                                             src={service.icon}
                                             alt={service.title}
                                             fill
