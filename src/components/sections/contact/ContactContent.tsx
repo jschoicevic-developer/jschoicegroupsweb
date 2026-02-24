@@ -68,7 +68,6 @@ const ContactContent = () => {
         setSuccess(false);
 
         try {
-            // Split name into first and last name
             const nameParts = formData.name.trim().split(" ");
             const firstName = nameParts[0];
             const lastName = nameParts.slice(1).join(" ") || "";
