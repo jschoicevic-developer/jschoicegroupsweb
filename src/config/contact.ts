@@ -1,11 +1,15 @@
 export const CONTACT_DETAILS = {
+    alphabetical: {
+        display: "1300 JS CHOICE",
+        tel: "1300572464",
+    },
     national: {
         display: "1300 572 464",
         tel: "1300572464",
     },
     mobile: {
-        display: "0421 623 262",
-        tel: "0421623262",
+        display: "0421 622 262",
+        tel: "0421622262",
     },
     email: "info@jschoicegroup.com.au",
     address: {

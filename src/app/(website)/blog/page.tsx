@@ -4,7 +4,7 @@ import type { Metadata } from "next";
 
 export const metadata: Metadata = {
     title: "Blog | JS Choice Care & Support",
-    description: "Stay updated with the latest news, insights, and stories from JS Choice Care & Support and the NDIS community.",
+    description: "Discover professional insights, NDIS resources, and comprehensive care strategies from the JS Choice Care & Support team.",
 };
 
 export default function BlogPage() {

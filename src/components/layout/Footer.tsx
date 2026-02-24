@@ -134,11 +134,16 @@ const Footer = () => {
                         </div>
                         <ul className="space-y-6">
                             <li className="flex items-start gap-4">
-                                <div className="p-1 shrink-0 relative w-6 h-6">
+                                <div className="p-1 shrink-0 relative w-6 h-6 mt-1">
                                     <Image src="/images/footer/call.webp" alt="Call" fill className="object-contain" />
                                 </div>
-                                <div className="flex flex-col gap-1 pt-0.5">
-                                    <a href={`tel:${CONTACT_DETAILS.national.tel}`} className="text-md font-black hover:text-[#ABB3F1] transition-colors" aria-label={`Call ${CONTACT_DETAILS.national.display}`}>{CONTACT_DETAILS.national.display}</a>
+                                <div className="flex flex-col gap-1.5 pt-0.5">
+                                    <span className="text-xs text-slate-400 italic mb-1 leading-snug">
+                                        People forget numbers, so we use "alphabet-style numbers" to help them remember.
+                                    </span>
+                                    <span className="text-lg font-black text-[#ABB3F1] tracking-wide mb-1">1300 JS CHOICE</span>
+                                    <a href="tel:1300572464" className="text-sm font-bold text-gray-300 hover:text-white transition-colors">1300 572 464 (National)</a>
+                                    <a href="tel:0421622262" className="text-sm font-bold text-gray-300 hover:text-white transition-colors">0421 622 262 (Mobile)</a>
                                 </div>
                             </li>
                             <li className="flex items-start gap-4">

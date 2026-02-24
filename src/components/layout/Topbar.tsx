@@ -20,11 +20,11 @@ const Topbar = () => {
                     <div className="flex flex-wrap items-center justify-center md:justify-start gap-x-8">
                         {/* Phone */}
                         <div className="flex items-center gap-2 group">
-                            <a href={`tel:${CONTACT_DETAILS.national.tel}`} className="text-foreground/80 group-hover:text-foreground transition-colors" aria-label={`Call ${CONTACT_DETAILS.national.display}`}>
+                            <a href={`tel:${CONTACT_DETAILS.alphabetical.tel}`} className="text-foreground/80 group-hover:text-foreground transition-colors" aria-label={`Call ${CONTACT_DETAILS.alphabetical.display}`}>
                                 <Phone size={15} strokeWidth={2} />
                             </a>
                             <div className="hidden md:flex items-center gap-2 text-[#1F2937]">
-                                <a href={`tel:${CONTACT_DETAILS.national.tel}`} className="hover:text-foreground/70 transition-colors font-bold">{CONTACT_DETAILS.national.display}</a>
+                                <a href={`tel:${CONTACT_DETAILS.alphabetical.tel}`} className="hover:text-foreground/70 transition-colors font-bold tracking-wide">{CONTACT_DETAILS.alphabetical.display}</a>
                             </div>
                         </div>
 

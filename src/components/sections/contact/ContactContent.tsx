@@ -13,10 +13,13 @@ const contactInfo = [
         icon: Phone,
         title: "Call Us",
         content: (
-            <div className="flex flex-col gap-1">
-                <a href={`tel:${CONTACT_DETAILS.national.tel}`} className="hover:text-primary transition-colors font-bold" aria-label={`Call ${CONTACT_DETAILS.national.display}`}>{CONTACT_DETAILS.national.display}</a>
-                {/* Mobile number kept only on Contact Us page as per requirement */}
-                <a href={`tel:${CONTACT_DETAILS.mobile.tel}`} className="hover:text-primary transition-colors text-sm">{CONTACT_DETAILS.mobile.display} (Landline)</a>
+            <div className="flex flex-col gap-1.5 pt-1">
+                <span className="text-xs text-gray-500 italic mb-1">
+                    People forget numbers, so we use "alphabet-style numbers" to help them remember.
+                </span>
+                <span className="text-lg font-black text-primary mb-1">1300 JS CHOICE</span>
+                <a href="tel:1300572464" className="hover:text-primary transition-colors font-bold text-base">1300 572 464 (National)</a>
+                <a href="tel:0421622262" className="hover:text-primary transition-colors font-bold text-base">0421 622 262 (Mobile)</a>
             </div>
         )
     },

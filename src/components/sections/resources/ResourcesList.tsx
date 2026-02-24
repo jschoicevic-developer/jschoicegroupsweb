@@ -38,6 +38,22 @@ const resources = [
         icon: GraduationCap,
         color: "bg-orange-500/10",
         textColor: "text-orange-600"
+    },
+    {
+        title: "Positive Behaviour Support Training",
+        description: "Access the NDIS Commission Positive Behaviour Support Training modules to ensure best practices in care delivery.",
+        url: "https://etrainu.com/ndis-commission-positive-behaviour-support-training",
+        icon: GraduationCap,
+        color: "bg-teal-500/10",
+        textColor: "text-teal-600"
+    },
+    {
+        title: "Rules and Standards for Behaviour Support",
+        description: "Information and guidelines from the NDIS Commission regarding behaviour support and the use of restrictive practices.",
+        url: "https://www.ndiscommission.gov.au/rules-and-standards/behaviour-support-and-restrictive-practices",
+        icon: ShieldCheck,
+        color: "bg-indigo-500/10",
+        textColor: "text-indigo-600"
     }
 ];
 
