@@ -57,8 +57,8 @@ This comprehensive Software Requirements & System Design Document (SRS + SRD) co
 ---
 
 _For complete content of sections 1-10, refer to:_
-- `SYSTEM_DESIGN_DOCUMENT.md` (Sections 1-6)
-- `SYSTEM_DESIGN_DOCUMENT_PART2.md` (Sections 7-10)
+- `docs/architecture/SYSTEM_DESIGN_DOCUMENT.md` (Sections 1-6)
+- `docs/architecture/SYSTEM_DESIGN_DOCUMENT_PART2.md` (Sections 7-10)
 
 _Below are the final sections 11-15:_
 
@@ -1184,16 +1184,21 @@ jschoice-website/
 ├── tsconfig.json                         # TypeScript configuration
 ├── vercel.json                           # Vercel deployment config
 │
-├── AUTHENTICATION.md                     # Auth system docs
-├── BLOG_SYSTEM.md                        # Blog system docs
-├── CRM_API_DOCUMENTATION.md              # API reference
-├── CRM_BACKEND_IMPLEMENTATION_COMPLETE.md
-├── DEPLOYMENT_GUIDE.md                   # Deployment instructions
-├── design.md                             # Design system guide
-│
-├── SYSTEM_DESIGN_DOCUMENT.md             # This document (Part 1)
-├── SYSTEM_DESIGN_DOCUMENT_PART2.md       # This document (Part 2)
 └── README.md                             # Project overview
+│
+└── docs/
+    ├── guides/
+    │   ├── AUTHENTICATION.md             # Auth system docs
+    │   ├── BLOG_SYSTEM.md                # Blog system docs
+    │   └── CRM_API_DOCUMENTATION.md      # API reference
+    ├── setup/
+    │   └── DEPLOYMENT_GUIDE.md           # Deployment instructions
+    ├── architecture/
+    │   ├── design.md                     # Design system guide
+    │   ├── SYSTEM_DESIGN_DOCUMENT.md     # This document (Part 1)
+    │   └── SYSTEM_DESIGN_DOCUMENT_PART2.md  # This document (Part 2)
+    └── archive/
+        └── CRM_BACKEND_IMPLEMENTATION_COMPLETE.md
 ```
 
 ---

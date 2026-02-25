@@ -1,13 +1,12 @@
 "use client";
 
-import { useState } from "react";
+import { useState, useEffect, useRef } from "react";
 import { motion } from "framer-motion";
-import { Phone, Mail, MapPin, Clock, Send, CheckCircle, AlertCircle } from "lucide-react";
+import { Phone, Mail, MapPin, Clock,  CheckCircle, AlertCircle } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
-import { CONTACT_DETAILS } from "@/config/contact";
-
+ 
 const contactInfo = [
     {
         icon: Phone,
@@ -15,7 +14,7 @@ const contactInfo = [
         content: (
             <div className="flex flex-col gap-1.5 pt-1">
                 <span className="text-xs text-gray-500 italic mb-1">
-                    People forget numbers, so we use "alphabet-style numbers" to help them remember.
+                    People forget numbers, so we use &quot;alphabet-style numbers&quot; to help them remember.
                 </span>
                 <span className="text-lg font-black text-primary mb-1">1300 JS CHOICE</span>
                 <a href="tel:1300572464" className="hover:text-primary transition-colors font-bold text-base">1300 572 464 (National)</a>
@@ -60,6 +59,26 @@ const ContactContent = () => {
     const [loading, setLoading] = useState(false);
     const [success, setSuccess] = useState(false);
     const [error, setError] = useState("");
+
+    const [mapStatus, setMapStatus] = useState<"loading" | "loaded" | "fallback">("loading");
+    const mapTimeoutRef = useRef<ReturnType<typeof setTimeout>>(undefined);
+
+    useEffect(() => {
+        mapTimeoutRef.current = setTimeout(() => {
+            setMapStatus((prev) => (prev === "loading" ? "fallback" : prev));
+        }, 7000);
+        return () => clearTimeout(mapTimeoutRef.current);
+    }, []);
+
+    const handleMapLoad = () => {
+        clearTimeout(mapTimeoutRef.current);
+        setMapStatus("loaded");
+    };
+
+    const handleMapError = () => {
+        clearTimeout(mapTimeoutRef.current);
+        setMapStatus("fallback");
+    };
 
     const handleSubmit = async (e: React.FormEvent) => {
         e.preventDefault();
@@ -178,7 +197,7 @@ const ContactContent = () => {
                                 <CheckCircle className="text-green-600 shrink-0 mt-0.5" size={20} />
                                 <div>
                                     <p className="font-bold text-green-900">Thank you for contacting us!</p>
-                                    <p className="text-sm text-green-700">We'll get back to you as soon as possible.</p>
+                                    <p className="text-sm text-green-700">We&quot;ll get back to you as soon as possible.</p>
                                 </div>
                             </motion.div>
                         )}
@@ -267,17 +286,52 @@ const ContactContent = () => {
                     whileInView={{ opacity: 1, y: 0 }}
                     viewport={{ once: true }}
                     transition={{ duration: 0.8 }}
-                    className="w-full h-[450px] rounded-[2.5rem] overflow-hidden shadow-xl border-4 border-white"
+                    className="relative w-full h-112.5 rounded-[2.5rem] overflow-hidden shadow-xl border-4 border-white"
                 >
-                    <iframe
-                        src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3185.88242143016!2d144.7353927!3d-37.8841432!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0xabcfe6437b782811%3A0x58ba017b4a222108!2sJs%20Choice%20-%20Care%20and%20Support!5e1!3m2!1sen!2sin!4v1731303057766!5m2!1sen!2sin"
-                        width="100%"
-                        height="100%"
-                        style={{ border: 0 }}
-                        allowFullScreen
-                        loading="lazy"
-                        referrerPolicy="no-referrer-when-downgrade"
-                    />
+                    {mapStatus !== "fallback" && (
+                        <iframe
+                            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3185.88242143016!2d144.7353927!3d-37.8841432!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0xabcfe6437b782811%3A0x58ba017b4a222108!2sJs%20Choice%20-%20Care%20and%20Support!5e1!3m2!1sen!2sin!4v1731303057766!5m2!1sen!2sin"
+                            width="100%"
+                            height="100%"
+                            style={{ border: 0 }}
+                            allowFullScreen
+                            loading="eager"
+                            referrerPolicy="no-referrer-when-downgrade"
+                            title="JS Choice Care and Support location map"
+                            onLoad={handleMapLoad}
+                            onError={handleMapError}
+                        />
+                    )}
+
+                    {/* Loading shimmer — visible until iframe fires onLoad */}
+                    {mapStatus === "loading" && (
+                        <div className="absolute inset-0 bg-gray-100 flex flex-col items-center justify-center gap-3">
+                            <MapPin size={40} className="text-primary/40 animate-pulse" />
+                            <span className="text-sm text-gray-400">Loading map…</span>
+                        </div>
+                    )}
+
+                    {/* Fallback — shown after timeout or onError */}
+                    {mapStatus === "fallback" && (
+                        <div className="absolute inset-0 bg-linear-to-br from-gray-50 to-gray-100 flex flex-col items-center justify-center gap-5 px-8 text-center">
+                            <div className="w-16 h-16 rounded-2xl bg-primary/10 flex items-center justify-center">
+                                <MapPin size={32} className="text-primary" />
+                            </div>
+                            <div>
+                                <p className="font-black text-[#2D3748] text-lg mb-1">JS Choice Care and Support</p>
+                                <p className="text-gray-500 text-sm">Suite 106, Level 1, C5, 2 Main Street, Point Cook VIC 3030</p>
+                            </div>
+                            <a
+                                href="https://www.google.com/maps/place/Js+Choice+-+Care+and+Support/@-37.8841432,144.7353927,17z"
+                                target="_blank"
+                                rel="noopener noreferrer"
+                                className="inline-flex items-center gap-2 px-6 py-3 bg-primary text-white rounded-full font-bold text-sm hover:brightness-110 transition-all duration-300"
+                            >
+                                <MapPin size={16} />
+                                Open in Google Maps
+                            </a>
+                        </div>
+                    )}
                 </motion.div>
             </div>
         </section>

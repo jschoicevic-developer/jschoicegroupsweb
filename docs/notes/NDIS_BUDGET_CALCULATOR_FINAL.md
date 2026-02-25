@@ -267,10 +267,10 @@ vercel --prod
 - `PHASE_5_COMPLETE.md` - Polish & mobile
 
 **Other Docs:**
-- `NDIS_BUDGET_CALCULATOR_SPEC.md` - Original specification
+- `docs/guides/NDIS_BUDGET_CALCULATOR_SPEC.md` - Original specification
 - `BUDGET_CALCULATOR_SPECIFICATION.md` - Detailed algorithms
-- `DEPLOYMENT_GUIDE.md` - Deployment instructions
-- `NDIS_DATA_INTEGRITY_ISSUE.md` - Data import analysis
+- `docs/setup/DEPLOYMENT_GUIDE.md` - Deployment instructions
+- `docs/archive/NDIS_DATA_INTEGRITY_ISSUE.md` - Data import analysis
 
 ---
 

@@ -533,7 +533,7 @@ FROM ndis_support_items;
 - **Python Fallback**: `scripts/github_price_updater.py`
 - **SQL Batches**: `scripts/full_batch_01.sql` through `full_batch_13.sql`
 - **Clear Database**: `scripts/clear_ndis_database.sql`
-- **Issue Analysis**: `NDIS_DATA_INTEGRITY_ISSUE.md`
+- **Issue Analysis**: `docs/archive/NDIS_DATA_INTEGRITY_ISSUE.md`
 
 ### Database Tables
 - **Data Table**: `ndis_support_items` (should have 635 records)
@@ -549,7 +549,7 @@ FROM ndis_support_items;
 ### Contact & Support
 - **NDIS Pricing Page**: https://www.ndis.gov.au/providers/pricing-arrangements
 - **Supabase Docs**: https://supabase.com/docs
-- **Project Issues**: See `NDIS_DATA_INTEGRITY_ISSUE.md`
+- **Project Issues**: See `docs/archive/NDIS_DATA_INTEGRITY_ISSUE.md`
 
 ---
 

@@ -81,13 +81,13 @@ for (let i = 0; i < records.length; i += batchSize) {
 
 Created 4 comprehensive documents for you:
 
-1. **`NDIS_DATA_INTEGRITY_ISSUE.md`**
+1. **`docs/archive/NDIS_DATA_INTEGRITY_ISSUE.md`**
    - Complete technical analysis
    - Root cause explanation
    - Prevention strategies
    - 17 pages of detailed documentation
 
-2. **`DEPLOYMENT_GUIDE.md`**
+2. **`docs/setup/DEPLOYMENT_GUIDE.md`**
    - Step-by-step deployment instructions
    - 3 import methods (Edge Function, Python, SQL)
    - Verification queries
@@ -268,12 +268,12 @@ SELECT cron.schedule(
 
 All documentation is ready for you:
 
-1. **`NDIS_DATA_INTEGRITY_ISSUE.md`**
+1. **`docs/archive/NDIS_DATA_INTEGRITY_ISSUE.md`**
    - Full technical analysis
    - Root cause deep dive
    - Prevention strategies
 
-2. **`DEPLOYMENT_GUIDE.md`**
+2. **`docs/setup/DEPLOYMENT_GUIDE.md`**
    - Step-by-step deployment
    - Troubleshooting guide
    - Automation setup
