@@ -49,6 +49,9 @@ export const metadata: Metadata = {
     index: true,
     follow: true,
   },
+  verification: {
+    google: "t4GDfxhYoa0Q3eJn8m43QhF2Te49K_d5h3R2J770R58",
+  },
 };
 
 const organizationSchema = {
