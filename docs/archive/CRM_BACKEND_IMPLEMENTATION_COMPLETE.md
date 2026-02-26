@@ -107,7 +107,7 @@ src/app/api/
 ```
 .env.example                 # Environment variables template
 vercel.json                  # Vercel cron configuration
-CRM_API_DOCUMENTATION.md     # Complete API documentation
+docs/guides/CRM_API_DOCUMENTATION.md     # Complete API documentation
 ```
 
 ---
@@ -147,7 +147,7 @@ NOTIFICATION_EMAILS=admin@jschoicegroup.com.au
 Run the SQL schema in Supabase:
 
 1. Go to https://app.supabase.com/project/browkzylcbkgaoacijqm/sql
-2. Copy the complete SQL schema from `JS_CHOICE_CRM_DEVELOPMENT_GUIDE.md` (lines 176-616)
+2. Copy the complete SQL schema from `docs/guides/JS_CHOICE_CRM_DEVELOPMENT_GUIDE.md` (lines 176-616)
 3. Execute the SQL
 4. Verify tables are created
 
@@ -366,8 +366,8 @@ const response = await fetch('/api/leads', {
 
 ## 📚 DOCUMENTATION
 
-- **API Documentation:** `CRM_API_DOCUMENTATION.md`
-- **Development Guide:** `JS_CHOICE_CRM_DEVELOPMENT_GUIDE.md`
+- **API Documentation:** `docs/guides/CRM_API_DOCUMENTATION.md`
+- **Development Guide:** `docs/guides/JS_CHOICE_CRM_DEVELOPMENT_GUIDE.md`
 - **Environment Variables:** `.env.example`
 
 ---
@@ -436,8 +436,8 @@ Your CRM backend is **production-ready** and includes:
 ---
 
 **Questions?** Refer to:
-- `CRM_API_DOCUMENTATION.md` for API details
-- `JS_CHOICE_CRM_DEVELOPMENT_GUIDE.md` for full specification
+- `docs/guides/CRM_API_DOCUMENTATION.md` for API details
+- `docs/guides/JS_CHOICE_CRM_DEVELOPMENT_GUIDE.md` for full specification
 - Supabase docs: https://supabase.com/docs
 
 **END OF IMPLEMENTATION SUMMARY**
