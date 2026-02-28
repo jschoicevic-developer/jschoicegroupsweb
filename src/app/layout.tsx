@@ -127,8 +127,7 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
         suppressHydrationWarning
         className={`${dosis.variable} ${poppins.variable} antialiased font-sans flex flex-col min-h-screen`}
       >
-        {/* Google Tag Manager (noscript) */}
-        <noscript>
+         <noscript>
           <iframe
             src="https://www.googletagmanager.com/ns.html?id=GTM-5B22KVV2"
             height="0"
@@ -136,8 +135,7 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
             style={{ display: "none", visibility: "hidden" }}
           />
         </noscript>
-        {/* End Google Tag Manager (noscript) */}
-        {children}
+         {children}
       </body>
     </html>
   );
