@@ -3,6 +3,7 @@
 import { useState } from "react";
 import Image from "next/image";
 import Link from "next/link";
+import { useRouter } from "next/navigation";
 import { motion, AnimatePresence } from "framer-motion";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
@@ -678,6 +679,7 @@ const FaqSection = () => {
 
 /* ──────────────────────── SECTION 10: CONTACT / QUOTE FORM ──────────────────────── */
 const QuoteForm = () => {
+    const router = useRouter();
     const [formData, setFormData] = useState({ name: "", phone: "", email: "", location: "", message: "" });
     const [loading, setLoading] = useState(false);
     const [success, setSuccess] = useState(false);
@@ -713,7 +715,7 @@ const QuoteForm = () => {
             if (data.success) {
                 setSuccess(true);
                 setFormData({ name: "", phone: "", email: "", location: "", message: "" });
-                setTimeout(() => setSuccess(false), 5000);
+                router.push("/thank-you");
             } else {
                 setError(data.error || "Failed to submit. Please try again.");
             }
