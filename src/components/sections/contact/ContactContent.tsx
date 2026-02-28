@@ -1,12 +1,13 @@
 "use client";
 
 import { useState, useEffect, useRef } from "react";
+import { useRouter } from "next/navigation";
 import { motion } from "framer-motion";
-import { Phone, Mail, MapPin, Clock,  CheckCircle, AlertCircle } from "lucide-react";
+import { Phone, Mail, MapPin, Clock, CheckCircle, AlertCircle } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
- 
+
 const contactInfo = [
     {
         icon: Phone,
@@ -49,6 +50,7 @@ const contactInfo = [
 ];
 
 const ContactContent = () => {
+    const router = useRouter();
     const [formData, setFormData] = useState({
         name: "",
         phone: "",
@@ -121,8 +123,7 @@ const ContactContent = () => {
                     message: "",
                 });
 
-                // Reset success message after 5 seconds
-                setTimeout(() => setSuccess(false), 5000);
+                router.push("/thank-you");
             } else {
                 setError(data.error || "Failed to submit form. Please try again.");
             }
