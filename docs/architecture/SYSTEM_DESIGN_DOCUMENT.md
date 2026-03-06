@@ -642,7 +642,7 @@ src/lib/
 ### Database Provider: Supabase (PostgreSQL 15)
 
 **Connection Details:**
-- **URL**: `https://browkzylcbkgaoacijqm.supabase.co`
+- **URL**: `https://htszyyiptlahwkdgcbjq.supabase.co`
 - **Region**: Australia (Sydney)
 - **Connection Pooling**: PgBouncer (session mode)
 - **SSL**: Enforced
@@ -2725,14 +2725,14 @@ $$ LANGUAGE plpgsql;
 
 ```bash
 # Export full database via pg_dump
-pg_dump -h db.browkzylcbkgaoacijqm.supabase.co \
+pg_dump -h db.htszyyiptlahwkdgcbjq.supabase.co \
         -U postgres \
         -d postgres \
         -F c \
         -f jschoice_backup_$(date +%Y%m%d).dump
 
 # Restore from backup
-pg_restore -h db.browkzylcbkgaoacijqm.supabase.co \
+pg_restore -h db.htszyyiptlahwkdgcbjq.supabase.co \
            -U postgres \
            -d postgres \
            -c \

@@ -11,7 +11,7 @@ const nextConfig: NextConfig = {
       },
       {
         protocol: 'https',
-        hostname: 'browkzylcbkgaoacijqm.supabase.co',
+        hostname: 'htszyyiptlahwkdgcbjq.supabase.co',
         pathname: '/**',
       },
       {
@@ -29,7 +29,7 @@ const nextConfig: NextConfig = {
           { key: 'X-Content-Type-Options', value: 'nosniff' },
           { key: 'X-Frame-Options', value: 'DENY' },
           { key: 'Referrer-Policy', value: 'strict-origin-when-cross-origin' },
-          { key: 'Content-Security-Policy', value: "default-src 'self'; script-src 'self' 'unsafe-eval' 'unsafe-inline' https://www.googletagmanager.com; script-src-elem 'self' 'unsafe-inline' https://www.googletagmanager.com; style-src 'self' 'unsafe-inline'; img-src 'self' data: https: blob: https://www.googletagmanager.com; font-src 'self' data:; connect-src 'self' https://browkzylcbkgaoacijqm.supabase.co https://www.google-analytics.com https://analytics.google.com https://stats.g.doubleclick.net https://www.google.com https://www.googletagmanager.com; frame-src https://www.google.com https://maps.google.com https://www.googletagmanager.com;" }
+          { key: 'Content-Security-Policy', value: "default-src 'self'; script-src 'self' 'unsafe-eval' 'unsafe-inline' https://www.googletagmanager.com; script-src-elem 'self' 'unsafe-inline' https://www.googletagmanager.com; style-src 'self' 'unsafe-inline'; img-src 'self' data: https: blob: https://www.googletagmanager.com; font-src 'self' data:; connect-src 'self' https://htszyyiptlahwkdgcbjq.supabase.co https://www.google-analytics.com https://analytics.google.com https://stats.g.doubleclick.net https://www.google.com https://www.googletagmanager.com; frame-src https://www.google.com https://maps.google.com https://www.googletagmanager.com;" }
         ],
       }
     ];

@@ -731,7 +731,7 @@ next build
 
 ```bash
 # .env (local development - NOT committed to Git)
-NEXT_PUBLIC_SUPABASE_URL=https://browkzylcbkgaoacijqm.supabase.co
+NEXT_PUBLIC_SUPABASE_URL=https://htszyyiptlahwkdgcbjq.supabase.co
 NEXT_PUBLIC_SUPABASE_ANON_KEY=eyJhbGc...
 SUPABASE_SERVICE_ROLE_KEY=eyJhbGc...
 RESEND_API_KEY=re_xxxxxxxxxxxxx
