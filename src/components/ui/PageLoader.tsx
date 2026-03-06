@@ -50,7 +50,7 @@ const PageLoader = () => {
                         >
                             <div className="absolute -inset-4 bg-[#ABB3F1]/10 rounded-full blur-2xl animate-pulse" />
                             <Image quality={80}
-                                src="/JCGLogo.png"
+                                src="/logo.png"
                                 alt="JS Choice Care"
                                 width={196}
                                 height={112}

@@ -35,7 +35,7 @@ const Footer = () => {
                     <div className="lg:col-span-2 space-y-8">
                         <Link href="https://jschoicegroup.com.au/">
                             <Image quality={80}
-                                src="/JCGLogoWhite.png"
+                                src="/logo.png"
                                 alt="JS Choice"
                                 width={200}
                                 height={80}

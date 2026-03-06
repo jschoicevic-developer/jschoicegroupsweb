@@ -36,7 +36,12 @@
       "Bash(git mv PHASE_4_COMPLETE.md docs/archive/PHASE_4_COMPLETE.md)",
       "Bash(git mv PHASE_5_COMPLETE.md docs/archive/PHASE_5_COMPLETE.md)",
       "Bash(git mv .agent/mobile-responsive-guide.md docs/notes/mobile-responsive-guide.md)",
-      "Bash(git add docs/README.md)"
+      "Bash(git add docs/README.md)",
+      "WebFetch(domain:jschoicegroup.com.au)",
+      "Bash(/tmp/audit_output.txt:*)",
+      "Read(//tmp/**)",
+      "mcp__plugin_playwright_playwright__browser_navigate",
+      "mcp__plugin_playwright_playwright__browser_evaluate"
     ]
   },
   "enableAllProjectMcpServers": true,

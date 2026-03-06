@@ -12,7 +12,6 @@ export default function sitemap(): MetadataRoute.Sitemap {
         { url: `${BASE_URL}/career`, priority: 0.7, changeFrequency: "monthly" as const },
         { url: `${BASE_URL}/blog`, priority: 0.8, changeFrequency: "weekly" as const },
         { url: `${BASE_URL}/consultations`, priority: 0.8, changeFrequency: "monthly" as const },
-        { url: `${BASE_URL}/referral`, priority: 0.7, changeFrequency: "monthly" as const },
         { url: `${BASE_URL}/privacy-policy`, priority: 0.4, changeFrequency: "yearly" as const },
         { url: `${BASE_URL}/terms-and-conditions`, priority: 0.4, changeFrequency: "yearly" as const },
     ];

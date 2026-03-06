@@ -78,7 +78,7 @@ const Navbar = () => {
                     {/* Logo Section */}
                     <Link href="/" className="flex items-center gap-2 relative z-50 shrink-0">
                         <Image quality={80}
-                            src="/JCGLogo.png"
+                            src="/logo.png"
                             alt="JS Choice Group"
                             width={135}
                             height={77}
@@ -191,7 +191,7 @@ const Navbar = () => {
                         >
                             <Link href="/consultations" className="flex items-center gap-2">
                                 <HeartHandshake size={18} strokeWidth={1.5} className="text-black" />
-                                <span className="text-black font-semibold">Get Consultations</span>
+                                <span className="text-black font-semibold">Referrals</span>
                             </Link>
                         </Button>
                     </div>
@@ -269,7 +269,7 @@ const Navbar = () => {
                                 >
                                     <Link href="/consultations" className="flex items-center justify-center gap-2">
                                         <HeartHandshake size={20} className="text-black" strokeWidth={1.5} />
-                                        <span className="text-black font-bold">Get Consultations</span>
+                                        <span className="text-black font-bold">Referrals</span>
                                     </Link>
                                 </Button>
                             </div>
