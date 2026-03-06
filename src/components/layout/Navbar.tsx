@@ -12,7 +12,7 @@ import {
     MapPin, Network, Activity,
     FileText, Lightbulb, Home, Wrench, GraduationCap
 } from "lucide-react";
-import { motion, AnimatePresence, useScroll, useSpring } from "framer-motion";
+import { motion, AnimatePresence } from "framer-motion";
 import { cn } from "@/lib/utils";
 
 
@@ -33,13 +33,6 @@ const Navbar = () => {
             setMobileServicesOpen(false);
         }
     }, [isOpen]);
-
-    const { scrollYProgress } = useScroll();
-    const scaleX = useSpring(scrollYProgress, {
-        stiffness: 100,
-        damping: 30,
-        restDelta: 0.001
-    });
 
     const services = [
         { name: "Assistance With Daily Life", href: "/assistance-with-daily-life", icon: HeartHandshake, desc: "Support for your everyday needs and independence." },
@@ -278,11 +271,6 @@ const Navbar = () => {
                 )}
             </AnimatePresence>
 
-            {/* Scroll Progress Bar */}
-            <motion.div
-                className="absolute bottom-0 left-0 right-0 h-[3px] bg-secondary origin-left z-[101]"
-                style={{ scaleX }}
-            />
         </motion.header>
     );
 };
