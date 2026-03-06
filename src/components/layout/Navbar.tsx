@@ -71,7 +71,7 @@ const Navbar = () => {
                     {/* Logo Section */}
                     <Link href="/" className="flex items-center gap-2 relative z-50 shrink-0">
                         <Image quality={80}
-                            src="/logo.png"
+                            src="/JCGLogo.png"
                             alt="JS Choice Group"
                             width={135}
                             height={77}
