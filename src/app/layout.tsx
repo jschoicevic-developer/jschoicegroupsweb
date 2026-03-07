@@ -20,7 +20,7 @@ export const metadata: Metadata = {
     template: "%s | JS Choice Group",
   },
   description:
-    "JS Choice Group Pty Ltd is a registered NDIS provider delivering compassionate disability support services across Melbourne and Victoria. Call 1300 572 464.",
+    "JS Choice Group is a registered NDIS provider delivering compassionate disability support services across Melbourne and Victoria. Call 1300 572 464.",
   metadataBase: new URL("https://jschoicegroup.com.au"),
   openGraph: {
     type: "website",

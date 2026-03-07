@@ -1,8 +1,8 @@
 import type { Metadata } from 'next';
 
 export const metadata: Metadata = {
-    title: "Employment Education | JS Choice Care & Support",
-    description: "Discover Employment Education services from expert support workers. JS Choice Group provides comprehensive disability support and NDIS assistance.",
+    title: "Employment & Education Support",
+    description: "JS Choice Group helps NDIS participants find employment and pursue education. Expert support to build skills, confidence and independence in Victoria.",
     alternates: { canonical: 'https://jschoicegroup.com.au/employment-education' }
 };
 

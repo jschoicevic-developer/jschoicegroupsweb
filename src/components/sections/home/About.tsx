@@ -208,7 +208,7 @@ const About = () => {
                         <div className="pt-4">
                             <Button asChild className="h-14 px-10 rounded-full bg-primary hover:brightness-105 text-[#1A202C] font-bold text-sm uppercase tracking-wider gap-3 shadow-xl transition-all border-none">
                                 <Link href="/about-us" className="flex items-center">
-                                    <span>Learn More</span>
+                                    <span>About JS Choice Group</span>
                                     <HeartHandshake size={18} strokeWidth={3} className="ml-1 text-[#1A202C]" />
                                 </Link>
                             </Button>

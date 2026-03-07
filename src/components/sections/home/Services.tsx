@@ -195,8 +195,9 @@ const Services = () => {
                             <Link
                                 href={service.href}
                                 className="inline-flex items-center justify-center h-12 px-10 rounded-full bg-[#ABB3F1] text-black text-xs font-black uppercase tracking-widest hover:bg-[#9DA5E2] hover:shadow-lg transition-all"
+                                aria-label={`Learn more about ${service.title}`}
                             >
-                                LEARN MORE
+                                LEARN MORE<span className="sr-only"> about {service.title}</span>
                             </Link>
                         </motion.div>
                     ))}

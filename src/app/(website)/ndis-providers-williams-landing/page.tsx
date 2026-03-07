@@ -180,7 +180,7 @@ const NdisProvidersWilliamsLanding = () => {
                                     Williams Landing
                                 </span>
                                 <h2 className="text-4xl lg:text-5xl font-black text-[#2D3748] leading-tight">
-                                    Experienced NDIS Providers in Williams Landing <span className="text-primary block mt-2">Offering Personalised Services</span>
+                                    Trusted NDIS Providers in <span className="text-primary block mt-2">Williams Landing</span>
                                 </h2>
                             </div>
                             <div className="space-y-6 text-lg text-gray-600 leading-relaxed">
@@ -208,7 +208,7 @@ const NdisProvidersWilliamsLanding = () => {
                         className="max-w-4xl mx-auto"
                     >
                         <h2 className="text-3xl md:text-5xl font-black mb-6 leading-tight text-white">
-                            Reach Out Today <span className="text-primary">to Discuss Your Needs</span>
+                            Get NDIS Support <span className="text-primary">in Williams Landing Today</span>
                         </h2>
                         <p className="text-xl text-gray-300 mb-10 leading-relaxed">
                             Js Choice – Care and Support is here to help you live your best life and achieve your goals with the support you deserve.

@@ -32,6 +32,8 @@ import {
     Legend
 } from 'recharts';
 import { createClient } from '@/lib/supabase';
+import { adminCache } from '@/lib/adminCache';
+import { AnalyticsSkeleton } from '@/components/admin/skeletons';
 import { Button } from '@/components/ui/button';
 import {
     Select,
@@ -54,33 +56,37 @@ interface ChartDataPoint {
     total: number;
 }
 
+type AnalyticsCacheData = { rawData: any[]; galleryCount: number };
+const CACHE_KEY = 'analytics';
+
 export default function AnalyticsPage() {
-    const [loading, setLoading] = useState(true);
+    const cached = adminCache.get<AnalyticsCacheData>(CACHE_KEY);
+    const [loading, setLoading] = useState(!cached);
     const [timeRange, setTimeRange] = useState<TimeRange>('30d');
-    const [rawData, setRawData] = useState<any[]>([]);
-    const [galleryCount, setGalleryCount] = useState(0);
+    const [rawData, setRawData] = useState<any[]>(cached?.rawData ?? []);
+    const [galleryCount, setGalleryCount] = useState(cached?.galleryCount ?? 0);
 
     useEffect(() => {
-        fetchAnalyticsData();
+        if (!adminCache.has(CACHE_KEY) || adminCache.isStale(CACHE_KEY)) {
+            fetchAnalyticsData();
+        }
     }, []);
 
     const fetchAnalyticsData = async () => {
-        setLoading(true);
+        if (!adminCache.has(CACHE_KEY)) setLoading(true);
         const supabase = createClient();
 
         try {
-            // Fetch all leads data for client-side processing
-            // In a larger app, this should be done via SQL aggregation or RPC
-            const { data, error } = await supabase
-                .from('leads')
-                .select('*')
-                .order('created_at', { ascending: true });
-
-            const { count: galleryTotal } = await supabase.from('gallery_items').select('*', { count: 'exact', head: true });
-            setGalleryCount(galleryTotal || 0);
+            const [{ data, error }, { count: galleryTotal }] = await Promise.all([
+                supabase.from('leads').select('*').order('created_at', { ascending: true }),
+                supabase.from('gallery_items').select('*', { count: 'exact', head: true }),
+            ]);
 
             if (error) throw error;
-            setRawData(data || []);
+            const fresh = { rawData: data || [], galleryCount: galleryTotal || 0 };
+            adminCache.set(CACHE_KEY, fresh);
+            setRawData(fresh.rawData);
+            setGalleryCount(fresh.galleryCount);
         } catch (error) {
             console.error('Error fetching analytics:', error);
         } finally {
@@ -192,6 +198,8 @@ export default function AnalyticsPage() {
     }, [rawData, timeRange]);
 
     const { chartData, sourcesData, statusData, stats } = processData;
+
+    if (loading) return <AnalyticsSkeleton />;
 
     return (
         <div className="space-y-6 sm:space-y-8 pb-8">

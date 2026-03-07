@@ -1,8 +1,8 @@
 import type { Metadata } from 'next';
 
 export const metadata: Metadata = {
-    title: "NDIS Accommodation Geelong | JS Choice Care & Support",
-    description: "Discover NDIS Accommodation Geelong services from expert support workers. JS Choice Group provides comprehensive disability support and NDIS assistance.",
+    title: "NDIS Accommodation in Geelong",
+    description: "Find NDIS accommodation in Geelong with JS Choice Group. We provide SDA, SIL and supported housing solutions for NDIS participants in the Geelong region.",
     alternates: { canonical: 'https://jschoicegroup.com.au/ndis-accommodation-geelong' }
 };
 

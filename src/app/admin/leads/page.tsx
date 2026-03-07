@@ -22,6 +22,8 @@ import {
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import CommunicationPanel from "@/components/admin/CommunicationPanel";
+import { adminCache } from "@/lib/adminCache";
+import { LeadsSkeleton } from "@/components/admin/skeletons";
 
 interface Lead {
     id: string;
@@ -41,7 +43,7 @@ interface Lead {
 
 function LeadsList() {
     const [leads, setLeads] = useState<Lead[]>([]);
-    const [loading, setLoading] = useState(true);
+    const [loading, setLoading] = useState(!adminCache.has('leads-all'));
     const [searchQuery, setSearchQuery] = useState("");
     const [statusFilter, setStatusFilter] = useState<string>("all");
     const [selectedLead, setSelectedLead] = useState<Lead | null>(null);
@@ -52,7 +54,7 @@ function LeadsList() {
     const leadIdParam = searchParams.get('id');
 
     useEffect(() => {
-        fetchLeads();
+        fetchLeads(statusFilter);
     }, [statusFilter]);
 
     // Handle deep linking for lead details
@@ -65,35 +67,40 @@ function LeadsList() {
         }
     }, [leadIdParam, leads]);
 
-    const fetchLeads = async () => {
-        try {
+    const fetchLeads = async (filter: string = statusFilter) => {
+        const key = `leads-${filter}`;
+        const cached = adminCache.get<Lead[]>(key);
+
+        if (cached && !adminCache.isStale(key)) {
+            setLeads(cached);
+            setLoading(false);
+            return;
+        }
+
+        if (cached) {
+            // Stale — show cached data, silently revalidate
+            setLeads(cached);
+            setLoading(false);
+        } else {
             setLoading(true);
-            const params = new URLSearchParams({
-                limit: '100',
-            });
+        }
 
-            if (statusFilter !== 'all') {
-                params.append('status', statusFilter);
-            }
+        try {
+            const params = new URLSearchParams({ limit: '100' });
+            if (filter !== 'all') params.append('status', filter);
 
-            console.log('Fetching leads with params:', params.toString());
             const response = await fetch(`/api/leads?${params}`);
-            console.log('Response status:', response.status);
-
             const result = await response.json();
-            console.log('Response data:', result);
 
             if (result.success) {
-                // API returns paginated response with data array
+                adminCache.set(key, result.data || []);
                 setLeads(result.data || []);
-                console.log('Leads loaded:', (result.data || []).length);
             } else {
-                console.error('API returned error:', result.error);
-                setLeads([]);
+                if (!cached) setLeads([]);
             }
         } catch (error) {
             console.error('Error fetching leads:', error);
-            setLeads([]);
+            if (!cached) setLeads([]);
         } finally {
             setLoading(false);
         }
@@ -169,10 +176,11 @@ function LeadsList() {
             const data = await response.json();
 
             if (data.success) {
-                // Remove lead from state
+                // Invalidate cache so next visit re-fetches fresh data
+                adminCache.invalidatePattern('leads-');
+                adminCache.invalidate('dashboard');
                 setLeads(leads.filter(l => l.id !== deleteModalLead.id));
                 setDeleteModalLead(null);
-                // Show success message (you can add a toast notification here)
                 alert('Lead deleted successfully!');
             } else {
                 alert('Failed to delete lead: ' + (data.error || 'Unknown error'));
@@ -310,10 +318,7 @@ function LeadsList() {
 
             {/* Leads Table */}
             {loading ? (
-                <div className="glass-card p-12 rounded-2xl text-center">
-                    <div className="animate-spin w-8 h-8 border-4 border-primary border-t-transparent rounded-full mx-auto mb-4"></div>
-                    <p className="text-gray-500 font-medium">Loading leads...</p>
-                </div>
+                <LeadsSkeleton />
             ) : filteredLeads.length === 0 ? (
                 <div className="glass-card p-12 rounded-2xl text-center">
                     <p className="text-gray-500 font-medium">No leads found</p>
@@ -710,7 +715,10 @@ function LeadsList() {
                     <CommunicationPanel
                         lead={emailLead}
                         onClose={() => setEmailLead(null)}
-                        onSuccess={() => fetchLeads()} // Refresh to show 'contacted' status
+                        onSuccess={() => {
+                            adminCache.invalidatePattern('leads-');
+                            fetchLeads(statusFilter);
+                        }}
                     />
                 )}
             </AnimatePresence>
@@ -720,11 +728,7 @@ function LeadsList() {
 
 export default function LeadsPage() {
     return (
-        <Suspense fallback={
-            <div className="flex items-center justify-center min-h-screen">
-                <div className="animate-spin rounded-full h-12 w-12 border-b-2 border-primary"></div>
-            </div>
-        }>
+        <Suspense fallback={<LeadsSkeleton />}>
             <LeadsList />
         </Suspense>
     );

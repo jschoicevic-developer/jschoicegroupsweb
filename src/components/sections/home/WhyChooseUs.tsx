@@ -76,7 +76,7 @@ const WhyChooseUs = () => {
                         <div className="pt-4">
                             <Button asChild className="h-14 px-10 rounded-full bg-[#ABB3F1] hover:bg-[#9CA5E5] text-[#1A202C] font-bold text-base uppercase tracking-widest shadow-lg hover:shadow-xl hover:-translate-y-1 transition-all border-none relative overflow-hidden group">
                                 <Link href="/about-us" className="flex items-center gap-2">
-                                    <span className="relative z-10">Learn More</span>
+                                    <span className="relative z-10">About JS Choice</span>
                                     <ChevronRight size={18} strokeWidth={3} className="relative z-10 group-hover:translate-x-1 transition-transform" />
                                 </Link>
                             </Button>
