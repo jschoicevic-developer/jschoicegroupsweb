@@ -159,7 +159,7 @@ const Footer = () => {
                                     <Image quality={80} src="/images/footer/location.webp" alt="Loc" fill className="object-contain" />
                                 </div>
                                 <p className="pt-1 text-xs md:text-sm font-bold text-gray-400 leading-relaxed">
-                                    Suite 106, Level 1, C5, 2 Main Street, Point Cook VIC 3030
+                                    Suite 104, Level 1, C5, 2 Main Street, Point Cook VIC 3030
                                 </p>
                             </li>
                             <li className="flex items-start gap-4">

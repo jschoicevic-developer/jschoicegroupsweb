@@ -35,7 +35,7 @@ const contactInfo = [
     {
         icon: MapPin,
         title: "Address",
-        content: "Suite 106, Level 1, C5, 2 Main Street, Point Cook VIC 3030"
+        content: "Suite 104, Level 1, C5, 2 Main Street, Point Cook VIC 3030"
     },
     {
         icon: Mail,
@@ -320,7 +320,7 @@ const ContactContent = () => {
                             </div>
                             <div>
                                 <p className="font-black text-[#2D3748] text-lg mb-1">JS Choice Care and Support</p>
-                                <p className="text-gray-500 text-sm">Suite 106, Level 1, C5, 2 Main Street, Point Cook VIC 3030</p>
+                                <p className="text-gray-500 text-sm">Suite 104, Level 1, C5, 2 Main Street, Point Cook VIC 3030</p>
                             </div>
                             <a
                                 href="https://www.google.com/maps/place/Js+Choice+-+Care+and+Support/@-37.8841432,144.7353927,17z"
