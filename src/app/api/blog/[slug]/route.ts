@@ -82,6 +82,22 @@ export async function PATCH(
         const body = await request.json();
         const supabase = createServerClient();
 
+        // Ownership check: if author_id is provided in body, verify it matches the post
+        if (body.author_id) {
+            const { data: existing } = await supabase
+                .from('blog_posts')
+                .select('author_id')
+                .eq('slug', oldSlug)
+                .single();
+
+            if (existing && existing.author_id && existing.author_id !== body.author_id) {
+                return NextResponse.json(
+                    { success: false, error: 'You do not have permission to edit this post' },
+                    { status: 403 }
+                );
+            }
+        }
+
         // Prepare update data
         const updateData: any = {
             updated_at: new Date().toISOString(),
@@ -147,6 +163,23 @@ export async function DELETE(
     try {
         const { slug } = await context.params;
         const supabase = createServerClient();
+
+        // Ownership check via query param (sent by blogger's delete action)
+        const authorId = request.nextUrl.searchParams.get('author_id');
+        if (authorId) {
+            const { data: existing } = await supabase
+                .from('blog_posts')
+                .select('author_id')
+                .eq('slug', slug)
+                .single();
+
+            if (existing && existing.author_id && existing.author_id !== authorId) {
+                return NextResponse.json(
+                    { success: false, error: 'You do not have permission to delete this post' },
+                    { status: 403 }
+                );
+            }
+        }
 
         const { error } = await supabase
             .from('blog_posts')

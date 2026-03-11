@@ -12,7 +12,8 @@ import {
     ArrowRight,
     ClipboardList,
     Loader2,
-    Image as ImageIcon
+    Image as ImageIcon,
+    Users2
 } from "lucide-react";
 import { cn } from "@/lib/utils";
 import {
@@ -57,7 +58,8 @@ export default function AdminDashboard() {
         leads: { total: 0, new: 0 },
         referrals: { total: 0, new: 0 },
         blogs: { total: 0, published: 0 },
-        gallery: { total: 0 }
+        gallery: { total: 0 },
+        bloggers: { total: 0 }
     });
     const [recentActivities, setRecentActivities] = useState<any[]>([]);
 
@@ -81,11 +83,22 @@ export default function AdminDashboard() {
                 // 4. Gallery Stats
                 const { count: totalGalleryItems } = await supabase.from('gallery_items').select('*', { count: 'exact', head: true });
 
+                // 5. Bloggers count
+                let totalBloggers = 0;
+                try {
+                    const bloggersRes = await fetch('/api/bloggers');
+                    const bloggersData = await bloggersRes.json();
+                    totalBloggers = bloggersData.data?.length || 0;
+                } catch {
+                    // Silently ignore if bloggers API is unavailable
+                }
+
                 setStats({
                     leads: { total: totalLeads || 0, new: newLeads || 0 },
                     referrals: { total: totalReferrals || 0, new: newReferrals || 0 },
                     blogs: { total: totalBlogs || 0, published: publishedBlogs || 0 },
-                    gallery: { total: totalGalleryItems || 0 }
+                    gallery: { total: totalGalleryItems || 0 },
+                    bloggers: { total: totalBloggers }
                 });
 
                 // 4. Recent Activities
@@ -139,6 +152,14 @@ export default function AdminDashboard() {
             color: "bg-orange-100 text-orange-600",
             iconColor: "text-orange-600"
         },
+        {
+            name: "Total Bloggers",
+            value: stats.bloggers.total.toString(),
+            subValue: "Active Bloggers",
+            icon: Users2,
+            color: "bg-pink-100 text-pink-600",
+            iconColor: "text-pink-600"
+        },
     ];
 
     if (loading) {
@@ -168,7 +189,7 @@ export default function AdminDashboard() {
                 variants={containerVariants}
                 initial="hidden"
                 animate="show"
-                className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 sm:gap-6"
+                className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-5 gap-4 sm:gap-6"
             >
                 {statCards.map((stat) => (
                     <motion.div

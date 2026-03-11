@@ -5,17 +5,13 @@ import { usePathname } from "next/navigation";
 import Image from "next/image";
 import {
     LayoutDashboard,
-    Users,
     FileText,
-    Settings,
+    PenSquare,
+    UserCircle,
     LogOut,
     ChevronLeft,
     ChevronRight,
-    PieChart,
-    ClipboardList,
     X,
-    Image as ImageIcon,
-    Users2
 } from "lucide-react";
 import { useState, useEffect } from "react";
 import { motion, AnimatePresence } from "framer-motion";
@@ -23,34 +19,29 @@ import { cn } from "@/lib/utils";
 import { useAuth } from "@/hooks/useAuth";
 
 const menuItems = [
-    { name: "Dashboard", href: "/admin", icon: LayoutDashboard },
-    { name: "Leads", href: "/admin/leads", icon: Users },
-    { name: "Referrals", href: "/admin/referrals", icon: ClipboardList },
-    { name: "Blog Posts", href: "/admin/blog", icon: FileText },
-    { name: "Bloggers", href: "/admin/bloggers", icon: Users2 },
-    { name: "Gallery", href: "/admin/gallery", icon: ImageIcon },
-    { name: "Analytics", href: "/admin/analytics", icon: PieChart },
-    { name: "Settings", href: "/admin/settings", icon: Settings },
+    { name: "Dashboard", href: "/blogger", icon: LayoutDashboard },
+    { name: "All Blogs", href: "/blogger/blogs", icon: FileText },
+    { name: "Write Blog", href: "/blogger/blogs/new", icon: PenSquare },
+    { name: "Profile Settings", href: "/blogger/profile", icon: UserCircle },
 ];
 
-interface AdminSidebarProps {
+interface BloggerSidebarProps {
     isOpen: boolean;
     onClose: () => void;
 }
 
-export default function AdminSidebar({ isOpen, onClose }: AdminSidebarProps) {
+export default function BloggerSidebar({ isOpen, onClose }: BloggerSidebarProps) {
     const pathname = usePathname();
     const [collapsed, setCollapsed] = useState(false);
     const { user, logout, loading } = useAuth();
 
-    // Close sidebar on route change (mobile)
     useEffect(() => {
         onClose();
     }, [pathname]);
 
     return (
         <>
-            {/* Desktop Sidebar - Always visible on lg+ */}
+            {/* Desktop Sidebar */}
             <aside
                 className={cn(
                     "hidden lg:flex h-screen sticky top-0 bg-white border-r border-gray-200/60 transition-all duration-300 z-50 flex-col shadow-[4px_0_24px_rgba(0,0,0,0.02)]",
@@ -69,7 +60,7 @@ export default function AdminSidebar({ isOpen, onClose }: AdminSidebarProps) {
                 />
             </aside>
 
-            {/* Mobile Sidebar - Slide in from left */}
+            {/* Mobile Sidebar */}
             <AnimatePresence>
                 {isOpen && (
                     <motion.aside
@@ -81,7 +72,7 @@ export default function AdminSidebar({ isOpen, onClose }: AdminSidebarProps) {
                     >
                         <SidebarContent
                             collapsed={false}
-                            setCollapsed={() => { }}
+                            setCollapsed={() => {}}
                             user={user}
                             logout={logout}
                             loading={loading}
@@ -115,8 +106,11 @@ function SidebarContent({
     loading,
     pathname,
     onClose,
-    isMobile
+    isMobile,
 }: SidebarContentProps) {
+    const displayName = user?.user_metadata?.name || user?.email || 'Blogger';
+    const initials = displayName.substring(0, 2).toUpperCase();
+
     return (
         <>
             {/* Logo Section */}
@@ -128,7 +122,8 @@ function SidebarContent({
                         className="flex items-center gap-3"
                     >
                         <div className="relative w-10 h-10">
-                            <Image quality={80}
+                            <Image
+                                quality={80}
                                 src="/images/logo.png"
                                 alt="JS Choice Logo"
                                 fill
@@ -137,13 +132,14 @@ function SidebarContent({
                         </div>
                         <div className="flex flex-col">
                             <span className="font-heading font-bold text-lg text-gray-900 leading-none">JS Choice</span>
-                            <span className="text-[10px] font-bold text-primary uppercase tracking-widest mt-1">Admin Panel</span>
+                            <span className="text-[10px] font-bold text-primary uppercase tracking-widest mt-1">Blogger Portal</span>
                         </div>
                     </motion.div>
                 )}
                 {collapsed && !isMobile && (
                     <div className="relative w-8 h-8">
-                        <Image quality={80}
+                        <Image
+                            quality={80}
                             src="/images/logo.png"
                             alt="JS Choice Logo"
                             fill
@@ -152,7 +148,6 @@ function SidebarContent({
                     </div>
                 )}
 
-                {/* Close button for mobile */}
                 {isMobile ? (
                     <button
                         onClick={onClose}
@@ -181,12 +176,12 @@ function SidebarContent({
                 </div>
             )}
 
-            {/* Navigation Section */}
-            <nav className="flex-1 px-4 py-4 space-y-2 overflow-y-auto custom-scrollbar">
+            {/* Navigation */}
+            <nav className="flex-1 px-4 py-4 space-y-2 overflow-y-auto">
                 {menuItems.map((item) => {
                     const normalizedPath = pathname?.endsWith("/") && pathname.length > 1 ? pathname.slice(0, -1) : pathname;
-                    const isActive = item.href === "/admin"
-                        ? normalizedPath === "/admin"
+                    const isActive = item.href === "/blogger"
+                        ? normalizedPath === "/blogger"
                         : normalizedPath?.startsWith(item.href);
 
                     return (
@@ -201,7 +196,6 @@ function SidebarContent({
                                     : "text-gray-600 hover:bg-gray-50 hover:text-gray-900 font-medium"
                             )}
                         >
-                            {/* Hover Effect Background */}
                             {!isActive && (
                                 <div className="absolute inset-0 bg-gray-100 opacity-0 group-hover:opacity-100 transition-opacity duration-300 -z-10" />
                             )}
@@ -218,19 +212,16 @@ function SidebarContent({
                                 <span className={cn("text-sm", isActive ? "tracking-wide" : "")}>{item.name}</span>
                             )}
 
-                            {/* Active Indicator Dot */}
                             {isActive && !collapsed && (
                                 <motion.div
-                                    layoutId="activeTab"
+                                    layoutId="bloggerActiveTab"
                                     className="absolute right-3 w-1.5 h-1.5 rounded-full bg-white/50"
                                 />
                             )}
 
-                            {/* Hover Tooltip for Collapsed State */}
                             {collapsed && !isMobile && (
                                 <div className="absolute left-full ml-4 px-3 py-2 bg-gray-900 text-white text-xs font-bold rounded-lg opacity-0 translate-x-2 group-hover:opacity-100 group-hover:translate-x-0 transition-all duration-300 z-[100] whitespace-nowrap shadow-xl">
                                     {item.name}
-                                    {/* Arrow for tooltip */}
                                     <div className="absolute top-1/2 -left-1 w-2 h-2 bg-gray-900 rotate-45 -translate-y-1/2" />
                                 </div>
                             )}
@@ -239,7 +230,7 @@ function SidebarContent({
                 })}
             </nav>
 
-            {/* Footer Section */}
+            {/* Footer */}
             <div className="p-4 border-t border-gray-100 space-y-2 bg-gray-50/50">
                 <button
                     onClick={logout}
@@ -257,15 +248,15 @@ function SidebarContent({
                     <div className="mt-2 p-3 rounded-2xl bg-white border border-gray-100 shadow-sm flex items-center gap-3">
                         <div className="h-10 w-10 rounded-full bg-primary p-[2px]">
                             <div className="h-full w-full rounded-full bg-white flex items-center justify-center">
-                                <span className="font-bold text-xs text-primary">
-                                    {user?.email?.substring(0, 2).toUpperCase() || 'AD'}
-                                </span>
+                                <span className="font-bold text-xs text-primary">{initials}</span>
                             </div>
                         </div>
                         <div className="flex flex-col overflow-hidden">
-                            <span className="text-sm font-bold text-gray-900 truncate">Administrator</span>
+                            <span className="text-sm font-bold text-gray-900 truncate">
+                                {user?.user_metadata?.name || 'Blogger'}
+                            </span>
                             <span className="text-[10px] text-gray-500 font-medium truncate">
-                                {user?.email || 'admin@jschoice.com.au'}
+                                {user?.email || ''}
                             </span>
                         </div>
                     </div>

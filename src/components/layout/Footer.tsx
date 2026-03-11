@@ -1,8 +1,7 @@
-"use client";
-
 import Link from "next/link";
 import Image from "next/image";
 import { CONTACT_DETAILS } from "@/config/contact";
+import { Facebook, Instagram } from "lucide-react";
 
 const Footer = () => {
     const servicesLeft = [
@@ -23,13 +22,62 @@ const Footer = () => {
         { name: "Innovative Community Participation", href: "https://jschoicegroup.com.au/innovative-community-participation-including-volunteer-opportunities" },
     ];
 
+    const socialLinks = [
+        {
+            name: "Facebook",
+            href: "https://www.facebook.com/profile.php?id=100091940106564&mibextid=dGKdO6",
+            icon: Facebook
+        },
+        {
+            name: "Pinterest",
+            href: "https://www.pinterest.com/jschoice/",
+            icon: ({ className }: { className?: string }) => (
+                <svg
+                    viewBox="0 0 24 24"
+                    fill="none"
+                    stroke="currentColor"
+                    strokeWidth="2"
+                    strokeLinecap="round"
+                    strokeLinejoin="round"
+                    className={className}
+                >
+                    <path d="M8 20l4-9" />
+                    <path d="M10.7 7.1c.4-1.1 1.3-1.1 2.3-1.1 3 0 5 2.5 5 5 0 3-2 5.5-4.5 5.5-1.5 0-2.5-.5-3.5-1.5" />
+                    <circle cx="12" cy="12" r="10" />
+                </svg>
+            )
+        },
+        {
+            name: "TikTok",
+            href: "https://www.tiktok.com/@js.choicecare.and?_r=1&_t=ZS-94YzwTDhURw",
+            icon: ({ className }: { className?: string }) => (
+                <svg
+                    viewBox="0 0 24 24"
+                    fill="none"
+                    stroke="currentColor"
+                    strokeWidth="2"
+                    strokeLinecap="round"
+                    strokeLinejoin="round"
+                    className={className}
+                >
+                    <path d="M9 12a4 4 0 1 0 4 4V4a5 5 0 0 0 5 5" />
+                </svg>
+            )
+        },
+        {
+            name: "Instagram",
+            href: "https://www.instagram.com/jschoicegroup?igsh=MWJ5eDJ1MTVzZWY3cQ%3D%3D&utm_source=qr",
+            icon: Instagram
+        }
+    ];
+
     return (
-        <footer className="bg-[#0F172A] text-white pt-24 overflow-hidden relative">
+        <footer className="bg-[#0F172A] text-white pt-16 overflow-hidden relative">
             {/* Background Decorative Element */}
             <div className="absolute top-0 right-0 w-1/4 h-1/4 bg-[#ABB3F1]/5 rounded-full blur-[100px] z-0" />
 
             <div className="max-w-8xl mx-auto px-4 md:px-6 lg:px-8 relative z-10">
-                <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-12 gap-12 lg:gap-16 mb-20">
+                <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-12 gap-12 lg:gap-16 mb-8">
 
                     {/* Brand Section (2 Cols) */}
                     <div className="lg:col-span-2 space-y-8">
@@ -43,23 +91,19 @@ const Footer = () => {
                             />
                         </Link>
 
-                        <div className="flex items-center gap-4">
-                            <a href="https://www.facebook.com/profile.php?id=100091940106564&amp;mibextid=dGKdO6" target="_blank" rel="noopener noreferrer" className="w-10 h-10 rounded-full bg-white/5 flex items-center justify-center hover:bg-white/20 hover:scale-110 transition-all duration-300 shadow-lg relative">
-                                <Image quality={80} src="/images/footer/facebook.webp" alt="FB" fill className="p-2 object-contain" />
-                            </a>
-                            <a href="https://www.pinterest.com/jschoice/" target="_blank" rel="noopener noreferrer" className="w-10 h-10 rounded-full bg-white/5 border border-white/15 flex items-center justify-center hover:bg-white/20 hover:scale-110 transition-all duration-300 shadow-lg relative">
-                                <svg
-                                    xmlns="http://www.w3.org/2000/svg"
-                                    viewBox="0 0 24 24"
-                                    fill=""
-                                    className="w-5 h-5 drop-shadow-[0_0_1px_rgba(255,255,255,0.3)]"
+                        <div className="flex items-center gap-3">
+                            {socialLinks.map((social) => (
+                                <a
+                                    key={social.name}
+                                    href={social.href}
+                                    target="_blank"
+                                    rel="noopener noreferrer"
+                                    className="w-10 h-10 rounded-full bg-white/5 border border-white/10 flex items-center justify-center hover:bg-white/20 hover:scale-110 transition-all duration-300 shadow-lg group"
+                                    aria-label={social.name}
                                 >
-                                    <path d="M12.017 0C5.396 0 .029 5.367.029 11.987c0 5.079 3.158 9.417 7.618 11.162-.105-.949-.199-2.403.041-3.439.219-.937 1.406-5.966 1.406-5.966s-.359-.72-.359-1.781c0-1.677.974-2.93 2.187-2.93 1.03 0 1.528.771 1.528 1.691 0 1.035-.658 2.582-.998 4.019-.283 1.194.599 2.169 1.774 2.169 2.13 0 3.765-2.247 3.765-5.49 0-2.871-2.063-4.878-5.004-4.878-3.414 0-5.421 2.561-5.421 5.207 0 1.033.398 2.143.896 2.748.098.117.111.222.083.344l-.331 1.353c-.053.221-.173.267-.4.159-1.492-.693-2.427-2.878-2.427-4.633 0-3.784 2.749-7.252 7.925-7.252 4.161 0 7.391 2.96 7.391 6.914 0 4.125-2.601 7.447-6.216 7.447-1.214 0-2.355-.63-2.746-1.378l-.744 2.84c-.269 1.018-.999 2.228-1.488 3.015 1.12.333 2.308.514 3.538.514 6.621 0 11.988-5.367 11.988-11.987S18.637 0 12.017 0z" />
-                                </svg>
-                            </a>
-                            <a href="https://www.instagram.com/jschoicegroup?igsh=MWJ5eDJ1MTVzZWY3cQ%3D%3D&amp;utm_source=qr" target="_blank" rel="noopener noreferrer" className="w-10 h-10 rounded-full bg-white/5 flex items-center justify-center hover:bg-white/20 hover:scale-110 transition-all duration-300 shadow-lg relative">
-                                <Image quality={80} src="/images/footer/instagram.webp" alt="Insta" fill className="p-2 object-contain" />
-                            </a>
+                                    <social.icon className="w-5 h-5 text-white/80 group-hover:text-white transition-colors" />
+                                </a>
+                            ))}
                         </div>
 
                         <div className="pt-4 border-t border-white/10 relative h-24 w-40">
@@ -133,6 +177,42 @@ const Footer = () => {
                                     About Js Choice
                                 </Link>
                             </li>
+                            <li>
+                                <a href="https://www.ndis.gov.au/" target="_blank" rel="noopener noreferrer" className="text-sm font-bold text-gray-400 hover:text-white transition-colors duration-300 flex items-center gap-3 group">
+                                    <span className="h-1.5 w-1.5 rounded-full bg-[#6366F1] opacity-50 group-hover:opacity-100 group-hover:scale-150 transition-all" />
+                                    NDIS Government Website
+                                </a>
+                            </li>
+                            <li>
+                                <a href="https://www.ndiscommission.gov.au/" target="_blank" rel="noopener noreferrer" className="text-sm font-bold text-gray-400 hover:text-white transition-colors duration-300 flex items-center gap-3 group">
+                                    <span className="h-1.5 w-1.5 rounded-full bg-[#6366F1] opacity-50 group-hover:opacity-100 group-hover:scale-150 transition-all" />
+                                    NDIS Commission
+                                </a>
+                            </li>
+                            <li>
+                                <a href="https://www.myagedcare.gov.au/" target="_blank" rel="noopener noreferrer" className="text-sm font-bold text-gray-400 hover:text-white transition-colors duration-300 flex items-center gap-3 group">
+                                    <span className="h-1.5 w-1.5 rounded-full bg-[#6366F1] opacity-50 group-hover:opacity-100 group-hover:scale-150 transition-all" />
+                                    My Aged Care
+                                </a>
+                            </li>
+                            <li>
+                                <a href="https://www.ndiscommission.gov.au/workforce/online-training-modules" target="_blank" rel="noopener noreferrer" className="text-sm font-bold text-gray-400 hover:text-white transition-colors duration-300 flex items-center gap-3 group">
+                                    <span className="h-1.5 w-1.5 rounded-full bg-[#6366F1] opacity-50 group-hover:opacity-100 group-hover:scale-150 transition-all" />
+                                    Worker Training Modules
+                                </a>
+                            </li>
+                            <li>
+                                <a href="https://etrainu.com/ndis-commission-positive-behaviour-support-training" target="_blank" rel="noopener noreferrer" className="text-sm font-bold text-gray-400 hover:text-white transition-colors duration-300 flex items-center gap-3 group">
+                                    <span className="h-1.5 w-1.5 rounded-full bg-[#6366F1] opacity-50 group-hover:opacity-100 group-hover:scale-150 transition-all" />
+                                    Behaviour Support Training
+                                </a>
+                            </li>
+                            <li>
+                                <a href="https://www.ndiscommission.gov.au/rules-and-standards/behaviour-support-and-restrictive-practices" target="_blank" rel="noopener noreferrer" className="text-sm font-bold text-gray-400 hover:text-white transition-colors duration-300 flex items-center gap-3 group">
+                                    <span className="h-1.5 w-1.5 rounded-full bg-[#6366F1] opacity-50 group-hover:opacity-100 group-hover:scale-150 transition-all" />
+                                    Rules and Standards
+                                </a>
+                            </li>
                         </ul>
                     </div>
 
@@ -194,8 +274,8 @@ const Footer = () => {
                 </div>
 
                 {/* Acknowledgement Section */}
-                <div className="border-t border-white/5 pt-16 pb-16">
-                    <div className="max-w-4xl mx-auto flex flex-col items-center text-center space-y-6">
+                <div className="border-t border-white/5 pt-8 pb-0">
+                    <div className="max-w-4xl mx-auto flex flex-col items-center text-center space-y-4">
                         <Image quality={80}
                             src="/images/footer/acknowledgement.webp"
                             alt="Acknowledge"
@@ -212,17 +292,17 @@ const Footer = () => {
             </div>
 
             {/* Copyright Bar */}
-            <div className="bg-black/40 border-t border-white/5 py-8">
+            <div className="bg-black/40 border-t border-white/5 py-4">
                 <div className="max-w-8xl mx-auto px-4 text-center">
                     <p className="text-[10px] md:text-xs font-black text-gray-500 uppercase tracking-[0.2em] leading-relaxed">
                         Copyright © 2026 JS CHOICE GROUP PTY LTD • Design by <a href="https://cruxlabs.com.au/" target="_blank" rel="noopener noreferrer" className="text-[#ABB3F1] hover:underline">CruxLabs</a>
                     </p>
-                    <div className="flex flex-wrap justify-center gap-4 mt-3 text-[10px] font-black text-[#5A67D8] tracking-widest opacity-80 uppercase">
+                    <div className="flex flex-wrap justify-center gap-4 mt-2 text-[10px] font-black text-[#5A67D8] tracking-widest opacity-80 uppercase">
                         <span>ABN : 54 644 196 270</span>
                         <span className="hidden sm:inline opacity-30">|</span>
                         <span>Licence no : 4050118332</span>
                     </div>
-                    <div className="flex flex-wrap justify-center gap-6 mt-4 text-[10px] font-black tracking-widest uppercase">
+                    <div className="flex flex-wrap justify-center gap-6 mt-2 text-[10px] font-black tracking-widest uppercase">
                         <a href="/privacy-policy" className="text-gray-600 hover:text-[#ABB3F1] transition-colors">Privacy Policy</a>
                         <span className="text-gray-700 opacity-30">|</span>
                         <a href="/terms-and-conditions" className="text-gray-600 hover:text-[#ABB3F1] transition-colors">Terms &amp; Conditions</a>
