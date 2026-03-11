@@ -121,13 +121,14 @@ export default function AdminDashboard() {
                     // Silently ignore if bloggers API is unavailable
                 }
 
-                setStats({
+                const newStats = {
                     leads: { total: totalLeads || 0, new: newLeads || 0 },
                     referrals: { total: totalReferrals || 0, new: newReferrals || 0 },
                     blogs: { total: totalBlogs || 0, published: publishedBlogs || 0 },
                     gallery: { total: totalGalleryItems || 0 },
                     bloggers: { total: totalBloggers }
-                });
+                };
+                const activities = recentLeads || [];
 
                 adminCache.set<DashboardData>(CACHE_KEY, { stats: newStats, recentActivities: activities });
                 setStats(newStats);
