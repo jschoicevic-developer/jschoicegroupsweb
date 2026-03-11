@@ -58,6 +58,23 @@ const Topbar = () => {
                             <Facebook size={18} strokeWidth={2} />
                         </Link>
                         <Link
+                            href="https://www.pinterest.com/jschoice/"
+                            target="_blank" rel="noopener noreferrer"
+                            className="hover:text-foreground transition-colors py-1 px-0.5"
+                            aria-label="Pinterest"
+                        >
+                            <svg
+                                width="14"
+                                height="14"
+                                viewBox="0 0 24 24"
+                                fill="currentColor"
+                                xmlns="http://www.w3.org/2000/svg"
+                                className="transition-transform duration-300"
+                            >
+                                <path d="M12.017 0C5.396 0 .029 5.367.029 11.987c0 5.079 3.158 9.417 7.618 11.162-.105-.949-.199-2.403.041-3.439.219-.937 1.406-5.966 1.406-5.966s-.359-.72-.359-1.781c0-1.677.974-2.93 2.187-2.93 1.03 0 1.528.771 1.528 1.691 0 1.035-.658 2.582-.998 4.019-.283 1.194.599 2.169 1.774 2.169 2.13 0 3.765-2.247 3.765-5.49 0-2.871-2.063-4.878-5.004-4.878-3.414 0-5.421 2.561-5.421 5.207 0 1.033.398 2.143.896 2.748.098.117.111.222.083.344l-.331 1.353c-.053.221-.173.267-.4.159-1.492-.693-2.427-2.878-2.427-4.633 0-3.784 2.749-7.252 7.925-7.252 4.161 0 7.391 2.96 7.391 6.914 0 4.125-2.601 7.447-6.216 7.447-1.214 0-2.355-.63-2.746-1.378l-.744 2.84c-.269 1.018-.999 2.228-1.488 3.015 1.12.333 2.308.514 3.538.514 6.621 0 11.988-5.367 11.988-11.987S18.637 0 12.017 0z" />
+                            </svg>
+                        </Link>
+                        <Link
                             href="https://www.instagram.com/jschoicegroup?igsh=MWJ5eDJ1MTVzZWY3cQ%3D%3D&utm_source=qr"
                             target="_blank" rel="noopener noreferrer"
                             className="hover:text-foreground transition-colors"

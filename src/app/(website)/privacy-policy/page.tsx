@@ -84,7 +84,7 @@ export default function PrivacyPolicyPage() {
                     <p className="text-gray-600 leading-relaxed mb-2">For privacy-related enquiries, please contact:</p>
                     <div className="bg-gray-50 rounded-2xl p-6 border border-gray-100 text-gray-600 space-y-1">
                         <p className="font-bold text-[#2D3748]">JS Choice Group Pty Ltd</p>
-                        <p>Suite 106, Level 1, C5, 2 Main Street, Point Cook VIC 3030</p>
+                        <p>Suite 104, Level 1, C5, 2 Main Street, Point Cook VIC 3030</p>
                         <p>Email: <a href="mailto:info@jschoicegroup.com.au" className="text-primary hover:underline">info@jschoicegroup.com.au</a></p>
                         <p>Phone: <a href="tel:1300572464" className="text-primary hover:underline">1300 572 464</a></p>
                     </div>

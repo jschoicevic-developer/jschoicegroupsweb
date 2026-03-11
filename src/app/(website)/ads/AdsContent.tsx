@@ -753,7 +753,7 @@ const QuoteForm = () => {
                         <div className="space-y-5">
                             {[
                                 { icon: Phone, label: "Call Us", value: "1300 572 464", href: "tel:1300572464" },
-                                { icon: MapPin, label: "Location", value: "Suite 106, Level 1, 2 Main St, Point Cook VIC 3030" },
+                                { icon: MapPin, label: "Location", value: "Suite 104, Level 1, 2 Main St, Point Cook VIC 3030" },
                                 { icon: Clock, label: "Hours", value: "Office 8am–6pm | Care 24/7" },
                             ].map((info) => (
                                 <div key={info.label} className="flex items-center gap-4 text-white/90">

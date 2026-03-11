@@ -181,7 +181,7 @@ function generateClientConfirmationHtml(lead: Lead, fullName: string): string {
           <td style="background-color: #F7FAFC; padding: 30px; text-align: center; border-top: 1px solid ${COLORS.border};">
             <p style="font-size: 14px; color: ${COLORS.textLight}; margin-bottom: 10px;">&copy; ${new Date().getFullYear()} JS Choice Group. All rights reserved.</p>
             <p style="font-size: 12px; color: #A0AEC0;">
-              Suite 106, Level 1, C5, 2 Main Street, Point Cook VIC 3030<br>
+              Suite 104, Level 1, C5, 2 Main Street, Point Cook VIC 3030<br>
               <a href="mailto:info@jschoicegroup.com.au" style="color: ${COLORS.primary}; text-decoration: none;">info@jschoicegroup.com.au</a>
             </p>
           </td>
@@ -444,7 +444,7 @@ ${message}
             <tr>
               <td style="background-color: #F7FAFC; padding: 30px; text-align: center; border-top: 1px solid ${COLORS.border};">
                 <p style="font-size: 12px; color: #A0AEC0;">
-                  Suite 106, Level 1, C5, 2 Main Street, Point Cook VIC 3030<br>
+                  Suite 104, Level 1, C5, 2 Main Street, Point Cook VIC 3030<br>
                   <a href="mailto:info@jschoicegroup.com.au" style="color: ${COLORS.primary}; text-decoration: none;">info@jschoicegroup.com.au</a> | 1300 572 464
                 </p>
               </td>

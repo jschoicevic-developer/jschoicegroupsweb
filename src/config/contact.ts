@@ -13,9 +13,9 @@ export const CONTACT_DETAILS = {
     },
     email: "info@jschoicegroup.com.au",
     address: {
-        line1: "Suite 106, Level 1, C5, 2 Main Street",
+        line1: "Suite 104, Level 1, C5, 2 Main Street",
         line2: "Point Cook VIC 3030",
-        full: "Suite 106, Level 1, C5, 2 Main Street, Point Cook VIC 3030",
+        full: "Suite 104, Level 1, C5, 2 Main Street, Point Cook VIC 3030",
         poBox: "PO Box 6282 Point Cook 3030 Victoria"
     },
     hours: {
