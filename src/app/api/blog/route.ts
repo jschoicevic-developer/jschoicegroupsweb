@@ -28,6 +28,7 @@ export async function GET(request: NextRequest): Promise<NextResponse<PaginatedR
         const category = searchParams.get('category');
         const status = searchParams.get('status');
         const search = searchParams.get('search');
+        const authorId = searchParams.get('author_id');
         const page = parseInt(searchParams.get('page') || '1');
         const limit = parseInt(searchParams.get('limit') || '10');
         const offset = (page - 1) * limit;
@@ -81,6 +82,10 @@ export async function GET(request: NextRequest): Promise<NextResponse<PaginatedR
 
         if (search) {
             query = query.or(`title.ilike.%${search}%,excerpt.ilike.%${search}%`);
+        }
+
+        if (authorId) {
+            query = query.eq('author_id', authorId);
         }
 
         // ========================================
@@ -175,6 +180,7 @@ export async function POST(request: NextRequest): Promise<NextResponse<ApiRespon
             meta_title: body.meta_title || body.title,
             meta_description: body.meta_description || body.excerpt || null,
             canonical_url: body.canonical_url || null,
+            author_id: body.author_id || null,
             author_name: body.author_name || 'JS Choice Team',
             author_avatar: body.author_avatar || null,
             status: body.status || 'draft',

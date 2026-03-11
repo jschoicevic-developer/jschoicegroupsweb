@@ -6,7 +6,9 @@
 import { Resend } from 'resend';
 import { Lead } from '@/types/crm';
 
-const resend = new Resend(process.env.RESEND_API_KEY);
+function getResend() {
+  return new Resend(process.env.RESEND_API_KEY);
+}
 
 const SOURCE_LABELS: Record<string, string> = {
   contact_form: 'Contact Form',
@@ -41,7 +43,7 @@ export async function sendNewLeadNotification(lead: Lead): Promise<void> {
     const fullName = `${lead.first_name} ${lead.last_name || ''}`.trim();
     const adminEmail = process.env.ADMIN_EMAIL || 'jschoice.au@gmail.com';
 
-    await resend.emails.send({
+    await getResend().emails.send({
       from: 'JS Choice CRM <onboarding@resend.dev>',
       to: adminEmail,
       subject: `🔔 New Lead: ${fullName} from ${sourceLabel}`,
@@ -64,6 +66,7 @@ export async function sendClientConfirmation(lead: Lead): Promise<void> {
 
   // 1. Try sending real email (Requires Verified Domain)
   // using the production domain sender
+  const resend = getResend();
   const { error: realError } = await resend.emails.send({
     from: 'JS Choice Group <info@jschoicegroup.com.au>',
     to: lead.email,
@@ -333,7 +336,7 @@ export async function sendFollowUpReminder(
     const appUrl = process.env.NEXT_PUBLIC_APP_URL || 'https://jschoice-website.vercel.app';
     const fullName = `${lead.first_name} ${lead.last_name || ''}`.trim();
 
-    await resend.emails.send({
+    await getResend().emails.send({
       from: 'JS Choice CRM <noreply@jschoicegroup.com.au>',
       to: assignedUserEmail,
       subject: `⏰ Reminder: Follow-up with ${fullName}`,
@@ -407,6 +410,7 @@ export async function sendDirectEmail(
     const adminEmail = process.env.ADMIN_EMAIL || 'jschoice.au@gmail.com';
 
     // Try sending from verified domain
+    const resend = getResend();
     const { data, error } = await resend.emails.send({
       from: 'JS Choice Group <info@jschoicegroup.com.au>',
       to: to,

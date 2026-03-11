@@ -14,9 +14,10 @@ export function useAuth() {
     const [user, setUser] = useState<User | null>(null);
     const [loading, setLoading] = useState(true);
     const router = useRouter();
-    const supabase = createClient();
 
     useEffect(() => {
+        const supabase = createClient();
+
         // Get initial session
         const getSession = async () => {
             try {
@@ -36,7 +37,6 @@ export function useAuth() {
             async (event, session) => {
                 setUser(session?.user ?? null);
 
-                // Refresh the page when auth state changes
                 if (event === 'SIGNED_OUT') {
                     router.push('/admin/login');
                     router.refresh();
@@ -49,31 +49,26 @@ export function useAuth() {
         return () => {
             subscription.unsubscribe();
         };
-    }, [supabase, router]);
+    }, []);
 
     const logout = async () => {
         try {
             setLoading(true);
+            const role = user?.user_metadata?.role;
+            const supabase = createClient();
 
-            // Call the logout API
-            const response = await fetch('/api/auth/logout', {
-                method: 'POST',
-            });
-
-            if (!response.ok) {
-                throw new Error('Logout failed');
-            }
-
-            // Sign out from Supabase
+            await fetch('/api/auth/logout', { method: 'POST' });
             await supabase.auth.signOut();
 
-            // Redirect to login
-            router.push('/admin/login');
+            if (role === 'blogger') {
+                router.push('/blogger/login');
+            } else {
+                router.push('/admin/login');
+            }
             router.refresh();
         } catch (error) {
             console.error('Logout error:', error);
-            // Even if API fails, try to sign out locally
-            await supabase.auth.signOut();
+            createClient().auth.signOut();
             router.push('/admin/login');
             router.refresh();
         } finally {

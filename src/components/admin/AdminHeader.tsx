@@ -36,10 +36,11 @@ export default function AdminHeader({ onMenuClick }: AdminHeaderProps) {
     const { user, logout, loading } = useAuth();
     const [notifications, setNotifications] = useState<LeadNotification[]>([]);
     const [unreadCount, setUnreadCount] = useState(0);
-    const supabase = createClient();
     const router = useRouter();
 
     useEffect(() => {
+        const supabase = createClient();
+
         // 1. Fetch initial recent leads
         const fetchRecentLeads = async () => {
             const { data, error } = await supabase
