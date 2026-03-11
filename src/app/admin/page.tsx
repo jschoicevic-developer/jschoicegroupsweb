@@ -85,6 +85,7 @@ export default function AdminDashboard() {
         bloggers: { total: 0 }
     });
     const [recentActivities, setRecentActivities] = useState<any[]>([]);
+    const revalidating = useRef(false);
 
     useEffect(() => {
         const fetchDashboardData = async () => {
