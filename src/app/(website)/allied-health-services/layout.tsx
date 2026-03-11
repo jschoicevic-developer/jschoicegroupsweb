@@ -1,8 +1,8 @@
 import type { Metadata } from 'next';
 
 export const metadata: Metadata = {
-    title: "Allied Health Services | JS Choice Care & Support",
-    description: "Discover Allied Health Services services from expert support workers. JS Choice Group provides comprehensive disability support and NDIS assistance.",
+    title: "Allied Health Services",
+    description: "Access NDIS allied health services through JS Choice Group. Physiotherapy, occupational therapy and more to improve your health and independence.",
     alternates: { canonical: 'https://jschoicegroup.com.au/allied-health-services' }
 };
 

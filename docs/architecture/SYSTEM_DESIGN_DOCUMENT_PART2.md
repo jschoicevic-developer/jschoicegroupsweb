@@ -1501,7 +1501,7 @@ export async function middleware(request: NextRequest) {
 
 **Public (Exposed to Browser):**
 ```bash
-NEXT_PUBLIC_SUPABASE_URL=https://browkzylcbkgaoacijqm.supabase.co
+NEXT_PUBLIC_SUPABASE_URL=https://htszyyiptlahwkdgcbjq.supabase.co
 NEXT_PUBLIC_SUPABASE_ANON_KEY=eyJhbGc...
 NEXT_PUBLIC_APP_URL=https://jschoicegroup.com.au
 ```

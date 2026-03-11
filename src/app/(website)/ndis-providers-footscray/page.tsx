@@ -208,7 +208,7 @@ const NdisProvidersFootscray = () => {
                         className="max-w-4xl mx-auto"
                     >
                         <h2 className="text-3xl md:text-5xl font-black mb-6 leading-tight text-white">
-                            Reach Out Today <span className="text-primary">to Discuss Your Needs</span>
+                            Get NDIS Support <span className="text-primary">in Footscray Today</span>
                         </h2>
                         <p className="text-xl text-gray-300 mb-10 leading-relaxed">
                             Js Choice – Care and Support is here to help you live your best life and achieve your goals with the support you deserve.

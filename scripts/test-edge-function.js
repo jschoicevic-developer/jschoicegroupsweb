@@ -1,7 +1,7 @@
 // Test script for NDIS Price Updater Edge Function
 // Run with: node scripts/test-edge-function.js
 
-const SUPABASE_URL = "https://browkzylcbkgaoacijqm.supabase.co";
+const SUPABASE_URL = "https://htszyyiptlahwkdgcbjq.supabase.co";
 const ANON_KEY = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6ImJyb3drenlsY2JrZ2FvYWNpanFtIiwicm9sZSI6ImFub24iLCJpYXQiOjE3NzAxMzg1NzEsImV4cCI6MjA4NTcxNDU3MX0.sSoMamM_-AOGayl79_LNohIld86Y1pqNpqBjgGpSXJI";
 
 async function testEdgeFunction() {

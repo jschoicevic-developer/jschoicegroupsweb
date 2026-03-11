@@ -1,7 +1,7 @@
 "use client";
 
 import { motion } from "framer-motion";
-import { useEffect, useState } from "react";
+import { useEffect, useState, useRef } from "react";
 import {
     Users,
     FileText,
@@ -25,6 +25,8 @@ import {
     ResponsiveContainer
 } from "recharts";
 import { createClient } from "@/lib/supabase";
+import { adminCache } from "@/lib/adminCache";
+import { DashboardSkeleton } from "@/components/admin/skeletons";
 
 // Mock Data for Charts (Keep as placeholder for visits)
 const engagementData = [
@@ -52,6 +54,27 @@ const itemVariants = {
     show: { opacity: 1, y: 0 }
 };
 
+type DashboardStats = {
+    leads: { total: number; new: number };
+    referrals: { total: number; new: number };
+    blogs: { total: number; published: number };
+    gallery: { total: number };
+};
+
+type DashboardData = {
+    stats: DashboardStats;
+    recentActivities: any[];
+};
+
+const CACHE_KEY = "dashboard";
+
+const defaultStats: DashboardStats = {
+    leads: { total: 0, new: 0 },
+    referrals: { total: 0, new: 0 },
+    blogs: { total: 0, published: 0 },
+    gallery: { total: 0 }
+};
+
 export default function AdminDashboard() {
     const [loading, setLoading] = useState(true);
     const [stats, setStats] = useState({
@@ -68,20 +91,25 @@ export default function AdminDashboard() {
             const supabase = createClient();
 
             try {
-                // 1. Leads Stats (source != referral)
-                const { count: totalLeads } = await supabase.from('leads').select('*', { count: 'exact', head: true }).neq('source', 'referral');
-                const { count: newLeads } = await supabase.from('leads').select('*', { count: 'exact', head: true }).neq('source', 'referral').eq('status', 'new');
-
-                // 2. Referrals Stats (source == referral)
-                const { count: totalReferrals } = await supabase.from('leads').select('*', { count: 'exact', head: true }).eq('source', 'referral');
-                const { count: newReferrals } = await supabase.from('leads').select('*', { count: 'exact', head: true }).eq('source', 'referral').eq('status', 'new');
-
-                // 3. Blog Stats
-                const { count: totalBlogs } = await supabase.from('blog_posts').select('*', { count: 'exact', head: true });
-                const { count: publishedBlogs } = await supabase.from('blog_posts').select('*', { count: 'exact', head: true }).eq('status', 'published');
-
-                // 4. Gallery Stats
-                const { count: totalGalleryItems } = await supabase.from('gallery_items').select('*', { count: 'exact', head: true });
+                const [
+                    { count: totalLeads },
+                    { count: newLeads },
+                    { count: totalReferrals },
+                    { count: newReferrals },
+                    { count: totalBlogs },
+                    { count: publishedBlogs },
+                    { count: totalGalleryItems },
+                    { data: recentLeads }
+                ] = await Promise.all([
+                    supabase.from('leads').select('*', { count: 'exact', head: true }).neq('source', 'referral'),
+                    supabase.from('leads').select('*', { count: 'exact', head: true }).neq('source', 'referral').eq('status', 'new'),
+                    supabase.from('leads').select('*', { count: 'exact', head: true }).eq('source', 'referral'),
+                    supabase.from('leads').select('*', { count: 'exact', head: true }).eq('source', 'referral').eq('status', 'new'),
+                    supabase.from('blog_posts').select('*', { count: 'exact', head: true }),
+                    supabase.from('blog_posts').select('*', { count: 'exact', head: true }).eq('status', 'published'),
+                    supabase.from('gallery_items').select('*', { count: 'exact', head: true }),
+                    supabase.from('leads').select('*').order('created_at', { ascending: false }).limit(5),
+                ]);
 
                 // 5. Bloggers count
                 let totalBloggers = 0;
@@ -101,22 +129,26 @@ export default function AdminDashboard() {
                     bloggers: { total: totalBloggers }
                 });
 
-                // 4. Recent Activities
-                const { data: recentLeads } = await supabase
-                    .from('leads')
-                    .select('*')
-                    .order('created_at', { ascending: false })
-                    .limit(5);
-
-                setRecentActivities(recentLeads || []);
+                adminCache.set<DashboardData>(CACHE_KEY, { stats: newStats, recentActivities: activities });
+                setStats(newStats);
+                setRecentActivities(activities);
             } catch (error) {
                 console.error("Error fetching dashboard data:", error);
             } finally {
                 setLoading(false);
+                revalidating.current = false;
             }
         };
 
-        fetchDashboardData();
+        if (!adminCache.has(CACHE_KEY)) {
+            // No cache — show skeleton and fetch
+            fetchDashboardData();
+        } else if (adminCache.isStale(CACHE_KEY)) {
+            // Stale cache — show cached data instantly, revalidate in background
+            revalidating.current = true;
+            fetchDashboardData();
+        }
+        // Fresh cache — nothing to do, state already set from initializer above
     }, []);
 
     const statCards = [
@@ -163,11 +195,7 @@ export default function AdminDashboard() {
     ];
 
     if (loading) {
-        return (
-            <div className="flex h-[80vh] items-center justify-center">
-                <Loader2 className="h-10 w-10 animate-spin text-primary" />
-            </div>
-        );
+        return <DashboardSkeleton />;
     }
 
     return (

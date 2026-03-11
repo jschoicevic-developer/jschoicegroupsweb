@@ -1,8 +1,8 @@
 import type { Metadata } from 'next';
 
 export const metadata: Metadata = {
-    title: "NDIS Providers Shepparton | JS Choice Care & Support",
-    description: "Discover NDIS Providers Shepparton services from expert support workers. JS Choice Group provides comprehensive disability support and NDIS assistance.",
+    title: "NDIS Providers in Shepparton",
+    description: "Find trusted NDIS providers in Shepparton. JS Choice Group delivers personalised disability support and NDIS services across regional Victoria.",
     alternates: { canonical: 'https://jschoicegroup.com.au/ndis-providers-shepparton' }
 };
 

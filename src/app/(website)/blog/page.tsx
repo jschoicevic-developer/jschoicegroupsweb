@@ -21,6 +21,9 @@ export default function BlogPage() {
                 ]}
             />
 
+            <div className="max-w-8xl mx-auto px-4 md:px-6 lg:px-8 pt-12 pb-2">
+                <h2 className="text-2xl md:text-3xl font-black text-[#2D3748] uppercase tracking-tight">Latest Articles</h2>
+            </div>
             <BlogList />
         </main>
     );

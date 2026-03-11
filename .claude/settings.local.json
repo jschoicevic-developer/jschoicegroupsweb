@@ -36,8 +36,24 @@
       "Bash(git mv PHASE_4_COMPLETE.md docs/archive/PHASE_4_COMPLETE.md)",
       "Bash(git mv PHASE_5_COMPLETE.md docs/archive/PHASE_5_COMPLETE.md)",
       "Bash(git mv .agent/mobile-responsive-guide.md docs/notes/mobile-responsive-guide.md)",
-      "Bash(git add docs/README.md)"
+      "Bash(git add docs/README.md)",
+      "WebFetch(domain:jschoicegroup.com.au)",
+      "Bash(/tmp/audit_output.txt:*)",
+      "Read(//tmp/**)",
+      "mcp__plugin_playwright_playwright__browser_navigate",
+      "mcp__plugin_playwright_playwright__browser_evaluate",
+      "Bash(npx tsx:*)",
+      "mcp__plugin_playwright_playwright__browser_take_screenshot",
+      "mcp__plugin_playwright_playwright__browser_console_messages",
+      "mcp__plugin_playwright_playwright__browser_click",
+      "mcp__plugin_playwright_playwright__browser_type",
+      "mcp__plugin_playwright_playwright__browser_snapshot",
+      "mcp__plugin_playwright_playwright__browser_wait_for",
+      "mcp__plugin_playwright_playwright__browser_select_option"
     ]
   },
-  "enableAllProjectMcpServers": true
+  "enableAllProjectMcpServers": true,
+  "enabledMcpjsonServers": [
+    "supabase"
+  ]
 }

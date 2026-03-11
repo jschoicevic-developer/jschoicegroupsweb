@@ -15,7 +15,7 @@ const Footer = () => {
 
     const servicesRight = [
         { name: "Support Coordination", href: "https://jschoicegroup.com.au/support-coordination" },
-        { name: "Psychosocial Recovery Coach", href: "https://jschoicegroup.com.au/psychosocial-recovery-coach/" },
+        { name: "Psychosocial Recovery Coach", href: "https://jschoicegroup.com.au/psychosocial-recovery-coach" },
         { name: "Allied Health Services", href: "https://jschoicegroup.com.au/allied-health-services" },
         { name: "Assist with Employment/Education", href: "https://jschoicegroup.com.au/employment-education" },
         { name: "NDIS Access Requests", href: "https://jschoicegroup.com.au/ndis-access-requests" },
