@@ -124,74 +124,81 @@ const BlogList = () => {
                             </div>
                         ) : (
                             <>
-                                {posts.map((post, index) => (
-                                    <motion.article
-                                        key={post.id}
-                                        initial={{ opacity: 0, y: 20 }}
-                                        whileInView={{ opacity: 1, y: 0 }}
-                                        viewport={{ once: true }}
-                                        transition={{ duration: 0.5, delay: index * 0.1 }}
-                                        className="bg-white rounded-[2rem] overflow-hidden shadow-lg border border-gray-100 flex flex-col group hover:shadow-2xl transition-all duration-300"
-                                    >
-                                        {/* Featured Image */}
-                                        {post.featured_image && (
-                                            <div className="relative h-[250px] md:h-[400px] overflow-hidden">
-                                                <Link href={`/blog/${post.slug}`}>
-                                                    <div className="absolute inset-0 bg-black/20 group-hover:bg-black/10 transition-colors z-10" />
-                                                    <Image quality={80}
-                                                        src={(post.featured_image?.startsWith('http') || post.featured_image?.startsWith('/')) ? post.featured_image : '/1.png'}
-                                                        alt={post.title}
-                                                        fill
-                                                        className="object-cover transform group-hover:scale-105 transition-transform duration-700"
-                                                        unoptimized={post.featured_image?.startsWith('data:') || false}
-                                                    />
-                                                </Link>
-                                            </div>
-                                        )}
+                                <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
+                                    {posts.map((post, index) => (
+                                        <motion.article
+                                            key={post.id}
+                                            initial={{ opacity: 0, y: 20 }}
+                                            whileInView={{ opacity: 1, y: 0 }}
+                                            viewport={{ once: true }}
+                                            transition={{ duration: 0.5, delay: index * 0.1 }}
+                                            className="bg-white rounded-2xl overflow-hidden shadow-md border border-gray-200 flex flex-col group hover:shadow-xl hover:border-primary/50 transition-all duration-300"
+                                        >
+                                            {/* Featured Image */}
+                                            {post.featured_image && (
+                                                <div className="relative aspect-[4/3] md:aspect-video w-full overflow-hidden bg-gray-50 border-b border-gray-100">
+                                                    <Link href={`/blog/${post.slug}`}>
+                                                        <div className="absolute inset-0 bg-black/5 group-hover:bg-black/0 transition-colors z-10" />
+                                                        <Image quality={80}
+                                                            src={(post.featured_image?.startsWith('http') || post.featured_image?.startsWith('/')) ? post.featured_image : '/1.png'}
+                                                            alt={post.title}
+                                                            fill
+                                                            className="object-contain p-2 transform group-hover:scale-105 transition-transform duration-700"
+                                                            unoptimized={post.featured_image?.startsWith('data:') || false}
+                                                        />
+                                                    </Link>
+                                                </div>
+                                            )}
 
-                                        {/* Content */}
-                                        <div className="p-8 md:p-10 flex flex-col gap-6">
-                                            {/* Meta Data */}
-                                            <div className="flex flex-wrap items-center gap-4 text-xs md:text-sm font-semibold text-gray-400 uppercase tracking-wider">
-                                                <div className="flex items-center gap-2">
-                                                    <Calendar size={14} className="text-primary" />
-                                                    {formatDate(post.published_at || post.created_at)}
-                                                </div>
-                                                <div className="flex items-center gap-2">
-                                                    <User size={14} className="text-primary" />
-                                                    {post.author_name || 'JS Choice Team'}
-                                                </div>
-                                                {post.tags.length > 0 && (
-                                                    <div className="flex items-center gap-2">
-                                                        <Tag size={14} className="text-secondary" />
-                                                        <span className="text-secondary">{post.tags[0]}</span>
+                                            {/* Content */}
+                                            <div className="p-6 md:p-8 flex flex-col gap-5 flex-grow">
+                                                {/* Meta Data */}
+                                                <div className="flex flex-wrap items-center justify-between text-[11px] font-bold text-gray-500 uppercase tracking-widest">
+                                                    <div className="flex items-center gap-1.5 bg-gray-50 px-3 py-1.5 rounded-md border border-gray-100">
+                                                        <Calendar size={14} className="text-[#F2C94C]" />
+                                                        {formatDate(post.published_at || post.created_at)}
                                                     </div>
-                                                )}
-                                            </div>
+                                                    {post.category && (
+                                                        <div className="bg-[#1F2937] text-white px-3 py-1.5 rounded-md text-[10px]">
+                                                            {post.category}
+                                                        </div>
+                                                    )}
+                                                </div>
 
-                                            <Link href={`/blog/${post.slug}`} className="group-hover:text-primary transition-colors">
-                                                <h2 className="text-2xl md:text-3xl lg:text-4xl font-black text-[#2D3748] leading-tight">
-                                                    {post.title}
-                                                </h2>
-                                            </Link>
-
-                                            <div className="h-px w-20 bg-gray-200" />
-
-                                            <p className="text-base text-gray-600 leading-relaxed font-medium line-clamp-3">
-                                                {post.excerpt}
-                                            </p>
-
-                                            <div className="pt-2">
-                                                <Link
-                                                    href={`/blog/${post.slug}`}
-                                                    className="inline-flex items-center gap-2 text-primary font-bold uppercase tracking-wider text-sm hover:gap-4 transition-all duration-300"
-                                                >
-                                                    Continue Reading <ChevronRight size={16} strokeWidth={3} />
+                                                <Link href={`/blog/${post.slug}`} className="group-hover:text-primary transition-colors">
+                                                    <h2 className="text-xl md:text-2xl font-black text-[#1F2937] leading-tight line-clamp-2">
+                                                        {post.title}
+                                                    </h2>
                                                 </Link>
+
+                                                <div className="flex gap-2 flex-wrap -mt-2">
+                                                    {post.tags.slice(0, 3).map((tag, i) => (
+                                                        <span key={i} className="text-[10px] font-bold px-3 py-1 bg-gray-50 text-gray-500 rounded-full border border-gray-200">
+                                                            #{tag}
+                                                        </span>
+                                                    ))}
+                                                </div>
+
+                                                {/* Removed Excerpt for cleaner card look but kept if needed */}
+
+                                                <div className="mt-auto pt-6 flex items-center justify-between border-t border-gray-100">
+                                                    <div className="flex items-center gap-3">
+                                                        <div className="w-8 h-8 rounded-full bg-[#1F2937] text-white flex items-center justify-center font-bold text-xs">
+                                                            {(post.author_name || 'J')[0].toUpperCase()}
+                                                        </div>
+                                                        <span className="text-xs font-bold text-gray-500 capitalize">{post.author_name || 'JS Choice'}</span>
+                                                    </div>
+                                                    <Link
+                                                        href={`/blog/${post.slug}`}
+                                                        className="inline-flex items-center gap-2 text-[#1F2937] border border-gray-200 px-4 py-2 rounded-md font-bold text-[10px] tracking-wider uppercase hover:border-[#1F2937] hover:bg-gray-50 transition-all duration-300"
+                                                    >
+                                                        Read More <ChevronRight size={14} strokeWidth={2} />
+                                                    </Link>
+                                                </div>
                                             </div>
-                                        </div>
-                                    </motion.article>
-                                ))}
+                                        </motion.article>
+                                    ))}
+                                </div>
 
                                 {/* Pagination */}
                                 {totalPages > 1 && (
