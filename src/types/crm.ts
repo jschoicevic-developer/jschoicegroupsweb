@@ -156,6 +156,8 @@ export interface BlogPost {
     title: string;
     slug: string;
     excerpt: string | null;
+    description: string | null;
+    table_of_contents: string | null;
     content: string;
     featured_image: string | null;
     featured_image_alt: string | null;

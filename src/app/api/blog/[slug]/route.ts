@@ -104,7 +104,7 @@ export async function PATCH(
         };
 
         const allowedFields = [
-            'title', 'slug', 'excerpt', 'content', 'featured_image',
+            'title', 'slug', 'excerpt', 'description', 'table_of_contents', 'content', 'featured_image',
             'category', 'tags', 'author_name', 'status', 'published_at', 'scheduled_for'
         ];
 

@@ -49,7 +49,7 @@ const Footer = () => {
         },
         {
             name: "TikTok",
-            href: "https://www.tiktok.com/@js.choicecare.and?_r=1&_t=ZS-94YzwTDhURw",
+            href: "https://www.tiktok.com/@jschoicegroup",
             icon: ({ className }: { className?: string }) => (
                 <svg
                     viewBox="0 0 24 24"

@@ -65,7 +65,7 @@ const actions = [
     },
     {
         icon: TiktokIcon,
-        href: "https://www.tiktok.com/@js.choicecare.and?_r=1&_t=ZS-94YzwTDhURw",
+        href: "https://www.tiktok.com/@jschoicegroup",
         label: "TikTok",
         aria: "TikTok",
         color: "text-[#010101]"

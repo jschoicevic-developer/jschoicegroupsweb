@@ -13,6 +13,8 @@ import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
 import WysiwygEditor from "@/components/admin/RichTextEditor";
 import { useAuth } from "@/hooks/useAuth";
+import { generateTableOfContents } from "@/lib/utils";
+import { Sparkles } from "lucide-react";
 
 type BlogStatus = 'draft' | 'published';
 
@@ -24,6 +26,8 @@ export default function NewBloggerPostPage() {
         title: "",
         slug: "",
         excerpt: "",
+        description: "",
+        table_of_contents: "",
         content: "",
         featured_image: "",
         category: "",
@@ -46,6 +50,11 @@ export default function NewBloggerPostPage() {
         });
     };
 
+    const handleGenerateTOC = () => {
+        const toc = generateTableOfContents(formData.content);
+        setFormData(prev => ({ ...prev, table_of_contents: toc }));
+    };
+
     const handleSubmit = async (e: React.FormEvent, statusOverride?: BlogStatus) => {
         e.preventDefault();
         if (!user) return;
@@ -63,6 +72,8 @@ export default function NewBloggerPostPage() {
                 title: formData.title,
                 slug: formData.slug,
                 excerpt: formData.excerpt,
+                description: formData.description,
+                table_of_contents: formData.table_of_contents,
                 content: formData.content,
                 featured_image: formData.featured_image,
                 category: formData.category,
@@ -166,6 +177,18 @@ export default function NewBloggerPostPage() {
                                 rows={3}
                                 className="resize-none"
                             />
+                        </div>
+
+                        <div>
+                            <label className="block text-sm font-bold text-gray-700 mb-2">Description</label>
+                            <Textarea
+                                value={formData.description}
+                                onChange={(e) => setFormData({ ...formData, description: e.target.value })}
+                                placeholder="A detailed description displayed at the top of the blog post page..."
+                                rows={5}
+                                className="resize-none"
+                            />
+                            <p className="text-xs text-gray-500 mt-2">This appears as a highlighted overview section on the published blog post, right before the main content.</p>
                         </div>
 
                         <div>
@@ -295,6 +318,32 @@ export default function NewBloggerPostPage() {
                                 </div>
                             </div>
                         </div>
+                    </div>
+
+                    {/* Table of Contents */}
+                    <div className="glass-card p-8 rounded-[2rem] space-y-4">
+                        <div className="flex items-center justify-between border-b border-gray-100 pb-4">
+                            <h2 className="text-xl font-bold text-gray-900">Table of Contents</h2>
+                            <Button
+                                type="button"
+                                variant="outline"
+                                size="sm"
+                                onClick={handleGenerateTOC}
+                                className="h-8 gap-2 text-xs font-bold rounded-lg border-primary/20 hover:bg-primary/5 text-primary"
+                                disabled={!formData.content}
+                            >
+                                <Sparkles size={14} />
+                                Auto-Generate
+                            </Button>
+                        </div>
+                        <Textarea
+                            value={formData.table_of_contents}
+                            onChange={(e) => setFormData({ ...formData, table_of_contents: e.target.value })}
+                            placeholder={"1. Introduction\n2. Main Section\n3. Conclusion"}
+                            rows={8}
+                            className="resize-none font-mono text-sm"
+                        />
+                        <p className="text-xs text-gray-500">Enter each item on a new line. Shown as a numbered list on the published blog post page.</p>
                     </div>
                 </div>
             </form>

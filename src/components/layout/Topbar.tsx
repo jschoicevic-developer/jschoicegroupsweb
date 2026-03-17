@@ -79,7 +79,7 @@ const Topbar = () => {
                             </svg>
                         </Link>
                         <Link
-                            href="https://www.tiktok.com/@js.choicecare.and?_r=1&_t=ZS-94YzwTDhURw"
+                            href="https://www.tiktok.com/@jschoicegroup"
                             target="_blank" rel="noopener noreferrer"
                             className="hover:text-foreground transition-colors"
                             aria-label="TikTok"

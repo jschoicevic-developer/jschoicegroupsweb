@@ -26,6 +26,8 @@ export default function EditBlogPostPage({ params }: EditBlogPageProps) {
         title: "",
         slug: "",
         excerpt: "",
+        description: "",
+        table_of_contents: "",
         content: "",
         featured_image: "",
         author_name: "JS Choice Team",
@@ -52,6 +54,8 @@ export default function EditBlogPostPage({ params }: EditBlogPageProps) {
                     title: post.title,
                     slug: post.slug,
                     excerpt: post.excerpt || "",
+                    description: post.description || "",
+                    table_of_contents: post.table_of_contents || "",
                     content: post.content || "",
                     featured_image: post.featured_image || "",
                     author_name: post.author_name || "JS Choice Team",
@@ -210,6 +214,18 @@ export default function EditBlogPostPage({ params }: EditBlogPageProps) {
                             </div>
 
                             <div>
+                                <label className="block text-sm font-bold text-gray-700 mb-2">Description</label>
+                                <Textarea
+                                    value={formData.description}
+                                    onChange={(e) => setFormData({ ...formData, description: e.target.value })}
+                                    placeholder="A detailed description displayed at the top of the blog post page..."
+                                    rows={5}
+                                    className="resize-none"
+                                />
+                                <p className="text-xs text-gray-500 mt-2">This appears as a highlighted overview section on the published blog post, right before the main content.</p>
+                            </div>
+
+                            <div>
                                 <label className="block text-sm font-bold text-gray-700 mb-2">Content *</label>
                                 <WysiwygEditor
                                     value={formData.content}
@@ -342,6 +358,19 @@ export default function EditBlogPostPage({ params }: EditBlogPageProps) {
                                 </div>
                             </div>
                         </div>
+                    </div>
+
+                    {/* Table of Contents */}
+                    <div className="glass-card p-8 rounded-[2rem] space-y-4">
+                        <h2 className="text-xl font-bold text-gray-900 border-b border-gray-100 pb-4">Table of Contents</h2>
+                        <Textarea
+                            value={formData.table_of_contents}
+                            onChange={(e) => setFormData({ ...formData, table_of_contents: e.target.value })}
+                            placeholder={"1. Introduction\n2. Main Section\n3. Conclusion"}
+                            rows={8}
+                            className="resize-none font-mono text-sm"
+                        />
+                        <p className="text-xs text-gray-500">Enter each item on a new line. Shown as a numbered list on the published blog post page.</p>
                     </div>
                 </div>
             </form>

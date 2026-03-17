@@ -172,6 +172,8 @@ export async function POST(request: NextRequest): Promise<NextResponse<ApiRespon
             title: body.title.trim(),
             slug: body.slug.trim(),
             excerpt: body.excerpt?.trim() || null,
+            description: body.description?.trim() || null,
+            table_of_contents: body.table_of_contents?.trim() || null,
             content: body.content,
             featured_image: body.featured_image || null,
             featured_image_alt: body.featured_image_alt || null,
