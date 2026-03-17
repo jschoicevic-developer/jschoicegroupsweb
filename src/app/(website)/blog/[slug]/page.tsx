@@ -9,6 +9,8 @@ interface BlogPost {
     title: string;
     slug: string;
     excerpt: string;
+    description: string | null;
+    table_of_contents: string | null;
     content: string;
     featured_image: string | null;
     author_name: string;
@@ -206,6 +208,35 @@ export default async function BlogPostPage({ params, searchParams }: BlogPostPag
                             ))}
                         </div>
                     </div>
+
+                    {/* Description Section */}
+                    {post.description && (
+                        <div className="px-8 md:px-12 lg:px-16 pt-10 pb-2">
+                            <div className="bg-primary/5 border-l-4 border-primary rounded-r-2xl p-6">
+                                <h2 className="text-sm font-black text-primary uppercase tracking-widest mb-3">Overview</h2>
+                                <p className="text-gray-700 text-lg leading-relaxed">{post.description}</p>
+                            </div>
+                        </div>
+                    )}
+
+                    {/* Table of Contents */}
+                    {post.table_of_contents && (
+                        <div className="px-8 md:px-12 lg:px-16 pt-8 pb-2">
+                            <div className="bg-gray-50 border border-gray-200 rounded-2xl p-6">
+                                <h2 className="text-sm font-black text-gray-700 uppercase tracking-widest mb-4">Table of Contents</h2>
+                                <ol className="space-y-2">
+                                    {post.table_of_contents.split('\n').filter(line => line.trim()).map((item, index) => (
+                                        <li key={index} className="flex items-start gap-3 text-gray-700">
+                                            <span className="flex-shrink-0 w-6 h-6 bg-primary/10 text-primary rounded-full text-xs font-black flex items-center justify-center mt-0.5">
+                                                {index + 1}
+                                            </span>
+                                            <span className="font-medium leading-relaxed">{item.replace(/^\d+[\.\)]\s*/, '')}</span>
+                                        </li>
+                                    ))}
+                                </ol>
+                            </div>
+                        </div>
+                    )}
 
                     {/* Article Content */}
                     <div className="p-8 md:p-12 lg:p-16">

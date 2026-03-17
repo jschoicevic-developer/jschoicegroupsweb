@@ -113,10 +113,65 @@ const BlogList = () => {
     return (
         <section className="py-20 bg-gray-50 min-h-screen">
             <div className="max-w-8xl mx-auto px-4 md:px-6 lg:px-8">
-                <div className="grid grid-cols-1 lg:grid-cols-[1fr_350px] gap-12 lg:gap-16">
+                <div className="flex flex-col gap-8 lg:grid lg:grid-cols-[1fr_350px] lg:gap-16">
+
+                    {/* Mobile Widgets - Show at top on small screens */}
+                    <div className="lg:hidden space-y-4">
+                        {/* Search Section */}
+                        <div className="bg-white p-6 rounded-[2rem] shadow-lg border border-gray-100">
+                            <h3 className="text-lg font-black text-[#2D3748] uppercase tracking-tight mb-4">Search</h3>
+                            <form onSubmit={handleSearch} className="relative">
+                                <Input
+                                    placeholder="Search articles..."
+                                    value={searchQuery}
+                                    onChange={(e) => setSearchQuery(e.target.value)}
+                                    className="h-12 pl-4 pr-10 rounded-xl bg-gray-50 border-gray-200"
+                                />
+                                <button type="submit" className="absolute right-3 top-1/2 -translate-y-1/2">
+                                    <Search className="text-gray-400 hover:text-primary transition-colors" size={18} />
+                                </button>
+                            </form>
+                        </div>
+
+                        {/* Mobile Categories - Shown only if there are categories */}
+                        {getCategories().length > 0 && (
+                            <div className="bg-white p-6 rounded-[2rem] shadow-lg border border-gray-100">
+                                <h3 className="text-lg font-black text-[#2D3748] uppercase tracking-tight mb-4">Categories</h3>
+                                <div className="flex flex-wrap gap-2">
+                                    {getCategories().map(([category, count]) => (
+                                        <Link
+                                            key={category}
+                                            href={`/blog?category=${encodeURIComponent(category)}`}
+                                            className="px-4 py-2 bg-gray-50 rounded-xl text-xs font-bold text-gray-600 hover:bg-primary hover:text-white transition-all flex items-center gap-2"
+                                        >
+                                            {category} <span className="text-[10px] opacity-50">({count})</span>
+                                        </Link>
+                                    ))}
+                                </div>
+                            </div>
+                        )}
+
+                        {/* Mobile Archives - Shown only if there are archives */}
+                        {getArchives().length > 0 && (
+                            <div className="bg-white p-6 rounded-[2rem] shadow-lg border border-gray-100">
+                                <h3 className="text-lg font-black text-[#2D3748] uppercase tracking-tight mb-4">Archives</h3>
+                                <div className="flex flex-wrap gap-2">
+                                    {getArchives().map(([date, count]) => (
+                                        <Link
+                                            key={date}
+                                            href={`/blog?archive=${encodeURIComponent(date)}`}
+                                            className="px-4 py-2 bg-gray-50 rounded-xl text-xs font-bold text-gray-500 hover:text-primary transition-all"
+                                        >
+                                            {date} <span className="text-[10px] opacity-50">({count})</span>
+                                        </Link>
+                                    ))}
+                                </div>
+                            </div>
+                        )}
+                    </div>
 
                     {/* Main Content: Blog Posts */}
-                    <div className="flex flex-col gap-12">
+                    <div className="lg:order-1 flex flex-col gap-12">
                         {posts.length === 0 ? (
                             <div className="text-center py-20">
                                 <h3 className="text-2xl font-bold text-gray-900 mb-4">No blog posts found</h3>
@@ -246,9 +301,9 @@ const BlogList = () => {
                     </div>
 
                     {/* Sidebar */}
-                    <aside className="space-y-10 h-fit sticky top-28">
-                        {/* Search Widget */}
-                        <div className="bg-white p-8 rounded-3xl shadow-lg border border-gray-100">
+                    <aside className="lg:order-2 space-y-10 h-fit lg:sticky lg:top-28">
+                        {/* Desktop Search Widget - Hidden on mobile as it's at the top */}
+                        <div className="hidden lg:block bg-white p-8 rounded-3xl shadow-lg border border-gray-100">
                             <h3 className="text-xl font-black text-[#2D3748] uppercase tracking-tight mb-6">Search</h3>
                             <form onSubmit={handleSearch} className="relative">
                                 <Input
@@ -263,7 +318,7 @@ const BlogList = () => {
                             </form>
                         </div>
 
-                        {/* Recent Posts Widget */}
+                        {/* Recent Posts Widget - Visible on desktop, typically pushed to bottom on mobile anyway */}
                         <div className="bg-white p-8 rounded-3xl shadow-lg border border-gray-100">
                             <h3 className="text-xl font-black text-[#2D3748] uppercase tracking-tight mb-6">Recent Posts</h3>
                             <ul className="space-y-4">
@@ -282,46 +337,41 @@ const BlogList = () => {
                             </ul>
                         </div>
 
-                        {/* Categories Widget */}
-                        {getCategories().length > 0 && (
-                            <div className="bg-white p-8 rounded-3xl shadow-lg border border-gray-100">
-                                <h3 className="text-xl font-black text-[#2D3748] uppercase tracking-tight mb-6">Categories</h3>
-                                <ul className="space-y-2">
-                                    {getCategories().map(([category, count]) => (
-                                        <li key={category}>
-                                            <Link
-                                                href={`/blog?category=${encodeURIComponent(category)}`}
-                                                className="flex items-center justify-between text-gray-600 font-medium hover:text-primary transition-colors p-2 hover:bg-gray-50 rounded-lg"
-                                            >
-                                                <span>{category}</span>
-                                                <span className="text-xs bg-gray-100 px-2 py-1 rounded-md text-gray-500 font-bold">{count}</span>
-                                            </Link>
-                                        </li>
-                                    ))}
-                                </ul>
-                            </div>
-                        )}
+                        {/* Categories Widget - Desktop only (redundant for mobile sidebar now) */}
+                        <div className="hidden lg:block bg-white p-8 rounded-3xl shadow-lg border border-gray-100">
+                            <h3 className="text-xl font-black text-[#2D3748] uppercase tracking-tight mb-6">Categories</h3>
+                            <ul className="space-y-2">
+                                {getCategories().map(([category, count]) => (
+                                    <li key={category}>
+                                        <Link
+                                            href={`/blog?category=${encodeURIComponent(category)}`}
+                                            className="flex items-center justify-between text-gray-600 font-medium hover:text-primary transition-colors p-2 hover:bg-gray-50 rounded-lg"
+                                        >
+                                            <span>{category}</span>
+                                            <span className="text-xs bg-gray-100 px-2 py-1 rounded-md text-gray-500 font-bold">{count}</span>
+                                        </Link>
+                                    </li>
+                                ))}
+                            </ul>
+                        </div>
 
-                        {/* Archives Widget */}
-                        {getArchives().length > 0 && (
-                            <div className="bg-white p-8 rounded-3xl shadow-lg border border-gray-100">
-                                <h3 className="text-xl font-black text-[#2D3748] uppercase tracking-tight mb-6">Archives</h3>
-                                <ul className="space-y-2 text-sm font-medium text-gray-500">
-                                    {getArchives().map(([date, count]) => (
-                                        <li key={date}>
-                                            <Link
-                                                href={`/blog?archive=${encodeURIComponent(date)}`}
-                                                className="hover:text-primary hover:underline transition-colors block py-1 flex items-center justify-between"
-                                            >
-                                                <span>{date}</span>
-                                                <span className="text-xs text-gray-400">({count})</span>
-                                            </Link>
-                                        </li>
-                                    ))}
-                                </ul>
-                            </div>
-                        )}
-
+                        {/* Archives Widget - Desktop only */}
+                        <div className="hidden lg:block bg-white p-8 rounded-3xl shadow-lg border border-gray-100">
+                            <h3 className="text-xl font-black text-[#2D3748] uppercase tracking-tight mb-6">Archives</h3>
+                            <ul className="space-y-2 text-sm font-medium text-gray-500">
+                                {getArchives().map(([date, count]) => (
+                                    <li key={date}>
+                                        <Link
+                                            href={`/blog?archive=${encodeURIComponent(date)}`}
+                                            className="hover:text-primary hover:underline transition-colors block py-1 flex items-center justify-between"
+                                        >
+                                            <span>{date}</span>
+                                            <span className="text-xs text-gray-400">({count})</span>
+                                        </Link>
+                                    </li>
+                                ))}
+                            </ul>
+                        </div>
                     </aside>
                 </div>
             </div>

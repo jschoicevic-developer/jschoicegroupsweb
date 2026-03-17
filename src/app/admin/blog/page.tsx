@@ -3,7 +3,7 @@
 import { useState, useEffect } from "react";
 import { motion } from "framer-motion";
 import Link from "next/link";
-import { Plus, Search, Edit, Trash2, Eye, Calendar, Tag } from "lucide-react";
+import { Plus, Search, Trash2, Eye, Calendar, Tag, Users } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 
@@ -123,10 +123,10 @@ export default function BlogAdminPage() {
                 <h1 className="text-3xl font-bold text-gray-900 font-heading">
                     Blog <span className="text-gradient">Manager</span>
                 </h1>
-                <Link href="/admin/blog/new">
-                    <Button className="gap-2 bg-gradient-to-r from-primary to-secondary hover:opacity-90 transition-opacity">
-                        <Plus size={20} />
-                        New Post
+                <Link href="/admin/bloggers">
+                    <Button className="gap-2 bg-[#2D3748] hover:bg-black transition-colors">
+                        <Users size={20} />
+                        Add Blogger
                     </Button>
                 </Link>
             </div>
@@ -195,10 +195,10 @@ export default function BlogAdminPage() {
                     <div className="text-center py-20">
                         <h3 className="text-xl font-bold text-gray-900 mb-2">No blog posts found</h3>
                         <p className="text-gray-500 mb-6">Get started by creating your first blog post</p>
-                        <Link href="/admin/blog/new">
+                        <Link href="/admin/bloggers">
                             <Button className="gap-2">
                                 <Plus size={20} />
-                                Create Post
+                                Add Blogger
                             </Button>
                         </Link>
                     </div>
@@ -290,13 +290,6 @@ export default function BlogAdminPage() {
                                                     >
                                                         <Eye size={18} className="text-gray-400 group-hover:text-blue-600" />
                                                     </Link>
-                                                    <Link
-                                                        href={`/admin/blog/edit/${post.slug}`}
-                                                        className="p-2 hover:bg-primary/5 rounded-lg transition-colors group"
-                                                        title="Edit Post"
-                                                    >
-                                                        <Edit size={18} className="text-gray-400 group-hover:text-primary" />
-                                                    </Link>
                                                     <button
                                                         onClick={() => handleDeleteClick(post)}
                                                         className="p-2 hover:bg-red-50 rounded-lg transition-colors group"
@@ -350,12 +343,6 @@ export default function BlogAdminPage() {
                                             className="flex items-center gap-1 text-xs font-bold text-blue-600 bg-blue-50 px-3 py-1.5 rounded-lg"
                                         >
                                             <Eye size={14} /> View
-                                        </Link>
-                                        <Link
-                                            href={`/admin/blog/edit/${post.slug}`}
-                                            className="flex items-center gap-1 text-xs font-bold text-primary bg-primary/5 px-3 py-1.5 rounded-lg"
-                                        >
-                                            <Edit size={14} /> Edit
                                         </Link>
                                         <button
                                             onClick={() => handleDeleteClick(post)}
