@@ -59,7 +59,7 @@ export default function DynamicLocationPage({ params }: PageProps) {
                     title={data.heroTitle}
                     breadcrumb={[
                         { label: "Home", href: "/" },
-                        { label: "Services", href: "/services" },
+                        { label: "Services", href: "/" },
                         { label: data.location }
                     ]}
                 />

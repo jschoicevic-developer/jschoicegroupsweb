@@ -86,7 +86,7 @@ const AssistanceWithDailyLife = () => {
                         >
                             <div className="space-y-4">
                                 <h2 className="text-4xl lg:text-5xl font-black text-[#2D3748] leading-tight">
-                                    Empowering Your Independence at Home with Reliable Support in <span className="text-primary mt-2">Melbourne</span>
+                                    Reliable Daily Life Support <span className="text-primary mt-2">at Home in Melbourne</span>
                                 </h2>
                             </div>
                             <div className="space-y-6 text-lg text-gray-600 leading-relaxed">

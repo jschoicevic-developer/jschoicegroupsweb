@@ -1,8 +1,8 @@
 import type { Metadata } from 'next';
 
 export const metadata: Metadata = {
-    title: "NDIS Providers Point Cook | JS Choice Care & Support",
-    description: "Discover NDIS Providers Point Cook services from expert support workers. JS Choice Group provides comprehensive disability support and NDIS assistance.",
+    title: "NDIS Providers in Point Cook",
+    description: "Find trusted NDIS providers in Point Cook. JS Choice Group is based in Point Cook delivering personalised disability support across Melbourne's west.",
     alternates: { canonical: 'https://jschoicegroup.com.au/ndis-providers-point-cook' }
 };
 

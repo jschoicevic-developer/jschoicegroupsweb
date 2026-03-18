@@ -1,8 +1,8 @@
 import type { Metadata } from 'next';
 
 export const metadata: Metadata = {
-    title: "Psychosocial Recovery Coach | JS Choice Care & Support",
-    description: "Discover Psychosocial Recovery Coach services from expert support workers. JS Choice Group provides comprehensive disability support and NDIS assistance.",
+    title: "Psychosocial Recovery Coach",
+    description: "Get expert psychosocial recovery coaching from JS Choice Group. We provide compassionate NDIS mental health support across Melbourne and Victoria.",
     alternates: { canonical: 'https://jschoicegroup.com.au/psychosocial-recovery-coach' }
 };
 

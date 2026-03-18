@@ -7,8 +7,8 @@ import OurCommitment from "@/components/sections/about/OurCommitment";
 import type { Metadata } from "next";
 
 export const metadata: Metadata = {
-    title: "About Us | JS Choice Group - Compassionate NDIS Support",
-    description: "Learn about JS Choice Group, a family-led registered NDIS provider in Melbourne. Founded by Jan Fardowsi, we deliver ethical, culturally responsive, and participant-centred disability support rooted in lived experience.",
+    title: "About Us - Compassionate NDIS Support",
+    description: "JS Choice Group is a family-led NDIS provider in Melbourne, delivering ethical, culturally responsive and participant-centred disability support.",
 };
 
 export default function AboutPage() {

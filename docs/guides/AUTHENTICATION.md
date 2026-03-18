@@ -228,7 +228,7 @@ function MyComponent() {
 ## Environment Variables Required
 
 ```env
-NEXT_PUBLIC_SUPABASE_URL=https://browkzylcbkgaoacijqm.supabase.co
+NEXT_PUBLIC_SUPABASE_URL=https://htszyyiptlahwkdgcbjq.supabase.co
 NEXT_PUBLIC_SUPABASE_ANON_KEY=your_anon_key
 SUPABASE_SERVICE_ROLE_KEY=your_service_role_key
 ```

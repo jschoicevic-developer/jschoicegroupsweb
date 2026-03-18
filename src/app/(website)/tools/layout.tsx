@@ -58,9 +58,9 @@ export default function ToolsLayout({
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.8 }}
             >
-              <h2 className="text-4xl md:text-5xl lg:text-6xl font-black text-white uppercase tracking-tight mb-4">
+              <h1 className="text-4xl md:text-5xl lg:text-6xl font-black text-white uppercase tracking-tight mb-4">
                 NDIS Tools
-              </h2>
+              </h1>
               <nav className="flex items-center justify-center gap-2 text-sm md:text-base font-medium text-gray-300 mb-8">
                 <Link href="/" className="hover:text-white hover:underline transition-colors">Home</Link>
                 <ChevronRight size={14} className="text-[#ABB3F1]" />

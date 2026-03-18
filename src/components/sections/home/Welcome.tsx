@@ -46,7 +46,7 @@ const Welcome = () => {
                         </div>
 
                         <div className="mt-10">
-                            <a href="/services" className="flex items-center justify-center w-fit h-14 px-10 bg-[#ABB3F1] hover:bg-[#9FA8DA] text-[#1E1E2F] rounded-full font-extrabold text-sm lg:text-base tracking-wider uppercase shadow-[0_10px_20px_-5px_rgba(171,179,241,0.6)] hover:shadow-lg transition-all duration-300 transform hover:-translate-y-1">
+                            <a href="/about-us" className="flex items-center justify-center w-fit h-14 px-10 bg-[#ABB3F1] hover:bg-[#9FA8DA] text-[#1E1E2F] rounded-full font-extrabold text-sm lg:text-base tracking-wider uppercase shadow-[0_10px_20px_-5px_rgba(171,179,241,0.6)] hover:shadow-lg transition-all duration-300 transform hover:-translate-y-1">
                                 Read More
                             </a>
                         </div>

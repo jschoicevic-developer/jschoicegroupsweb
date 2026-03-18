@@ -57,7 +57,7 @@ Click **New repository secret** and add these **3 secrets**:
 
 | Secret Name | Value | Where to Get It |
 |-------------|-------|----------------|
-| `SUPABASE_URL` | `https://browkzylcbkgaoacijqm.supabase.co` | From your `.env` file (NEXT_PUBLIC_SUPABASE_URL) |
+| `SUPABASE_URL` | `https://htszyyiptlahwkdgcbjq.supabase.co` | From your `.env` file (NEXT_PUBLIC_SUPABASE_URL) |
 | `SUPABASE_SERVICE_KEY` | Your service role key | From your `.env` file (SUPABASE_SERVICE_ROLE_KEY) |
 | `NOTIFICATION_EMAIL` (Optional) | `your-email@example.com` | Your email for update notifications |
 
