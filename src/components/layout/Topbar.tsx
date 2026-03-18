@@ -1,17 +1,27 @@
 "use client";
 
 import Link from "next/link";
+import { usePathname } from "next/navigation";
 import { motion } from "framer-motion";
 import { Mail, Phone, Facebook, Instagram, Headset, Clock } from "lucide-react";
 import { CONTACT_DETAILS } from "@/config/contact";
+import { cn } from "@/lib/utils";
 
 const Topbar = () => {
+    const pathname = usePathname();
+    const isBlogPost = /^\/blog\/.+/.test(pathname);
+
     return (
         <motion.div
             initial={{ y: -50, opacity: 0 }}
             animate={{ y: 0, opacity: 1 }}
             transition={{ duration: 0.8, delay: 1.5, ease: [0.22, 1, 0.36, 1] }}
-            className="bg-secondary text-foreground py-2 relative z-110 border-b border-foreground/10 shadow-sm"
+            className={cn(
+                "py-2 relative z-110 transition-all duration-300",
+                isBlogPost 
+                    ? "bg-transparent border-transparent shadow-none [&_*]:text-[#1F2937] [&_svg]:text-[#1F2937]" 
+                    : "bg-secondary text-foreground border-b border-foreground/10 shadow-sm"
+            )}
         >
             <div className="max-w-8xl mx-auto px-4 md:px-6 lg:px-8">
                 <div className="flex flex-row justify-between items-center gap-4 md:gap-0 font-semibold text-[13px] tracking-tight">

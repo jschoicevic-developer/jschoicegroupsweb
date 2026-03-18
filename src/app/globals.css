@@ -1,5 +1,6 @@
 @import "tailwindcss";
 @import "tw-animate-css";
+@plugin "@tailwindcss/typography";
 
 @custom-variant dark (&:is(.dark *));
 
@@ -422,6 +423,36 @@
     font-weight: bold;
     color: #000;
   }
+}
+
+/* Blog content styles */
+.blog-content tr:nth-child(even) td {
+  background-color: #f9fafb;
+}
+
+.blog-content img {
+  max-width: 100%;
+  height: auto;
+}
+
+.blog-content figure {
+  margin: 2rem 0;
+  text-align: center;
+}
+
+.blog-content figcaption {
+  margin-top: 0.5rem;
+  font-size: 0.875rem;
+  color: #6b7280;
+  font-style: italic;
+}
+
+.blog-content pre code {
+  background: transparent !important;
+  color: inherit !important;
+  padding: 0 !important;
+  border-radius: 0 !important;
+  font-size: 0.875rem;
 }
 
 @utility max-w-8xl {
