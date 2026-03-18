@@ -138,125 +138,126 @@ export default async function BlogPostPage({ params, searchParams }: BlogPostPag
     };
 
     return (
-        <main className="flex flex-col min-h-screen w-full overflow-x-hidden bg-gray-50">
-            {/* Hero Section with Featured Image */}
-            <div className="relative h-[400px] md:h-[500px] w-full overflow-hidden bg-gradient-to-br from-primary/10 to-secondary/10">
-                <div className="absolute inset-0">
-                    {isValidImageUrl(post.featured_image) && (
-                        <Image quality={80}
-                            src={post.featured_image!}
-                            alt={post.title}
-                            fill
-                            className="object-cover"
-                            priority
-                            unoptimized={post.featured_image?.startsWith('data:')}
-                        />
+        <main className="flex flex-col min-h-screen w-full bg-gray-50">
+
+            {/* ── HERO — theme colour background, no image ─────────────────── */}
+            <div className="w-full bg-gradient-to-br from-[#1A202C] via-[#2D3748] to-primary py-14 md:py-20">
+                <div className="max-w-7xl mx-auto px-4 md:px-6 lg:px-8">
+
+                    {/* Breadcrumb */}
+                    <nav className="flex items-center gap-2 text-sm text-white/60 font-medium mb-8">
+                        <Link href="/" className="hover:text-white transition-colors">Home</Link>
+                        <ChevronRight size={13} />
+                        <Link href="/blog" className="hover:text-white transition-colors">Blog</Link>
+                        <ChevronRight size={13} />
+                        <span className="text-white/40 line-clamp-1">{post.title}</span>
+                    </nav>
+
+                    {/* Category badge */}
+                    {post.category && (
+                        <span className="inline-block mb-5 px-4 py-1.5 rounded-full bg-primary/30 border border-primary/50 text-primary text-xs font-bold uppercase tracking-widest">
+                            {post.category}
+                        </span>
                     )}
-                    <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-black/30 to-transparent" />
-                </div>
 
-                {/* Breadcrumb */}
-                <div className="absolute top-8 left-0 right-0 z-10">
-                    <div className="max-w-5xl mx-auto px-4 md:px-6 lg:px-8">
-                        <nav className="flex items-center gap-2 text-sm text-white/90 font-medium">
-                            <Link href="/" className="hover:text-white transition-colors">Home</Link>
-                            <ChevronRight size={14} />
-                            <Link href="/blog" className="hover:text-white transition-colors">Blog</Link>
-                            <ChevronRight size={14} />
-                            <span className="text-white/70">Article</span>
-                        </nav>
-                    </div>
-                </div>
-            </div>
+                    {/* Title */}
+                    <h1 className="text-3xl sm:text-4xl md:text-5xl font-black text-white leading-tight mb-8 max-w-4xl">
+                        {post.title}
+                    </h1>
 
-            {/* Main Content */}
-            <div className="max-w-5xl mx-auto px-4 md:px-6 lg:px-8 -mt-32 relative z-10 pb-20">
-                <article className="bg-white rounded-[2rem] shadow-2xl overflow-hidden">
-                    {/* Article Header */}
-                    <div className="p-8 md:p-12 lg:p-16 border-b border-gray-100">
-                        {/* Meta Information */}
-                        <div className="flex flex-wrap items-center gap-4 mb-6 text-sm font-semibold text-gray-500 uppercase tracking-wider">
-                            <div className="flex items-center gap-2">
-                                <Calendar size={16} className="text-primary" />
-                                {formatDate(post.published_at || post.created_at)}
-                            </div>
-                            <div className="flex items-center gap-2">
-                                <User size={16} className="text-primary" />
-                                {post.author_name}
-                            </div>
-                            <Link href="#" className="text-secondary hover:underline">
-                                Leave a comment
-                            </Link>
+                    {/* Author · Date · Tags */}
+                    <div className="flex flex-wrap items-center gap-x-6 gap-y-3">
+                        <div className="flex items-center gap-2 text-white/75 text-sm font-medium">
+                            <span className="w-7 h-7 rounded-full bg-primary/30 flex items-center justify-center">
+                                <User size={14} className="text-primary" />
+                            </span>
+                            {post.author_name}
                         </div>
-
-                        {/* Title */}
-                        <h1 className="text-3xl md:text-4xl lg:text-5xl font-black text-[#2D3748] leading-tight mb-6">
-                            {post.title}
-                        </h1>
-
-                        {/* Tags */}
+                        <div className="flex items-center gap-2 text-white/75 text-sm font-medium">
+                            <span className="w-7 h-7 rounded-full bg-primary/30 flex items-center justify-center">
+                                <Calendar size={14} className="text-primary" />
+                            </span>
+                            {formatDate(post.published_at || post.created_at)}
+                        </div>
                         <div className="flex flex-wrap items-center gap-2">
-                            {post.tags.map((tag, index) => (
+                            {post.tags.slice(0, 4).map((tag, i) => (
                                 <Link
-                                    key={index}
+                                    key={i}
                                     href={`/blog?tag=${encodeURIComponent(tag)}`}
-                                    className="inline-flex items-center gap-1.5 px-4 py-2 bg-primary/5 text-primary rounded-full text-sm font-bold hover:bg-primary hover:text-white transition-colors"
+                                    className="inline-flex items-center gap-1 px-3 py-1 bg-white/10 hover:bg-primary/50 border border-white/20 text-white rounded-full text-xs font-semibold transition-colors"
                                 >
-                                    <Tag size={14} />
+                                    <Tag size={10} />
                                     {tag}
                                 </Link>
                             ))}
                         </div>
                     </div>
+                </div>
+            </div>
+            {/* ── END HERO ─────────────────────────────────────────────────── */}
 
-                    {/* Description Section */}
-                    {post.description && (
-                        <div className="px-8 md:px-12 lg:px-16 pt-10 pb-2">
-                            <div className="bg-primary/5 border-l-4 border-primary rounded-r-2xl p-6">
-                                <h2 className="text-sm font-black text-primary uppercase tracking-widest mb-3">Overview</h2>
-                                <p className="text-gray-700 text-lg leading-relaxed">{post.description}</p>
+            {/* ── CONTENT — two-column: article + sticky sidebar ───────────── */}
+            <div className="max-w-7xl mx-auto w-full px-4 md:px-6 lg:px-8 py-12 pb-24">
+                <div className="flex flex-col lg:flex-row gap-8 items-start">
+
+                    {/* ── LEFT: Article ────────────────────────────────────── */}
+                    <article className="flex-1 min-w-0 bg-white rounded-[2rem] shadow-xl overflow-hidden">
+
+                        {/* Featured image in body */}
+                        {isValidImageUrl(post.featured_image) && (
+                            <div className="relative w-full aspect-[16/9] overflow-hidden">
+                                <Image
+                                    quality={85}
+                                    src={post.featured_image!}
+                                    alt={post.title}
+                                    fill
+                                    className="object-cover object-center"
+                                    priority
+                                    unoptimized={post.featured_image?.startsWith('data:')}
+                                />
                             </div>
-                        </div>
-                    )}
+                        )}
 
-                    {/* Table of Contents */}
-                    {post.table_of_contents && (
-                        <div className="px-8 md:px-12 lg:px-16 pt-8 pb-2">
-                            <div className="bg-gray-50 border border-gray-200 rounded-2xl p-6">
-                                <h2 className="text-sm font-black text-gray-700 uppercase tracking-widest mb-4">Table of Contents</h2>
-                                <ol className="space-y-2">
-                                    {post.table_of_contents.split('\n').filter(line => line.trim()).map((item, index) => (
-                                        <li key={index} className="flex items-start gap-3 text-gray-700">
-                                            <span className="flex-shrink-0 w-6 h-6 bg-primary/10 text-primary rounded-full text-xs font-black flex items-center justify-center mt-0.5">
-                                                {index + 1}
-                                            </span>
-                                            <span className="font-medium leading-relaxed">{item.replace(/^\d+[\.\)]\s*/, '')}</span>
-                                        </li>
-                                    ))}
-                                </ol>
+                        {/* Overview */}
+                        {post.description && (
+                            <div className="px-8 md:px-12 pt-10 pb-2">
+                                <div className="bg-primary/5 border-l-4 border-primary rounded-r-2xl p-6">
+                                    <p className="text-xs font-black text-primary uppercase tracking-widest mb-2">Overview</p>
+                                    <p className="text-gray-700 text-lg leading-relaxed">{post.description}</p>
+                                </div>
                             </div>
+                        )}
+
+                        {/* Body */}
+                        <div className="p-8 md:p-12">
+                            <div
+                                className="blog-content prose prose-lg max-w-none
+                                    prose-headings:font-black prose-headings:text-[#2D3748] prose-headings:tracking-tight prose-headings:font-dosis
+                                    prose-h1:text-4xl prose-h1:mt-0 prose-h1:mb-8
+                                    prose-h2:text-3xl prose-h2:mt-12 prose-h2:mb-6 prose-h2:pb-3 prose-h2:border-b prose-h2:border-gray-200
+                                    prose-h3:text-2xl prose-h3:mt-8 prose-h3:mb-4
+                                    prose-h4:text-xl prose-h4:mt-6 prose-h4:mb-3
+                                    prose-p:text-gray-700 prose-p:leading-relaxed prose-p:mb-6 prose-p:text-base
+                                    prose-a:text-primary prose-a:font-semibold prose-a:no-underline hover:prose-a:underline
+                                    prose-ul:my-6 prose-ul:list-disc prose-ul:pl-6
+                                    prose-ol:my-6 prose-ol:list-decimal prose-ol:pl-6
+                                    prose-li:text-gray-700 prose-li:mb-2 prose-li:leading-relaxed
+                                    prose-strong:text-gray-900 prose-strong:font-bold
+                                    prose-em:text-gray-700
+                                    prose-blockquote:border-l-4 prose-blockquote:border-primary prose-blockquote:bg-primary/5 prose-blockquote:rounded-r-2xl prose-blockquote:py-1 prose-blockquote:px-6 prose-blockquote:not-italic prose-blockquote:text-gray-700
+                                    prose-code:bg-gray-100 prose-code:text-primary prose-code:rounded prose-code:px-1.5 prose-code:py-0.5 prose-code:text-sm prose-code:font-mono prose-code:before:content-none prose-code:after:content-none
+                                    prose-pre:bg-gray-900 prose-pre:text-gray-100 prose-pre:rounded-2xl prose-pre:p-6 prose-pre:overflow-x-auto
+                                    prose-img:rounded-2xl prose-img:shadow-lg prose-img:my-8
+                                    prose-table:border-collapse prose-table:w-full
+                                    prose-th:bg-gray-100 prose-th:text-gray-700 prose-th:font-bold prose-th:px-4 prose-th:py-3 prose-th:text-left prose-th:border prose-th:border-gray-200
+                                    prose-td:px-4 prose-td:py-3 prose-td:border prose-td:border-gray-200 prose-td:text-gray-700
+                                    prose-hr:border-gray-200 prose-hr:my-10"
+                                dangerouslySetInnerHTML={{ __html: post.content }}
+                            />
                         </div>
-                    )}
 
-                    {/* Article Content */}
-                    <div className="p-8 md:p-12 lg:p-16">
-                        <div
-                            className="prose prose-lg max-w-none
-                                prose-headings:font-black prose-headings:text-[#2D3748] prose-headings:tracking-tight
-                                prose-h2:text-3xl prose-h2:mt-12 prose-h2:mb-6
-                                prose-h3:text-2xl prose-h3:mt-8 prose-h3:mb-4
-                                prose-p:text-gray-700 prose-p:leading-relaxed prose-p:mb-6
-                                prose-a:text-primary prose-a:font-semibold prose-a:no-underline hover:prose-a:underline
-                                prose-ul:my-6 prose-ul:list-disc prose-ul:pl-6
-                                prose-li:text-gray-700 prose-li:mb-2
-                                prose-strong:text-gray-900 prose-strong:font-bold"
-                            dangerouslySetInnerHTML={{ __html: post.content }}
-                        />
-                    </div>
-
-                    {/* Article Footer */}
-                    <div className="p-8 md:p-12 lg:p-16 bg-gray-50 border-t border-gray-100">
-                        <div className="flex items-center justify-between">
+                        {/* Footer */}
+                        <div className="px-8 md:px-12 py-8 bg-gray-50 border-t border-gray-100">
                             <Link
                                 href="/blog"
                                 className="inline-flex items-center gap-2 text-primary font-bold hover:gap-4 transition-all"
@@ -264,47 +265,90 @@ export default async function BlogPostPage({ params, searchParams }: BlogPostPag
                                 <ChevronLeft size={20} />
                                 Back to Blog
                             </Link>
-                            <div className="flex items-center gap-2">
-                                <span className="text-sm text-gray-500 font-medium">Share:</span>
-                                {/* Add social share buttons here */}
+                        </div>
+                    </article>
+
+                    {/* ── RIGHT: Sticky sidebar ────────────────────────────── */}
+                    <aside className="w-full lg:w-[300px] shrink-0 flex flex-col gap-6 lg:sticky lg:top-28 lg:self-start">
+
+                        {/* Card 1 — Table of Contents */}
+                        <div className="bg-white rounded-2xl shadow-lg overflow-hidden">
+                            <div className="bg-gradient-to-r from-[#1A202C] to-primary px-6 py-4">
+                                <h3 className="text-sm font-black text-white uppercase tracking-widest">
+                                    Table of Contents
+                                </h3>
+                            </div>
+                            <div className="p-5">
+                                {post.table_of_contents ? (
+                                    <ol className="space-y-3">
+                                        {post.table_of_contents.split('\n').filter(l => l.trim()).map((item, i) => (
+                                            <li key={i} className="flex items-start gap-3">
+                                                <span className="flex-shrink-0 w-5 h-5 rounded-full bg-primary/15 text-primary text-[10px] font-black flex items-center justify-center mt-0.5">
+                                                    {i + 1}
+                                                </span>
+                                                <span className="text-sm text-gray-700 font-medium leading-snug">
+                                                    {item.replace(/^\d+[\.\)]\s*/, '')}
+                                                </span>
+                                            </li>
+                                        ))}
+                                    </ol>
+                                ) : (
+                                    <p className="text-sm text-gray-400 italic">No table of contents available.</p>
+                                )}
                             </div>
                         </div>
-                    </div>
-                </article>
 
-                {/* Related Posts */}
-                {relatedPosts.length > 0 && (
-                    <div className="mt-16">
-                        <h2 className="text-3xl font-black text-[#2D3748] mb-8">Related Posts</h2>
-                        <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
-                            {relatedPosts.map((relatedPost) => (
-                                <Link
-                                    key={relatedPost.id}
-                                    href={`/blog/${relatedPost.slug}`}
-                                    className="group bg-white rounded-2xl overflow-hidden shadow-lg hover:shadow-2xl transition-all"
-                                >
-                                    <div className="relative h-48 overflow-hidden">
-                                        {isValidImageUrl(relatedPost.featured_image) && (
-                                            <Image quality={80}
-                                                src={relatedPost.featured_image!}
-                                                alt={relatedPost.title}
-                                                fill
-                                                className="object-cover group-hover:scale-110 transition-transform duration-500"
-                                            />
+                        {/* Card 2 — More Articles */}
+                        <div className="bg-white rounded-2xl shadow-lg overflow-hidden">
+                            <div className="bg-gradient-to-r from-[#1A202C] to-primary px-6 py-4">
+                                <h3 className="text-sm font-black text-white uppercase tracking-widest">
+                                    More Articles
+                                </h3>
+                            </div>
+                            <div className="p-5 flex flex-col gap-4">
+                                {relatedPosts.length > 0 ? relatedPosts.map((rp) => (
+                                    <Link
+                                        key={rp.id}
+                                        href={`/blog/${rp.slug}`}
+                                        className="group flex items-start gap-3"
+                                    >
+                                        {isValidImageUrl(rp.featured_image) && (
+                                            <div className="relative w-16 h-16 rounded-xl overflow-hidden shrink-0">
+                                                <Image
+                                                    src={rp.featured_image!}
+                                                    alt={rp.title}
+                                                    fill
+                                                    className="object-cover group-hover:scale-110 transition-transform duration-300"
+                                                    unoptimized={rp.featured_image?.startsWith('data:')}
+                                                />
+                                            </div>
                                         )}
-                                    </div>
-                                    <div className="p-6">
-                                        <h3 className="font-bold text-gray-900 group-hover:text-primary transition-colors line-clamp-2 mb-2">
-                                            {relatedPost.title}
-                                        </h3>
-                                        <p className="text-sm text-gray-500">{formatDate(relatedPost.published_at || relatedPost.created_at)}</p>
-                                    </div>
+                                        <div className="flex-1 min-w-0">
+                                            <p className="text-sm font-bold text-gray-800 group-hover:text-primary transition-colors line-clamp-2 leading-snug">
+                                                {rp.title}
+                                            </p>
+                                            <p className="text-xs text-gray-400 mt-1">
+                                                {formatDate(rp.published_at || rp.created_at)}
+                                            </p>
+                                        </div>
+                                    </Link>
+                                )) : (
+                                    <p className="text-sm text-gray-400 italic">No other articles yet.</p>
+                                )}
+                                <Link
+                                    href="/blog"
+                                    className="mt-2 w-full text-center text-xs font-bold text-primary border border-primary/30 hover:bg-primary hover:text-white rounded-xl py-2.5 transition-colors"
+                                >
+                                    View All Blogs →
                                 </Link>
-                            ))}
+                            </div>
                         </div>
-                    </div>
-                )}
+                    </aside>
+
+                </div>
             </div>
+            {/* ── END CONTENT ──────────────────────────────────────────────── */}
+
         </main>
     );
 }
