@@ -1,6 +1,7 @@
 "use client";
 
 import { Suspense } from "react";
+import Image from "next/image";
 import { motion } from "framer-motion";
 import { CheckCircle, Phone } from "lucide-react";
 import LandingForm from "./LandingForm";
@@ -26,8 +27,19 @@ export default function LandingHero() {
   };
 
   return (
-    <section className="bg-gradient-to-br from-[#1A202C] to-[#2D3748] py-12 sm:py-16 lg:py-20">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    <section className="relative bg-gradient-to-br from-[#1A202C] to-[#2D3748] py-12 sm:py-16 lg:py-20 overflow-hidden">
+      {/* Background image - visible on desktop */}
+      <div className="hidden lg:block absolute inset-0">
+        <Image
+          src="/images/home/hero3.webp"
+          alt=""
+          fill
+          className="object-cover opacity-10"
+          priority
+        />
+        <div className="absolute inset-0 bg-gradient-to-r from-[#1A202C] via-[#1A202C]/95 to-[#1A202C]/70" />
+      </div>
+      <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex flex-col-reverse lg:flex-row items-center gap-10 lg:gap-16">
           {/* Left: Content (60%) */}
           <motion.div

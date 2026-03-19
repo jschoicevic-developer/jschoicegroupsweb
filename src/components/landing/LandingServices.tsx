@@ -1,5 +1,6 @@
 "use client";
 
+import Image from "next/image";
 import { motion } from "framer-motion";
 import {
   Network,
@@ -33,6 +34,8 @@ const coreServices = [
       "Our Support Coordinators work alongside you to understand your NDIS plan, connect you with the right providers, and help you get the most out of your funding — so you can focus on living your life.",
     includes:
       "Includes: Plan implementation, provider sourcing, crisis support & plan reviews.",
+    image: "/images/home/hero1.webp",
+    imageAlt: "NDIS support coordinator walking with participant and carer",
   },
   {
     icon: HeartHandshake,
@@ -43,6 +46,8 @@ const coreServices = [
       "We provide compassionate, practical support with everyday tasks — from personal care and meal preparation to household assistance — enabling participants to live independently in their own homes.",
     includes:
       "Includes: Personal care, meal prep, household tasks & community access.",
+    image: "/images/home/hero2.webp",
+    imageAlt: "Carer providing compassionate daily life support",
   },
 ];
 
@@ -118,11 +123,22 @@ export default function LandingServices() {
                   viewport={{ once: true }}
                   transition={{ duration: 0.5, delay: index * 0.1 }}
                 >
-                  {/* Icon */}
-                  <div
-                    className={`inline-flex items-center justify-center w-14 h-14 rounded-2xl ${service.iconBg} mb-6`}
-                  >
-                    <Icon className="w-7 h-7 text-foreground" />
+                  {/* Image */}
+                  <div className="relative w-full h-48 rounded-2xl overflow-hidden mb-6">
+                    <Image
+                      src={service.image}
+                      alt={service.imageAlt}
+                      fill
+                      className="object-cover"
+                      sizes="(max-width: 768px) 100vw, 50vw"
+                    />
+                    <div className="absolute inset-0 bg-gradient-to-t from-black/20 to-transparent" />
+                    {/* Icon overlay */}
+                    <div
+                      className={`absolute bottom-3 left-3 inline-flex items-center justify-center w-12 h-12 rounded-xl ${service.iconBg} shadow-lg`}
+                    >
+                      <Icon className="w-6 h-6 text-foreground" />
+                    </div>
                   </div>
 
                   {/* Title */}
