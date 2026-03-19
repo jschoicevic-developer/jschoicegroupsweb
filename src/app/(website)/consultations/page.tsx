@@ -1,3 +1,4 @@
+import { Suspense } from "react";
 import PageHeader from "@/components/ui/PageHeader";
 import ReferralForm from "@/components/sections/referral/ReferralForm";
 import type { Metadata } from "next";
@@ -18,7 +19,9 @@ export default function ReferralPage() {
                 ]}
             />
 
-            <ReferralForm />
+            <Suspense>
+                <ReferralForm />
+            </Suspense>
         </main>
     );
 }
