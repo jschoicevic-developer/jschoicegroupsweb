@@ -196,7 +196,7 @@ const NdisAccommodationGeelong = () => {
                         className="max-w-4xl mx-auto"
                     >
                         <h2 className="text-3xl md:text-5xl font-black mb-6 leading-tight text-white">
-                            Experience the Right Housing Support <span className="text-primary">with Our NDIS Accommodation in Geelong</span>
+                            The Right Housing Support <span className="text-primary">for NDIS Participants in Geelong</span>
                         </h2>
 
                         <div className="flex flex-col md:flex-row gap-4 justify-center items-center mt-10">

@@ -1,8 +1,8 @@
 import type { Metadata } from 'next';
 
 export const metadata: Metadata = {
-    title: "NDIS Providers Altona | JS Choice Care & Support",
-    description: "Discover NDIS Providers Altona services from expert support workers. JS Choice Group provides comprehensive disability support and NDIS assistance.",
+    title: "NDIS Providers in Altona",
+    description: "Find trusted NDIS providers in Altona. JS Choice Group delivers personalised disability support and NDIS services across Melbourne's western suburbs.",
     alternates: { canonical: 'https://jschoicegroup.com.au/ndis-providers-altona' }
 };
 

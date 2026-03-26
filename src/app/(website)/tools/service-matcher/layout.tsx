@@ -1,9 +1,9 @@
 import type { Metadata } from 'next';
 
 export const metadata: Metadata = {
-    title: "Service Matcher | JS Choice Care & Support",
-    description: "Discover Service Matcher services from expert support workers. JS Choice Group provides comprehensive disability support and NDIS assistance.",
-    alternates: { canonical: 'https://jschoicegroup.com.au/service-matcher' }
+    title: "NDIS Service Matcher",
+    description: "Find the right NDIS services for your needs with JS Choice Group's free service matcher tool. Get personalised disability support recommendations.",
+    alternates: { canonical: 'https://jschoicegroup.com.au/tools/service-matcher' }
 };
 
 export default function Layout({ children }: { children: React.ReactNode }) {

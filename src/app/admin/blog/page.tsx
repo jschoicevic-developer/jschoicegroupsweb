@@ -6,6 +6,8 @@ import Link from "next/link";
 import { Plus, Search, Trash2, Eye, Calendar, Tag, Users } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
+import { adminCache } from "@/lib/adminCache";
+import { BlogSkeleton } from "@/components/admin/skeletons";
 
 interface BlogPost {
     id: string;
@@ -24,36 +26,49 @@ interface BlogPost {
 
 export default function BlogAdminPage() {
     const [posts, setPosts] = useState<BlogPost[]>([]);
-    const [loading, setLoading] = useState(true);
+    const [loading, setLoading] = useState(!adminCache.has('blog-all'));
     const [searchQuery, setSearchQuery] = useState("");
     const [statusFilter, setStatusFilter] = useState<string>("all");
     const [showDeleteModal, setShowDeleteModal] = useState(false);
     const [postToDelete, setPostToDelete] = useState<BlogPost | null>(null);
 
     useEffect(() => {
-        fetchPosts();
+        fetchPosts(statusFilter);
     }, [statusFilter]);
 
-    const fetchPosts = async () => {
-        try {
-            setLoading(true);
-            const params = new URLSearchParams({
-                limit: '100',
-                admin: 'true',
-            });
+    const fetchPosts = async (filter: string = statusFilter) => {
+        const key = `blog-${filter}`;
+        const cached = adminCache.get<BlogPost[]>(key);
 
-            if (statusFilter !== 'all') {
-                params.append('status', statusFilter);
-            }
+        if (cached && !adminCache.isStale(key)) {
+            setPosts(cached);
+            setLoading(false);
+            return;
+        }
+
+        if (cached) {
+            setPosts(cached);
+            setLoading(false);
+        } else {
+            setLoading(true);
+        }
+
+        try {
+            const params = new URLSearchParams({ limit: '100', admin: 'true' });
+            if (filter !== 'all') params.append('status', filter);
 
             const response = await fetch(`/api/blog?${params}`);
             const data = await response.json();
 
             if (data.success) {
+                adminCache.set(key, data.data);
                 setPosts(data.data);
+            } else {
+                if (!cached) setPosts([]);
             }
         } catch (error) {
             console.error('Error fetching blog posts:', error);
+            if (!cached) setPosts([]);
         } finally {
             setLoading(false);
         }
@@ -73,6 +88,8 @@ export default function BlogAdminPage() {
             });
 
             if (response.ok) {
+                adminCache.invalidatePattern('blog-');
+                adminCache.invalidate('dashboard');
                 setPosts(posts.filter(p => p.id !== postToDelete.id));
                 setShowDeleteModal(false);
                 setPostToDelete(null);
@@ -186,12 +203,8 @@ export default function BlogAdminPage() {
             </div>
 
             {/* Blog Posts Table */}
-            <div className="glass-card rounded-[2rem] overflow-hidden">
-                {loading ? (
-                    <div className="flex items-center justify-center py-20">
-                        <div className="animate-spin rounded-full h-12 w-12 border-b-2 border-primary"></div>
-                    </div>
-                ) : filteredPosts.length === 0 ? (
+            {loading ? <BlogSkeleton /> : <div className="glass-card rounded-[2rem] overflow-hidden">
+                {filteredPosts.length === 0 ? (
                     <div className="text-center py-20">
                         <h3 className="text-xl font-bold text-gray-900 mb-2">No blog posts found</h3>
                         <p className="text-gray-500 mb-6">Get started by creating your first blog post</p>
@@ -356,7 +369,7 @@ export default function BlogAdminPage() {
                         </div>
                     </>
                 )}
-            </div>
+            </div>}
 
             {/* Delete Confirmation Modal */}
             {showDeleteModal && (

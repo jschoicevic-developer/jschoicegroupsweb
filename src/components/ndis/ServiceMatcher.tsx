@@ -1,6 +1,7 @@
 'use client';
 
 import { useState } from 'react';
+import { useRouter } from 'next/navigation';
 import { ChevronRight, ChevronLeft, Check, MapPin, Heart, Users, CheckCircle } from 'lucide-react';
 import LeadCaptureForm from './LeadCaptureForm';
 import type { ServiceMatcherAnswers, JsChoiceService } from '@/types/ndis';
@@ -18,6 +19,7 @@ const supportTypeOptions = [
 ];
 
 export default function ServiceMatcher() {
+  const router = useRouter();
   const [step, setStep] = useState(1);
   const [answers, setAnswers] = useState<ServiceMatcherAnswers>({
     supportTypes: [],
@@ -73,6 +75,7 @@ export default function ServiceMatcher() {
     } finally {
       setLoadingServices(false);
     }
+    router.push('/thank-you');
   };
 
   const canProceed = () => {

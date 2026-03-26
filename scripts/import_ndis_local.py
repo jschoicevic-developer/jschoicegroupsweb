@@ -10,7 +10,7 @@ from supabase import create_client
 
 # Configuration
 EXCEL_FILE = "d:/Projetcs/JS-Choice-Group/jschoice-website/scripts/NDIS-Support Catalogue-2025-26 -v1.1 (5).xlsx"
-SUPABASE_URL = os.getenv("SUPABASE_URL", "https://browkzylcbkgaoacijqm.supabase.co")
+SUPABASE_URL = os.getenv("SUPABASE_URL", "https://htszyyiptlahwkdgcbjq.supabase.co")
 SUPABASE_KEY = os.getenv("SUPABASE_SERVICE_KEY")
 
 if not SUPABASE_KEY:

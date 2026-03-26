@@ -1,6 +1,7 @@
 "use client";
 
 import { useState, useRef } from "react";
+import { useRouter } from "next/navigation";
 import { motion, AnimatePresence } from "framer-motion";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
@@ -9,7 +10,7 @@ import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@
 import { Label } from "@/components/ui/label";
 import { RadioGroup, RadioGroupItem } from "@/components/ui/radio-group";
 import { Checkbox } from "@/components/ui/checkbox";
-import { Loader2, CheckCircle2, ChevronRight, ChevronLeft } from "lucide-react";
+import { Loader2, ChevronRight, ChevronLeft } from "lucide-react";
 import { Progress } from "@/components/ui/progress";
 
 // Define form data structure
@@ -336,9 +337,9 @@ const Step7Review = ({ formData }: { formData: FormData }) => (
 );
 
 const ReferralForm = () => {
+    const router = useRouter();
     const [currentStep, setCurrentStep] = useState(1);
     const [loading, setLoading] = useState(false);
-    const [success, setSuccess] = useState(false);
     const [error, setError] = useState<string | null>(null);
     const formTopRef = useRef<HTMLDivElement>(null);
 
@@ -473,8 +474,7 @@ const ReferralForm = () => {
                 throw new Error(data.error || 'Failed to submit referral');
             }
 
-            setSuccess(true);
-            window.scrollTo({ top: 0, behavior: 'smooth' });
+            router.push('/thank-you');
 
         } catch (err: any) {
             console.error(err);
@@ -483,63 +483,6 @@ const ReferralForm = () => {
             setLoading(false);
         }
     };
-
-    // Reset Form
-    const resetForm = () => {
-        setSuccess(false);
-        setCurrentStep(1);
-        setFormData({
-            referrerType: "",
-            firstName: "",
-            lastName: "",
-            dob: "",
-            gender: "",
-            address: "",
-            phone: "",
-            email: "",
-            ndisNumber: "",
-            hasGuardian: "no",
-            countryOfBirth: "",
-            requireInterpreter: "",
-            culturalConsiderations: "",
-            isIndigenous: "",
-            primaryService: "",
-            serviceHours: "",
-            secondaryService: "",
-            additionalService: "",
-            disabilityConditions: "",
-            extraInfo: "",
-            specialAssessments: "",
-            practitionerNotes: "",
-            consultationTypes: [],
-            contactPerson: "",
-            receptionNotes: "",
-            ndisPlanType: "",
-        });
-    };
-
-    if (success) {
-        return (
-            <section className="py-20 bg-gray-50 min-h-screen flex items-center justify-center">
-                <motion.div
-                    initial={{ opacity: 0, scale: 0.9 }}
-                    animate={{ opacity: 1, scale: 1 }}
-                    className="bg-white p-12 rounded-3xl shadow-xl text-center max-w-lg w-full"
-                >
-                    <div className="mx-auto w-20 h-20 bg-green-100 rounded-full flex items-center justify-center mb-6">
-                        <CheckCircle2 className="w-10 h-10 text-green-600" />
-                    </div>
-                    <h2 className="text-3xl font-black text-gray-900 mb-4">Consultations Received!</h2>
-                    <p className="text-gray-600 mb-8 text-lg">
-                        Thank you for submitting a referral. Our team has received your details and will be in touch shortly to discuss the next steps.
-                    </p>
-                    <Button onClick={resetForm} className="w-full h-12 text-lg rounded-xl">
-                        Submit Another Referral
-                    </Button>
-                </motion.div>
-            </section>
-        );
-    }
 
     const progressValue = (currentStep / steps.length) * 100;
 

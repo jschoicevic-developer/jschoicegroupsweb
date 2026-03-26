@@ -1,8 +1,8 @@
 import type { Metadata } from 'next';
 
 export const metadata: Metadata = {
-    title: "NDIS Providers Hoppers Crossing | JS Choice Care & Support",
-    description: "Discover NDIS Providers Hoppers Crossing services from expert support workers. JS Choice Group provides comprehensive disability support and NDIS assistance.",
+    title: "NDIS Providers in Hoppers Crossing",
+    description: "Find trusted NDIS providers in Hoppers Crossing. JS Choice Group delivers personalised disability support and NDIS services across Melbourne.",
     alternates: { canonical: 'https://jschoicegroup.com.au/ndis-providers-hoppers-crossing' }
 };
 

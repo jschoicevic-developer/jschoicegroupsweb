@@ -1,8 +1,8 @@
 import type { Metadata } from 'next';
 
 export const metadata: Metadata = {
-    title: "NDIS Providers Laverton | JS Choice Care & Support",
-    description: "Discover NDIS Providers Laverton services from expert support workers. JS Choice Group provides comprehensive disability support and NDIS assistance.",
+    title: "NDIS Providers in Laverton",
+    description: "Find trusted NDIS providers in Laverton. JS Choice Group delivers personalised disability support and NDIS services across Melbourne's western suburbs.",
     alternates: { canonical: 'https://jschoicegroup.com.au/ndis-providers-laverton' }
 };
 

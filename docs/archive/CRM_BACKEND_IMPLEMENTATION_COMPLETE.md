@@ -146,7 +146,7 @@ NOTIFICATION_EMAILS=admin@jschoicegroup.com.au
 
 Run the SQL schema in Supabase:
 
-1. Go to https://app.supabase.com/project/browkzylcbkgaoacijqm/sql
+1. Go to https://app.supabase.com/project/htszyyiptlahwkdgcbjq/sql
 2. Copy the complete SQL schema from `docs/guides/JS_CHOICE_CRM_DEVELOPMENT_GUIDE.md` (lines 176-616)
 3. Execute the SQL
 4. Verify tables are created

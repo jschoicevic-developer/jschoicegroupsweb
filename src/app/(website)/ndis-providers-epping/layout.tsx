@@ -1,8 +1,8 @@
 import type { Metadata } from 'next';
 
 export const metadata: Metadata = {
-    title: "NDIS Providers Epping | JS Choice Care & Support",
-    description: "Discover NDIS Providers Epping services from expert support workers. JS Choice Group provides comprehensive disability support and NDIS assistance.",
+    title: "NDIS Providers in Epping",
+    description: "Find trusted NDIS providers in Epping. JS Choice Group delivers personalised disability support and NDIS services across Melbourne's northern suburbs.",
     alternates: { canonical: 'https://jschoicegroup.com.au/ndis-providers-epping' }
 };
 

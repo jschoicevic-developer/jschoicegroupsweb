@@ -41,11 +41,16 @@ export async function sendNewLeadNotification(lead: Lead): Promise<void> {
     const appUrl = process.env.NEXT_PUBLIC_APP_URL || 'https://jschoice-website.vercel.app';
     const sourceLabel = SOURCE_LABELS[lead.source] || lead.source;
     const fullName = `${lead.first_name} ${lead.last_name || ''}`.trim();
-    const adminEmail = process.env.ADMIN_EMAIL || 'jschoice.au@gmail.com';
+
+    const adminEmails = [
+      process.env.ADMIN_EMAIL || 'info@jschoicegroup.com.au',
+      'team@cruxlabs.com.au',
+      'sadoon.mukhtar@gmail.com',
+    ];
 
     await getResend().emails.send({
       from: 'JS Choice CRM <onboarding@resend.dev>',
-      to: adminEmail,
+      to: adminEmails,
       subject: `🔔 New Lead: ${fullName} from ${sourceLabel}`,
       html: generateNewLeadEmailHtml(lead, appUrl, sourceLabel, fullName),
     });

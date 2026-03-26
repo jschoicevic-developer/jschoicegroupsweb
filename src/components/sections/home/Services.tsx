@@ -11,49 +11,49 @@ const services = [
         title: "Assistance with daily life",
         description: "With our daily life assistance service, you will get to accomplish both household and personal tasks in your home or shared space.",
         icon: "/images/home/service-icon-1.webp",
-        href: "/services/daily-life"
+        href: "/assistance-with-daily-life"
     },
     {
         title: "Group/Centre Activities",
         description: "To enhance your mental and physical well-being, our staff will help you perform all types of group and centre-based activities",
         icon: "/images/home/service-icon-2.webp",
-        href: "/services/group-activities"
+        href: "/group-centre-activities"
     },
     {
         title: "Emergency Respite",
         description: "If you are looking for a place to move into for a few days on an emergency basis, we have got you covered. We will provide you with accommodation",
         icon: "/images/home/service-icon-3.webp",
-        href: "/services/emergency-respite"
+        href: "/emergency-respite"
     },
     {
         title: "Assistance With Nursing Care",
         description: "We have access to the best nurses who will provide you with comprehensive care so that you can recover fast.",
         icon: "/images/home/service-icon-4.webp",
-        href: "/services/nursing-care"
+        href: "/assistance-with-nursing-care"
     },
     {
         title: "Access to community activities",
         description: "With our support, you will be able to access community resources and develop connections with others through socialisation.",
         icon: "/images/home/service-icon-5.webp",
-        href: "/services/community-access"
+        href: "/access-to-community-activities"
     },
     {
         title: "Transportation Assistance",
         description: "By opting for this service, you will get assistance with mobility. Our support workers will help you reach locations with the help of your aids and even assist you",
         icon: "/images/home/service-icon-6.webp",
-        href: "/services/transportation-assistance"
+        href: "/transportation-assistance"
     },
     {
         title: "Allied Health Services",
         description: "We provide comprehensive allied health assistance where we offer a broad array of therapy. We have practitioners who will help you recover or manage your condition",
         icon: "/images/home/service-icon-7.webp",
-        href: "/services/allied-health-services"
+        href: "/allied-health-services"
     },
     {
         title: "Psychosocial recovery coaching",
         description: "Our psychosocial recovery coaches will help you or your loved one overcome challenges with this specific type of disability.",
         icon: "/images/home/service-icon-8.webp",
-        href: "/services/psychosocial-recovery-coaching"
+        href: "/psychosocial-recovery-coach"
     }
 ];
 
@@ -102,49 +102,49 @@ const Services = () => {
                             title: "Assistance with daily life",
                             description: "Build independence at home. We support you with household tasks, personal care, and daily routines, ensuring you feel comfortable and in control of your environment.",
                             icon: "/images/home/service-icon-1.webp",
-                            href: "/services/daily-life"
+                            href: "/assistance-with-daily-life"
                         },
                         {
                             title: "Transport Assistance",
                             description: "Connect and create. Join our engaging group sessions designed to improve mental well-being, foster friendships, and build new skills in a safe, supportive space.",
                             icon: "/images/home/service-icon-6.webp",
-                            href: "/services/transportation-assistance"
+                            href: "/transportation-assistance"
                         },
                         {
                             title: "Allied Health Services",
                             description: "Holistic therapy support. We work alongside your therapists to implement exercise and therapy programs that help you manage or recover from your condition.",
                             icon: "/images/home/service-icon-7.webp",
-                            href: "/services/allied-health-services"
+                            href: "/allied-health-services"
                         },
                         {
                             title: "Psychosocial Recovery Coaching",
                             description: "Reclaiming your path. Our specialised coaches work with you to manage mental health challenges, build resilience, and design a life of hope and autonomy.",
                             icon: "/images/home/service-icon-8.webp",
-                            href: "/services/psychosocial-recovery-coaching"
+                            href: "/psychosocial-recovery-coach"
                         },
                         {
                             title: "Social & Community Participation",
                             description: "Build independence at home. We support you with household tasks, personal care, and daily routines, ensuring you feel comfortable and in control of your environment.",
                             icon: "/images/home/service-icon-5.webp",
-                            href: "/services/community-access"
+                            href: "/access-to-community-activities"
                         },
                         {
                             title: "Group/Centre Activities",
                             description: "Get out and about! We help you access community resources, attend events, and develop social connections to reduce isolation and build confidence.",
                             icon: "/images/home/service-icon-2.webp",
-                            href: "/services/group-activities"
+                            href: "/group-centre-activities"
                         },
                         {
                             title: "Emergency Respite",
                             description: "Freedom to move. Whether it’s medical appointments, shopping, or social visits, our team ensures you get from A to B safely with reliable transport support.",
                             icon: "/images/home/service-icon-3.webp",
-                            href: "/services/emergency-respite"
+                            href: "/emergency-respite"
                         },
                         {
                             title: "Community Nursing Care",
                             description: "Professional clinical care in your home. Our qualified nurses assist with medication, wound care, and health monitoring to help you manage complex conditions.",
                             icon: "/images/home/service-icon-4.webp",
-                            href: "/services/nursing-care"
+                            href: "/assistance-with-nursing-care"
                         }
                     ].map((service, index) => (
                         <motion.div
@@ -195,8 +195,9 @@ const Services = () => {
                             <Link
                                 href={service.href}
                                 className="inline-flex items-center justify-center h-12 px-10 rounded-full bg-[#ABB3F1] text-black text-xs font-black uppercase tracking-widest hover:bg-[#9DA5E2] hover:shadow-lg transition-all"
+                                aria-label={`Learn more about ${service.title}`}
                             >
-                                LEARN MORE
+                                LEARN MORE<span className="sr-only"> about {service.title}</span>
                             </Link>
                         </motion.div>
                     ))}

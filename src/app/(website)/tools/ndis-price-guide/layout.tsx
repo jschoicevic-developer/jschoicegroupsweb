@@ -1,9 +1,9 @@
 import type { Metadata } from 'next';
 
 export const metadata: Metadata = {
-    title: "NDIS Price Guide | JS Choice Care & Support",
-    description: "Discover NDIS Price Guide services from expert support workers. JS Choice Group provides comprehensive disability support and NDIS assistance.",
-    alternates: { canonical: 'https://jschoicegroup.com.au/ndis-price-guide' }
+    title: "NDIS Price Guide Navigator",
+    description: "Search NDIS support item prices across all Australian regions. JS Choice Group's free price guide tool provides detailed pricing and claim information.",
+    alternates: { canonical: 'https://jschoicegroup.com.au/tools/ndis-price-guide' }
 };
 
 export default function Layout({ children }: { children: React.ReactNode }) {

@@ -3,15 +3,19 @@
 import { useState, useEffect } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { Plus, Search, Edit, Trash2, Image as ImageIcon, Loader2, X, Camera } from "lucide-react";
+import { adminCache } from "@/lib/adminCache";
+import { GallerySkeleton } from "@/components/admin/skeletons";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import Image from "next/image";
 import { cn } from "@/lib/utils";
 import type { GalleryItem } from "@/types/crm";
 
+const GALLERY_KEY = 'gallery';
+
 export default function GalleryAdminPage() {
-    const [items, setItems] = useState<GalleryItem[]>([]);
-    const [loading, setLoading] = useState(true);
+    const [items, setItems] = useState<GalleryItem[]>(adminCache.get<GalleryItem[]>(GALLERY_KEY) ?? []);
+    const [loading, setLoading] = useState(!adminCache.has(GALLERY_KEY));
     const [searchQuery, setSearchQuery] = useState("");
     const [isSaving, setIsSaving] = useState(false);
 
@@ -38,15 +42,18 @@ export default function GalleryAdminPage() {
     const [uploading, setUploading] = useState(false);
 
     useEffect(() => {
-        fetchGallery();
+        if (!adminCache.has(GALLERY_KEY) || adminCache.isStale(GALLERY_KEY)) {
+            fetchGallery();
+        }
     }, []);
 
     const fetchGallery = async () => {
+        if (!adminCache.has(GALLERY_KEY)) setLoading(true);
         try {
-            setLoading(true);
             const response = await fetch('/api/gallery');
             const data = await response.json();
             if (data.success) {
+                adminCache.set(GALLERY_KEY, data.data);
                 setItems(data.data);
             }
         } catch (error) {
@@ -147,6 +154,7 @@ export default function GalleryAdminPage() {
 
             const data = await response.json();
             if (data.success) {
+                adminCache.invalidate(GALLERY_KEY, 'dashboard');
                 setShowModal(false);
                 fetchGallery();
             } else {
@@ -173,6 +181,7 @@ export default function GalleryAdminPage() {
             });
             const data = await response.json();
             if (data.success) {
+                adminCache.invalidate(GALLERY_KEY, 'dashboard');
                 setItems(items.filter(i => i.id !== itemToDelete.id));
                 setShowDeleteModal(false);
                 setItemToDelete(null);
@@ -226,10 +235,7 @@ export default function GalleryAdminPage() {
 
             {/* Gallery Grid */}
             {loading ? (
-                <div className="flex flex-col items-center justify-center py-20 gap-4 text-gray-500">
-                    <Loader2 className="w-10 h-10 animate-spin text-primary" />
-                    <p className="font-medium">Loading gallery items...</p>
-                </div>
+                <GallerySkeleton />
             ) : filteredItems.length === 0 ? (
                 <div className="text-center py-20 bg-gray-50 rounded-[2rem] border-2 border-dashed border-gray-200">
                     <ImageIcon className="w-16 h-16 text-gray-300 mx-auto mb-4" />

@@ -18,6 +18,8 @@ import {
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import CommunicationPanel from "@/components/admin/CommunicationPanel";
+import { adminCache } from "@/lib/adminCache";
+import { ReferralsSkeleton } from "@/components/admin/skeletons";
 
 interface Lead {
     id: string;
@@ -38,46 +40,49 @@ interface Lead {
 
 export default function ReferralsPage() {
     const [leads, setLeads] = useState<Lead[]>([]);
-    const [loading, setLoading] = useState(true);
+    const [loading, setLoading] = useState(!adminCache.has('referrals-all'));
     const [searchQuery, setSearchQuery] = useState("");
     const [statusFilter, setStatusFilter] = useState<string>("all");
     const [selectedLead, setSelectedLead] = useState<Lead | null>(null);
     const [emailLead, setEmailLead] = useState<Lead | null>(null);
 
     useEffect(() => {
-        fetchReferrals();
+        fetchReferrals(statusFilter);
     }, [statusFilter]);
 
-    const fetchReferrals = async () => {
-        try {
+    const fetchReferrals = async (filter: string = statusFilter) => {
+        const key = `referrals-${filter}`;
+        const cached = adminCache.get<Lead[]>(key);
+
+        if (cached && !adminCache.isStale(key)) {
+            setLeads(cached);
+            setLoading(false);
+            return;
+        }
+
+        if (cached) {
+            setLeads(cached);
+            setLoading(false);
+        } else {
             setLoading(true);
-            const params = new URLSearchParams({
-                limit: '100',
-                source: 'referral'
-            });
+        }
 
-            if (statusFilter !== 'all') {
-                params.append('status', statusFilter);
-            }
+        try {
+            const params = new URLSearchParams({ limit: '100', source: 'referral' });
+            if (filter !== 'all') params.append('status', filter);
 
-            console.log('Fetching referrals with params:', params.toString());
             const response = await fetch(`/api/leads?${params}`);
-            console.log('Response status:', response.status);
-
             const result = await response.json();
-            console.log('Response data:', result);
 
             if (result.success) {
-                // API returns paginated response with data array
+                adminCache.set(key, result.data || []);
                 setLeads(result.data || []);
-                console.log('Referrals loaded:', (result.data || []).length);
             } else {
-                console.error('API returned error:', result.error);
-                setLeads([]);
+                if (!cached) setLeads([]);
             }
         } catch (error) {
             console.error('Error fetching referrals:', error);
-            setLeads([]);
+            if (!cached) setLeads([]);
         } finally {
             setLoading(false);
         }
@@ -208,10 +213,7 @@ export default function ReferralsPage() {
 
             {/* Referrals Table */}
             {loading ? (
-                <div className="glass-card p-12 rounded-2xl text-center">
-                    <div className="animate-spin w-8 h-8 border-4 border-primary border-t-transparent rounded-full mx-auto mb-4"></div>
-                    <p className="text-gray-500 font-medium">Loading referrals...</p>
-                </div>
+                <ReferralsSkeleton />
             ) : filteredLeads.length === 0 ? (
                 <div className="glass-card p-12 rounded-2xl text-center">
                     <p className="text-gray-500 font-medium">No referrals found</p>
@@ -481,7 +483,10 @@ export default function ReferralsPage() {
                     <CommunicationPanel
                         lead={emailLead}
                         onClose={() => setEmailLead(null)}
-                        onSuccess={() => fetchReferrals()} // Refresh to show 'contacted' status
+                        onSuccess={() => {
+                            adminCache.invalidatePattern('referrals-');
+                            fetchReferrals(statusFilter);
+                        }}
                     />
                 )}
             </AnimatePresence>

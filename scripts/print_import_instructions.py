@@ -15,7 +15,7 @@ print(f"Total records: 113\n")
 
 print("INSTRUCTIONS:")
 print("1. Open Supabase SQL Editor:")
-print("   https://supabase.com/dashboard/project/browkzylcbkgaoacijqm/sql/new")
+print("   https://supabase.com/dashboard/project/htszyyiptlahwkdgcbjq/sql/new")
 print("\n2. Copy and paste each batch SQL below (one at a time)")
 print("\n3. Click 'Run' after pasting each batch")
 print("\n4. Verify completion after all batches:")

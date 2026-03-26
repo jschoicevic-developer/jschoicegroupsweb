@@ -75,6 +75,21 @@ const nextConfig: NextConfig = {
         source: '/services/allied-health',
         destination: '/allied-health-services',
         permanent: true,
+      },
+      {
+        source: '/service-matcher',
+        destination: '/tools/service-matcher',
+        permanent: true,
+      },
+      {
+        source: '/ndis-price-guide',
+        destination: '/tools/ndis-price-guide',
+        permanent: true,
+      },
+      {
+        source: '/ndis-budget-calculator',
+        destination: '/tools/ndis-budget-calculator',
+        permanent: true,
       }
     ];
   }
