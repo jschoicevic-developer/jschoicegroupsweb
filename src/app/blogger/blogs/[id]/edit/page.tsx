@@ -2,7 +2,7 @@
 
 import { useState, useEffect } from "react";
 import { useRouter, useParams } from "next/navigation";
-import { ArrowLeft, Save, Eye, Loader2 } from "lucide-react";
+import { ArrowLeft, Save, Eye, Loader2, Clock } from "lucide-react";
 import Link from "next/link";
 import Image from "next/image";
 import { Button } from "@/components/ui/button";
@@ -14,7 +14,7 @@ import { useAuth } from "@/hooks/useAuth";
 import { generateTableOfContents } from "@/lib/utils";
 import { Sparkles } from "lucide-react";
 
-type BlogStatus = 'draft' | 'published';
+type BlogStatus = 'draft' | 'published' | 'scheduled';
 
 interface BlogPost {
     id: string;
@@ -28,6 +28,7 @@ interface BlogPost {
     category: string | null;
     tags: string[] | null;
     status: BlogStatus;
+    scheduled_for: string | null;
     author_id: string;
     author_name: string;
 }
@@ -51,6 +52,7 @@ export default function EditBloggerPostPage() {
         category: "",
         tags: "",
         status: "draft" as BlogStatus,
+        scheduled_for: "",
     });
     const [originalSlug, setOriginalSlug] = useState("");
 
@@ -82,6 +84,7 @@ export default function EditBloggerPostPage() {
                     category: post.category || "",
                     tags: post.tags ? post.tags.join(', ') : "",
                     status: post.status,
+                    scheduled_for: post.scheduled_for ? new Date(post.scheduled_for).toISOString().slice(0, 16) : "",
                 });
                 setOriginalSlug(post.slug);
             } catch (error) {
@@ -121,9 +124,21 @@ export default function EditBloggerPostPage() {
     const handleSubmit = async (e: React.FormEvent, statusOverride?: BlogStatus) => {
         e.preventDefault();
         if (!user) return;
-        setLoading(true);
 
         const status = statusOverride || formData.status;
+
+        if (status === 'scheduled') {
+            if (!formData.scheduled_for) {
+                alert('Please select a date and time to schedule the post.');
+                return;
+            }
+            if (new Date(formData.scheduled_for) <= new Date()) {
+                alert('Scheduled time must be in the future.');
+                return;
+            }
+        }
+
+        setLoading(true);
 
         try {
             const tagsArray = formData.tags
@@ -145,6 +160,7 @@ export default function EditBloggerPostPage() {
                 author_id: user.id,
                 author_name: user.user_metadata?.name || user.email || 'Blogger',
                 published_at: status === 'published' ? new Date().toISOString() : null,
+                scheduled_for: status === 'scheduled' ? new Date(formData.scheduled_for).toISOString() : null,
             };
 
             const response = await fetch(`/api/blog/${originalSlug}`, {
@@ -201,14 +217,25 @@ export default function EditBloggerPostPage() {
                         <Save size={18} />
                         Save Draft
                     </Button>
-                    <Button
-                        onClick={(e) => handleSubmit(e, 'published')}
-                        disabled={loading || !formData.title || !formData.content}
-                        className="gap-2 bg-gradient-to-r from-primary to-secondary hover:opacity-90"
-                    >
-                        <Eye size={18} />
-                        Publish Now
-                    </Button>
+                    {formData.status === 'scheduled' ? (
+                        <Button
+                            onClick={(e) => handleSubmit(e, 'scheduled')}
+                            disabled={loading || !formData.title || !formData.content || !formData.scheduled_for}
+                            className="gap-2 bg-gradient-to-r from-blue-500 to-blue-600 hover:opacity-90"
+                        >
+                            <Clock size={18} />
+                            Schedule Post
+                        </Button>
+                    ) : (
+                        <Button
+                            onClick={(e) => handleSubmit(e, 'published')}
+                            disabled={loading || !formData.title || !formData.content}
+                            className="gap-2 bg-gradient-to-r from-primary to-secondary hover:opacity-90"
+                        >
+                            <Eye size={18} />
+                            Publish Now
+                        </Button>
+                    )}
                 </div>
             </div>
 
@@ -281,13 +308,28 @@ export default function EditBloggerPostPage() {
                             <label className="block text-sm font-bold text-gray-700 mb-2">Post Status</label>
                             <select
                                 value={formData.status}
-                                onChange={(e) => setFormData({ ...formData, status: e.target.value as BlogStatus })}
+                                onChange={(e) => setFormData({ ...formData, status: e.target.value as BlogStatus, scheduled_for: e.target.value !== 'scheduled' ? '' : formData.scheduled_for })}
                                 className="w-full h-12 px-4 rounded-xl border border-gray-200 bg-white text-gray-700 font-medium focus:outline-none focus:ring-2 focus:ring-primary"
                             >
                                 <option value="draft">Save as Draft</option>
                                 <option value="published">Published</option>
+                                <option value="scheduled">Schedule for Later</option>
                             </select>
                         </div>
+
+                        {formData.status === 'scheduled' && (
+                            <div>
+                                <label className="block text-sm font-bold text-gray-700 mb-2">Schedule Date & Time</label>
+                                <Input
+                                    type="datetime-local"
+                                    value={formData.scheduled_for}
+                                    onChange={(e) => setFormData({ ...formData, scheduled_for: e.target.value })}
+                                    min={new Date(Date.now() + 60000).toISOString().slice(0, 16)}
+                                    className="h-12"
+                                />
+                                <p className="text-xs text-gray-500 mt-2">The post will be automatically published at this time.</p>
+                            </div>
+                        )}
 
                         <div className="p-4 bg-primary/5 rounded-2xl border border-primary/10">
                             <p className="text-xs font-bold text-primary uppercase tracking-wider mb-1">Author</p>

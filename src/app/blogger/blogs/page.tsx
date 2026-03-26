@@ -173,7 +173,7 @@ export default function BloggerBlogsPage() {
             </div>
 
             {/* Stats */}
-            <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
+            <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
                 <div className="glass-card p-6 rounded-2xl">
                     <div className="text-sm font-semibold text-gray-500 uppercase tracking-wider mb-2">Total Posts</div>
                     <div className="text-3xl font-black text-gray-900">{posts.length}</div>
@@ -182,6 +182,12 @@ export default function BloggerBlogsPage() {
                     <div className="text-sm font-semibold text-gray-500 uppercase tracking-wider mb-2">Published</div>
                     <div className="text-3xl font-black text-green-600">
                         {posts.filter(p => p.status === 'published').length}
+                    </div>
+                </div>
+                <div className="glass-card p-6 rounded-2xl">
+                    <div className="text-sm font-semibold text-gray-500 uppercase tracking-wider mb-2">Scheduled</div>
+                    <div className="text-3xl font-black text-blue-600">
+                        {posts.filter(p => p.status === 'scheduled').length}
                     </div>
                 </div>
                 <div className="glass-card p-6 rounded-2xl">
