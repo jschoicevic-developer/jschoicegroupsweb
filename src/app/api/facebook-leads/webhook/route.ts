@@ -13,6 +13,7 @@
 import { NextRequest, NextResponse } from 'next/server';
 import { createHmac } from 'crypto';
 import { createServerClient } from '@/lib/supabase-admin';
+import { sendFacebookLeadAdminEmail, sendFacebookLeadClientEmail } from '@/lib/email';
 
 // ─── Types ────────────────────────────────────────────────────────────────────
 
@@ -213,12 +214,28 @@ export async function POST(request: NextRequest) {
                 notes:         `Leadgen ID: ${leadgen_id} | Page ID: ${page_id}`,
             };
 
-            const { error } = await supabase.from('facebook_leads').insert(record);
+            const { data: savedLead, error } = await supabase
+                .from('facebook_leads')
+                .insert(record)
+                .select('id, created_at')
+                .single();
 
             if (error) {
                 console.error(`DB error saving facebook lead ${leadgen_id}:`, error);
             } else {
                 console.log(`Saved facebook lead: ${fullName} (${email ?? 'no email'})`);
+
+                const emailData = {
+                    ...record,
+                    id:         savedLead?.id,
+                    created_at: savedLead?.created_at,
+                };
+
+                // Fire both emails — errors are caught inside each function
+                void Promise.all([
+                    sendFacebookLeadAdminEmail(emailData),
+                    sendFacebookLeadClientEmail(emailData),
+                ]);
             }
         }
     }

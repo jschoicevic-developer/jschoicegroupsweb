@@ -52,7 +52,8 @@
       "mcp__plugin_playwright_playwright__browser_select_option",
       "Bash(npm run:*)",
       "Bash(npx tsc:*)",
-      "Bash(netstat:*)"
+      "Bash(netstat:*)",
+      "Bash(cat:*)"
     ]
   },
   "enableAllProjectMcpServers": true,
