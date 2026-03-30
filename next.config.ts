@@ -35,24 +35,27 @@ const nextConfig: NextConfig = {
     ];
   },
   async rewrites() {
-    return [
-      // ── Facebook Lead Ads webhook ──────────────────────────────────────────
-      // Meta sends a GET with ?hub.mode=subscribe for verification.
-      // Rewrite to the API route; browsers navigating to /admin/facebook-leads
-      // (without hub.mode) are unaffected and see the normal admin page.
-      {
-        source: '/admin/facebook-leads',
-        has: [{ type: 'query', key: 'hub.mode' }],
-        destination: '/api/facebook-leads/webhook',
-      },
-      // Meta POST payloads always include the x-hub-signature-256 header.
-      // Rewrite those to the API route while leaving normal browser requests alone.
-      {
-        source: '/admin/facebook-leads',
-        has: [{ type: 'header', key: 'x-hub-signature-256' }],
-        destination: '/api/facebook-leads/webhook',
-      },
-    ];
+    return {
+      // beforeFiles runs BEFORE Next.js checks for pages/static files.
+      // This is required so Meta's requests reach the API route even though
+      // a page also exists at /admin/facebook-leads.
+      beforeFiles: [
+        // Meta webhook verification — GET with ?hub.mode=subscribe
+        {
+          source: '/admin/facebook-leads',
+          has: [{ type: 'query', key: 'hub.mode' }],
+          destination: '/api/facebook-leads/webhook',
+        },
+        // Meta lead delivery — POST always includes x-hub-signature-256
+        {
+          source: '/admin/facebook-leads',
+          has: [{ type: 'header', key: 'x-hub-signature-256' }],
+          destination: '/api/facebook-leads/webhook',
+        },
+      ],
+      afterFiles: [],
+      fallback: [],
+    };
   },
   async redirects() {
     return [
