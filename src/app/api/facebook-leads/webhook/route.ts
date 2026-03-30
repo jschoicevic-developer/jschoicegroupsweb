@@ -187,13 +187,14 @@ export async function POST(request: NextRequest) {
 
             // Facebook forms use various field name conventions — check common variants
             const fullName =
-                extractField(fieldData, 'full_name') ??
-                extractField(fieldData, 'name') ??
-                [
-                    extractField(fieldData, 'first_name'),
-                    extractField(fieldData, 'last_name'),
-                ].filter(Boolean).join(' ') ||
-                'Unknown';
+                (
+                    extractField(fieldData, 'full_name') ??
+                    extractField(fieldData, 'name') ??
+                    [
+                        extractField(fieldData, 'first_name'),
+                        extractField(fieldData, 'last_name'),
+                    ].filter(Boolean).join(' ')
+                ) || 'Unknown';
 
             const email = extractField(fieldData, 'email') ?? extractField(fieldData, 'email_address');
             const phone = extractField(fieldData, 'phone_number') ?? extractField(fieldData, 'phone');
