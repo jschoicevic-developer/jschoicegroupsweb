@@ -53,7 +53,12 @@
       "Bash(npm run:*)",
       "Bash(npx tsc:*)",
       "Bash(netstat:*)",
-      "Bash(cat:*)"
+      "Bash(cat:*)",
+      "mcp__plugin_supabase_supabase__list_projects",
+      "mcp__plugin_supabase_supabase__list_organizations",
+      "mcp__plugin_supabase_supabase__list_tables",
+      "mcp__plugin_supabase_supabase__execute_sql",
+      "mcp__plugin_supabase_supabase__apply_migration"
     ]
   },
   "enableAllProjectMcpServers": true,
