@@ -1,8 +1,9 @@
 import { MetadataRoute } from "next";
+import { createServerClient } from "@/lib/supabase-admin";
 
 const BASE_URL = "https://jschoicegroup.com.au";
 
-export default function sitemap(): MetadataRoute.Sitemap {
+export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
     const staticPages = [
         { url: `${BASE_URL}/`, priority: 1.0, changeFrequency: "weekly" as const },
         { url: `${BASE_URL}/about-us`, priority: 0.9, changeFrequency: "monthly" as const },
@@ -73,15 +74,35 @@ export default function sitemap(): MetadataRoute.Sitemap {
         changeFrequency: "monthly" as const,
     }));
 
+    let blogPages: MetadataRoute.Sitemap = [];
+    try {
+        const supabase = createServerClient();
+        const { data: posts } = await supabase
+            .from("blog_posts")
+            .select("slug, updated_at, published_at")
+            .eq("status", "published")
+            .order("published_at", { ascending: false });
+
+        if (posts) {
+            blogPages = posts.map((post) => ({
+                url: `${BASE_URL}/blog/${post.slug}`,
+                lastModified: new Date(post.updated_at ?? post.published_at),
+                priority: 0.7,
+                changeFrequency: "weekly" as const,
+            }));
+        }
+    } catch {
+        // Sitemap generation continues without blog posts if DB is unavailable
+    }
+
     const lastModified = new Date();
 
-    return [
+    const staticEntries = [
         ...staticPages,
         ...servicePages,
         ...locationPages,
         ...toolPages,
-    ].map((page) => ({
-        ...page,
-        lastModified,
-    }));
+    ].map((page) => ({ ...page, lastModified }));
+
+    return [...staticEntries, ...blogPages];
 }
