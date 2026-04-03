@@ -97,7 +97,8 @@ async function fetchLeadFromGraph(leadgenId: string): Promise<GraphLeadResponse 
     }
 
     const fields = 'id,created_time,field_data,form_id,ad_id,ad_name,adset_id,campaign_id,campaign_name,page_id';
-    const url = `https://graph.facebook.com/v19.0/${leadgenId}?fields=${fields}&access_token=${token}`;
+    const graphVersion = process.env.FACEBOOK_GRAPH_VERSION || 'v21.0';
+    const url = `https://graph.facebook.com/${graphVersion}/${leadgenId}?fields=${fields}&access_token=${token}`;
 
     try {
         const res = await fetch(url);
@@ -176,6 +177,18 @@ export async function POST(request: NextRequest) {
 
             console.log(`Processing Facebook lead: leadgen_id=${leadgen_id}, page_id=${page_id}`);
 
+            // Skip duplicate leads (Meta retries on timeout)
+            const { data: existing } = await supabase
+                .from('facebook_leads')
+                .select('id')
+                .eq('leadgen_id', leadgen_id)
+                .maybeSingle();
+
+            if (existing) {
+                console.log(`Duplicate lead skipped: leadgen_id=${leadgen_id}`);
+                continue;
+            }
+
             // Fetch full lead details from Graph API
             const leadData = await fetchLeadFromGraph(leadgen_id);
 
@@ -201,6 +214,7 @@ export async function POST(request: NextRequest) {
             const phone = extractField(fieldData, 'phone_number') ?? extractField(fieldData, 'phone');
 
             const record = {
+                leadgen_id:    leadgen_id,
                 full_name:     fullName,
                 email:         email,
                 phone:         phone,
