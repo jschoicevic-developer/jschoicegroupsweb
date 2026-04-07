@@ -22,6 +22,14 @@ export const metadata: Metadata = {
   description:
     "JS Choice Group is a registered NDIS provider delivering compassionate disability support services across Melbourne and Victoria. Call 1300 572 464.",
   metadataBase: new URL("https://jschoicegroup.com.au"),
+  alternates: {
+    canonical: "https://jschoicegroup.com.au",
+    languages: {
+      "en-AU": "https://jschoicegroup.com.au",
+      "en": "https://jschoicegroup.com.au",
+      "x-default": "https://jschoicegroup.com.au",
+    },
+  },
   openGraph: {
     type: "website",
     locale: "en_AU",
@@ -107,7 +115,7 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en" suppressHydrationWarning>
+    <html lang="en-AU" suppressHydrationWarning>
       <head suppressHydrationWarning>
         <script
           suppressHydrationWarning
