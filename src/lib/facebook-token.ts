@@ -13,7 +13,7 @@
  *   https://developers.facebook.com/docs/pages/access-tokens/
  */
 
-const GRAPH_BASE = 'https://graph.facebook.com/v19.0';
+const GRAPH_BASE = `https://graph.facebook.com/${process.env.FACEBOOK_GRAPH_VERSION || 'v21.0'}`;
 
 // ─── Types ────────────────────────────────────────────────────────────────────
 

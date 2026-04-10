@@ -47,12 +47,16 @@ export async function GET(request: NextRequest) {
         if (status) query = query.eq('status', status);
         if (campaign) query = query.eq('campaign_name', campaign);
         if (search) {
-            query = query.or(
-                `full_name.ilike.%${search}%,` +
-                `email.ilike.%${search}%,` +
-                `phone.ilike.%${search}%,` +
-                `campaign_name.ilike.%${search}%`
-            );
+            // Escape special PostgREST filter characters to prevent injection
+            const sanitized = search.replace(/[%_\\(),.*]/g, '');
+            if (sanitized) {
+                query = query.or(
+                    `full_name.ilike.%${sanitized}%,` +
+                    `email.ilike.%${sanitized}%,` +
+                    `phone.ilike.%${sanitized}%,` +
+                    `campaign_name.ilike.%${sanitized}%`
+                );
+            }
         }
 
         const { data, error, count } = await query;

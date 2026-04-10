@@ -52,15 +52,9 @@ interface WebhookBody {
 
 interface GraphLeadResponse {
     id: string;
-    created_time?: number;
+    created_time?: string;
     field_data: FieldData[];
     form_id?: string;
-    ad_id?: string;
-    ad_name?: string;
-    adset_id?: string;
-    campaign_id?: string;
-    campaign_name?: string;
-    page_id?: string;
 }
 
 // ─── Helpers ──────────────────────────────────────────────────────────────────
@@ -96,8 +90,11 @@ async function fetchLeadFromGraph(leadgenId: string): Promise<GraphLeadResponse 
         return null;
     }
 
-    const fields = 'id,created_time,field_data,form_id,ad_id,ad_name,adset_id,campaign_id,campaign_name,page_id';
-    const url = `https://graph.facebook.com/v19.0/${leadgenId}?fields=${fields}&access_token=${token}`;
+    // Only request fields that actually exist on the Lead object
+    // ad/campaign/page metadata comes from the webhook payload, not Graph API
+    const fields = 'id,created_time,field_data,form_id';
+    const graphVersion = process.env.FACEBOOK_GRAPH_VERSION || 'v21.0';
+    const url = `https://graph.facebook.com/${graphVersion}/${leadgenId}?fields=${fields}&access_token=${token}`;
 
     try {
         const res = await fetch(url);
@@ -176,6 +173,18 @@ export async function POST(request: NextRequest) {
 
             console.log(`Processing Facebook lead: leadgen_id=${leadgen_id}, page_id=${page_id}`);
 
+            // Skip duplicate leads (Meta retries on timeout)
+            const { data: existing } = await supabase
+                .from('facebook_leads')
+                .select('id')
+                .ilike('notes', `%Leadgen ID: ${leadgen_id}%`)
+                .maybeSingle();
+
+            if (existing) {
+                console.log(`Duplicate lead skipped: leadgen_id=${leadgen_id}`);
+                continue;
+            }
+
             // Fetch full lead details from Graph API
             const leadData = await fetchLeadFromGraph(leadgen_id);
 
@@ -200,25 +209,43 @@ export async function POST(request: NextRequest) {
             const email = extractField(fieldData, 'email') ?? extractField(fieldData, 'email_address');
             const phone = extractField(fieldData, 'phone_number') ?? extractField(fieldData, 'phone');
 
-            const record = {
+            const baseRecord = {
                 full_name:     fullName,
                 email:         email,
                 phone:         phone,
-                campaign_id:   campaign_id   ?? leadData.campaign_id   ?? null,
-                campaign_name: campaign_name ?? leadData.campaign_name ?? null,
-                ad_id:         ad_id         ?? leadData.ad_id         ?? null,
-                ad_name:       ad_name       ?? leadData.ad_name       ?? null,
-                form_id:       form_id       ?? leadData.form_id       ?? null,
+                campaign_id:   campaign_id   ?? null,
+                campaign_name: campaign_name ?? null,
+                ad_id:         ad_id         ?? null,
+                ad_name:       ad_name       ?? null,
+                form_id:       form_id       ?? leadData.form_id ?? null,
                 form_name:     null,
                 status:        'new' as const,
                 notes:         `Leadgen ID: ${leadgen_id} | Page ID: ${page_id}`,
             };
 
-            const { data: savedLead, error } = await supabase
+            // Try with leadgen_id column first; fall back without it if column doesn't exist yet
+            let savedLead: { id: string; created_at: string } | null = null;
+            let error;
+
+            const result = await supabase
                 .from('facebook_leads')
-                .insert(record)
+                .insert({ ...baseRecord, leadgen_id })
                 .select('id, created_at')
                 .single();
+
+            if (result.error?.message?.includes('leadgen_id')) {
+                // Column doesn't exist yet — insert without it
+                const fallback = await supabase
+                    .from('facebook_leads')
+                    .insert(baseRecord)
+                    .select('id, created_at')
+                    .single();
+                savedLead = fallback.data;
+                error = fallback.error;
+            } else {
+                savedLead = result.data;
+                error = result.error;
+            }
 
             if (error) {
                 console.error(`DB error saving facebook lead ${leadgen_id}:`, error);
@@ -226,7 +253,7 @@ export async function POST(request: NextRequest) {
                 console.log(`Saved facebook lead: ${fullName} (${email ?? 'no email'})`);
 
                 const emailData = {
-                    ...record,
+                    ...baseRecord,
                     id:         savedLead?.id,
                     created_at: savedLead?.created_at,
                 };
