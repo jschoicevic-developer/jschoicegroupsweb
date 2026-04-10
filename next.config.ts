@@ -34,6 +34,21 @@ const nextConfig: NextConfig = {
       }
     ];
   },
+  async rewrites() {
+    return [
+      // Meta webhook: /admin/facebook-leads → /api/facebook-leads/webhook
+      {
+        source: '/admin/facebook-leads',
+        has: [{ type: 'query', key: 'hub.mode' }],
+        destination: '/api/facebook-leads/webhook',
+      },
+      {
+        source: '/admin/facebook-leads',
+        has: [{ type: 'header', key: 'x-hub-signature-256' }],
+        destination: '/api/facebook-leads/webhook',
+      },
+    ];
+  },
   async redirects() {
     return [
       {
