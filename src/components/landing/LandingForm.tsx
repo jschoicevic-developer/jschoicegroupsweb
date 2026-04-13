@@ -61,7 +61,7 @@ export default function LandingForm() {
         throw new Error(data?.message || "Something went wrong. Please try again.");
       }
 
-      // GTM dataLayer event
+      // GTM dataLayer event (kept for GTM-based analytics if configured)
       if (typeof window !== "undefined") {
         (window as any).dataLayer = (window as any).dataLayer || [];
         (window as any).dataLayer.push({
@@ -69,6 +69,18 @@ export default function LandingForm() {
           source: "google_ads_landing",
           service: formData.service,
         });
+
+        // Google Ads conversion tracking — fire the conversion directly via gtag
+        // Conversion action: "Google ads Conversion" (id 7518404120)
+        // Google Ads ID: AW-17860915820  |  Label: 6_5ECJj8hoEcEOzk38RC
+        if (typeof (window as any).gtag === "function") {
+          (window as any).gtag("event", "conversion", {
+            send_to: "AW-17860915820/6_5ECJj8hoEcEOzk38RC",
+            value: 1.0,
+            currency: "AUD",
+            transaction_id: `${Date.now()}`,
+          });
+        }
       }
 
       const params = new URLSearchParams({
@@ -159,6 +171,17 @@ export default function LandingForm() {
             <option value="Assistance with Daily Life">
               Assistance with Daily Life
             </option>
+            <option value="Respite / Short Term Accommodation">
+              Respite / Short Term Accommodation
+            </option>
+            <option value="Community Participation & Activities">
+              Community Participation & Activities
+            </option>
+            <option value="NDIS Transport">NDIS Transport</option>
+            <option value="Psychosocial Recovery Coaching">
+              Psychosocial Recovery Coaching
+            </option>
+            <option value="Other / Not Sure">Other / Not Sure</option>
           </select>
           <ChevronDown
             size={18}
