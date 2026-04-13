@@ -49,7 +49,7 @@ export async function sendNewLeadNotification(lead: Lead): Promise<void> {
     ];
 
     await getResend().emails.send({
-      from: 'JS Choice CRM <onboarding@resend.dev>',
+      from: 'JS Choice CRM <info@jschoicegroup.com.au>',
       to: adminEmails,
       subject: `🔔 New Lead: ${fullName} from ${sourceLabel}`,
       html: generateNewLeadEmailHtml(lead, appUrl, sourceLabel, fullName),
@@ -634,7 +634,7 @@ export async function sendFacebookLeadAdminEmail(lead: FacebookLeadEmailData): P
 
   try {
     await getResend().emails.send({
-      from: 'JS Choice CRM <onboarding@resend.dev>',
+      from: 'JS Choice CRM <info@jschoicegroup.com.au>',
       to: adminEmails,
       subject: `🔔 New Facebook Lead: ${lead.full_name}${lead.campaign_name ? ` from ${lead.campaign_name}` : ''}`,
       html: generateFacebookLeadAdminHtml(lead, appUrl),
