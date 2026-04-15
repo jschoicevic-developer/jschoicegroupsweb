@@ -82,20 +82,18 @@ export async function PATCH(
         const body = await request.json();
         const supabase = createServerClient();
 
-        // Ownership check: if author_id is provided in body, verify it matches the post
-        if (body.author_id) {
-            const { data: existing } = await supabase
-                .from('blog_posts')
-                .select('author_id')
-                .eq('slug', oldSlug)
-                .single();
+        // Always fetch existing post to verify ownership and preserve published_at
+        const { data: existingPost } = await supabase
+            .from('blog_posts')
+            .select('author_id, published_at')
+            .eq('slug', oldSlug)
+            .single();
 
-            if (existing && existing.author_id && existing.author_id !== body.author_id) {
-                return NextResponse.json(
-                    { success: false, error: 'You do not have permission to edit this post' },
-                    { status: 403 }
-                );
-            }
+        if (body.author_id && existingPost?.author_id && existingPost.author_id !== body.author_id) {
+            return NextResponse.json(
+                { success: false, error: 'You do not have permission to edit this post' },
+                { status: 403 }
+            );
         }
 
         // Prepare update data
@@ -105,7 +103,7 @@ export async function PATCH(
 
         const allowedFields = [
             'title', 'slug', 'excerpt', 'description', 'table_of_contents', 'content', 'featured_image',
-            'category', 'tags', 'author_name', 'status', 'published_at', 'scheduled_for'
+            'category', 'tags', 'author_name', 'status', 'scheduled_for'
         ];
 
         allowedFields.forEach(field => {
@@ -115,11 +113,14 @@ export async function PATCH(
         });
 
         // Handle status transitions
-        if (updateData.status === 'published' && !updateData.published_at) {
-            updateData.published_at = new Date().toISOString();
+        if (updateData.status === 'published') {
+            // Always preserve the original published_at — never update it when editing
+            updateData.published_at = existingPost?.published_at || new Date().toISOString();
         }
 
-        if (updateData.status !== 'scheduled') {
+        if (updateData.status === 'scheduled' && body.scheduled_for) {
+            updateData.scheduled_for = new Date(body.scheduled_for).toISOString();
+        } else if (updateData.status !== 'scheduled') {
             updateData.scheduled_for = null;
         }
 
