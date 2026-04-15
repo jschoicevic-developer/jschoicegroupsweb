@@ -196,7 +196,7 @@ export async function POST(request: NextRequest): Promise<NextResponse<ApiRespon
         if (postData.status === 'published') {
             postData.published_at = new Date().toISOString();
         } else if (postData.status === 'scheduled' && body.scheduled_for) {
-            postData.scheduled_for = body.scheduled_for;
+            postData.scheduled_for = new Date(body.scheduled_for).toISOString();
         }
 
         // ========================================
