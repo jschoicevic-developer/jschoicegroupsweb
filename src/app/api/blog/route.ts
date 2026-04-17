@@ -20,9 +20,9 @@ export async function GET(request: NextRequest): Promise<NextResponse<PaginatedR
         const supabase = createServerClient();
         const searchParams = request.nextUrl.searchParams;
 
-        // ========================================
+        // ===================================
         // PARAMETERS
-        // ========================================
+        // ===================================
 
         const isAdmin = searchParams.get('admin') === 'true';
         const category = searchParams.get('category');
