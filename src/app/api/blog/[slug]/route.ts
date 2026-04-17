@@ -85,7 +85,7 @@ export async function PATCH(
         // Always fetch existing post to verify ownership and preserve published_at
         const { data: existingPost } = await supabase
             .from('blog_posts')
-            .select('author_id, published_at')
+            .select('author_id, published_at, created_at, status')
             .eq('slug', oldSlug)
             .single();
 
@@ -114,8 +114,18 @@ export async function PATCH(
 
         // Handle status transitions
         if (updateData.status === 'published') {
-            // Always preserve the original published_at — never update it when editing
-            updateData.published_at = existingPost?.published_at || new Date().toISOString();
+            if (existingPost?.published_at) {
+                // Already published with a date: do not include published_at in the update payload
+                // so the database preserves it exactly, avoiding any timezone/formatting shifts.
+                delete updateData.published_at;
+            } else if (existingPost?.status === 'published') {
+                // If the post was already published but didn't have a published_at (legacy data), 
+                // use created_at so it doesn't jump to today.
+                updateData.published_at = existingPost.created_at;
+            } else {
+                // Newly published post
+                updateData.published_at = new Date().toISOString();
+            }
         }
 
         if (updateData.status === 'scheduled' && body.scheduled_for) {
