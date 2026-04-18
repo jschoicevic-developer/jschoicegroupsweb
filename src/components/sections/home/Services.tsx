@@ -59,7 +59,7 @@ const services = [
 
 const Services = () => {
     return (
-        <section className="relative py-24 overflow-hidden min-h-screen flex flex-col justify-center">
+        <section id="services" className="relative py-24 overflow-hidden min-h-screen flex flex-col justify-center">
             {/* BACKGROUND IMAGE & OVERLAY */}
             <div className="absolute inset-0 z-0">
                 <Image quality={80}

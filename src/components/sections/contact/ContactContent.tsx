@@ -19,6 +19,7 @@ const contactInfo = [
                 </span>
                 <span className="text-lg font-black text-primary mb-1">1300 JS CHOICE</span>
                 <a href="tel:1300572464" className="hover:text-primary transition-colors font-bold text-base">1300 572 464 (National)</a>
+                <a href="tel:0393953746" className="hover:text-primary transition-colors font-bold text-base">03 9395 3746 (Landline)</a>
                 <a href="tel:0421622262" className="hover:text-primary transition-colors font-bold text-base">0421 622 262 (Mobile)</a>
             </div>
         )
