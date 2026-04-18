@@ -203,25 +203,6 @@ const Services = () => {
                     ))}
                 </div>
 
-                {/* Bottom CTA */}
-                <div className="mt-16 text-center">
-                    <motion.div
-                        initial={{ opacity: 0, scale: 0.9 }}
-                        whileInView={{ opacity: 1, scale: 1 }}
-                        viewport={{ once: true }}
-                        transition={{ duration: 0.6 }}
-                    >
-                        <Button
-                            asChild
-                            className="h-14 px-12 rounded-full bg-[#2D3748] hover:bg-black text-white font-black text-lg uppercase tracking-widest shadow-xl transition-all gap-3"
-                        >
-                            <Link href="/referral">
-                                Get a Free Referral
-                                <ChevronRight size={20} />
-                            </Link>
-                        </Button>
-                    </motion.div>
-                </div>
 
             </div>
         </section>
