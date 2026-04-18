@@ -179,20 +179,27 @@ export default function LandingForm({
             <option value="" disabled>
               Service Needed *
             </option>
-            <option value="Support Coordination">Support Coordination</option>
-            <option value="Assistance with Daily Life">
-              Assistance with Daily Life
-            </option>
-            <option value="Respite / Short Term Accommodation">
-              Respite / Short Term Accommodation
-            </option>
-            <option value="Community Participation & Activities">
-              Community Participation & Activities
-            </option>
-            <option value="NDIS Transport">NDIS Transport</option>
-            <option value="Psychosocial Recovery Coaching">
-              Psychosocial Recovery Coaching
-            </option>
+            <optgroup label="Core Support">
+              <option value="Support Coordination">Support Coordination</option>
+              <option value="Assistance with Daily Life">Assistance with Daily Life</option>
+              <option value="Respite / Short Term Accommodation">Respite / Short Term Accommodation</option>
+              <option value="Community Nursing Care">Community Nursing Care</option>
+            </optgroup>
+            <optgroup label="Community & Lifestyle">
+              <option value="Community Participation & Activities">Community Participation & Activities</option>
+              <option value="Group / Centre Activities">Group / Centre Activities</option>
+              <option value="NDIS Transport">NDIS Transport</option>
+            </optgroup>
+            <optgroup label="Specialist Services">
+              <option value="Psychosocial Recovery Coaching">Psychosocial Recovery Coaching</option>
+              <option value="Allied Health Services">Allied Health Services</option>
+              <option value="Employment & Education Support">Employment & Education Support</option>
+            </optgroup>
+            <optgroup label="NDIS Help">
+              <option value="NDIS Access Request Help">NDIS Access Request Help</option>
+              <option value="NDIS Accommodation">NDIS Accommodation</option>
+              <option value="Client & Family Advocacy">Client & Family Advocacy</option>
+            </optgroup>
             <option value="Other / Not Sure">Other / Not Sure</option>
           </select>
           <ChevronDown

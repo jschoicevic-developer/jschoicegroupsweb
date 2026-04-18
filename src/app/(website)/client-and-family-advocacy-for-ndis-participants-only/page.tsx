@@ -18,6 +18,9 @@ import {
     HandHeart,
     Eye
 } from "lucide-react";
+import ServiceCTA from "@/components/ui/ServiceCTA";
+import ServiceFormSection from "@/components/ui/ServiceFormSection";
+
 
 /**
  * Advocacy Services Data
@@ -293,6 +296,15 @@ const ClientFamilyAdvocacy = () => {
                     </motion.div>
                 </div>
             </section>
+
+            <ServiceCTA />
+
+            <ServiceFormSection
+              source="service_page"
+              sourcePage="/client-and-family-advocacy-for-ndis-participants-only"
+              defaultService="Client & Family Advocacy"
+            />
+
         </main>
     );
 };

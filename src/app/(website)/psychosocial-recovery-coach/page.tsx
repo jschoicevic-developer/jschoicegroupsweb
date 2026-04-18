@@ -18,6 +18,9 @@ import {
     ExternalLink,
     ChevronDown
 } from "lucide-react";
+import ServiceCTA from "@/components/ui/ServiceCTA";
+import ServiceFormSection from "@/components/ui/ServiceFormSection";
+
 
 const whatDoesCoachDo = [
     {
@@ -347,6 +350,15 @@ const PsychosocialRecoveryCoach = () => {
                     </motion.div>
                 </div>
             </section>
+
+            <ServiceCTA />
+
+            <ServiceFormSection
+              source="service_page"
+              sourcePage="/psychosocial-recovery-coach"
+              defaultService="Psychosocial Recovery Coaching"
+            />
+
         </main>
     );
 };

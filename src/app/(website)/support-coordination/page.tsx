@@ -7,7 +7,6 @@ import Link from "next/link";
 import Image from "next/image";
 import ServiceCTA from "@/components/ui/ServiceCTA";
 import ServiceFormSection from "@/components/ui/ServiceFormSection";
-import StickyMobileCTA from "@/components/landing/StickyMobileCTA";
 import {
     Phone,
     ArrowRight,
@@ -325,9 +324,7 @@ const SupportCoordination = () => {
               sourcePage="/support-coordination"
               defaultService="Support Coordination"
             />
-
-            <StickyMobileCTA />
-        </main>
+</main>
     );
 };
 

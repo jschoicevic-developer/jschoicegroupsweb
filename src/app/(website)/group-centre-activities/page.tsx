@@ -18,6 +18,9 @@ import {
     Bus,
     CheckCircle2
 } from "lucide-react";
+import ServiceCTA from "@/components/ui/ServiceCTA";
+import ServiceFormSection from "@/components/ui/ServiceFormSection";
+
 
 const activityCategories = [
     {
@@ -344,6 +347,15 @@ const GroupCentreActivities = () => {
                     </motion.div>
                 </div>
             </section>
+
+            <ServiceCTA />
+
+            <ServiceFormSection
+              source="service_page"
+              sourcePage="/group-centre-activities"
+              defaultService="Group / Centre Activities"
+            />
+
         </main>
     );
 };

@@ -16,6 +16,9 @@ import {
     Search,
     Map
 } from "lucide-react";
+import ServiceCTA from "@/components/ui/ServiceCTA";
+import ServiceFormSection from "@/components/ui/ServiceFormSection";
+
 
 /**
  * Access Request Data
@@ -297,6 +300,15 @@ const NdisAccessRequests = () => {
                     </motion.div>
                 </div>
             </section>
+
+            <ServiceCTA />
+
+            <ServiceFormSection
+              source="service_page"
+              sourcePage="/ndis-access-requests"
+              defaultService="NDIS Access Request Help"
+            />
+
         </main>
     );
 };

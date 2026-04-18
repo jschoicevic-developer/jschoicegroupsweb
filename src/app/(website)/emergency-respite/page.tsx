@@ -23,7 +23,6 @@ import {
 } from "lucide-react";
 import ServiceCTA from "@/components/ui/ServiceCTA";
 import ServiceFormSection from "@/components/ui/ServiceFormSection";
-import StickyMobileCTA from "@/components/landing/StickyMobileCTA";
 
 // Data content extracted from user request
 const howItWorks = [
@@ -381,9 +380,7 @@ const EmergencyRespite = () => {
               sourcePage="/emergency-respite"
               defaultService="Respite / Short Term Accommodation"
             />
-
-            <StickyMobileCTA />
-        </main>
+</main>
     );
 };
 

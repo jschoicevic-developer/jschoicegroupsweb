@@ -113,6 +113,9 @@ const whyChooseUs = [
 ];
 
 import { Users } from "lucide-react";
+import ServiceCTA from "@/components/ui/ServiceCTA";
+import ServiceFormSection from "@/components/ui/ServiceFormSection";
+
 
 const InnovativeCommunityParticipation = () => {
     return (
@@ -385,6 +388,15 @@ const InnovativeCommunityParticipation = () => {
                     </motion.div>
                 </div>
             </section>
+
+            <ServiceCTA />
+
+            <ServiceFormSection
+              source="service_page"
+              sourcePage="/innovative-community-participation-including-volunteer-opportunities"
+              defaultService="Community Participation & Activities"
+            />
+
         </main>
     );
 };

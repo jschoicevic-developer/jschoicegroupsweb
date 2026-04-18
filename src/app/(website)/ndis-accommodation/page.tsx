@@ -20,6 +20,9 @@ import {
     Palette,
     Users
 } from "lucide-react";
+import ServiceCTA from "@/components/ui/ServiceCTA";
+import ServiceFormSection from "@/components/ui/ServiceFormSection";
+
 
 /**
  * Accommodation Pathways Data
@@ -290,6 +293,15 @@ const NdisAccommodation = () => {
                     </motion.div>
                 </div>
             </section>
+
+            <ServiceCTA />
+
+            <ServiceFormSection
+              source="service_page"
+              sourcePage="/ndis-accommodation"
+              defaultService="NDIS Accommodation"
+            />
+
         </main>
     );
 };

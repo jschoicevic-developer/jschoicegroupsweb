@@ -18,6 +18,9 @@ import {
     Syringe,
     CalendarCheck
 } from "lucide-react";
+import ServiceCTA from "@/components/ui/ServiceCTA";
+import ServiceFormSection from "@/components/ui/ServiceFormSection";
+
 
 // Data content extracted from user request
 const howItWorks = [
@@ -392,6 +395,15 @@ const AssistanceWithNursingCare = () => {
                     </motion.div>
                 </div>
             </section>
+
+            <ServiceCTA />
+
+            <ServiceFormSection
+              source="service_page"
+              sourcePage="/assistance-with-nursing-care"
+              defaultService="Community Nursing Care"
+            />
+
         </main>
     );
 };

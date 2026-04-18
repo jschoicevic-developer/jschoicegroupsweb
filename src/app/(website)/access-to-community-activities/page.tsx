@@ -23,6 +23,9 @@ import {
     CheckCircle2,
     Users2
 } from "lucide-react";
+import ServiceCTA from "@/components/ui/ServiceCTA";
+import ServiceFormSection from "@/components/ui/ServiceFormSection";
+
 
 const howWeSupport = [
     {
@@ -432,6 +435,15 @@ const AccessToCommunityActivities = () => {
                     </motion.div>
                 </div>
             </section>
+
+            <ServiceCTA />
+
+            <ServiceFormSection
+              source="service_page"
+              sourcePage="/access-to-community-activities"
+              defaultService="Community Participation & Activities"
+            />
+
         </main>
     );
 };

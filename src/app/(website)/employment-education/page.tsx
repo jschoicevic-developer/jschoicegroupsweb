@@ -18,6 +18,9 @@ import {
     Search,
     Users
 } from "lucide-react";
+import ServiceCTA from "@/components/ui/ServiceCTA";
+import ServiceFormSection from "@/components/ui/ServiceFormSection";
+
 
 /**
  * Employment & Education Services Data
@@ -291,6 +294,15 @@ const EmploymentEducationPage = () => {
                     </motion.div>
                 </div>
             </section>
+
+            <ServiceCTA />
+
+            <ServiceFormSection
+              source="service_page"
+              sourcePage="/employment-education"
+              defaultService="Employment & Education Support"
+            />
+
         </main>
     );
 };

@@ -7,7 +7,6 @@ import LandingSupport from "@/components/landing/LandingSupport";
 import LandingFaq from "@/components/landing/LandingFaq";
 import LandingFinalCta from "@/components/landing/LandingFinalCta";
 import LandingFooter from "@/components/landing/LandingFooter";
-import StickyMobileCTA from "@/components/landing/StickyMobileCTA";
 
 const localBusinessSchema = {
   "@context": "https://schema.org",
@@ -87,7 +86,6 @@ export default function NdisSupportMelbournePage() {
         <LandingFinalCta />
       </main>
       <LandingFooter />
-      <StickyMobileCTA />
-    </>
+</>
   );
 }

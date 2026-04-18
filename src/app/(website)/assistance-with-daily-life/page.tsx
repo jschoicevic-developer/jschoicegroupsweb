@@ -8,7 +8,6 @@ import Image from "next/image";
 import { CheckCircle2, Phone, Mail, ArrowRight } from "lucide-react";
 import ServiceCTA from "@/components/ui/ServiceCTA";
 import ServiceFormSection from "@/components/ui/ServiceFormSection";
-import StickyMobileCTA from "@/components/landing/StickyMobileCTA";
 
 const services = [
     {
@@ -260,9 +259,7 @@ const AssistanceWithDailyLife = () => {
               sourcePage="/assistance-with-daily-life"
               defaultService="Assistance with Daily Life"
             />
-
-            <StickyMobileCTA />
-        </main>
+</main>
     );
 };
 

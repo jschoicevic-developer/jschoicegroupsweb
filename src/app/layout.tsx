@@ -1,5 +1,6 @@
 import type { Metadata, Viewport } from "next";
 import { Dosis, Poppins } from "next/font/google";
+import GlobalStickyCTA from "@/components/layout/GlobalStickyCTA";
 import "./globals.css";
 
 export const viewport: Viewport = {
@@ -211,6 +212,7 @@ fbq('track','PageView');`,
           />
         </noscript>
         {children}
+        <GlobalStickyCTA />
       </body>
     </html>
   );

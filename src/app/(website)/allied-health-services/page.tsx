@@ -86,6 +86,9 @@ const whyChooseUs = [
 ];
 
 import { MessageCircle } from "lucide-react";
+import ServiceCTA from "@/components/ui/ServiceCTA";
+import ServiceFormSection from "@/components/ui/ServiceFormSection";
+
 
 const AlliedHealthAssistance = () => {
     return (
@@ -370,6 +373,15 @@ const AlliedHealthAssistance = () => {
                     </motion.div>
                 </div>
             </section>
+
+            <ServiceCTA />
+
+            <ServiceFormSection
+              source="service_page"
+              sourcePage="/allied-health-services"
+              defaultService="Allied Health Services"
+            />
+
         </main>
     );
 };
