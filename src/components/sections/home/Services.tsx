@@ -215,8 +215,8 @@ const Services = () => {
                             asChild
                             className="h-14 px-12 rounded-full bg-[#2D3748] hover:bg-black text-white font-black text-lg uppercase tracking-widest shadow-xl transition-all gap-3"
                         >
-                            <Link href="/contact-us">
-                                Contact Us
+                            <Link href="/referral">
+                                Get a Free Referral
                                 <ChevronRight size={20} />
                             </Link>
                         </Button>
