@@ -179,6 +179,18 @@ const NdisAccommodationGeelong = () => {
                                     We at <strong>Js Choice – Care and Support</strong> offer a variety of disability-friendly accommodation choices, each tailored to support the individual needs of the participants. Whether you’re looking for a short-term stay or a long-term living solution, we provide NDIS accommodation support in Geelong that helps individuals thrive in a safe and secure environment.
                                 </p>
                             </div>
+                            <div className="flex gap-4 pt-4">
+                                <Link href="/referral">
+                                    <Button size="lg" className="h-14 px-8 rounded-full bg-primary hover:bg-primary/90 text-[#1A202C] text-lg font-bold shadow-lg hover:shadow-xl transition-all hover:-translate-y-1">
+                                        Free Referral <ArrowRight className="ml-2 h-5 w-5" />
+                                    </Button>
+                                </Link>
+                                <a href="tel:1300572464">
+                                    <Button variant="outline" size="lg" className="h-14 px-8 rounded-full border-2 border-[#2D3748] text-[#2D3748] hover:bg-gray-50 text-lg font-bold shadow-sm hover:shadow-md transition-all hover:-translate-y-1">
+                                        Talk to Us
+                                    </Button>
+                                </a>
+                            </div>
                         </motion.div>
                     </div>
                 </div>

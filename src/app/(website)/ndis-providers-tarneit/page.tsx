@@ -191,6 +191,18 @@ const NdisProvidersTarneit = () => {
                                     Our dedicated team of support workers ensures that each participant receives respectful care that promotes independence and inclusivity. Whether it’s assistance with daily life, nursing care, or allied health assistance, we are committed to improving the lives of our participants. Our aim is to create a safe, supportive, and non-judgemental environment for all participants, fostering personal growth and autonomy at every stage of life.
                                 </p>
                             </div>
+                            <div className="flex gap-4 pt-4">
+                                <Link href="/referral">
+                                    <Button size="lg" className="h-14 px-8 rounded-full bg-primary hover:bg-primary/90 text-[#1A202C] text-lg font-bold shadow-lg hover:shadow-xl transition-all hover:-translate-y-1">
+                                        Free Referral <ArrowRight className="ml-2 h-5 w-5" />
+                                    </Button>
+                                </Link>
+                                <a href="tel:1300572464">
+                                    <Button variant="outline" size="lg" className="h-14 px-8 rounded-full border-2 border-[#2D3748] text-[#2D3748] hover:bg-gray-50 text-lg font-bold shadow-sm hover:shadow-md transition-all hover:-translate-y-1">
+                                        Talk to Us
+                                    </Button>
+                                </a>
+                            </div>
                         </motion.div>
                     </div>
                 </div>
