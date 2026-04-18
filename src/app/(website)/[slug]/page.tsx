@@ -91,11 +91,6 @@ export default function DynamicLocationPage({ params }: PageProps) {
                                         Get a Free Referral
                                     </Button>
                                 </Link>
-                                <Link href="/referral">
-                                    <Button variant="outline" className="rounded-full px-8 py-6 text-lg border-2 border-gray-200 hover:border-primary hover:bg-primary/5 hover:text-primary">
-                                        Get a Free Referral
-                                    </Button>
-                                </Link>
                             </div>
                         </div>
 

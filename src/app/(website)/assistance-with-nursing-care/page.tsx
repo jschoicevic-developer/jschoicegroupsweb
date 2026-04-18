@@ -376,11 +376,6 @@ const AssistanceWithNursingCare = () => {
                                     Get a Free Referral <ArrowRight className="ml-2 h-5 w-5" />
                                 </Button>
                             </Link>
-                            <Link href="/referral">
-                                <Button variant="outline" size="lg" className="h-16 px-8 rounded-full border-2 border-[#2D3748] text-[#2D3748] hover:bg-white text-lg font-bold shadow-sm hover:shadow-md transition-all hover:-translate-y-1">
-                                    Get a Free Referral
-                                </Button>
-                            </Link>
                         </div>
                     </motion.div>
                 </div>

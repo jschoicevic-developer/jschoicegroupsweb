@@ -216,16 +216,11 @@ const NdisProvidersFootscray = () => {
                         <div className="flex flex-col md:flex-row gap-4 justify-center items-center">
                             <Button size="lg" className="h-16 px-8 rounded-full bg-white hover:bg-gray-100 text-[#2D3748] text-lg font-bold shadow-lg hover:shadow-xl transition-all hover:-translate-y-1">
                                 <Phone className="mr-2 h-5 w-5" />
-                                Call Now
+                                1300 572 464
                             </Button>
                             <Link href="/referral">
                                 <Button size="lg" className="h-16 px-8 rounded-full bg-primary hover:bg-primary/90 text-[#1A202C] text-lg font-bold shadow-lg hover:shadow-xl transition-all hover:-translate-y-1">
                                     Get a Free Referral <ArrowRight className="ml-2 h-5 w-5" />
-                                </Button>
-                            </Link>
-                            <Link href="/referral">
-                                <Button variant="outline" size="lg" className="h-16 px-8 rounded-full border-2 border-primary/20 text-primary hover:bg-white/10 text-lg font-bold transition-all hover:-translate-y-1">
-                                    Free Referral
                                 </Button>
                             </Link>
                         </div>
@@ -342,16 +337,11 @@ const NdisProvidersFootscray = () => {
                         <div className="flex flex-col md:flex-row gap-4 justify-center items-center">
                             <Button size="lg" className="h-16 px-8 rounded-full bg-white hover:bg-gray-100 text-[#2D3748] text-lg font-bold shadow-lg hover:shadow-xl transition-all hover:-translate-y-1">
                                 <Phone className="mr-2 h-5 w-5" />
-                                Call Now
+                                1300 572 464
                             </Button>
                             <Link href="/referral">
                                 <Button size="lg" className="h-16 px-8 rounded-full bg-primary hover:bg-primary/90 text-[#1A202C] text-lg font-bold shadow-lg hover:shadow-xl transition-all hover:-translate-y-1">
                                     Get a Free Referral <ArrowRight className="ml-2 h-5 w-5" />
-                                </Button>
-                            </Link>
-                            <Link href="/referral">
-                                <Button variant="outline" size="lg" className="h-16 px-8 rounded-full border-2 border-primary/20 text-primary hover:bg-white/10 text-lg font-bold transition-all hover:-translate-y-1">
-                                    Free Referral
                                 </Button>
                             </Link>
                         </div>
