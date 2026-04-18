@@ -1,17 +1,26 @@
-import type { Metadata } from "next";
+import type { Metadata, Viewport } from "next";
 import { Dosis, Poppins } from "next/font/google";
 import "./globals.css";
+
+export const viewport: Viewport = {
+  themeColor: "#1A202C",
+  width: "device-width",
+  initialScale: 1,
+  maximumScale: 5,
+};
 
 const dosis = Dosis({
   variable: "--font-dosis",
   subsets: ["latin"],
-  weight: ["200", "300", "400", "500", "600", "700", "800"],
+  weight: ["400", "500", "600", "700", "800"],
+  display: "swap",
 });
 
 const poppins = Poppins({
   variable: "--font-poppins",
   subsets: ["latin"],
-  weight: ["100", "200", "300", "400", "500", "600", "700", "800", "900"],
+  weight: ["400", "500", "600", "700", "900"],
+  display: "swap",
 });
 
 export const metadata: Metadata = {
@@ -59,6 +68,15 @@ export const metadata: Metadata = {
   },
   verification: {
     google: "t4GDfxhYoa0Q3eJn8m43QhF2Te49K_d5h3R2J770R58",
+  },
+  other: {
+    "theme-color": "#1A202C",
+    "mobile-web-app-capable": "yes",
+  },
+  appleWebApp: {
+    capable: true,
+    title: "JS Choice",
+    statusBarStyle: "black-translucent",
   },
 };
 
