@@ -76,7 +76,7 @@ function ThankYouContent() {
               help us get started sooner.
             </p>
             <Link
-              href={`/consultations?${prefillParams.toString()}`}
+              href={`/referral?${prefillParams.toString()}`}
               className="inline-flex items-center gap-2 text-[#1A202C] font-semibold hover:underline"
             >
               Complete Full Referral Details

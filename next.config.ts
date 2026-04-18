@@ -105,6 +105,16 @@ const nextConfig: NextConfig = {
         source: '/ndis-budget-calculator',
         destination: '/tools/ndis-budget-calculator',
         permanent: true,
+      },
+      {
+        source: '/consultations',
+        destination: '/referral',
+        permanent: true,
+      },
+      {
+        source: '/consultations/:path*',
+        destination: '/referral/:path*',
+        permanent: true,
       }
     ];
   }

@@ -361,7 +361,7 @@ export default async function BlogPostPage({ params, searchParams }: BlogPostPag
                                 Our NDIS specialists can help you understand eligibility, prepare your application, and find the right housing solution.
                             </p>
                             <Link
-                                href="/consultations"
+                                href="/referral"
                                 className="flex items-center justify-center gap-2 w-full bg-white text-[#1A202C] font-bold text-sm rounded-lg px-4 py-2.5 hover:bg-gray-50 transition-colors mb-2"
                             >
                                 Book a free consultation

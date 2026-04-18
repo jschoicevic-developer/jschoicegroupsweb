@@ -182,7 +182,7 @@ const Navbar = () => {
                             asChild
                             className="bg-primary hover:brightness-110 text-white font-semibold rounded-full px-6 h-11 shadow-sm hover:shadow-md transition-all duration-300 text-[15px]"
                         >
-                            <Link href="/consultations" className="flex items-center gap-2">
+                            <Link href="/referral" className="flex items-center gap-2">
                                 <HeartHandshake size={18} strokeWidth={1.5} className="text-black" />
                                 <span className="text-black font-semibold">Referrals</span>
                             </Link>
@@ -260,7 +260,7 @@ const Navbar = () => {
                                     className="w-full h-12 rounded-xl bg-primary text-white font-semibold text-lg shadow-md hover:brightness-110"
                                     onClick={() => setIsOpen(false)}
                                 >
-                                    <Link href="/consultations" className="flex items-center justify-center gap-2">
+                                    <Link href="/referral" className="flex items-center justify-center gap-2">
                                         <HeartHandshake size={20} className="text-black" strokeWidth={1.5} />
                                         <span className="text-black font-bold">Referrals</span>
                                     </Link>

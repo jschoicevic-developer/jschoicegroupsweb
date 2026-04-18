@@ -226,7 +226,7 @@ function generateNewLeadEmailHtml(
     ? `
       <tr>
         <td colspan="2" style="padding: 20px 0 10px 0;">
-          <h3 style="margin: 0; color: ${COLORS.primary}; font-size: 16px; border-bottom: 2px solid ${COLORS.primary}; padding-bottom: 8px;">Consultations / Extra Details</h3>
+          <h3 style="margin: 0; color: ${COLORS.primary}; font-size: 16px; border-bottom: 2px solid ${COLORS.primary}; padding-bottom: 8px;">Referral / Extra Details</h3>
         </td>
       </tr>
       ${Object.entries(lead.source_details).map(([key, value]) => `

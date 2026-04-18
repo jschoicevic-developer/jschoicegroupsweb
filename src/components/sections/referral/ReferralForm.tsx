@@ -462,8 +462,8 @@ const ReferralForm = () => {
                 location: formData.address,
                 ndis_number: formData.ndisNumber,
                 source: "referral",
-                source_page: "/consultations",
-                message: `Consultations Submission from ${formData.firstName} ${formData.lastName} (${formData.referrerType})`,
+                source_page: "/referral",
+                message: `Referral Submission from ${formData.firstName} ${formData.lastName} (${formData.referrerType})`,
                 source_details: {
                     ...formData,
                     // Remove redundant fields that are already top-level columns

@@ -134,9 +134,9 @@ const PsychosocialRecoveryCoach = () => {
                                 </p>
                             </div>
                             <div className="flex flex-col sm:flex-row gap-4 pt-4">
-                                <Link href="/consultations">
+                                <Link href="/referral">
                                     <Button className="h-14 px-10 rounded-full bg-[#ABB3F1] hover:bg-[#9CA5E5] text-[#1A202C] font-black text-sm uppercase tracking-widest shadow-lg hover:shadow-xl transition-all w-full sm:w-auto">
-                                        Consultations
+                                        Free Referral
                                     </Button>
                                 </Link>
                                 <Link href="tel:1300572464">
@@ -341,9 +341,9 @@ const PsychosocialRecoveryCoach = () => {
                                     Get in Touch <ArrowRight className="ml-2 h-5 w-5" />
                                 </Button>
                             </Link>
-                            <Link href="/consultations">
+                            <Link href="/referral">
                                 <Button variant="outline" size="lg" className="h-16 px-10 rounded-full border-2 border-[#2D3748] text-[#2D3748] hover:bg-gray-50 text-lg font-bold shadow-sm hover:shadow-md transition-all w-full md:w-auto">
-                                    Consultations
+                                    Free Referral
                                 </Button>
                             </Link>
                         </div>
