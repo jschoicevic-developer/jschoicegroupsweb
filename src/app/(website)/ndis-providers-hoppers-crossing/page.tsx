@@ -218,9 +218,9 @@ const NdisProvidersHoppersCrossing = () => {
                                 <Phone className="mr-2 h-5 w-5" />
                                 Call Now
                             </Button>
-                            <Link href="/contact-us">
+                            <Link href="/referral">
                                 <Button size="lg" className="h-16 px-8 rounded-full bg-primary hover:bg-primary/90 text-[#1A202C] text-lg font-bold shadow-lg hover:shadow-xl transition-all hover:-translate-y-1">
-                                    Get in Touch <ArrowRight className="ml-2 h-5 w-5" />
+                                    Get a Free Referral <ArrowRight className="ml-2 h-5 w-5" />
                                 </Button>
                             </Link>
                             <Link href="/referral">
@@ -344,9 +344,9 @@ const NdisProvidersHoppersCrossing = () => {
                                 <Phone className="mr-2 h-5 w-5" />
                                 Call Now
                             </Button>
-                            <Link href="/contact-us">
+                            <Link href="/referral">
                                 <Button size="lg" className="h-16 px-8 rounded-full bg-primary hover:bg-primary/90 text-[#1A202C] text-lg font-bold shadow-lg hover:shadow-xl transition-all hover:-translate-y-1">
-                                    Get in Touch <ArrowRight className="ml-2 h-5 w-5" />
+                                    Get a Free Referral <ArrowRight className="ml-2 h-5 w-5" />
                                 </Button>
                             </Link>
                             <Link href="/referral">

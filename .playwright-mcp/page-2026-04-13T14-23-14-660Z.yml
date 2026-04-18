@@ -1,0 +1,255 @@
+- generic [active] [ref=e1]:
+  - banner [ref=e2]:
+    - generic [ref=e4]:
+      - img "JS Choice Group" [ref=e6]
+      - generic [ref=e7]:
+        - generic [ref=e8]: Registered NDIS Provider
+        - link "1300 572 464" [ref=e9] [cursor=pointer]:
+          - /url: tel:1300572464
+          - img [ref=e10]
+          - text: 1300 572 464
+        - button "Request a Free Referral" [ref=e12]: Request a Free Referral
+  - main [ref=e13]:
+    - generic [ref=e18]:
+      - generic [ref=e19]:
+        - generic [ref=e20]: Trusted NDIS Provider in Melbourne
+        - heading "NDIS Support Coordination & Daily Life Assistance in Melbourne" [level=1] [ref=e21]
+        - paragraph [ref=e22]: Navigating the NDIS shouldn't feel overwhelming. Whether you're seeking support for yourself or a loved one, our experienced coordinators help you access the right services — so you can focus on what matters most.
+        - list [ref=e23]:
+          - listitem [ref=e24]:
+            - img [ref=e25]
+            - generic [ref=e28]: Neuro-Affirming
+          - listitem [ref=e29]:
+            - img [ref=e30]
+            - generic [ref=e33]: Culturally Inclusive
+          - listitem [ref=e34]:
+            - img [ref=e35]
+            - generic [ref=e38]: Participant-Led
+        - generic [ref=e39]:
+          - button "Get My Free Referral" [ref=e40]: Get My Free Referral
+          - link "1300 572 464" [ref=e41] [cursor=pointer]:
+            - /url: tel:1300572464
+            - img [ref=e42]
+            - text: 1300 572 464
+      - generic [ref=e45]:
+        - generic [ref=e46]:
+          - heading "Get Your Free NDIS Referral" [level=2] [ref=e47]
+          - paragraph [ref=e48]: Takes less than 60 seconds
+        - generic [ref=e49]:
+          - textbox "Your first name *" [ref=e50]
+          - textbox "Phone number *" [ref=e51]
+          - textbox "Email address *" [ref=e52]
+          - generic [ref=e53]:
+            - combobox [ref=e54] [cursor=pointer]:
+              - option "Service Needed *" [disabled] [selected]
+              - option "Support Coordination"
+              - option "Assistance with Daily Life"
+            - img
+          - button "Add a message (optional)" [ref=e56]
+          - button "Get My Free Referral" [ref=e57]: Get My Free Referral
+          - generic [ref=e58]:
+            - img [ref=e59]
+            - generic [ref=e62]: Your details are safe. We never share your information.
+    - generic [ref=e65]:
+      - generic [ref=e66]:
+        - img [ref=e67]
+        - generic [ref=e70]: Registered NDIS Provider
+      - generic [ref=e71]:
+        - img [ref=e72]
+        - generic [ref=e75]: 15+ Service Areas Across VIC
+      - generic [ref=e76]:
+        - img [ref=e77]
+        - generic [ref=e80]: 24/7 Care Services Available
+      - generic [ref=e81]:
+        - img [ref=e82]
+        - generic [ref=e90]: Neuro-Affirming Approach
+    - generic [ref=e92]:
+      - generic [ref=e93]:
+        - heading "NDIS Support Services That Put You First" [level=2] [ref=e94]
+        - paragraph [ref=e95]: We deliver person-centred support that genuinely listens, adapts and advocates — because every participant deserves more than just a service.
+      - generic [ref=e96]:
+        - generic [ref=e97]:
+          - generic [ref=e98]:
+            - img "NDIS support coordinator walking with participant and carer" [ref=e99]
+            - img [ref=e102]
+          - heading "Support Coordination" [level=3] [ref=e107]
+          - paragraph [ref=e108]: "\"I finally felt like someone was on my side.\""
+          - paragraph [ref=e109]: Our Support Coordinators work alongside you to understand your NDIS plan, connect you with the right providers, and help you get the most out of your funding — so you can focus on living your life.
+          - paragraph [ref=e110]: "Includes: Plan implementation, provider sourcing, crisis support & plan reviews."
+          - button "Request a Free Referral →" [ref=e111]
+        - generic [ref=e112]:
+          - generic [ref=e113]:
+            - img "Carer providing compassionate daily life support" [ref=e114]
+            - img [ref=e117]
+          - heading "Assistance with Daily Life" [level=3] [ref=e119]
+          - paragraph [ref=e120]: "\"Mum can stay at home and still get the help she needs.\""
+          - paragraph [ref=e121]: We provide compassionate, practical support with everyday tasks — from personal care and meal preparation to household assistance — enabling participants to live independently in their own homes.
+          - paragraph [ref=e122]: "Includes: Personal care, meal prep, household tasks & community access."
+          - button "Request a Free Referral →" [ref=e123]
+    - generic [ref=e125]:
+      - generic [ref=e126]:
+        - heading "Comprehensive NDIS Support Services in Melbourne" [level=2] [ref=e127]
+        - paragraph [ref=e128]: As a registered NDIS provider, JS Choice Group is approved to deliver all of the following disability support services across Victoria.
+      - generic [ref=e129]:
+        - generic [ref=e130]:
+          - img [ref=e131]
+          - generic [ref=e134]: Support Coordination
+        - generic [ref=e135]:
+          - img [ref=e136]
+          - generic [ref=e139]: Assistance with Daily Life
+        - generic [ref=e140]:
+          - img [ref=e141]
+          - generic [ref=e144]: Transport Assistance
+        - generic [ref=e145]:
+          - img [ref=e146]
+          - generic [ref=e149]: Allied Health Services
+        - generic [ref=e150]:
+          - img [ref=e151]
+          - generic [ref=e154]: Psychosocial Recovery Coaching
+        - generic [ref=e155]:
+          - img [ref=e156]
+          - generic [ref=e159]: Social & Community Participation
+        - generic [ref=e160]:
+          - img [ref=e161]
+          - generic [ref=e164]: Group / Centre Activities
+        - generic [ref=e165]:
+          - img [ref=e166]
+          - generic [ref=e169]: Emergency Respite
+        - generic [ref=e170]:
+          - img [ref=e171]
+          - generic [ref=e174]: Community Nursing Care
+        - generic [ref=e175]:
+          - img [ref=e176]
+          - generic [ref=e179]: Employment / Education
+        - generic [ref=e180]:
+          - img [ref=e181]
+          - generic [ref=e184]: NDIS Access Requests Help
+        - generic [ref=e185]:
+          - img [ref=e186]
+          - generic [ref=e189]: Innovative Community Participation
+        - generic [ref=e190]:
+          - img [ref=e191]
+          - generic [ref=e194]: Specialised Disability Accommodation
+        - generic [ref=e195]:
+          - img [ref=e196]
+          - generic [ref=e199]: Early Childhood Supports
+    - generic [ref=e201]:
+      - generic [ref=e202]:
+        - heading "Why Melbourne Families Choose JS Choice" [level=2] [ref=e203]
+        - paragraph [ref=e204]: We don't just provide services — we provide peace of mind for participants and the people who love them.
+      - generic [ref=e205]:
+        - generic [ref=e206]:
+          - img [ref=e207]
+          - heading "We Fight for Your Funding" [level=3] [ref=e209]
+          - paragraph [ref=e210]: Tired of providers who don't understand your plan? We help you maximise every dollar of your NDIS funding so nothing goes to waste.
+          - link "Get your free referral →" [ref=e211] [cursor=pointer]:
+            - /url: "#lead-form"
+        - generic [ref=e212]:
+          - img [ref=e213]
+          - heading "Culturally Inclusive Care" [level=3] [ref=e216]
+          - paragraph [ref=e217]: We celebrate diversity. Our team understands different cultural backgrounds and tailors support so you feel truly seen and respected.
+          - link "Get your free referral →" [ref=e218] [cursor=pointer]:
+            - /url: "#lead-form"
+        - generic [ref=e219]:
+          - img [ref=e220]
+          - heading "Neuro-Affirming Approach" [level=3] [ref=e223]
+          - paragraph [ref=e224]: ASD, ADHD, PDA — we don't try to "fix" anyone. We work WITH how your mind works, not against it. Your strengths matter here.
+          - link "Get your free referral →" [ref=e225] [cursor=pointer]:
+            - /url: "#lead-form"
+        - generic [ref=e226]:
+          - img [ref=e227]
+          - heading "24/7 Care When You Need It" [level=3] [ref=e230]
+          - paragraph [ref=e231]: Life doesn't stop at 5pm. Our care services run around the clock because you deserve support whenever you need it most.
+          - link "Get your free referral →" [ref=e232] [cursor=pointer]:
+            - /url: "#lead-form"
+    - generic [ref=e234]:
+      - generic [ref=e235]:
+        - heading "We Support Participants Living With" [level=2] [ref=e236]
+        - paragraph [ref=e237]: Every person deserves support that understands their unique experience
+      - generic [ref=e238]:
+        - generic [ref=e239]: Autism (ASD)
+        - generic [ref=e240]: ADHD
+        - generic [ref=e241]: PDA
+        - generic [ref=e242]: PTSD
+        - generic [ref=e243]: Schizophrenia
+        - generic [ref=e244]: Stroke Recovery
+        - generic [ref=e245]: Muscular Dystrophy
+        - generic [ref=e246]: Down Syndrome
+        - generic [ref=e247]: Physical Disabilities
+        - generic [ref=e248]: Mental Health Conditions
+      - link "Request a Free Referral" [ref=e250] [cursor=pointer]:
+        - /url: "#lead-form"
+    - generic [ref=e252]:
+      - generic [ref=e253]:
+        - heading "NDIS Support Coordination Across Victoria" [level=2] [ref=e254]
+        - paragraph [ref=e255]: Providing disability support services to participants across Melbourne, Geelong, and regional Victoria
+      - generic [ref=e256]:
+        - generic [ref=e257]: Point Cook
+        - generic [ref=e258]: Tarneit
+        - generic [ref=e259]: Werribee
+        - generic [ref=e260]: Hoppers Crossing
+        - generic [ref=e261]: Truganina
+        - generic [ref=e262]: Craigieburn
+        - generic [ref=e263]: Williams Landing
+        - generic [ref=e264]: Laverton
+        - generic [ref=e265]: Altona
+        - generic [ref=e266]: Footscray
+        - generic [ref=e267]: Epping
+        - generic [ref=e268]: Geelong
+        - generic [ref=e269]: South Morang
+        - generic [ref=e270]: Lara
+        - generic [ref=e271]: Shepparton
+    - generic [ref=e273]:
+      - heading "Common Questions About NDIS Support in Melbourne" [level=2] [ref=e275]
+      - generic [ref=e276]:
+        - heading "What is NDIS Support Coordination?" [level=3] [ref=e278]:
+          - button "What is NDIS Support Coordination?" [ref=e279]:
+            - text: What is NDIS Support Coordination?
+            - img [ref=e280]
+        - heading "How do I get a referral to JS Choice?" [level=3] [ref=e283]:
+          - button "How do I get a referral to JS Choice?" [ref=e284]:
+            - text: How do I get a referral to JS Choice?
+            - img [ref=e285]
+        - heading "Do you provide NDIS support in my area?" [level=3] [ref=e288]:
+          - button "Do you provide NDIS support in my area?" [ref=e289]:
+            - text: Do you provide NDIS support in my area?
+            - img [ref=e290]
+        - heading "Can I change my NDIS support coordinator?" [level=3] [ref=e293]:
+          - button "Can I change my NDIS support coordinator?" [ref=e294]:
+            - text: Can I change my NDIS support coordinator?
+            - img [ref=e295]
+        - heading "What does Assistance with Daily Life include?" [level=3] [ref=e298]:
+          - button "What does Assistance with Daily Life include?" [ref=e299]:
+            - text: What does Assistance with Daily Life include?
+            - img [ref=e300]
+    - generic [ref=e304]:
+      - heading "Ready to Get the Support You Deserve?" [level=2] [ref=e305]
+      - paragraph [ref=e306]: Request your free referral today. Our team will be in touch within 24 hours.
+      - generic [ref=e307]:
+        - link "Request a Free Referral" [ref=e308] [cursor=pointer]:
+          - /url: "#lead-form"
+          - text: Request a Free Referral
+        - link "Call 1300 572 464" [ref=e309] [cursor=pointer]:
+          - /url: tel:1300572464
+          - img [ref=e310]
+          - text: Call 1300 572 464
+  - contentinfo [ref=e312]:
+    - generic [ref=e313]:
+      - generic [ref=e314]:
+        - paragraph [ref=e315]: JS Choice Group Pty Ltd
+        - paragraph [ref=e316]: "ABN: 54 644 196 270 | Registered NDIS Provider"
+        - paragraph [ref=e317]: Suite 1, Level 1, 1 Main Street, Point Cook VIC 3030
+        - paragraph [ref=e318]:
+          - link "1300 572 464" [ref=e319] [cursor=pointer]:
+            - /url: tel:1300572464
+          - text: ·
+          - link "info@jschoicegroup.com.au" [ref=e320] [cursor=pointer]:
+            - /url: mailto:info@jschoicegroup.com.au
+      - generic [ref=e321]:
+        - paragraph [ref=e322]: Serving NDIS Participants Across Victoria
+        - paragraph [ref=e323]: Point Cook · Tarneit · Werribee · Hoppers Crossing · Truganina · Craigieburn · Williams Landing · Laverton · Altona · Footscray · Epping · Geelong · South Morang · Lara · Shepparton
+      - paragraph [ref=e325]:
+        - text: © 2026 JS Choice Group Pty Ltd. All rights reserved.
+        - link "Privacy Policy" [ref=e326] [cursor=pointer]:
+          - /url: /privacy-policy
+  - alert [ref=e327]

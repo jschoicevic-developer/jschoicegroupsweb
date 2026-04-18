@@ -204,9 +204,9 @@ const NdisAccommodationGeelong = () => {
                                 <Phone className="mr-2 h-5 w-5" />
                                 Call Now
                             </Button>
-                            <Link href="/contact-us">
+                            <Link href="/referral">
                                 <Button size="lg" className="h-16 px-8 rounded-full bg-primary hover:bg-primary/90 text-[#1A202C] text-lg font-bold shadow-lg hover:shadow-xl transition-all hover:-translate-y-1">
-                                    Get in Touch <ArrowRight className="ml-2 h-5 w-5" />
+                                    Get a Free Referral <ArrowRight className="ml-2 h-5 w-5" />
                                 </Button>
                             </Link>
                             <Link href="/referral">
@@ -290,9 +290,9 @@ const NdisAccommodationGeelong = () => {
                         <Button size="lg" className="px-8 rounded-full bg-[#2D3748] hover:bg-[#1A202C] text-white">
                             <Phone className="mr-2 h-5 w-5" /> Call Now
                         </Button>
-                        <Link href="/contact-us">
+                        <Link href="/referral">
                             <Button size="lg" className="px-8 rounded-full bg-primary hover:bg-primary/90 text-[#1A202C]">
-                                Get in Touch
+                                Get a Free Referral
                             </Button>
                         </Link>
                     </div>
@@ -352,15 +352,15 @@ const NdisAccommodationGeelong = () => {
             <section className="py-16 bg-white">
                 <div className="container-8xl text-center">
                     <h3 className="text-2xl md:text-3xl font-bold text-[#2D3748] mb-8">
-                        Live your life with the safest Medium-Term Accommodation in Geelong — Get Started Today!
+                        Live your life with the safest Medium-Term Accommodation in Geelong — Get a Free Referral!
                     </h3>
                     <div className="flex flex-col md:flex-row gap-4 justify-center items-center">
                         <Button size="lg" className="px-8 rounded-full bg-[#2D3748] hover:bg-[#1A202C] text-white">
                             <Phone className="mr-2 h-5 w-5" /> Call Now
                         </Button>
-                        <Link href="/contact-us">
+                        <Link href="/referral">
                             <Button size="lg" className="px-8 rounded-full bg-primary hover:bg-primary/90 text-[#1A202C]">
-                                Get in Touch
+                                Get a Free Referral
                             </Button>
                         </Link>
                     </div>
@@ -436,9 +436,9 @@ const NdisAccommodationGeelong = () => {
                                 <Phone className="mr-2 h-5 w-5" />
                                 Call Now
                             </Button>
-                            <Link href="/contact-us">
+                            <Link href="/referral">
                                 <Button size="lg" className="h-16 px-8 rounded-full bg-primary hover:bg-primary/90 text-[#1A202C] text-lg font-bold shadow-lg hover:shadow-xl transition-all hover:-translate-y-1">
-                                    Get in Touch <ArrowRight className="ml-2 h-5 w-5" />
+                                    Get a Free Referral <ArrowRight className="ml-2 h-5 w-5" />
                                 </Button>
                             </Link>
                             <Link href="/referral">

@@ -86,9 +86,9 @@ export default function DynamicLocationPage({ params }: PageProps) {
                             </p>
 
                             <div className="flex flex-wrap gap-4 pt-4">
-                                <Link href="/contact-us">
+                                <Link href="/referral">
                                     <Button className="rounded-full px-8 py-6 text-lg bg-primary hover:bg-primary/90 shadow-lg shadow-primary/20">
-                                        Get Started Today
+                                        Get a Free Referral
                                     </Button>
                                 </Link>
                                 <Link href="/referral">
@@ -175,14 +175,14 @@ export default function DynamicLocationPage({ params }: PageProps) {
                         Contact us today to discuss your needs and how we can support your journey towards independence.
                     </p>
                     <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
-                        <Link href="/contact-us">
+                        <Link href="/referral">
                             <Button className="w-full sm:w-auto h-14 px-8 rounded-full bg-primary hover:bg-primary/90 text-white font-bold text-lg shadow-lg shadow-primary/25">
-                                Contact Us Now <ArrowRight className="ml-2 w-5 h-5" />
+                                Get a Free Referral <ArrowRight className="ml-2 w-5 h-5" />
                             </Button>
                         </Link>
                         <Link href="tel:0393953746">
                             <Button variant="outline" className="w-full sm:w-auto h-14 px-8 rounded-full border-2 border-white/20 text-white hover:bg-white hover:text-gray-900 font-bold text-lg bg-transparent">
-                                Call 03 9395 3746
+                                Call 1300 572 464
                             </Button>
                         </Link>
                     </div>

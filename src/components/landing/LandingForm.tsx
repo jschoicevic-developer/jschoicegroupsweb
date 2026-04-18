@@ -4,7 +4,19 @@ import { useState } from "react";
 import { useRouter, useSearchParams } from "next/navigation";
 import { Loader2, Lock, ChevronDown } from "lucide-react";
 
-export default function LandingForm() {
+interface LandingFormProps {
+  source?: string;
+  sourcePage?: string;
+  defaultService?: string;
+  redirectPath?: string;
+}
+
+export default function LandingForm({
+  source = "google_ads_landing",
+  sourcePage = "/ndis-support-melbourne",
+  defaultService = "",
+  redirectPath = "/ndis-support-melbourne/thank-you",
+}: LandingFormProps) {
   const router = useRouter();
   const searchParams = useSearchParams();
 
@@ -12,7 +24,7 @@ export default function LandingForm() {
     firstName: "",
     phone: "",
     email: "",
-    service: "",
+    service: defaultService,
     message: "",
   });
   const [showMessage, setShowMessage] = useState(false);
@@ -36,8 +48,8 @@ export default function LandingForm() {
       first_name: formData.firstName,
       email: formData.email,
       phone: formData.phone,
-      source: "google_ads_landing",
-      source_page: "/ndis-support-melbourne",
+      source,
+      source_page: sourcePage,
       interested_services: [formData.service],
       state: "VIC",
       message: formData.message || null,
@@ -66,7 +78,7 @@ export default function LandingForm() {
         (window as any).dataLayer = (window as any).dataLayer || [];
         (window as any).dataLayer.push({
           event: "lead_form_submit",
-          source: "google_ads_landing",
+          source,
           service: formData.service,
         });
 
@@ -89,7 +101,7 @@ export default function LandingForm() {
         phone: formData.phone,
         service: formData.service,
       });
-      router.push(`/ndis-support-melbourne/thank-you?${params.toString()}`);
+      router.push(`${redirectPath}?${params.toString()}`);
     } catch (err: any) {
       setError(err.message || "Something went wrong. Please try again.");
     } finally {

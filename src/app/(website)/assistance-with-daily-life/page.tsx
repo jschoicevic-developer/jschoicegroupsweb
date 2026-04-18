@@ -6,6 +6,9 @@ import { Button } from "@/components/ui/button";
 import Link from "next/link";
 import Image from "next/image";
 import { CheckCircle2, Phone, Mail, ArrowRight } from "lucide-react";
+import ServiceCTA from "@/components/ui/ServiceCTA";
+import ServiceFormSection from "@/components/ui/ServiceFormSection";
+import StickyMobileCTA from "@/components/landing/StickyMobileCTA";
 
 const services = [
     {
@@ -245,44 +248,20 @@ const AssistanceWithDailyLife = () => {
                 </div>
             </section>
 
-            {/* CTA Section */}
-            <section className="py-20 lg:py-32 bg-gray-50 relative overflow-hidden">
-                <div className="absolute top-0 left-0 w-full h-full bg-[radial-gradient(#ABB3F1_0.5px,transparent_0.5px)] [background-size:24px_24px] opacity-20" />
+            {/* Mid-page CTA */}
+            <ServiceCTA
+              heading="Ready for Support at Home?"
+              subheading="Fill out our quick form below and our team will be in touch within 24 hours."
+            />
 
-                <div className="container-8xl relative z-10">
-                    <motion.div
-                        initial={{ opacity: 0, y: 30 }}
-                        whileInView={{ opacity: 1, y: 0 }}
-                        viewport={{ once: true }}
-                        transition={{ duration: 0.8 }}
-                        className="bg-white rounded-[3rem] p-10 md:p-16 text-center shadow-2xl border border-gray-100 max-w-5xl mx-auto"
-                    >
-                        <h2 className="text-4xl md:text-6xl font-black text-[#2D3748] mb-6">
-                            Let’s Get <span className="text-primary">Started!</span>
-                        </h2>
-                        <p className="text-xl text-gray-600 mb-10 max-w-2xl mx-auto leading-relaxed">
-                            Ready to reclaim your time and enjoy a more organised, supported life at home? Let's embark on this journey toward continued independence together.
-                        </p>
+            {/* Inline Form Section */}
+            <ServiceFormSection
+              source="service_page"
+              sourcePage="/assistance-with-daily-life"
+              defaultService="Assistance with Daily Life"
+            />
 
-                        <div className="flex flex-col md:flex-row gap-4 justify-center items-center">
-                            <Button size="lg" className="h-16 px-8 rounded-full bg-[#2D3748] hover:bg-black text-white text-lg font-bold shadow-lg hover:shadow-xl transition-all hover:-translate-y-1">
-                                <Phone className="mr-2 h-5 w-5" />
-                                Call Now
-                            </Button>
-                            <Link href="/contact-us">
-                                <Button size="lg" className="h-16 px-8 rounded-full bg-primary hover:bg-primary/90 text-[#1A202C] text-lg font-bold shadow-lg hover:shadow-xl transition-all hover:-translate-y-1">
-                                    Get in Touch <ArrowRight className="ml-2 h-5 w-5" />
-                                </Button>
-                            </Link>
-                            <Link href="/referral">
-                                <Button variant="outline" size="lg" className="h-16 px-8 rounded-full border-2 border-[#2D3748] text-[#2D3748] hover:bg-gray-50 text-lg font-bold shadow-sm hover:shadow-md transition-all hover:-translate-y-1">
-                                    Free Referral
-                                </Button>
-                            </Link>
-                        </div>
-                    </motion.div>
-                </div>
-            </section>
+            <StickyMobileCTA />
         </main>
     );
 };

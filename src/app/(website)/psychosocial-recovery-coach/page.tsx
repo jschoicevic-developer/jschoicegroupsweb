@@ -336,9 +336,9 @@ const PsychosocialRecoveryCoach = () => {
                                 <Phone className="mr-2 h-5 w-5" />
                                 Call Now
                             </Button>
-                            <Link href="/contact-us">
+                            <Link href="/referral">
                                 <Button size="lg" className="h-16 px-10 rounded-full bg-[#ABB3F1] hover:bg-[#9CA5E5] text-[#1A202C] text-lg font-bold shadow-lg hover:shadow-xl transition-all w-full md:w-auto">
-                                    Get in Touch <ArrowRight className="ml-2 h-5 w-5" />
+                                    Get a Free Referral <ArrowRight className="ml-2 h-5 w-5" />
                                 </Button>
                             </Link>
                             <Link href="/referral">
