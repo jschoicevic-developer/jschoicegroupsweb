@@ -386,13 +386,7 @@ const NdisProvidersSouthMorang = () => {
                 </div>
             </section>
 
-            <ServiceCTA />
-
-            <ServiceFormSection
-                source="service_page"
-                sourcePage="/ndis-providers-south-morang"
-
-            />
+            <SeamlessNDIS />
 
         </main>
     );

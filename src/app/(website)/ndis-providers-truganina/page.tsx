@@ -386,13 +386,7 @@ const NdisProvidersTruganina = () => {
                 </div>
             </section>
 
-            <ServiceCTA />
-
-            <ServiceFormSection
-                source="service_page"
-                sourcePage="/ndis-providers-truganina"
-
-            />
+            <SeamlessNDIS />
 
         </main>
     );

@@ -386,13 +386,7 @@ const NdisProvidersLaverton = () => {
                 </div>
             </section>
 
-            <ServiceCTA />
-
-            <ServiceFormSection
-                source="service_page"
-                sourcePage="/ndis-providers-laverton"
-
-            />
+            <SeamlessNDIS />
 
         </main>
     );

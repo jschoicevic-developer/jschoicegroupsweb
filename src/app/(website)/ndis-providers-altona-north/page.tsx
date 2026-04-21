@@ -1,4 +1,4 @@
-"use client";
+﻿"use client";
 
 import { motion } from "framer-motion";
 import PageHeader from "@/components/ui/PageHeader";
@@ -214,9 +214,11 @@ const NdisProvidersAltonaNorth = () => {
                             Js Choice – Care and Support is here to help you live your best life and achieve your goals with the support you deserve.
                         </p>
                         <div className="flex flex-col md:flex-row gap-4 justify-center items-center">
-                            <Button size="lg" className="h-16 px-8 rounded-full bg-white hover:bg-gray-100 text-[#2D3748] text-lg font-bold shadow-lg hover:shadow-xl transition-all hover:-translate-y-1">
-                                <Phone className="mr-2 h-5 w-5" />
-                                Call Now
+                            <Button asChild size="lg" className="h-16 px-8 rounded-full bg-white hover:bg-gray-100 text-[#2D3748] text-lg font-bold shadow-lg hover:shadow-xl transition-all hover:-translate-y-1">
+                                <a href="tel:1300572464">
+                                    <Phone className="mr-2 h-5 w-5" />
+                                    Call Now
+                                </a>
                             </Button>
                             <Link href="/contact-us">
                                 <Button size="lg" className="h-16 px-8 rounded-full bg-primary hover:bg-primary/90 text-[#1A202C] text-lg font-bold shadow-lg hover:shadow-xl transition-all hover:-translate-y-1">
@@ -340,9 +342,11 @@ const NdisProvidersAltonaNorth = () => {
                             </p>
                         </div>
                         <div className="flex flex-col md:flex-row gap-4 justify-center items-center">
-                            <Button size="lg" className="h-16 px-8 rounded-full bg-white hover:bg-gray-100 text-[#2D3748] text-lg font-bold shadow-lg hover:shadow-xl transition-all hover:-translate-y-1">
-                                <Phone className="mr-2 h-5 w-5" />
-                                Call Now
+                            <Button asChild size="lg" className="h-16 px-8 rounded-full bg-white hover:bg-gray-100 text-[#2D3748] text-lg font-bold shadow-lg hover:shadow-xl transition-all hover:-translate-y-1">
+                                <a href="tel:1300572464">
+                                    <Phone className="mr-2 h-5 w-5" />
+                                    Call Now
+                                </a>
                             </Button>
                             <Link href="/contact-us">
                                 <Button size="lg" className="h-16 px-8 rounded-full bg-primary hover:bg-primary/90 text-[#1A202C] text-lg font-bold shadow-lg hover:shadow-xl transition-all hover:-translate-y-1">

@@ -386,13 +386,7 @@ const NdisProvidersWilliamsLanding = () => {
                 </div>
             </section>
 
-            <ServiceCTA />
-
-            <ServiceFormSection
-                source="service_page"
-                sourcePage="/ndis-providers-williams-landing"
-
-            />
+            <SeamlessNDIS />
 
         </main>
     );

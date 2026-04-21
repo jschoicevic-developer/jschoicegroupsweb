@@ -386,13 +386,7 @@ const NdisProvidersPointCook = () => {
                 </div>
             </section>
 
-            <ServiceCTA />
-
-            <ServiceFormSection
-                source="service_page"
-                sourcePage="/ndis-providers-point-cook"
-
-            />
+            <SeamlessNDIS />
 
         </main>
     );

@@ -386,13 +386,7 @@ const NdisProvidersWerribee = () => {
                 </div>
             </section>
 
-            <ServiceCTA />
-
-            <ServiceFormSection
-                source="service_page"
-                sourcePage="/ndis-providers-werribee"
-
-            />
+            <SeamlessNDIS />
 
         </main>
     );

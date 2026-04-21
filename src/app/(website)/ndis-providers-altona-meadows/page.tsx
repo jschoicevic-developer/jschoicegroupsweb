@@ -386,13 +386,7 @@ const NdisProvidersAltonaMeadows = () => {
                 </div>
             </section>
 
-            <ServiceCTA />
-
-            <ServiceFormSection
-                source="service_page"
-                sourcePage="/ndis-providers-altona-meadows"
-
-            />
+            <SeamlessNDIS />
 
         </main>
     );

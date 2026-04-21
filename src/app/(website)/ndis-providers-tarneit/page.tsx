@@ -386,13 +386,7 @@ const NdisProvidersTarneit = () => {
                 </div>
             </section>
 
-            <ServiceCTA />
-
-            <ServiceFormSection
-                source="service_page"
-                sourcePage="/ndis-providers-tarneit"
-
-            />
+            <SeamlessNDIS />
 
         </main>
     );

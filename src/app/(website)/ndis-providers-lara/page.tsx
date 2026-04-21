@@ -386,13 +386,7 @@ const NdisProvidersLara = () => {
                 </div>
             </section>
 
-            <ServiceCTA />
-
-            <ServiceFormSection
-                source="service_page"
-                sourcePage="/ndis-providers-lara"
-
-            />
+            <SeamlessNDIS />
 
         </main>
     );
