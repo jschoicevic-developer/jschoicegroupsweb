@@ -3,6 +3,7 @@
 import { motion } from "framer-motion";
 import PageHeader from "@/components/ui/PageHeader";
 import { Button } from "@/components/ui/button";
+import TalkToUsButton from "@/components/ui/TalkToUsButton";
 import Link from "next/link";
 import Image from "next/image";
 import {
@@ -158,10 +159,7 @@ const SupportCoordination = () => {
                                 </p>
                             </div>
                             <div className="flex gap-4 pt-4">
-                                <Button size="lg" className="h-14 px-8 rounded-full bg-[#2D3748] hover:bg-black text-white text-lg font-bold shadow-lg hover:shadow-xl transition-all hover:-translate-y-1">
-                                    <Phone className="mr-2 h-5 w-5" />
-                                    Talk to Us
-                                </Button>
+                                <TalkToUsButton />
                                 <Link href="/consultations">
                                     <Button size="lg" className="h-14 px-8 rounded-full bg-primary hover:bg-primary/90 text-[#1A202C] text-lg font-bold shadow-lg hover:shadow-xl transition-all hover:-translate-y-1">
                                         Consultations <ArrowRight className="ml-2 h-5 w-5" />
@@ -340,6 +338,19 @@ const SupportCoordination = () => {
                     </motion.div>
                 </div>
             </section>
+
+            {/* Mid-page CTA */}
+            <ServiceCTA
+                heading="Ready to Take Control of Your NDIS Plan?"
+                subheading="Fill out our quick form below and our team will be in touch within 24 hours."
+            />
+
+            {/* Inline Form Section */}
+            <ServiceFormSection
+                source="service_page"
+                sourcePage="/support-coordination"
+                defaultService="Support Coordination"
+            />
         </main>
     );
 };

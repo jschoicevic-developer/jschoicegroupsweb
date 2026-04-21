@@ -349,6 +349,6 @@ export default async function BlogPostPage({ params, searchParams }: BlogPostPag
             </div>
             {/* ── END CONTENT ──────────────────────────────────────────────── */}
 
-        </main>
+        </main >
     );
 }

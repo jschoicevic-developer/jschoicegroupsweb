@@ -3,6 +3,7 @@
 import { motion } from "framer-motion";
 import PageHeader from "@/components/ui/PageHeader";
 import { Button } from "@/components/ui/button";
+import TalkToUsButton from "@/components/ui/TalkToUsButton";
 import Link from "next/link";
 import Image from "next/image";
 import { CheckCircle2, Phone, Mail, ArrowRight } from "lucide-react";
@@ -104,12 +105,7 @@ const AssistanceWithDailyLife = () => {
                                         Consultations
                                     </Button>
                                 </Link>
-                                <Link href="tel:1300572464">
-                                    <Button variant="outline" className="h-14 px-8 rounded-full border-2 border-primary text-[#2D3748] hover:bg-gray-50 font-bold text-sm uppercase tracking-widest w-full sm:w-auto flex flex-col items-start leading-tight py-1 gap-0">
-                                        <span className="text-[10px] text-gray-500 font-medium">Talk to Us</span>
-                                        <span className="text-lg">1300 572 464</span>
-                                    </Button>
-                                </Link>
+                                <TalkToUsButton />
                             </div>
                         </motion.div>
                     </div>

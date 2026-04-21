@@ -304,7 +304,7 @@ const NdisProvidersEpping = () => {
                                 ))}
                             </div>
                         </div>
-                        <div className="lg:order-1 relative sticky top-24">
+                        <div className="lg:order-1 sticky top-24">
                             <div className="relative h-[600px] w-full">
                                 <Image quality={80}
                                     src="/images/epping/ndis-provider-epping-3.webp"

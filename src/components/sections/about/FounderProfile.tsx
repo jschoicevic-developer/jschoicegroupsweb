@@ -2,40 +2,23 @@
 
 import { motion } from "framer-motion";
 import Image from "next/image";
-import { Award, BookOpen, Heart, Shield, Sparkles } from "lucide-react";
+import { Award, Megaphone, Sparkles } from "lucide-react";
 
-const subsections = [
+const values = [
     {
-        icon: Award,
-        title: "Professional Excellence Grounded in Personal Understanding",
-        color: "text-[#5A67D8]",
-        bgColor: "bg-[#ABB3F1]/10",
-        paragraphs: [
-            "Leading a dedicated team of experienced and qualified professionals, Jan oversees strategic direction, governance compliance, workforce leadership, and service quality across JS Choice Group. She expertly navigates the intricate NDIS landscape, ensuring robust safeguarding practices, transparent operational systems, and consistently high standards of care that exceed regulatory requirements.",
-            "Jan's leadership philosophy is firmly anchored in core values: respect, honesty, accountability, and continuous improvement. She firmly believes that quality disability services require more than procedural compliance — they demand genuine human connection, cultural sensitivity, and strengths-based support that recognizes the inherent dignity and unlimited potential in every individual.",
-            "Currently pursuing postgraduate studies in Strategic Management, Jan continuously enhances her expertise in leadership, human resource management, and organizational development. This commitment to ongoing professional growth ensures JS Choice Group remains at the forefront of best practices in disability support services.",
-        ],
+        icon: "🤝",
+        title: "Compassion",
+        desc: "Care rooted in real, lived experience",
     },
     {
-        icon: Shield,
-        title: "Advocacy Powered by Lived Experience",
-        color: "text-[#E87D7D]",
-        bgColor: "bg-[#F1ABAB]/10",
-        paragraphs: [
-            "What truly distinguishes Jan's approach is her authentic understanding of the challenges faced by the families we support. As a devoted mother of young adult children with special needs, she dedicates not only her professional expertise but also her personal time to supporting their growth, independence, and journey toward fulfilling careers. This lived experience profoundly shapes every decision, policy, and interaction at JS Choice Group.",
-            "Jan's professional background extends beyond disability services. She brings valuable experience from the women's rights sector, where she provided critical support to women affected by domestic and family violence. As a survivor of domestic violence herself, Jan possesses a deep understanding of trauma, resilience, and the transformative journey toward empowerment. This background strengthens her trauma-informed leadership approach and reinforces her commitment to protecting and uplifting vulnerable individuals.",
-            "These personal experiences have cultivated a leadership style characterized by profound empathy, patience, and fierce advocacy — qualities that permeate the entire JS Choice Group culture and guide our team's approach to every participant relationship.",
-        ],
+        icon: "📣",
+        title: "Advocacy",
+        desc: "Unwavering voice for every participant",
     },
     {
-        icon: Heart,
-        title: "Finding Balance and Renewal",
-        color: "text-[#68D391]",
-        bgColor: "bg-green-50",
-        paragraphs: [
-            "When Jan steps away from her professional responsibilities, she finds peace and renewal in gardening, cooking, reading, and listening to music. These cherished moments of reflection sustain her passion and fuel her dedication to the families and individuals who trust JS Choice Group with their support needs.",
-            "Her greatest joy, however, remains supporting her own children's growth and independence — providing consistent encouragement, advocacy, and practical guidance as they pursue meaningful lives and fulfilling careers. This personal commitment beautifully mirrors the support JS Choice Group extends to every participant and family we serve.",
-        ],
+        icon: "🌟",
+        title: "Empowerment",
+        desc: "Helping people reach their aspirations",
     },
 ];
 
@@ -46,8 +29,6 @@ const FounderProfile = () => {
             <div className="absolute inset-0 z-0 pointer-events-none overflow-hidden">
                 <div className="absolute top-0 left-0 w-64 h-64 bg-[#ABB3F1]/5 rounded-full blur-[100px]" />
                 <div className="absolute bottom-0 right-0 w-80 h-80 bg-[#F1ABAB]/5 rounded-full blur-[100px]" />
-
-                {/* Dot Pattern */}
                 <div className="absolute top-0 right-0 w-full h-full bg-[radial-gradient(#ABB3F1_1px,transparent_1px)] [background-size:24px_24px] [mask-image:radial-gradient(circle_at_100%_0%,white,transparent_40%)] opacity-15" />
             </div>
 
@@ -58,7 +39,7 @@ const FounderProfile = () => {
                     whileInView={{ opacity: 1, y: 0 }}
                     viewport={{ once: true }}
                     transition={{ duration: 0.8 }}
-                    className="text-center mb-16"
+                    className="text-center mb-14"
                 >
                     <div className="flex items-center justify-center gap-3 text-[var(--primary)] font-black uppercase text-xs tracking-[0.2em] mb-4">
                         <span className="h-px w-8 bg-[var(--primary)]" />
@@ -66,110 +47,97 @@ const FounderProfile = () => {
                         <span className="h-px w-8 bg-[var(--primary)]" />
                     </div>
                     <h2 className="text-3xl md:text-5xl lg:text-6xl font-black text-[#2D3748] leading-[1.1] tracking-tight uppercase">
-                        Meet <span className="text-[#ABB3F1]">Jan Fardowsi</span>
+                        Meet <span className="text-[#ABB3F1]">Our Founder</span>
                     </h2>
-                    <p className="text-lg md:text-xl text-gray-500 font-medium mt-4">
-                        Our Founder & Director
-                    </p>
                 </motion.div>
 
-                {/* Main Intro Grid */}
-                <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-20 items-start mb-20 lg:mb-28">
-                    {/* Image Column (Left - 5 cols) */}
-                    <motion.div
-                        initial={{ opacity: 0, x: -30 }}
-                        whileInView={{ opacity: 1, x: 0 }}
-                        viewport={{ once: true }}
-                        transition={{ duration: 0.8 }}
-                        className="lg:col-span-5 relative order-1"
-                    >
-                        <div className="relative rounded-[2.5rem] overflow-hidden shadow-2xl border-10 border-white z-10 w-full aspect-3/4">
-                            <Image quality={80}
+                {/* ── FOUNDER CARD ── */}
+                <motion.div
+                    initial={{ opacity: 0, y: 40 }}
+                    whileInView={{ opacity: 1, y: 0 }}
+                    viewport={{ once: true }}
+                    transition={{ duration: 0.9 }}
+                    className="grid grid-cols-1 lg:grid-cols-[280px_1fr] rounded-[28px] overflow-hidden shadow-[0_24px_80px_-12px_rgba(0,0,0,0.12)] bg-white max-w-5xl mx-auto"
+                >
+                    {/* ── LEFT PANEL ── */}
+                    <div className="relative bg-gradient-to-b from-[#1A202C] via-[#2D3748] to-[#3a4a6b] flex flex-col items-center justify-between px-6 pt-10 pb-8 overflow-hidden">
+                        {/* Decorative circles */}
+                        <div className="absolute bottom-[-80px] right-[-80px] w-[240px] h-[240px] rounded-full border-[48px] border-white/5 pointer-events-none" />
+                        <div className="absolute top-[-40px] left-[-40px] w-[130px] h-[130px] rounded-full border-[28px] border-white/6 pointer-events-none" />
+                        {/* Subtle primary glow */}
+                        <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-48 h-48 rounded-full bg-[#ABB3F1]/10 blur-3xl pointer-events-none" />
+
+                        {/* Photo */}
+                        <div className="relative z-10 w-[170px] h-[210px] rounded-[18px] border-4 border-white/25 overflow-hidden shadow-2xl">
+                            <Image
+                                quality={85}
                                 src="/JanImage.jpeg"
-                                alt="Jan Fardowsi - Founder & Director"
+                                alt="Jan Fardowsi – Founder & Director"
                                 fill
-                                className="object-cover transform hover:scale-105 transition-transform duration-700"
+                                className="object-cover object-top"
                             />
                         </div>
 
-                        {/* Floating Badge */}
-                        <motion.div
-                            animate={{ y: [0, -12, 0] }}
-                            transition={{ duration: 4, repeat: Infinity }}
-                            className="absolute -bottom-6 -right-6 w-28 h-28 bg-white rounded-full flex items-center justify-center shadow-2xl border-4 border-[#ABB3F1]/20 z-20 hidden lg:flex"
-                        >
-                            <div className="text-center">
-                                <Sparkles size={24} className="text-[#ABB3F1] mx-auto mb-1" />
-                                <span className="text-[10px] font-black text-[#2D3748] uppercase tracking-wider">Founder</span>
-                            </div>
-                        </motion.div>
-
-                        {/* Decorative Elements */}
-                        <div className="absolute -top-10 -left-10 w-40 h-40 bg-[#ABB3F1]/15 rounded-full blur-2xl -z-10" />
-                        <div className="absolute bottom-10 -right-10 w-32 h-32 bg-[#F1ABAB]/15 rounded-full blur-2xl -z-10" />
-                    </motion.div>
-
-                    {/* Text Column (Right - 7 cols) */}
-                    <motion.div
-                        initial={{ opacity: 0, x: 30 }}
-                        whileInView={{ opacity: 1, x: 0 }}
-                        viewport={{ once: true }}
-                        transition={{ duration: 0.8 }}
-                        className="lg:col-span-7 flex flex-col space-y-6 order-2"
-                    >
-                        <div>
-                            <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-[#ABB3F1]/10 text-[#5A67D8] text-xs font-bold uppercase tracking-widest mb-4">
-                                <BookOpen size={14} />
-                                A Leader Shaped by Purpose and Resilience
-                            </div>
+                        {/* Name / role */}
+                        <div className="relative z-10 text-center mt-6">
+                            <p className="text-[9px] font-bold uppercase tracking-[3px] text-white/50 mb-1">
+                                Founder &amp; Director
+                            </p>
+                            <p className="text-[20px] font-black text-white leading-tight">Jan Fardowsi</p>
+                            <p className="text-[11px] text-white/55 mt-1 tracking-wide">JS Choice Group</p>
                         </div>
 
-                        <div className="space-y-5 text-base md:text-lg text-gray-600 font-medium leading-relaxed text-left lg:text-justify">
+                        {/* Pill */}
+                        <div className="relative z-10 mt-6 px-5 py-2 rounded-full bg-[#ABB3F1]/20 border border-[#ABB3F1]/30 text-[9px] font-bold uppercase tracking-[2px] text-[#ABB3F1]">
+                            <Sparkles size={10} className="inline mr-1 -mt-0.5" />
+                            Leader by Purpose
+                        </div>
+                    </div>
+
+                    {/* ── RIGHT PANEL ── */}
+                    <div className="flex flex-col px-8 md:px-12 py-10">
+                        {/* Eyebrow */}
+                        <div className="flex items-center gap-3 mb-5">
+                            <span className="w-7 h-0.5 bg-[#ABB3F1] rounded-full shrink-0" />
+                            <span className="text-[9.5px] font-bold uppercase tracking-[2.5px] text-[#5A67D8]">
+                                A Leader Shaped by Purpose &amp; Resilience
+                            </span>
+                        </div>
+
+                        {/* Bio */}
+                        <div className="space-y-4 text-[14px] leading-[1.85] text-gray-500 font-medium mb-6">
                             <p>
                                 <span className="font-bold text-[#2D3748]">Jan Fardowsi</span>, Founder and Director of JS Choice Group, brings an extraordinary combination of professional expertise and profound personal insight to disability support services. Her journey into this sector wasn&apos;t merely a career decision — it was a calling born from her own experiences as a devoted mother of children with special needs.
                             </p>
                             <p>
-                                Having navigated the complexities and challenges of the NDIS system firsthand, Jan established JS Choice Group with a crystal-clear vision: to create a provider that genuinely listens, authentically supports, and consistently empowers. Her leadership is defined by compassion, unwavering advocacy, and an absolute commitment to ensuring every participant feels heard, valued, and equipped to achieve their aspirations.
+                                Having navigated the complexities of the NDIS system firsthand, Jan established JS Choice Group with a crystal-clear vision: to create a provider that genuinely listens, authentically supports, and consistently empowers every participant to achieve their aspirations.
                             </p>
                         </div>
-                    </motion.div>
-                </div>
 
-                {/* Subsections */}
-                <div className="space-y-16 lg:space-y-20">
-                    {subsections.map((sub, index) => (
-                        <motion.div
-                            key={index}
-                            initial={{ opacity: 0, y: 30 }}
-                            whileInView={{ opacity: 1, y: 0 }}
-                            viewport={{ once: true }}
-                            transition={{ duration: 0.8 }}
-                            className="relative"
-                        >
-                            <div className="bg-white rounded-[2rem] p-8 md:p-12 shadow-[0_10px_40px_-10px_rgba(0,0,0,0.06)] border border-gray-100/80">
-                                {/* Inner decorative border */}
-                                <div className="absolute inset-3 border border-gray-100/50 rounded-[1.5rem] pointer-events-none" />
+                        {/* Pull quote */}
+                        <blockquote className="border-l-4 border-[#ABB3F1] bg-[#ABB3F1]/8 rounded-r-xl px-5 py-4 mb-7">
+                            <p className="text-[14.5px] italic font-medium text-[#2D3748] leading-[1.7]">
+                                &ldquo;Every participant deserves to feel heard, valued, and equipped to achieve their aspirations.&rdquo;
+                            </p>
+                        </blockquote>
 
-                                {/* Header */}
-                                <div className="flex items-start gap-5 mb-8">
-                                    <div className={`p-4 rounded-2xl ${sub.bgColor} flex-shrink-0`}>
-                                        <sub.icon size={28} className={sub.color} strokeWidth={2} />
+                        {/* Value cards */}
+                        <div className="grid grid-cols-1 sm:grid-cols-3 gap-3">
+                            {values.map((v) => (
+                                <div
+                                    key={v.title}
+                                    className="bg-[#F8F9FF] border border-[#E6E2F8] rounded-2xl p-4 flex flex-col gap-2 hover:-translate-y-1 hover:shadow-lg transition-all duration-200"
+                                >
+                                    <div className="w-9 h-9 rounded-xl bg-gradient-to-br from-[#5A67D8] to-[#ABB3F1] flex items-center justify-center text-base">
+                                        {v.icon}
                                     </div>
-                                    <h3 className="text-xl md:text-2xl font-black text-[#2D3748] leading-tight uppercase tracking-tight">
-                                        {sub.title}
-                                    </h3>
+                                    <p className="text-[12px] font-bold text-[#2D3748]">{v.title}</p>
+                                    <p className="text-[11px] text-gray-400 leading-snug">{v.desc}</p>
                                 </div>
-
-                                {/* Content */}
-                                <div className="space-y-4 text-base md:text-lg text-gray-600 font-medium leading-relaxed text-left lg:text-justify pl-0 md:pl-[4.5rem]">
-                                    {sub.paragraphs.map((para, pIdx) => (
-                                        <p key={pIdx}>{para}</p>
-                                    ))}
-                                </div>
-                            </div>
-                        </motion.div>
-                    ))}
-                </div>
+                            ))}
+                        </div>
+                    </div>
+                </motion.div>
             </div>
         </section>
     );
