@@ -292,10 +292,10 @@ const Footer = () => {
             </div>
 
             {/* Copyright Bar */}
-            <div className="bg-black/40 border-t border-white/5 py-4">
+            <div className="bg-black/40 border-t border-white/5 py-4 relative">
                 <div className="max-w-8xl mx-auto px-4 text-center">
                     <p className="text-[10px] md:text-xs font-black text-gray-500 uppercase tracking-[0.2em] leading-relaxed">
-                        Copyright © 2026 JS CHOICE GROUP PTY LTD • Design by <a href="https://cruxlabs.com.au/" target="_blank" rel="noopener noreferrer" className="text-[#ABB3F1] hover:underline">CruxLabs</a>
+                        Copyright © 2026 JS CHOICE GROUP PTY LTD
                     </p>
                     <div className="flex flex-wrap justify-center gap-4 mt-2 text-[10px] font-black text-[#5A67D8] tracking-widest opacity-80 uppercase">
                         <span>ABN : 54 644 196 270</span>
@@ -308,6 +308,14 @@ const Footer = () => {
                         <a href="/terms-and-conditions" className="text-gray-600 hover:text-[#ABB3F1] transition-colors">Terms &amp; Conditions</a>
                     </div>
                 </div>
+                <a
+                    href="https://cruxlabs.com.au/"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="absolute bottom-3 right-4 text-[10px] font-black text-gray-500 uppercase tracking-[0.15em] hover:text-[#ABB3F1] transition-colors"
+                >
+                    Design by <span className="text-[#ABB3F1]">CruxLabs</span>
+                </a>
             </div>
         </footer>
     );

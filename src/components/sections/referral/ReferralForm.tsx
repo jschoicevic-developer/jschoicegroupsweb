@@ -1,7 +1,7 @@
 "use client";
 
-import { useState, useRef } from "react";
-import { useRouter } from "next/navigation";
+import { useState, useRef, useEffect } from "react";
+import { useRouter, useSearchParams } from "next/navigation";
 import { motion, AnimatePresence } from "framer-motion";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
@@ -372,6 +372,20 @@ const ReferralForm = () => {
         ndisPlanType: "",
     });
 
+    const searchParams = useSearchParams();
+
+    useEffect(() => {
+      if (searchParams.get("prefill") === "true") {
+        setFormData((prev) => ({
+          ...prev,
+          firstName: searchParams.get("name") || prev.firstName,
+          email: searchParams.get("email") || prev.email,
+          phone: searchParams.get("phone") || prev.phone,
+          primaryService: searchParams.get("service") || prev.primaryService,
+        }));
+      }
+    }, [searchParams]);
+
     const handleChange = (field: keyof FormData, value: string) => {
         setFormData(prev => ({ ...prev, [field]: value }));
     };
@@ -448,8 +462,8 @@ const ReferralForm = () => {
                 location: formData.address,
                 ndis_number: formData.ndisNumber,
                 source: "referral",
-                source_page: "/consultations",
-                message: `Consultations Submission from ${formData.firstName} ${formData.lastName} (${formData.referrerType})`,
+                source_page: "/referral",
+                message: `Referral Submission from ${formData.firstName} ${formData.lastName} (${formData.referrerType})`,
                 source_details: {
                     ...formData,
                     // Remove redundant fields that are already top-level columns

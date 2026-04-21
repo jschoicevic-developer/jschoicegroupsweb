@@ -21,6 +21,8 @@ import {
     ClipboardCheck,
     CheckCircle2
 } from "lucide-react";
+import ServiceCTA from "@/components/ui/ServiceCTA";
+import ServiceFormSection from "@/components/ui/ServiceFormSection";
 
 // Data content extracted from user request
 const howItWorks = [
@@ -141,6 +143,18 @@ const EmergencyRespite = () => {
                                 <p>
                                     Whether it's in-home support or a stay at our short-term accommodation, our team is ready to respond. We prioritise the safety and well-being of NDIS participants, ensuring continuity of care even in crisis situations.
                                 </p>
+                            </div>
+                            <div className="flex gap-4 pt-4">
+                                <Link href="/referral">
+                                    <Button size="lg" className="h-14 px-8 rounded-full bg-primary hover:bg-primary/90 text-[#1A202C] text-lg font-bold shadow-lg hover:shadow-xl transition-all hover:-translate-y-1">
+                                        Free Referral <ArrowRight className="ml-2 h-5 w-5" />
+                                    </Button>
+                                </Link>
+                                <a href="tel:1300572464">
+                                    <Button variant="outline" size="lg" className="h-14 px-8 rounded-full border-2 border-[#2D3748] text-[#2D3748] hover:bg-gray-50 text-lg font-bold shadow-sm hover:shadow-md transition-all hover:-translate-y-1">
+                                        Talk to Us
+                                    </Button>
+                                </a>
                             </div>
                         </motion.div>
                     </div>
@@ -304,6 +318,12 @@ const EmergencyRespite = () => {
                 </div>
             </section>
 
+            {/* Mid-page CTA */}
+            <ServiceCTA
+              heading="Need Emergency Respite Support?"
+              subheading="Fill out our quick form below and our team will respond within 24 hours."
+            />
+
             {/* Why Choose Us & CTA */}
             <section className="py-20 lg:py-32 relative overflow-hidden bg-white">
                 <div className="container-8xl">
@@ -351,41 +371,16 @@ const EmergencyRespite = () => {
                         </motion.div>
                     </div>
 
-                    {/* CTA Layout */}
-                    <motion.div
-                        initial={{ opacity: 0, y: 30 }}
-                        whileInView={{ opacity: 1, y: 0 }}
-                        viewport={{ once: true }}
-                        transition={{ duration: 0.8 }}
-                        className="bg-gray-50 rounded-[3rem] p-10 md:p-16 text-center border border-gray-100 max-w-5xl mx-auto"
-                    >
-                        <h2 className="text-4xl md:text-5xl font-black text-[#2D3748] mb-6">
-                            Reach Out to <span className="text-primary">Us Today!</span>
-                        </h2>
-                        <p className="text-xl text-gray-600 mb-10 max-w-2xl mx-auto leading-relaxed">
-                            If you are facing a crisis or need immediate respite support, don't hesitate. Contact us now for assistance.
-                        </p>
-
-                        <div className="flex flex-col md:flex-row gap-4 justify-center items-center">
-                            <Button size="lg" className="h-16 px-8 rounded-full bg-[#2D3748] hover:bg-black text-white text-lg font-bold shadow-lg hover:shadow-xl transition-all hover:-translate-y-1">
-                                <Phone className="mr-2 h-5 w-5" />
-                                Call: 03 9395 3746
-                            </Button>
-                            <Link href="/contact-us">
-                                <Button size="lg" className="h-16 px-8 rounded-full bg-primary hover:bg-primary/90 text-[#1A202C] text-lg font-bold shadow-lg hover:shadow-xl transition-all hover:-translate-y-1">
-                                    Get in Touch <ArrowRight className="ml-2 h-5 w-5" />
-                                </Button>
-                            </Link>
-                            <Link href="/consultations">
-                                <Button variant="outline" size="lg" className="h-16 px-8 rounded-full border-2 border-[#2D3748] text-[#2D3748] hover:bg-white text-lg font-bold shadow-sm hover:shadow-md transition-all hover:-translate-y-1">
-                                    Get Consultations
-                                </Button>
-                            </Link>
-                        </div>
-                    </motion.div>
                 </div>
             </section>
-        </main>
+
+            {/* Inline Form Section */}
+            <ServiceFormSection
+              source="service_page"
+              sourcePage="/emergency-respite"
+              defaultService="Respite / Short Term Accommodation"
+            />
+</main>
     );
 };
 

@@ -18,6 +18,9 @@ import {
     Syringe,
     CalendarCheck
 } from "lucide-react";
+import ServiceCTA from "@/components/ui/ServiceCTA";
+import ServiceFormSection from "@/components/ui/ServiceFormSection";
+
 
 // Data content extracted from user request
 const howItWorks = [
@@ -141,6 +144,18 @@ const AssistanceWithNursingCare = () => {
                                 <p>
                                     Our skilled professionals have vast experience and expertise in the industry. Whether you or your loved one requires the best assistance and community nursing service, we are always ready to provide quality results.
                                 </p>
+                            </div>
+                            <div className="flex gap-4 pt-4">
+                                <Link href="/referral">
+                                    <Button size="lg" className="h-14 px-8 rounded-full bg-primary hover:bg-primary/90 text-[#1A202C] text-lg font-bold shadow-lg hover:shadow-xl transition-all hover:-translate-y-1">
+                                        Free Referral <ArrowRight className="ml-2 h-5 w-5" />
+                                    </Button>
+                                </Link>
+                                <a href="tel:1300572464">
+                                    <Button variant="outline" size="lg" className="h-14 px-8 rounded-full border-2 border-[#2D3748] text-[#2D3748] hover:bg-gray-50 text-lg font-bold shadow-sm hover:shadow-md transition-all hover:-translate-y-1">
+                                        Talk to Us
+                                    </Button>
+                                </a>
                             </div>
                         </motion.div>
                     </div>
@@ -369,22 +384,26 @@ const AssistanceWithNursingCare = () => {
                         <div className="flex flex-col md:flex-row gap-4 justify-center items-center">
                             <Button size="lg" className="h-16 px-8 rounded-full bg-[#2D3748] hover:bg-black text-white text-lg font-bold shadow-lg hover:shadow-xl transition-all hover:-translate-y-1">
                                 <Phone className="mr-2 h-5 w-5" />
-                                Call: 03 9395 3746
+                                Call: 1300 572 464
                             </Button>
-                            <Link href="/contact-us">
+                            <Link href="/referral">
                                 <Button size="lg" className="h-16 px-8 rounded-full bg-primary hover:bg-primary/90 text-[#1A202C] text-lg font-bold shadow-lg hover:shadow-xl transition-all hover:-translate-y-1">
-                                    Get in Touch <ArrowRight className="ml-2 h-5 w-5" />
-                                </Button>
-                            </Link>
-                            <Link href="/consultations">
-                                <Button variant="outline" size="lg" className="h-16 px-8 rounded-full border-2 border-[#2D3748] text-[#2D3748] hover:bg-white text-lg font-bold shadow-sm hover:shadow-md transition-all hover:-translate-y-1">
-                                    Get Consultations
+                                    Get a Free Referral <ArrowRight className="ml-2 h-5 w-5" />
                                 </Button>
                             </Link>
                         </div>
                     </motion.div>
                 </div>
             </section>
+
+            <ServiceCTA />
+
+            <ServiceFormSection
+              source="service_page"
+              sourcePage="/assistance-with-nursing-care"
+              defaultService="Community Nursing Care"
+            />
+
         </main>
     );
 };

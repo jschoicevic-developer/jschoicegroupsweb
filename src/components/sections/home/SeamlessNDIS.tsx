@@ -53,8 +53,8 @@ const SeamlessNDIS = () => {
                             asChild
                             className="h-14 px-10 rounded-full bg-white text-[#2D3748] hover:bg-gray-100 font-black text-sm uppercase tracking-widest gap-2 shadow-2xl transition-all min-w-[200px]"
                         >
-                            <Link href="/contact-us">
-                                Get Consultations
+                            <Link href="/referral">
+                                Get a Free Referral
                                 <ArrowRight size={18} />
                             </Link>
                         </Button>

@@ -7,6 +7,8 @@ import TalkToUsButton from "@/components/ui/TalkToUsButton";
 import Link from "next/link";
 import Image from "next/image";
 import { CheckCircle2, Phone, Mail, ArrowRight } from "lucide-react";
+import ServiceCTA from "@/components/ui/ServiceCTA";
+import ServiceFormSection from "@/components/ui/ServiceFormSection";
 
 const services = [
     {
@@ -100,9 +102,9 @@ const AssistanceWithDailyLife = () => {
                             </div>
 
                             <div className="flex flex-col sm:flex-row gap-4 pt-2">
-                                <Link href="/consultations">
+                                <Link href="/referral">
                                     <Button className="h-14 px-10 rounded-full bg-primary hover:bg-primary/90 text-[#1A202C] font-black text-sm uppercase tracking-widest shadow-lg hover:shadow-xl transition-all w-full sm:w-auto">
-                                        Consultations
+                                        Free Referral
                                     </Button>
                                 </Link>
                                 <TalkToUsButton />

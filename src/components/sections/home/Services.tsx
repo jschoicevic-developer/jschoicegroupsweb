@@ -59,7 +59,7 @@ const services = [
 
 const Services = () => {
     return (
-        <section className="relative py-24 overflow-hidden min-h-screen flex flex-col justify-center">
+        <section id="services" className="relative py-24 overflow-hidden min-h-screen flex flex-col justify-center">
             {/* BACKGROUND IMAGE & OVERLAY */}
             <div className="absolute inset-0 z-0">
                 <Image quality={80}
@@ -203,25 +203,6 @@ const Services = () => {
                     ))}
                 </div>
 
-                {/* Bottom CTA */}
-                <div className="mt-16 text-center">
-                    <motion.div
-                        initial={{ opacity: 0, scale: 0.9 }}
-                        whileInView={{ opacity: 1, scale: 1 }}
-                        viewport={{ once: true }}
-                        transition={{ duration: 0.6 }}
-                    >
-                        <Button
-                            asChild
-                            className="h-14 px-12 rounded-full bg-[#2D3748] hover:bg-black text-white font-black text-lg uppercase tracking-widest shadow-xl transition-all gap-3"
-                        >
-                            <Link href="/contact-us">
-                                Contact Us
-                                <ChevronRight size={20} />
-                            </Link>
-                        </Button>
-                    </motion.div>
-                </div>
 
             </div>
         </section>

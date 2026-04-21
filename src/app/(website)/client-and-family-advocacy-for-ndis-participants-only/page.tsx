@@ -19,6 +19,9 @@ import {
     HandHeart,
     Eye
 } from "lucide-react";
+import ServiceCTA from "@/components/ui/ServiceCTA";
+import ServiceFormSection from "@/components/ui/ServiceFormSection";
+
 
 /**
  * Advocacy Services Data
@@ -136,9 +139,9 @@ const ClientFamilyAdvocacy = () => {
                                     <Phone className="mr-2 h-5 w-5" />
                                     Talk to Us
                                 </Button>
-                                <Link href="/consultations">
+                                <Link href="/referral">
                                     <Button size="lg" className="h-14 px-8 rounded-full bg-primary hover:bg-primary/90 text-[#1A202C] text-lg font-bold shadow-lg hover:shadow-xl transition-all hover:-translate-y-1">
-                                        Consultations <ArrowRight className="ml-2 h-5 w-5" />
+                                        Free Referral <ArrowRight className="ml-2 h-5 w-5" />
                                     </Button>
                                 </Link>
                             </div>
@@ -287,20 +290,24 @@ const ClientFamilyAdvocacy = () => {
                                     Call Now
                                 </a>
                             </Button>
-                            <Link href="/contact-us">
+                            <Link href="/referral">
                                 <Button size="lg" className="h-16 px-8 rounded-full bg-primary hover:bg-primary/90 text-[#1A202C] text-lg font-bold shadow-lg hover:shadow-xl transition-all hover:-translate-y-1">
-                                    Get in Touch <ArrowRight className="ml-2 h-5 w-5" />
-                                </Button>
-                            </Link>
-                            <Link href="/consultations">
-                                <Button variant="outline" size="lg" className="h-16 px-8 rounded-full border-2 border-white/20 text-primary hover:bg-white/10 text-lg font-bold transition-all hover:-translate-y-1">
-                                    Consultations
+                                    Get a Free Referral <ArrowRight className="ml-2 h-5 w-5" />
                                 </Button>
                             </Link>
                         </div>
                     </motion.div>
                 </div>
             </section>
+
+            <ServiceCTA />
+
+            <ServiceFormSection
+                source="service_page"
+                sourcePage="/client-and-family-advocacy-for-ndis-participants-only"
+                defaultService="Client & Family Advocacy"
+            />
+
         </main>
     );
 };

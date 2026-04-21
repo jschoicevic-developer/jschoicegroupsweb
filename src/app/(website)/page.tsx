@@ -22,8 +22,8 @@ export default function Home() {
       <Services />
       <WhyChooseUs />
       <GettingStarted />
-      <Faq />
       <AreasServed />
+      <Faq />
       <SeamlessNDIS />
     </main>
   );

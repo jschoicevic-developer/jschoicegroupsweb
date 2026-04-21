@@ -24,6 +24,9 @@ import {
     CheckCircle2,
     Users2
 } from "lucide-react";
+import ServiceCTA from "@/components/ui/ServiceCTA";
+import ServiceFormSection from "@/components/ui/ServiceFormSection";
+
 
 const howWeSupport = [
     {
@@ -186,9 +189,9 @@ const AccessToCommunityActivities = () => {
                                 </p>
                             </div>
                             <div className="flex gap-4 pt-4">
-                                <Link href="/consultations">
+                                <Link href="/referral">
                                     <Button size="lg" className="h-14 px-8 rounded-full bg-primary hover:bg-primary/90 text-[#1A202C] text-lg font-bold shadow-lg hover:shadow-xl transition-all hover:-translate-y-1">
-                                        Consultations <ArrowRight className="ml-2 h-5 w-5" />
+                                        Free Referral <ArrowRight className="ml-2 h-5 w-5" />
                                     </Button>
                                 </Link>
                                 <TalkToUsButton />
@@ -424,20 +427,24 @@ const AccessToCommunityActivities = () => {
                                     Call Now
                                 </a>
                             </Button>
-                            <Link href="/contact-us">
+                            <Link href="/referral">
                                 <Button size="lg" className="h-16 px-8 rounded-full bg-primary hover:bg-primary/90 text-[#1A202C] text-lg font-bold shadow-lg hover:shadow-xl transition-all hover:-translate-y-1">
-                                    Get in Touch <ArrowRight className="ml-2 h-5 w-5" />
-                                </Button>
-                            </Link>
-                            <Link href="/consultations">
-                                <Button variant="outline" size="lg" className="h-16 px-8 rounded-full border-2 border-white text-primary hover:bg-white hover:text-[#2D3748] text-lg font-bold shadow-sm hover:shadow-md transition-all hover:-translate-y-1">
-                                    Consultations
+                                    Get a Free Referral <ArrowRight className="ml-2 h-5 w-5" />
                                 </Button>
                             </Link>
                         </div>
                     </motion.div>
                 </div>
             </section>
+
+            <ServiceCTA />
+
+            <ServiceFormSection
+                source="service_page"
+                sourcePage="/access-to-community-activities"
+                defaultService="Community Participation & Activities"
+            />
+
         </main>
     );
 };

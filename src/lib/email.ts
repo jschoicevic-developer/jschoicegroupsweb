@@ -49,7 +49,7 @@ export async function sendNewLeadNotification(lead: Lead): Promise<void> {
     ];
 
     await getResend().emails.send({
-      from: 'JS Choice CRM <onboarding@resend.dev>',
+      from: 'JS Choice CRM <info@jschoicegroup.com.au>',
       to: adminEmails,
       subject: `🔔 New Lead: ${fullName} from ${sourceLabel}`,
       html: generateNewLeadEmailHtml(lead, appUrl, sourceLabel, fullName),
@@ -226,7 +226,7 @@ function generateNewLeadEmailHtml(
     ? `
       <tr>
         <td colspan="2" style="padding: 20px 0 10px 0;">
-          <h3 style="margin: 0; color: ${COLORS.primary}; font-size: 16px; border-bottom: 2px solid ${COLORS.primary}; padding-bottom: 8px;">Consultations / Extra Details</h3>
+          <h3 style="margin: 0; color: ${COLORS.primary}; font-size: 16px; border-bottom: 2px solid ${COLORS.primary}; padding-bottom: 8px;">Referral / Extra Details</h3>
         </td>
       </tr>
       ${Object.entries(lead.source_details).map(([key, value]) => `
@@ -500,4 +500,226 @@ ${message}
     console.error('❌ Failed to send direct email:', error);
     return { success: false, error };
   }
+}
+
+// ─── Facebook Lead Emails ─────────────────────────────────────────────────────
+
+export interface FacebookLeadEmailData {
+  full_name: string;
+  email: string | null;
+  phone: string | null;
+  campaign_name: string | null;
+  ad_name: string | null;
+  form_name: string | null;
+  id?: string;
+  created_at?: string;
+}
+
+/**
+ * Send thank-you confirmation email to client after Facebook Lead Ad form submission.
+ * Only called when lead.email is not null.
+ */
+export async function sendFacebookLeadClientEmail(lead: FacebookLeadEmailData): Promise<void> {
+  if (!lead.email) return;
+
+  const firstName = lead.full_name.split(' ')[0] || lead.full_name;
+  const resend = getResend();
+
+  try {
+    const { error } = await resend.emails.send({
+      from: 'JS Choice Group <info@jschoicegroup.com.au>',
+      to: lead.email,
+      subject: 'Thank you for your interest in JS Choice Group',
+      html: generateFacebookLeadClientHtml(firstName),
+    });
+
+    if (!error) {
+      console.log(`✅ Facebook lead client email sent to: ${lead.email}`);
+      return;
+    }
+
+    // Fallback to Resend sandbox
+    const { error: sandboxError } = await resend.emails.send({
+      from: 'JS Choice Group <onboarding@resend.dev>',
+      to: lead.email,
+      subject: 'Thank you for your interest in JS Choice Group',
+      html: generateFacebookLeadClientHtml(firstName),
+    });
+
+    if (!sandboxError) {
+      console.log(`✅ Facebook lead client email sent via sandbox to: ${lead.email}`);
+    } else {
+      console.warn(`⚠️ Could not send client email to ${lead.email}:`, sandboxError);
+    }
+  } catch (err) {
+    console.error('❌ sendFacebookLeadClientEmail failed:', err);
+  }
+}
+
+function generateFacebookLeadClientHtml(firstName: string): string {
+  return `
+    <!DOCTYPE html>
+    <html>
+    <head>
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width, initial-scale=1.0">
+      <title>Thank You — JS Choice Group</title>
+    </head>
+    <body style="margin: 0; padding: 0; font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif; background-color: ${COLORS.background}; color: ${COLORS.text};">
+      <table border="0" cellpadding="0" cellspacing="0" width="100%" style="max-width: 600px; margin: 0 auto; background-color: ${COLORS.white}; border-radius: 8px; overflow: hidden; margin-top: 20px; margin-bottom: 20px; box-shadow: 0 4px 6px rgba(0,0,0,0.05);">
+
+        <!-- Header -->
+        <tr>
+          <td align="center" style="padding: 40px 0; background-color: ${COLORS.primary}; background-image: linear-gradient(135deg, ${COLORS.primary} 0%, #9FA8E8 100%);">
+            <h1 style="color: ${COLORS.text}; font-size: 28px; font-weight: 700; margin: 0;">JS Choice Group</h1>
+            <p style="color: ${COLORS.text}; margin: 5px 0 0 0; font-size: 14px; opacity: 0.9;">Empowering Lives, Enhancing Choices</p>
+          </td>
+        </tr>
+
+        <!-- Body -->
+        <tr>
+          <td style="padding: 40px 30px;">
+            <p style="font-size: 18px; margin-bottom: 20px;">Hi <strong>${firstName}</strong>,</p>
+
+            <p style="font-size: 16px; line-height: 1.6; color: ${COLORS.textLight}; margin-bottom: 20px;">
+              Thank you for your interest in <strong>JS Choice Group</strong>. We've received your details and one of our friendly care coordinators will be in touch with you shortly.
+            </p>
+
+            <p style="font-size: 16px; line-height: 1.6; color: ${COLORS.textLight}; margin-bottom: 30px;">
+              We look forward to supporting you on your NDIS journey.
+            </p>
+
+            <div style="border-top: 1px solid ${COLORS.border}; padding-top: 30px;">
+              <p style="font-size: 16px; margin-bottom: 15px; color: ${COLORS.text};">Need to speak with us sooner?</p>
+              <a href="tel:1300572464" style="display: inline-block; background-color: ${COLORS.secondary}; color: ${COLORS.text}; text-decoration: none; font-weight: bold; padding: 12px 24px; border-radius: 50px;">
+                📞 1300 572 464
+              </a>
+            </div>
+
+            <div style="margin-top: 30px; font-size: 14px; color: ${COLORS.textLight};">
+              <p style="margin: 0;"><strong>Office Hours:</strong> 8:00 AM – 6:00 PM</p>
+              <p style="margin: 5px 0 0 0;"><strong>Care Services:</strong> 24/7 Available</p>
+            </div>
+          </td>
+        </tr>
+
+        <!-- Footer -->
+        <tr>
+          <td style="background-color: #F7FAFC; padding: 30px; text-align: center; border-top: 1px solid ${COLORS.border};">
+            <p style="font-size: 14px; color: ${COLORS.textLight}; margin-bottom: 10px;">&copy; ${new Date().getFullYear()} JS Choice Group. All rights reserved.</p>
+            <p style="font-size: 12px; color: #A0AEC0;">
+              Suite 104, Level 1, C5, 2 Main Street, Point Cook VIC 3030<br>
+              <a href="mailto:info@jschoicegroup.com.au" style="color: ${COLORS.primary}; text-decoration: none;">info@jschoicegroup.com.au</a>
+            </p>
+          </td>
+        </tr>
+
+      </table>
+    </body>
+    </html>
+  `;
+}
+
+/**
+ * Send admin notification email when a Facebook Lead Ad form is submitted.
+ */
+export async function sendFacebookLeadAdminEmail(lead: FacebookLeadEmailData): Promise<void> {
+  const appUrl = process.env.NEXT_PUBLIC_APP_URL || 'https://jschoicegroup.com.au';
+
+  const adminEmails = [
+    process.env.ADMIN_EMAIL || 'info@jschoicegroup.com.au',
+    'team@cruxlabs.com.au',
+    'sadoon.mukhtar@gmail.com',
+  ];
+
+  try {
+    await getResend().emails.send({
+      from: 'JS Choice CRM <info@jschoicegroup.com.au>',
+      to: adminEmails,
+      subject: `🔔 New Facebook Lead: ${lead.full_name}${lead.campaign_name ? ` from ${lead.campaign_name}` : ''}`,
+      html: generateFacebookLeadAdminHtml(lead, appUrl),
+    });
+    console.log(`✅ Facebook lead admin notification sent for: ${lead.full_name}`);
+  } catch (err) {
+    console.error('❌ sendFacebookLeadAdminEmail failed:', err);
+  }
+}
+
+function generateFacebookLeadAdminHtml(lead: FacebookLeadEmailData, appUrl: string): string {
+  const rows = [
+    { label: 'Name',     value: lead.full_name },
+    { label: 'Email',    value: lead.email    ? `<a href="mailto:${lead.email}" style="color: #4A5568;">${lead.email}</a>`   : '—' },
+    { label: 'Phone',    value: lead.phone    ? `<a href="tel:${lead.phone}" style="color: #4A5568;">${lead.phone}</a>`         : '—' },
+    { label: 'Campaign', value: lead.campaign_name ?? '—' },
+    { label: 'Ad',       value: lead.ad_name       ?? '—' },
+    { label: 'Form',     value: lead.form_name      ?? '—' },
+    { label: 'Lead ID',  value: `<span style="font-family: monospace; font-size: 12px;">${lead.id ?? '—'}</span>` },
+    { label: 'Received', value: lead.created_at ? new Date(lead.created_at).toLocaleString('en-AU', { timeZone: 'Australia/Melbourne' }) : new Date().toLocaleString('en-AU', { timeZone: 'Australia/Melbourne' }) },
+  ];
+
+  return `
+    <!DOCTYPE html>
+    <html>
+    <head>
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    </head>
+    <body style="margin: 0; padding: 0; font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif; background-color: ${COLORS.background}; color: ${COLORS.text};">
+      <table border="0" cellpadding="0" cellspacing="0" width="100%" style="max-width: 600px; margin: 0 auto; background-color: ${COLORS.white}; border-radius: 8px; overflow: hidden; margin-top: 20px; margin-bottom: 20px; box-shadow: 0 4px 6px rgba(0,0,0,0.05);">
+
+        <!-- Header -->
+        <tr>
+          <td style="padding: 20px 30px; background-color: ${COLORS.primary}; border-bottom: 4px solid ${COLORS.secondary};">
+            <table border="0" cellpadding="0" cellspacing="0" width="100%">
+              <tr>
+                <td>
+                  <h2 style="margin: 0; color: ${COLORS.text}; font-size: 20px;">📣 New Facebook Lead</h2>
+                  <p style="margin: 4px 0 0; font-size: 13px; color: ${COLORS.text}; opacity: 0.8;">via Meta Lead Ads</p>
+                </td>
+                <td align="right">
+                  <div style="background: rgba(255,255,255,0.3); padding: 4px 10px; border-radius: 4px; font-size: 12px; font-weight: bold; color: ${COLORS.text};">
+                    ${new Date().toLocaleDateString('en-AU')}
+                  </div>
+                </td>
+              </tr>
+            </table>
+          </td>
+        </tr>
+
+        <!-- Lead Details Table -->
+        <tr>
+          <td style="padding: 30px;">
+            <table border="0" cellpadding="0" cellspacing="0" width="100%" style="border-collapse: separate; border-spacing: 0; border: 1px solid ${COLORS.border}; border-radius: 8px; overflow: hidden;">
+              ${rows.map(row => `
+              <tr>
+                <td style="padding: 12px 15px; border-bottom: 1px solid ${COLORS.border}; background-color: #F8FAFC; color: ${COLORS.textLight}; font-weight: 600; font-size: 13px; width: 30%;">
+                  ${row.label}
+                </td>
+                <td style="padding: 12px 15px; border-bottom: 1px solid ${COLORS.border}; color: ${COLORS.text}; font-size: 14px;">
+                  ${row.value}
+                </td>
+              </tr>
+              `).join('')}
+            </table>
+
+            <!-- CTA -->
+            <div style="margin-top: 30px; text-align: center;">
+              <a href="${appUrl}/admin/facebook-leads" style="display: inline-block; background-color: ${COLORS.text}; color: ${COLORS.white}; text-decoration: none; padding: 14px 28px; border-radius: 6px; font-weight: bold; font-size: 14px;">
+                View in Dashboard →
+              </a>
+            </div>
+          </td>
+        </tr>
+
+        <!-- Footer -->
+        <tr>
+          <td style="background-color: #F7FAFC; padding: 20px 30px; text-align: center; border-top: 1px solid ${COLORS.border};">
+            <p style="font-size: 12px; color: #A0AEC0; margin: 0;">Automated notification from JS Choice CRM</p>
+          </td>
+        </tr>
+
+      </table>
+    </body>
+    </html>
+  `;
 }

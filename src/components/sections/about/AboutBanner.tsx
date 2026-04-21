@@ -64,8 +64,8 @@ const AboutBanner = () => {
                             asChild
                             className="h-14 px-10 rounded-full bg-[#ABB3F1] hover:bg-[#9CA5E5] text-[#1A202C] font-bold text-sm uppercase tracking-widest gap-2 shadow-xl hover:shadow-2xl hover:-translate-y-1 transition-all"
                         >
-                            <Link href="/contact-us">
-                                Get Consultations
+                            <Link href="/referral">
+                                Get a Free Referral
                                 <ArrowRight size={18} />
                             </Link>
                         </Button>

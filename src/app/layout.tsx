@@ -1,17 +1,27 @@
-import type { Metadata } from "next";
+import type { Metadata, Viewport } from "next";
 import { Dosis, Poppins } from "next/font/google";
+import GlobalStickyCTA from "@/components/layout/GlobalStickyCTA";
 import "./globals.css";
+
+export const viewport: Viewport = {
+  themeColor: "#1A202C",
+  width: "device-width",
+  initialScale: 1,
+  maximumScale: 5,
+};
 
 const dosis = Dosis({
   variable: "--font-dosis",
   subsets: ["latin"],
-  weight: ["200", "300", "400", "500", "600", "700", "800"],
+  weight: ["400", "500", "600", "700", "800"],
+  display: "swap",
 });
 
 const poppins = Poppins({
   variable: "--font-poppins",
   subsets: ["latin"],
-  weight: ["100", "200", "300", "400", "500", "600", "700", "800", "900"],
+  weight: ["400", "500", "600", "700", "900"],
+  display: "swap",
 });
 
 export const metadata: Metadata = {
@@ -22,6 +32,14 @@ export const metadata: Metadata = {
   description:
     "JS Choice Group is a registered NDIS provider delivering compassionate disability support services across Melbourne and Victoria. Call 1300 572 464.",
   metadataBase: new URL("https://jschoicegroup.com.au"),
+  alternates: {
+    canonical: "https://jschoicegroup.com.au",
+    languages: {
+      "en-AU": "https://jschoicegroup.com.au",
+      "en": "https://jschoicegroup.com.au",
+      "x-default": "https://jschoicegroup.com.au",
+    },
+  },
   openGraph: {
     type: "website",
     locale: "en_AU",
@@ -51,6 +69,15 @@ export const metadata: Metadata = {
   },
   verification: {
     google: "t4GDfxhYoa0Q3eJn8m43QhF2Te49K_d5h3R2J770R58",
+  },
+  other: {
+    "theme-color": "#1A202C",
+    "mobile-web-app-capable": "yes",
+  },
+  appleWebApp: {
+    capable: true,
+    title: "JS Choice",
+    statusBarStyle: "black-translucent",
   },
 };
 
@@ -107,8 +134,16 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en" suppressHydrationWarning>
+    <html lang="en-AU" suppressHydrationWarning>
       <head suppressHydrationWarning>
+        {/* Google Ads gtag (AW-17860915820) loaded directly so window.gtag is reliably */}
+        {/* available to React code for conversion tracking on form submission. */}
+        <script
+          suppressHydrationWarning
+          async
+          src="https://www.googletagmanager.com/gtag/js?id=AW-17860915820"
+        />
+        <script suppressHydrationWarning src="/gtag-init.js" />
         <script
           suppressHydrationWarning
           dangerouslySetInnerHTML={{
@@ -120,13 +155,16 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
           }}
         />
         <script
+          type="text/javascript"
           suppressHydrationWarning
           dangerouslySetInnerHTML={{
-            __html: `(function(c,l,a,r,i,t,y){
-c[a]=c[a]||function(){(c[a].q=c[a].q||[]).push(arguments)};
-t=l.createElement(r);t.async=1;t.src="https://www.clarity.ms/tag/"+i;
-y=l.getElementsByTagName(r)[0];y.parentNode.insertBefore(t,y);
-})(window, document, "clarity", "script", "vvl5tu4i6r");`,
+            __html: `
+    (function(c,l,a,r,i,t,y){
+        c[a]=c[a]||function(){(c[a].q=c[a].q||[]).push(arguments)};
+        t=l.createElement(r);t.async=1;t.src="https://www.clarity.ms/tag/"+i;
+        y=l.getElementsByTagName(r)[0];y.parentNode.insertBefore(t,y);
+    })(window, document, "clarity", "script", "w8tknhz5wp");
+            `
           }}
         />
         <script
@@ -134,6 +172,32 @@ y=l.getElementsByTagName(r)[0];y.parentNode.insertBefore(t,y);
           type="application/ld+json"
           dangerouslySetInnerHTML={{ __html: JSON.stringify(organizationSchema) }}
         />
+        {/* Meta Pixel */}
+        <script
+          suppressHydrationWarning
+          dangerouslySetInnerHTML={{
+            __html: `!function(f,b,e,v,n,t,s)
+{if(f.fbq)return;n=f.fbq=function(){n.callMethod?
+n.callMethod.apply(n,arguments):n.queue.push(arguments)};
+if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';
+n.queue=[];t=b.createElement(e);t.async=!0;
+t.src=v;s=b.getElementsByTagName(e)[0];
+s.parentNode.insertBefore(t,s)}(window,document,'script',
+'https://connect.facebook.net/en_US/fbevents.js');
+fbq('init','1936942673852307');
+fbq('track','PageView');`,
+          }}
+        />
+        <noscript>
+          {/* eslint-disable-next-line @next/next/no-img-element */}
+          <img
+            height="1"
+            width="1"
+            style={{ display: "none" }}
+            src="https://www.facebook.com/tr?id=1936942673852307&ev=PageView&noscript=1"
+            alt=""
+          />
+        </noscript>
       </head>
       <body
         suppressHydrationWarning
@@ -148,6 +212,7 @@ y=l.getElementsByTagName(r)[0];y.parentNode.insertBefore(t,y);
           />
         </noscript>
         {children}
+        <GlobalStickyCTA />
       </body>
     </html>
   );

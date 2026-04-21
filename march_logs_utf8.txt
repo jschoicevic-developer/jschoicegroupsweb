@@ -1,0 +1,373 @@
+﻿5886857b984ad0f663156024f64caf4d85b42367|CruxLabs-Org|2026-03-30|Merge pull request #27 from Crux-Labs-AU/meta_ad
+3116e072ba00e0f482b24ab2098697ed6178a7be|Dilawar Khan|2026-03-30|Update layout.tsx
+src/app/layout.tsx
+
+a52f00ffc4d38a1edaf2020225d04c91f39d2a4d|CruxLabs-Org|2026-03-30|Merge pull request #26 from Crux-Labs-AU/meta_ad
+f97337519c5c88f8c51d8c8be7e33cd318893b01|Dilawar Khan|2026-03-30|v1.0.0
+src/app/api/facebook-leads/webhook/route.ts
+src/lib/email.ts
+
+c6a783b4a4b06a91e7f50e2c7ed52df7a724875d|CruxLabs-Org|2026-03-30|Merge pull request #25 from Crux-Labs-AU/meta_ad
+b3c31c4718e03aa7c40499768ffcdf2b8a6cfade|Dilawar Khan|2026-03-30|Update settings.local.json
+.claude/settings.local.json
+
+ecd97a0428ee61f01027c67230b010539b668e5e|Dilawar Khan|2026-03-30|docs: add Meta Ads webhook emails implementation plan
+docs/plans/2026-03-30-meta-ads-webhook-emails.md
+
+308de2a9f85fabb23739b2d6c332d5822331d5d4|Dilawar Khan|2026-03-30|docs: add Meta Ads webhook email notifications design
+docs/plans/2026-03-30-meta-ads-webhook-emails-design.md
+
+73f76867e34f70764932a801ed69f1d06c5f813a|CruxLabs-Org|2026-03-30|Merge pull request #24 from Crux-Labs-AU/meta_ad
+fcad29ce97b78749be625d2bec05f771d7f13f73|ΓÇ£[firstname|2026-03-30|v1.0.3
+next.config.ts
+
+477bf7e1f0a1c31c54c663448cc77e86a4cf96dd|Bareera|2026-03-30|Merge pull request #23 from Crux-Labs-AU/meta_ad
+315e4b153d5929d3b2348b0511018ae33405274b|ΓÇ£[firstname|2026-03-30|v1.0.3
+next.config.ts
+
+0eda165e739a6ac99d6be56995b0b2c01d488833|Bareera|2026-03-30|Merge pull request #22 from Crux-Labs-AU/meta_ad
+5c61e7cf01ad2608ce1e202c43a38c82f8ec7b15|ΓÇ£[firstname|2026-03-30|v1.0.3
+next.config.ts
+
+34de44e0c6d81a7ce1c9589474ad1b3b3d4da917|CruxLabs-Org|2026-03-30|Merge pull request #21 from Crux-Labs-AU/meta_ad
+a8a6a461f49dcdfe4353d9c41eb4dbcfa6db4b9a|ΓÇ£[firstname|2026-03-30|v1.0.2
+src/app/api/facebook-leads/webhook/route.ts
+src/app/api/refresh-fb-token/route.ts
+src/lib/facebook-token.ts
+
+facf6aef105ea12e9d6430a1252521acef4a42ab|CruxLabs-Org|2026-03-30|Merge pull request #20 from Crux-Labs-AU/meta_ad
+b9111a8a2e296dada397e70f0dca5433b7c53c27|ΓÇ£[firstname|2026-03-30|v1.0.2
+next.config.ts
+src/app/api/facebook-leads/webhook/route.ts
+
+b2f2c3a94f4cbf8f856f95b6d2d5462c4b286c4c|CruxLabs-Org|2026-03-30|Merge pull request #19 from Crux-Labs-AU/meta_ad
+132575a39544b2cd988424d344183e56dbaf5de0|ΓÇ£[firstname|2026-03-30|v1.0.1
+docs/blog-scheduling-prompt.md
+docs/blog-scheduling.md
+next-env.d.ts
+src/app/admin/facebook-leads/page.tsx
+src/app/api/facebook-leads/[id]/email/route.ts
+src/app/api/facebook-leads/[id]/route.ts
+src/app/api/facebook-leads/route.ts
+src/components/admin/AdminSidebar.tsx
+supabase/migrations/20260330_create_facebook_leads.sql
+
+5f2778d7e2f9b6965e1587668d0065772f9ce48b|CruxLabs-Org|2026-03-26|Merge pull request #18 from Crux-Labs-AU/development
+77685f259bd61ede4ed578ceb79d27fee8639402|ΓÇ£[firstname|2026-03-26|schedule blog option
+package-lock.json
+src/app/blogger/blogs/[id]/edit/page.tsx
+src/app/blogger/blogs/new/page.tsx
+src/app/blogger/blogs/page.tsx
+
+6f3c2934ce24940e4d695cfba2daa630a7e77152|CruxLabs-Org|2026-03-26|Merge pull request #17 from Crux-Labs-AU/development
+afe39057171e70f44a21348dc8c9b9fe03d068e5|ΓÇ£[firstname|2026-03-26|Merge branch 'development' of https://github.com/Crux-Labs-AU/JSChoiceGroups into development
+3b58b8cbedcbd61d2b5211a980988e09a37c3651|ΓÇ£[firstname|2026-03-26|v1.0.1
+package-lock.json
+
+fb21348caeaebcc5fd3058e8c77be128b1e655fb|ΓÇ£[firstname|2026-03-26|v1.0.0
+next-env.d.ts
+package-lock.json
+package.json
+src/components/admin/RichTextEditor.tsx
+
+3197cc152e67da65b0808a6a76ced627a42d1146|mrawais006|2026-03-20|fix: sticky mobile CTA polls for form element to handle Suspense timing
+src/components/landing/StickyMobileCTA.tsx
+
+d23d368654433bd5dc5b08789683f06c6f853f9f|mrawais006|2026-03-20|fix: lower IntersectionObserver threshold for mobile form detection
+src/components/landing/StickyMobileCTA.tsx
+
+f11f5453d54dade44c5682ba27c9541408b41836|mrawais006|2026-03-20|fix: lower IntersectionObserver threshold for mobile form detection
+src/components/landing/StickyMobileCTA.tsx
+
+acf3d534db6e55833cecae39fdd8804fd2232edb|CruxLabs-Org|2026-03-20|Merge pull request #16 from Crux-Labs-AU/feature/ndis-landing-page
+c13aee88fdf53c607b76f8cfa754f1e7e217c53a|mrawais006|2026-03-20|feat: add hero background image and service card images
+src/components/landing/LandingHero.tsx
+src/components/landing/LandingServices.tsx
+
+d5610511aa367a431c72094b72743a3b7b6af87e|mrawais006|2026-03-20|fix: wrap ReferralForm in Suspense for useSearchParams
+src/app/(website)/consultations/page.tsx
+
+d3d46b05538d39329c89ea56c0c7ca28a55acdad|mrawais006|2026-03-20|feat: add query param prefill support to ReferralForm
+src/components/sections/referral/ReferralForm.tsx
+
+1d20c8f14781db2fadf53f100fb124cc4c4c4479|mrawais006|2026-03-20|feat: assemble landing page with all sections and structured data
+src/app/ndis-support-melbourne/page.tsx
+
+7520eafd5a76dd9cdccefe6d056a2cd0252003eb|mrawais006|2026-03-20|feat: add landing page thank you page
+src/app/ndis-support-melbourne/thank-you/page.tsx
+
+5905b386f28f2101a9b8904c952cccfe1687751d|mrawais006|2026-03-20|feat: add FAQ, final CTA, and footer sections
+src/components/landing/LandingFaq.tsx
+src/components/landing/LandingFinalCta.tsx
+src/components/landing/LandingFooter.tsx
+
+71a2b10e9e42945669fe081c27229dc56025b9a8|mrawais006|2026-03-20|feat: add smart sticky mobile CTA with IntersectionObserver
+src/components/landing/StickyMobileCTA.tsx
+
+49c886f0c350fb18ecb87ac11e043227e488bda6|mrawais006|2026-03-20|feat: add why choose, conditions, and service areas sections
+src/components/landing/LandingSupport.tsx
+src/components/landing/LandingWhyChoose.tsx
+
+a9add551d917d75078052a252836c5e063888ae3|mrawais006|2026-03-20|feat: add trust strip and services sections
+src/components/landing/LandingServices.tsx
+src/components/landing/LandingTrustStrip.tsx
+
+d113c8c89018dd62bc40c9edc33799783f4e3080|mrawais006|2026-03-20|feat: add landing form and hero section
+src/components/landing/LandingForm.tsx
+src/components/landing/LandingHero.tsx
+
+4395df0eff5e7b244f85a4088320d418a96251ce|mrawais006|2026-03-20|feat: add isolated landing layout and sticky header
+src/app/ndis-support-melbourne/layout.tsx
+src/components/landing/LandingHeader.tsx
+
+4ff28ae3b10197ce5e2ad7010abad01d8ede0211|CruxLabs-Org|2026-03-18|Merge pull request #14 from Crux-Labs-AU/development
+5b8f22a19d92142400d454687d0a31099a095861|CruxLabs-Org|2026-03-18|Merge branch 'main' into development
+a44363585c8a8c3a976fdfbf68293caa2f500a02|ΓÇ£[firstname|2026-03-18|blog page layout fix
+package-lock.json
+package.json
+src/app/(website)/blog/[slug]/page.tsx
+src/app/globals.css
+src/components/layout/Topbar.tsx
+
+3d1e68c987205794b659dfe9d8648e3103a812cf|CruxLabs-Org|2026-03-17|Merge pull request #13 from Crux-Labs-AU/development
+aaa51ca76c683acf74ce439d1aa5074df5634e5b|ΓÇ£[firstname|2026-03-17|description and table of content section in blogger dashboard
+next-env.d.ts
+src/app/(website)/blog/[slug]/page.tsx
+src/app/admin/blog/edit/[slug]/page.tsx
+src/app/admin/blog/new/page.tsx
+src/app/admin/blog/page.tsx
+src/app/api/blog/[slug]/route.ts
+src/app/api/blog/route.ts
+src/app/blogger/blogs/[id]/edit/page.tsx
+src/app/blogger/blogs/new/page.tsx
+src/components/sections/blog/BlogList.tsx
+src/lib/utils.ts
+src/types/crm.ts
+
+c733e7b1c5759f949de694046051b6e8f35006f5|ΓÇ£[firstname|2026-03-16|tiktok link update
+next-env.d.ts
+src/components/layout/FloatingActions.tsx
+src/components/layout/Footer.tsx
+src/components/layout/Topbar.tsx
+src/components/sections/blog/BlogList.tsx
+
+e385e15ef4c470cfdf406dbf79a23c81caba424c|Dilawar Khan|2026-03-14|Update settings.local.json
+.claude/settings.local.json
+
+571c02e0b25263c74179e1d3b7c06eac6160b4ef|Dilawar Khan|2026-03-14|v1.0.0
+.claude/settings.local.json
+next-env.d.ts
+src/app/layout.tsx
+src/components/ndis/ServiceMatcher.tsx
+src/components/sections/referral/ReferralForm.tsx
+src/lib/email.ts
+
+cb53964f7636f1d59d1d255f7270303093941b92|Dilawar Khan|2026-03-11|Update page.tsx
+src/app/admin/page.tsx
+
+6ca108e0cfa705f44e6a673e9874669ec0d07daa|Dilawar Khan|2026-03-11|v1.0.3
+.claude/settings.local.json
+package-lock.json
+src/app/admin/page.tsx
+
+442762aa1a945ef675840aca2f1b30b1fc16ea6d|CruxLabs-Org|2026-03-11|Merge pull request #12 from Crux-Labs-AU/development
+ece3ac4ea7efd4c98da4f9ed1923b5032bab083d|CruxLabs-Org|2026-03-11|Merge branch 'main' into development
+2c27ad9bb0fc4d84988afe1092d2f0f767083ac2|ΓÇ£[firstname|2026-03-11|v1.0.5
+docs/guides/CHANGELOG.md
+
+ab6d406e284b73992e60ac69ba5a92a4e0bd1dba|ΓÇ£[firstname|2026-03-11|v1.0.4
+docs/guides/BLOG_MANAGEMENT_SYSTEM.md
+next-env.d.ts
+next.config.ts
+package-lock.json
+package.json
+src/app/admin/bloggers/page.tsx
+src/app/admin/login/page.tsx
+src/app/admin/page.tsx
+src/app/api/blog/[slug]/route.ts
+src/app/api/blog/route.ts
+src/app/api/blogger/me/stats/route.ts
+src/app/api/bloggers/[id]/route.ts
+src/app/api/bloggers/route.ts
+src/app/blogger/blogs/[id]/edit/page.tsx
+src/app/blogger/blogs/new/page.tsx
+src/app/blogger/blogs/page.tsx
+src/app/blogger/layout.tsx
+src/app/blogger/login/page.tsx
+src/app/blogger/page.tsx
+src/app/blogger/profile/page.tsx
+src/app/layout.tsx
+src/components/admin/AdminHeader.tsx
+src/components/admin/AdminSidebar.tsx
+src/components/admin/RichTextEditor.css
+src/components/admin/RichTextEditor.tsx
+src/components/blogger/BloggerHeader.tsx
+src/components/blogger/BloggerSidebar.tsx
+src/components/layout/FloatingActions.tsx
+src/components/layout/Footer.tsx
+src/components/layout/Topbar.tsx
+src/hooks/useAuth.ts
+src/lib/email.ts
+src/middleware.ts
+src/proxy.ts
+
+991d77d78a89e55b64a14d96ecefd441d09b1a30|CruxLabs-Org|2026-03-11|Merge pull request #11 from Crux-Labs-AU/development
+baf6c2f0078aa1e54e4d817dea4cc124eb7e44cf|ΓÇ£[firstname|2026-03-09|v1.0.3
+src/components/layout/FloatingActions.tsx
+src/components/layout/Footer.tsx
+src/components/layout/Topbar.tsx
+
+acd846e591f2a35fddacffdf8f59ec9ffe32067a|ΓÇ£[firstname|2026-03-09|v1.0.2
+src/app/(website)/ads/AdsContent.tsx
+src/app/(website)/privacy-policy/page.tsx
+src/app/(website)/terms-and-conditions/page.tsx
+src/app/layout.tsx
+src/components/layout/Footer.tsx
+src/components/sections/contact/ContactContent.tsx
+src/config/contact.ts
+src/lib/email.ts
+
+86fb4bcc41536fc6053e4eb6c564233889e7d92e|Dilawar Khan|2026-03-07|v1.0.3
+.gitignore
+.mcp.json
+
+989d5d6bab8413a2e5e55920532375cf272b7f14|Dilawar Khan|2026-03-07|v1.0.9
+.claude/settings.local.json
+.playwright-mcp/page-2026-03-07T06-05-43-721Z.jpeg
+.playwright-mcp/page-2026-03-07T06-06-41-302Z.jpeg
+next-env.d.ts
+next.config.ts
+src/app/(website)/about-us/layout.tsx
+src/app/(website)/about-us/page.tsx
+src/app/(website)/access-to-community-activities/layout.tsx
+src/app/(website)/allied-health-services/layout.tsx
+src/app/(website)/assistance-with-daily-life/layout.tsx
+src/app/(website)/assistance-with-daily-life/page.tsx
+src/app/(website)/assistance-with-nursing-care/layout.tsx
+src/app/(website)/blog/page.tsx
+src/app/(website)/emergency-respite/layout.tsx
+src/app/(website)/employment-education/layout.tsx
+src/app/(website)/group-centre-activities/layout.tsx
+src/app/(website)/innovative-community-participation-including-volunteer-opportunities/layout.tsx
+src/app/(website)/ndis-access-requests/layout.tsx
+src/app/(website)/ndis-accommodation-geelong/layout.tsx
+src/app/(website)/ndis-accommodation-geelong/page.tsx
+src/app/(website)/ndis-accommodation/layout.tsx
+src/app/(website)/ndis-providers-altona-meadows/layout.tsx
+src/app/(website)/ndis-providers-altona-meadows/page.tsx
+src/app/(website)/ndis-providers-altona-north/layout.tsx
+src/app/(website)/ndis-providers-altona-north/page.tsx
+src/app/(website)/ndis-providers-altona/layout.tsx
+src/app/(website)/ndis-providers-altona/page.tsx
+src/app/(website)/ndis-providers-craigieburn/layout.tsx
+src/app/(website)/ndis-providers-craigieburn/page.tsx
+src/app/(website)/ndis-providers-epping/layout.tsx
+src/app/(website)/ndis-providers-epping/page.tsx
+src/app/(website)/ndis-providers-footscray/layout.tsx
+src/app/(website)/ndis-providers-footscray/page.tsx
+src/app/(website)/ndis-providers-hoppers-crossing/layout.tsx
+src/app/(website)/ndis-providers-hoppers-crossing/page.tsx
+src/app/(website)/ndis-providers-lara/layout.tsx
+src/app/(website)/ndis-providers-lara/page.tsx
+src/app/(website)/ndis-providers-laverton/layout.tsx
+src/app/(website)/ndis-providers-laverton/page.tsx
+src/app/(website)/ndis-providers-point-cook/layout.tsx
+src/app/(website)/ndis-providers-point-cook/page.tsx
+src/app/(website)/ndis-providers-shepparton/layout.tsx
+src/app/(website)/ndis-providers-shepparton/page.tsx
+src/app/(website)/ndis-providers-south-morang/layout.tsx
+src/app/(website)/ndis-providers-south-morang/page.tsx
+src/app/(website)/ndis-providers-tarneit/layout.tsx
+src/app/(website)/ndis-providers-tarneit/page.tsx
+src/app/(website)/ndis-providers-truganina/layout.tsx
+src/app/(website)/ndis-providers-truganina/page.tsx
+src/app/(website)/ndis-providers-werribee/layout.tsx
+src/app/(website)/ndis-providers-werribee/page.tsx
+src/app/(website)/ndis-providers-williams-landing/layout.tsx
+src/app/(website)/ndis-providers-williams-landing/page.tsx
+src/app/(website)/psychosocial-recovery-coach/layout.tsx
+src/app/(website)/support-coordination/layout.tsx
+src/app/(website)/tools/ToolsGrid.tsx
+src/app/(website)/tools/layout.tsx
+src/app/(website)/tools/ndis-budget-calculator/layout.tsx
+src/app/(website)/tools/ndis-price-guide/layout.tsx
+src/app/(website)/tools/page.tsx
+src/app/(website)/tools/service-matcher/layout.tsx
+src/app/(website)/transportation-assistance/layout.tsx
+src/app/admin/analytics/page.tsx
+src/app/admin/blog/page.tsx
+src/app/admin/gallery/page.tsx
+src/app/admin/leads/page.tsx
+src/app/admin/page.tsx
+src/app/admin/referrals/page.tsx
+src/app/globals.css
+src/app/layout.tsx
+src/components/admin/skeletons.tsx
+src/components/layout/Footer.tsx
+src/components/sections/home/About.tsx
+src/components/sections/home/Hero.tsx
+src/components/sections/home/Services.tsx
+src/components/sections/home/WhyChooseUs.tsx
+src/lib/adminCache.ts
+
+3edd8638f36543eeb0a55cd788f4f7eec9a25df7|Dilawar Khan|2026-03-07|v1.0.8
+.claude/settings.local.json
+next-env.d.ts
+tsconfig.json
+
+a275a332fd1fc8e667f1134024542c7374651bf4|Dilawar Khan|2026-03-06|v1.0.7
+public/JCGLogo.png
+public/JCGLogoWhite.png
+scripts/test-all-tools.ts
+src/components/layout/Footer.tsx
+src/components/layout/Navbar.tsx
+src/components/ui/PageLoader.tsx
+
+e2c2302d5c2089fb05819e749c2fdfa08539832a|Dilawar Khan|2026-03-06|v1.0.6
+.github/workflows/supabase-keepalive.yml
+.mcp.json
+docs/architecture/SYSTEM_DESIGN_DOCUMENT.md
+docs/architecture/SYSTEM_DESIGN_DOCUMENT_COMPLETE.md
+docs/architecture/SYSTEM_DESIGN_DOCUMENT_PART2.md
+docs/archive/CRM_BACKEND_IMPLEMENTATION_COMPLETE.md
+docs/guides/AUTHENTICATION.md
+docs/setup/GITHUB_ACTIONS_SETUP.md
+next.config.ts
+scripts/IMPORT_INSTRUCTIONS.txt
+scripts/import_ndis_local.py
+scripts/migrate-to-sydney.ts
+scripts/print_import_instructions.py
+scripts/setup-and-test.ts
+scripts/test-edge-function.js
+
+39b4d6fcae7a620599cfcf8e41f08d6dba254f97|Dilawar Khan|2026-03-06|v1.0.3
+src/app/globals.css
+src/components/layout/Navbar.tsx
+
+f2f38f5ac151c013d4cfbfaca09faef76c7ff12c|Dilawar Khan|2026-03-06|v1.0.6
+.claude/settings.local.json
+next-env.d.ts
+src/app/(website)/[slug]/page.tsx
+src/app/sitemap.ts
+src/components/layout/Footer.tsx
+src/components/layout/Navbar.tsx
+src/components/sections/home/About.tsx
+src/components/sections/home/Services.tsx
+src/components/sections/home/Welcome.tsx
+src/components/sections/home/WhyChooseUs.tsx
+src/components/ui/PageLoader.tsx
+
+acf0b6cd3670019de756b4bd6edfddd383c2d35d|Dilawar Khan|2026-03-06|Create SYSTEM_DESIGN_DOCUMENT_COMPLETE.docx
+SYSTEM_DESIGN_DOCUMENT_COMPLETE.docx
+
+57ccf836b97012a98b8ddbed805076fac130fa3a|Dilawar Khan|2026-03-06|Update next-env.d.ts
+next-env.d.ts
+
+326e7ea8bbe4e2a987c3fa309caade1ea55b3d66|Dilawar Khan|2026-03-06|v1.0
+.claude/settings.local.json
+next.config.ts
+
+19e9afa3d1a35eccfde8c68c201b7e0bead4dd69|CruxLabs-Org|2026-03-04|Merge pull request #10 from Crux-Labs-AU/development
+314d2241b3064f9abb50c0779a2c423887ceaf0e|ΓÇ£[firstname|2026-03-04|v1.0.1
+package-lock.json
+public/JanImage.jpeg

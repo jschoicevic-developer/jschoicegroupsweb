@@ -25,6 +25,9 @@ import {
     Home
 } from "lucide-react";
 import SeamlessNDIS from "@/components/sections/home/SeamlessNDIS";
+import ServiceCTA from "@/components/ui/ServiceCTA";
+import ServiceFormSection from "@/components/ui/ServiceFormSection";
+
 
 /**
  * Page Config
@@ -179,6 +182,18 @@ const NdisAccommodationGeelong = () => {
                                     We at <strong>Js Choice – Care and Support</strong> offer a variety of disability-friendly accommodation choices, each tailored to support the individual needs of the participants. Whether you’re looking for a short-term stay or a long-term living solution, we provide NDIS accommodation support in Geelong that helps individuals thrive in a safe and secure environment.
                                 </p>
                             </div>
+                            <div className="flex gap-4 pt-4">
+                                <Link href="/referral">
+                                    <Button size="lg" className="h-14 px-8 rounded-full bg-primary hover:bg-primary/90 text-[#1A202C] text-lg font-bold shadow-lg hover:shadow-xl transition-all hover:-translate-y-1">
+                                        Free Referral <ArrowRight className="ml-2 h-5 w-5" />
+                                    </Button>
+                                </Link>
+                                <a href="tel:1300572464">
+                                    <Button variant="outline" size="lg" className="h-14 px-8 rounded-full border-2 border-[#2D3748] text-[#2D3748] hover:bg-gray-50 text-lg font-bold shadow-sm hover:shadow-md transition-all hover:-translate-y-1">
+                                        Talk to Us
+                                    </Button>
+                                </a>
+                            </div>
                         </motion.div>
                     </div>
                 </div>
@@ -206,14 +221,9 @@ const NdisAccommodationGeelong = () => {
                                     Call Now
                                 </a>
                             </Button>
-                            <Link href="/contact-us">
+                            <Link href="/referral">
                                 <Button size="lg" className="h-16 px-8 rounded-full bg-primary hover:bg-primary/90 text-[#1A202C] text-lg font-bold shadow-lg hover:shadow-xl transition-all hover:-translate-y-1">
-                                    Get in Touch <ArrowRight className="ml-2 h-5 w-5" />
-                                </Button>
-                            </Link>
-                            <Link href="/consultations">
-                                <Button variant="outline" size="lg" className="h-16 px-8 rounded-full border-2 border-primary/20 text-primary hover:bg-white/10 text-lg font-bold transition-all hover:-translate-y-1">
-                                    Consultations
+                                    Get a Free Referral <ArrowRight className="ml-2 h-5 w-5" />
                                 </Button>
                             </Link>
                         </div>
@@ -290,11 +300,11 @@ const NdisAccommodationGeelong = () => {
                     </h3>
                     <div className="flex flex-col md:flex-row gap-4 justify-center items-center">
                         <Button size="lg" className="px-8 rounded-full bg-[#2D3748] hover:bg-[#1A202C] text-white">
-                            <Phone className="mr-2 h-5 w-5" /> Call Now
+                            <Phone className="mr-2 h-5 w-5" /> 1300 572 464
                         </Button>
-                        <Link href="/contact-us">
+                        <Link href="/referral">
                             <Button size="lg" className="px-8 rounded-full bg-primary hover:bg-primary/90 text-[#1A202C]">
-                                Get in Touch
+                                Get a Free Referral
                             </Button>
                         </Link>
                     </div>
@@ -354,15 +364,15 @@ const NdisAccommodationGeelong = () => {
             <section className="py-16 bg-white">
                 <div className="container-8xl text-center">
                     <h3 className="text-2xl md:text-3xl font-bold text-[#2D3748] mb-8">
-                        Live your life with the safest Medium-Term Accommodation in Geelong — Get Started Today!
+                        Live your life with the safest Medium-Term Accommodation in Geelong — Get a Free Referral!
                     </h3>
                     <div className="flex flex-col md:flex-row gap-4 justify-center items-center">
                         <Button size="lg" className="px-8 rounded-full bg-[#2D3748] hover:bg-[#1A202C] text-white">
-                            <Phone className="mr-2 h-5 w-5" /> Call Now
+                            <Phone className="mr-2 h-5 w-5" /> 1300 572 464
                         </Button>
-                        <Link href="/contact-us">
+                        <Link href="/referral">
                             <Button size="lg" className="px-8 rounded-full bg-primary hover:bg-primary/90 text-[#1A202C]">
-                                Get in Touch
+                                Get a Free Referral
                             </Button>
                         </Link>
                     </div>
@@ -440,14 +450,9 @@ const NdisAccommodationGeelong = () => {
                                     Call Now
                                 </a>
                             </Button>
-                            <Link href="/contact-us">
+                            <Link href="/referral">
                                 <Button size="lg" className="h-16 px-8 rounded-full bg-primary hover:bg-primary/90 text-[#1A202C] text-lg font-bold shadow-lg hover:shadow-xl transition-all hover:-translate-y-1">
-                                    Get in Touch <ArrowRight className="ml-2 h-5 w-5" />
-                                </Button>
-                            </Link>
-                            <Link href="/consultations">
-                                <Button variant="outline" size="lg" className="h-16 px-8 rounded-full border-2 border-primary/20 text-primary hover:bg-white/10 text-lg font-bold transition-all hover:-translate-y-1">
-                                    Consultations
+                                    Get a Free Referral <ArrowRight className="ml-2 h-5 w-5" />
                                 </Button>
                             </Link>
                         </div>
@@ -505,6 +510,15 @@ const NdisAccommodationGeelong = () => {
             </section>
 
             <SeamlessNDIS />
+
+            <ServiceCTA />
+
+            <ServiceFormSection
+                source="service_page"
+                sourcePage="/ndis-accommodation-geelong"
+                defaultService="NDIS Accommodation"
+            />
+
         </main>
     );
 };

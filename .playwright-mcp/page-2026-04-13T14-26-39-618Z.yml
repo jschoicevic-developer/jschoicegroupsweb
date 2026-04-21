@@ -1,0 +1,23 @@
+- generic [active] [ref=e1]:
+  - generic [ref=e2]:
+    - banner [ref=e3]:
+      - img "JS Choice Group" [ref=e5]
+    - main [ref=e6]:
+      - generic [ref=e7]:
+        - img [ref=e9]
+        - heading "Thank You, Test!" [level=1] [ref=e12]
+        - paragraph [ref=e13]: Your referral request has been received. Our team will be in touch within 24 hours.
+        - generic [ref=e14]:
+          - paragraph [ref=e15]: Need to speak with someone sooner?
+          - link "Call 1300 572 464" [ref=e16] [cursor=pointer]:
+            - /url: tel:1300572464
+            - img [ref=e17]
+            - text: Call 1300 572 464
+        - generic [ref=e19]:
+          - paragraph [ref=e20]: Want to speed things up? Complete your full referral details to help us get started sooner.
+          - link "Complete Full Referral Details" [ref=e21] [cursor=pointer]:
+            - /url: /consultations?name=Test&service=Support+Coordination&prefill=true
+            - text: Complete Full Referral Details
+            - img [ref=e22]
+    - contentinfo [ref=e24]: "© 2026 JS Choice Group Pty Ltd | ABN: 54 644 196 270"
+  - alert [ref=e25]

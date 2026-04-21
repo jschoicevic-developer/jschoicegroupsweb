@@ -50,12 +50,13 @@ const Navbar = () => {
         { name: "NDIS Accommodation", href: "/ndis-accommodation", icon: Home, desc: "Safe and comfortable living arrangements." },
     ];
 
+    // Desktop renders: navLinks[0] (Home) → Services dropdown → navLinks[1..] (About, Contact, Blog)
+    // Mobile renders all in order with Services as expandable section between position 0 and 1
     const navLinks = [
         { name: "Home", href: "/" },
         { name: "About Us", href: "/about-us" },
-        { name: "Blog", href: "/blog" },
-        { name: "Resources", href: "/resources" },
         { name: "Contact Us", href: "/contact-us" },
+        { name: "Blog", href: "/blog" },
     ];
 
     return (
@@ -82,7 +83,7 @@ const Navbar = () => {
 
                     {/* Desktop Navigation Links */}
                     <nav className="hidden lg:flex items-center gap-8 xl:gap-10">
-                        {navLinks.slice(0, 2).map((link) => (
+                        {navLinks.slice(0, 1).map((link) => (
                             <Link
                                 key={link.name}
                                 href={link.href}
@@ -150,7 +151,7 @@ const Navbar = () => {
                             </AnimatePresence>
                         </div>
 
-                        {navLinks.slice(2).map((link) => (
+                        {navLinks.slice(1).map((link) => (
                             <Link
                                 key={link.name}
                                 href={link.href}
@@ -182,7 +183,7 @@ const Navbar = () => {
                             asChild
                             className="bg-primary hover:brightness-110 text-white font-semibold rounded-full px-6 h-11 shadow-sm hover:shadow-md transition-all duration-300 text-[15px]"
                         >
-                            <Link href="/consultations" className="flex items-center gap-2">
+                            <Link href="/referral" className="flex items-center gap-2">
                                 <HeartHandshake size={18} strokeWidth={1.5} className="text-black" />
                                 <span className="text-black font-semibold">Referrals</span>
                             </Link>
@@ -209,18 +210,16 @@ const Navbar = () => {
                         className="lg:hidden fixed inset-0 top-[104px] z-[90] bg-white h-[calc(100vh-104px)] overflow-y-auto px-6 py-8"
                     >
                         <div className="flex flex-col gap-6">
-                            {navLinks.map((link) => (
-                                <Link
-                                    key={link.name}
-                                    href={link.href}
-                                    className="text-xl font-bold text-foreground border-b border-gray-50 pb-4"
-                                    onClick={() => setIsOpen(false)}
-                                >
-                                    {link.name}
-                                </Link>
-                            ))}
+                            {/* Home link */}
+                            <Link
+                                href="/"
+                                className="text-xl font-bold text-foreground border-b border-gray-50 pb-4"
+                                onClick={() => setIsOpen(false)}
+                            >
+                                Home
+                            </Link>
 
-                            {/* Mobile Services */}
+                            {/* Mobile Services (after Home) */}
                             <div className="border-b border-gray-50 pb-4">
                                 <button
                                     onClick={() => setMobileServicesOpen(!mobileServicesOpen)}
@@ -246,6 +245,18 @@ const Navbar = () => {
                                 )}
                             </div>
 
+                            {/* Remaining nav links after Services */}
+                            {navLinks.slice(1).map((link) => (
+                                <Link
+                                    key={link.name}
+                                    href={link.href}
+                                    className="text-xl font-bold text-foreground border-b border-gray-50 pb-4"
+                                    onClick={() => setIsOpen(false)}
+                                >
+                                    {link.name}
+                                </Link>
+                            ))}
+
                             <div className="flex flex-col gap-4 mt-4">
                                 <Link
                                     href="/tools"
@@ -260,7 +271,7 @@ const Navbar = () => {
                                     className="w-full h-12 rounded-xl bg-primary text-white font-semibold text-lg shadow-md hover:brightness-110"
                                     onClick={() => setIsOpen(false)}
                                 >
-                                    <Link href="/consultations" className="flex items-center justify-center gap-2">
+                                    <Link href="/referral" className="flex items-center justify-center gap-2">
                                         <HeartHandshake size={20} className="text-black" strokeWidth={1.5} />
                                         <span className="text-black font-bold">Referrals</span>
                                     </Link>
