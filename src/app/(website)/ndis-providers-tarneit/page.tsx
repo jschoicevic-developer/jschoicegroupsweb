@@ -1,4 +1,6 @@
-"use client";
+﻿"use client";
+
+import SeamlessNDIS from "@/components/sections/home/SeamlessNDIS";
 
 import { motion } from "framer-motion";
 import PageHeader from "@/components/ui/PageHeader";
@@ -301,7 +303,7 @@ const NdisProvidersTarneit = () => {
             {/* What's Covered Section */}
             <section className="py-20 bg-gray-50 relative">
                 <div className="container-8xl">
-                    <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-start">
+                    <div className="grid grid-cols-1 lg:grid-cols-2 gap-16">
                         <div className="lg:order-2 space-y-10">
                             <h2 className="text-4xl lg:text-5xl font-black text-[#2D3748] leading-tight">
                                 What’s Covered Under <span className="text-primary">Our NDIS Services?</span>
@@ -320,7 +322,8 @@ const NdisProvidersTarneit = () => {
                                 ))}
                             </div>
                         </div>
-                        <div className="lg:order-1 sticky top-24">
+                        <div className="lg:order-1">
+                            <div className="sticky top-24">
                             <div className="relative h-[600px] w-full">
                                 <Image quality={80}
                                     src="/images/tarneit/ndis-provider-tarneit-3.webp"
@@ -328,6 +331,7 @@ const NdisProvidersTarneit = () => {
                                     fill
                                     className="rounded-[2.5rem] shadow-2xl object-cover"
                                 />
+                                </div>
                             </div>
                         </div>
                     </div>

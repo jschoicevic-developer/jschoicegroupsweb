@@ -141,22 +141,7 @@ export default async function BlogPostPage({ params, searchParams }: BlogPostPag
     const relatedPosts = await getRelatedPosts(slug);
     const readTime = calcReadTime(post.content);
 
-    export default async function BlogPostPage({ params, searchParams }: BlogPostPageProps) {
-        const { slug } = await params;
-        const { preview } = await searchParams;
-        const isPreview = preview === 'true';
-
-        const post = await getBlogPost(slug, isPreview);
-        if (!post) notFound();
-
-        const relatedPosts = await getRelatedPosts(slug);
-
-        const { html: processedContent, headings } = processContent(post.content);
-
-        const formatDate = (d: string) =>
-            new Date(d).toLocaleDateString('en-GB', { day: 'numeric', month: 'long', year: 'numeric' });
-
-        return (
+    return (
             <main className="flex flex-col min-h-screen w-full bg-gray-50">
 
                 {/* ── HERO — keep exactly as-is ─────────────────────────────────── */}
@@ -223,7 +208,7 @@ export default async function BlogPostPage({ params, searchParams }: BlogPostPag
 
                 {/* ── CONTENT — two-column: article + sticky sidebar ────────────── */}
                 <div className="max-w-7xl mx-auto w-full px-4 md:px-6 lg:px-8 py-10 pb-24">
-                    <div className="flex flex-col lg:flex-row gap-8 items-start">
+                    <div className="flex flex-col lg:flex-row gap-8">
 
                         {/* ══════════════════════════════════════════════════════════
                         LEFT COLUMN — Article
@@ -365,7 +350,7 @@ export default async function BlogPostPage({ params, searchParams }: BlogPostPag
                         {/* ══════════════════════════════════════════════════════════
                         RIGHT COLUMN — Sticky Sidebar
                     ══════════════════════════════════════════════════════════ */}
-                        <aside className="w-full lg:w-[280px] shrink-0 flex flex-col gap-5 lg:sticky lg:top-24 lg:self-start">
+                        <aside className="w-full lg:w-[280px] shrink-0 flex flex-col gap-5 lg:sticky lg:top-24 self-start">
 
                             {/* ── 1. Primary CTA Card ────────────────────────────── */}
                             <div className="bg-primary rounded-xl p-5 text-[#1A202C]">
