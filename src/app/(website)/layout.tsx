@@ -13,7 +13,7 @@ export default function WebsiteLayout({
             <PageLoader />
             <Topbar />
             <Navbar />
-            <main className="flex-grow overflow-x-hidden">
+            <main className="flex-grow overflow-x-clip">
                 {children}
             </main>
             <Footer />

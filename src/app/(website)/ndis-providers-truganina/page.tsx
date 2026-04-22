@@ -1,4 +1,6 @@
-"use client";
+﻿"use client";
+
+import SeamlessNDIS from "@/components/sections/home/SeamlessNDIS";
 
 import { motion } from "framer-motion";
 import PageHeader from "@/components/ui/PageHeader";
@@ -210,6 +212,45 @@ const NdisProvidersTruganina = () => {
                 </div>
             </section>
 
+            {/* CTA 1 */}
+            <section className="py-20 bg-[#2D3748] text-white overflow-hidden relative">
+                <div className="absolute top-0 left-0 w-1/3 h-full bg-primary/5 -skew-x-12 pointer-events-none" />
+                <div className="container-8xl relative z-10 text-center">
+                    <motion.div
+                        initial={{ opacity: 0, y: 20 }}
+                        whileInView={{ opacity: 1, y: 0 }}
+                        viewport={{ once: true }}
+                        transition={{ duration: 0.8 }}
+                        className="max-w-4xl mx-auto"
+                    >
+                        <h2 className="text-3xl md:text-5xl font-black mb-6 leading-tight text-white">
+                            Get NDIS Support <span className="text-primary">in Truganina Today</span>
+                        </h2>
+                        <p className="text-xl text-gray-300 mb-10 leading-relaxed">
+                            Js Choice – Care and Support is here to help you live your best life and achieve your goals with the support you deserve.
+                        </p>
+                        <div className="flex flex-col md:flex-row gap-4 justify-center items-center">
+                            <Button asChild size="lg" className="h-16 px-8 rounded-full bg-white hover:bg-gray-100 text-[#2D3748] text-lg font-bold shadow-lg hover:shadow-xl transition-all hover:-translate-y-1">
+                                <a href="tel:1300572464">
+                                    <Phone className="mr-2 h-5 w-5" />
+                                    Call Now
+                                </a>
+                            </Button>
+                            <Link href="/contact-us">
+                                <Button size="lg" className="h-16 px-8 rounded-full bg-primary hover:bg-primary/90 text-[#1A202C] text-lg font-bold shadow-lg hover:shadow-xl transition-all hover:-translate-y-1">
+                                    Get in Touch <ArrowRight className="ml-2 h-5 w-5" />
+                                </Button>
+                            </Link>
+                            <Link href="/consultations">
+                                <Button variant="outline" size="lg" className="h-16 px-8 rounded-full border-2 border-primary/20 text-primary hover:bg-white/10 text-lg font-bold transition-all hover:-translate-y-1">
+                                    Consultations
+                                </Button>
+                            </Link>
+                        </div>
+                    </motion.div>
+                </div>
+            </section>
+
             {/* Why Choose Us */}
             <section className="py-20 bg-white relative">
                 <div className="container-8xl">
@@ -262,7 +303,7 @@ const NdisProvidersTruganina = () => {
             {/* What's Covered Section */}
             <section className="py-20 bg-gray-50 relative">
                 <div className="container-8xl">
-                    <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-start">
+                    <div className="grid grid-cols-1 lg:grid-cols-2 gap-16">
                         <div className="lg:order-2 space-y-10">
                             <h2 className="text-4xl lg:text-5xl font-black text-[#2D3748] leading-tight">
                                 What’s Covered Under <span className="text-primary">Our NDIS Services?</span>
@@ -281,7 +322,8 @@ const NdisProvidersTruganina = () => {
                                 ))}
                             </div>
                         </div>
-                        <div className="lg:order-1 relative sticky top-24">
+                        <div className="lg:order-1">
+                            <div className="sticky top-24">
                             <div className="relative h-[600px] w-full">
                                 <Image quality={80}
                                     src="/images/truganina/ndis-provider-truganina-3.webp"
@@ -289,9 +331,53 @@ const NdisProvidersTruganina = () => {
                                     fill
                                     className="rounded-[2.5rem] shadow-2xl object-cover"
                                 />
+                                </div>
                             </div>
                         </div>
                     </div>
+                </div>
+            </section>
+
+            {/* Bottom CTA */}
+            <section className="py-20 lg:py-32 bg-[#2D3748] text-white relative overflow-hidden">
+                <div className="container-8xl relative z-10 text-center">
+                    <motion.div
+                        initial={{ opacity: 0, y: 30 }}
+                        whileInView={{ opacity: 1, y: 0 }}
+                        viewport={{ once: true }}
+                        transition={{ duration: 0.8 }}
+                        className="max-w-4xl mx-auto"
+                    >
+                        <h2 className="text-3xl md:text-5xl font-black mb-6 leading-tight text-white">
+                            Don’t Wait! Take Control <span className="text-primary">of Your NDIS Journey Today</span>
+                        </h2>
+                        <div className="text-xl text-gray-300 mb-10 space-y-4 max-w-3xl mx-auto leading-relaxed">
+                            <p>
+                                We’re ready to help you unlock your potential with tailored care that fits your unique needs. Whether it’s personal assistance, nursing support, or community access, we’re here to make your goals a reality.
+                            </p>
+                            <p>
+                                <span className="font-bold text-white">Js Choice – Care and Support</span> is here to kick-start your journey towards more choices and greater autonomy.
+                            </p>
+                        </div>
+                        <div className="flex flex-col md:flex-row gap-4 justify-center items-center">
+                            <Button asChild size="lg" className="h-16 px-8 rounded-full bg-white hover:bg-gray-100 text-[#2D3748] text-lg font-bold shadow-lg hover:shadow-xl transition-all hover:-translate-y-1">
+                                <a href="tel:1300572464">
+                                    <Phone className="mr-2 h-5 w-5" />
+                                    Call Now
+                                </a>
+                            </Button>
+                            <Link href="/contact-us">
+                                <Button size="lg" className="h-16 px-8 rounded-full bg-primary hover:bg-primary/90 text-[#1A202C] text-lg font-bold shadow-lg hover:shadow-xl transition-all hover:-translate-y-1">
+                                    Get in Touch <ArrowRight className="ml-2 h-5 w-5" />
+                                </Button>
+                            </Link>
+                            <Link href="/consultations">
+                                <Button variant="outline" size="lg" className="h-16 px-8 rounded-full border-2 border-primary/20 text-primary hover:bg-white/10 text-lg font-bold transition-all hover:-translate-y-1">
+                                    Consultations
+                                </Button>
+                            </Link>
+                        </div>
+                    </motion.div>
                 </div>
             </section>
 
@@ -318,13 +404,7 @@ const NdisProvidersTruganina = () => {
                 </div>
             </section>
 
-            <ServiceCTA />
-
-            <ServiceFormSection
-              source="service_page"
-              sourcePage="/ndis-providers-truganina"
-              
-            />
+            <SeamlessNDIS />
 
         </main>
     );

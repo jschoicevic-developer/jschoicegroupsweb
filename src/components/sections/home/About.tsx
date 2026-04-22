@@ -8,7 +8,7 @@ import Link from "next/link";
 
 const About = () => {
     return (
-        <section className="relative py-20 lg:py-32 bg-white overflow-hidden flex flex-col gap-24 lg:gap-32">
+        <section className="relative py-12 lg:py-32 bg-white overflow-hidden flex flex-col gap-16 lg:gap-32">
             {/* ENHANCED UI DECORATORS: Expert Level Richness */}
             <div className="absolute inset-0 z-0 pointer-events-none overflow-hidden bg-white">
                 {/* Floating SVGs & Icons */}
@@ -145,7 +145,7 @@ const About = () => {
             </div>
 
             {/* PART 2: About Us (Text Left 65%, Image Right 35%) */}
-            <div className="max-w-8xl mx-auto px-4 md:px-6 lg:px-8 relative z-10 w-full mb-10">
+            <div className="max-w-8xl mx-auto px-4 md:px-6 lg:px-8 relative z-10 w-full">
                 <div className="grid grid-cols-1 lg:grid-cols-[1.3fr_0.7fr] gap-6 lg:gap-8 items-center">
 
                     {/* Text Block */}
@@ -154,7 +154,7 @@ const About = () => {
                         whileInView={{ opacity: 1, x: 0 }}
                         viewport={{ once: true }}
                         transition={{ duration: 0.8 }}
-                        className="flex flex-col space-y-8"
+                        className="flex flex-col space-y-8 relative z-10"
                     >
                         <div className="space-y-3">
                             <div className="flex items-center gap-2 text-primary font-black uppercase text-xs tracking-[0.2em]">
@@ -234,8 +234,8 @@ const About = () => {
                             />
                         </div>
 
-                        {/* Secondary Image - Closer overlap */}
-                        <div className="w-[70%] aspect-square absolute -left-[20%] -bottom-10 z-20 overflow-hidden shadow-[0_20px_60px_rgba(0,0,0,0.25)] border-[10px] border-white transition-transform duration-700 hover:scale-[1.05]"
+                        {/* Secondary Image - Closer overlap, desktop only to avoid mobile overflow */}
+                        <div className="hidden lg:block w-[70%] aspect-square absolute -left-[20%] -bottom-10 z-20 overflow-hidden shadow-[0_20px_60px_rgba(0,0,0,0.25)] border-[10px] border-white transition-transform duration-700 hover:scale-[1.05]"
                             style={{ borderRadius: '60% 40% 70% 30% / 40% 70% 30% 60%' }}>
                             <Image quality={80}
                                 src="/images/home/about-3.webp"

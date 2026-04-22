@@ -1,8 +1,9 @@
-"use client";
+﻿"use client";
 
 import { motion } from "framer-motion";
 import PageHeader from "@/components/ui/PageHeader";
 import { Button } from "@/components/ui/button";
+import TalkToUsButton from "@/components/ui/TalkToUsButton";
 import Link from "next/link";
 import Image from "next/image";
 import {
@@ -375,9 +376,11 @@ const InnovativeCommunityParticipation = () => {
                         </p>
 
                         <div className="flex flex-col md:flex-row gap-4 justify-center items-center">
-                            <Button size="lg" className="h-16 px-8 rounded-full bg-white hover:bg-gray-100 text-[#2D3748] text-lg font-bold shadow-lg hover:shadow-xl transition-all hover:-translate-y-1">
-                                <Phone className="mr-2 h-5 w-5" />
-                                1300 572 464
+                            <Button asChild size="lg" className="h-16 px-8 rounded-full bg-white hover:bg-gray-100 text-[#2D3748] text-lg font-bold shadow-lg hover:shadow-xl transition-all hover:-translate-y-1">
+                                <a href="tel:1300572464">
+                                    <Phone className="mr-2 h-5 w-5" />
+                                    Call Now
+                                </a>
                             </Button>
                             <Link href="/referral">
                                 <Button size="lg" className="h-16 px-8 rounded-full bg-primary hover:bg-primary/90 text-[#1A202C] text-lg font-bold shadow-lg hover:shadow-xl transition-all hover:-translate-y-1">
@@ -392,9 +395,9 @@ const InnovativeCommunityParticipation = () => {
             <ServiceCTA />
 
             <ServiceFormSection
-              source="service_page"
-              sourcePage="/innovative-community-participation-including-volunteer-opportunities"
-              defaultService="Community Participation & Activities"
+                source="service_page"
+                sourcePage="/innovative-community-participation-including-volunteer-opportunities"
+                defaultService="Community Participation & Activities"
             />
 
         </main>

@@ -3,6 +3,7 @@
 import { motion } from "framer-motion";
 import PageHeader from "@/components/ui/PageHeader";
 import { Button } from "@/components/ui/button";
+import TalkToUsButton from "@/components/ui/TalkToUsButton";
 import Link from "next/link";
 import Image from "next/image";
 import {
@@ -150,9 +151,7 @@ const GroupCentreActivities = () => {
                                         Free Referral <ArrowRight className="ml-2 h-5 w-5" />
                                     </Button>
                                 </Link>
-                                <Button variant="outline" size="lg" className="h-14 px-8 rounded-full border-2 border-[#2D3748] text-[#2D3748] hover:bg-gray-50 text-lg font-bold shadow-sm hover:shadow-md transition-all hover:-translate-y-1">
-                                    Talk to Us
-                                </Button>
+                                <TalkToUsButton />
                             </div>
                         </motion.div>
                     </div>

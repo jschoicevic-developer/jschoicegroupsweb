@@ -1,8 +1,9 @@
-"use client";
+﻿"use client";
 
 import { motion } from "framer-motion";
 import PageHeader from "@/components/ui/PageHeader";
 import { Button } from "@/components/ui/button";
+import TalkToUsButton from "@/components/ui/TalkToUsButton";
 import Link from "next/link";
 import Image from "next/image";
 import { useState } from "react";
@@ -142,12 +143,7 @@ const PsychosocialRecoveryCoach = () => {
                                         Free Referral
                                     </Button>
                                 </Link>
-                                <Link href="tel:1300572464">
-                                    <Button variant="outline" className="h-14 px-10 rounded-full border-2 border-[#ABB3F1] text-[#2D3748] hover:bg-gray-50 font-black text-sm uppercase tracking-widest w-full sm:w-auto flex flex-col items-start leading-tight py-1 gap-0">
-                                        <span className="text-[10px] text-gray-500">Talk to Us</span>
-                                        <span className="text-lg">1300 572 464</span>
-                                    </Button>
-                                </Link>
+                                <TalkToUsButton />
                             </div>
                         </motion.div>
                     </div>
@@ -335,13 +331,13 @@ const PsychosocialRecoveryCoach = () => {
                         </p>
 
                         <div className="flex flex-col md:flex-row gap-4 justify-center items-center">
-                            <a href="tel:1300572464">
-                                <Button size="lg" className="h-16 px-10 rounded-full bg-[#2D3748] hover:bg-black text-white text-lg font-bold shadow-lg hover:shadow-xl transition-all w-full md:w-auto">
+                            <Button asChild size="lg" className="h-16 px-10 rounded-full bg-[#2D3748] hover:bg-black text-white text-lg font-bold shadow-lg hover:shadow-xl transition-all w-full md:w-auto">
+                                <a href="tel:1300572464">
                                     <Phone className="mr-2 h-5 w-5" />
-                                    1300 572 464
-                                </Button>
-                            </a>
-                            <Link href="/referral">
+                                    Call Now
+                                </a>
+                            </Button>
+                            <Link href="/contact-us">
                                 <Button size="lg" className="h-16 px-10 rounded-full bg-[#ABB3F1] hover:bg-[#9CA5E5] text-[#1A202C] text-lg font-bold shadow-lg hover:shadow-xl transition-all w-full md:w-auto">
                                     Get a Free Referral <ArrowRight className="ml-2 h-5 w-5" />
                                 </Button>
@@ -354,9 +350,9 @@ const PsychosocialRecoveryCoach = () => {
             <ServiceCTA />
 
             <ServiceFormSection
-              source="service_page"
-              sourcePage="/psychosocial-recovery-coach"
-              defaultService="Psychosocial Recovery Coaching"
+                source="service_page"
+                sourcePage="/psychosocial-recovery-coach"
+                defaultService="Psychosocial Recovery Coaching"
             />
 
         </main>

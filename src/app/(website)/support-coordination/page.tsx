@@ -1,8 +1,9 @@
-"use client";
+﻿"use client";
 
 import { motion } from "framer-motion";
 import PageHeader from "@/components/ui/PageHeader";
 import { Button } from "@/components/ui/button";
+import TalkToUsButton from "@/components/ui/TalkToUsButton";
 import Link from "next/link";
 import Image from "next/image";
 import ServiceCTA from "@/components/ui/ServiceCTA";
@@ -160,11 +161,8 @@ const SupportCoordination = () => {
                                 </p>
                             </div>
                             <div className="flex gap-4 pt-4">
-                                <Button size="lg" className="h-14 px-8 rounded-full bg-[#2D3748] hover:bg-black text-white text-lg font-bold shadow-lg hover:shadow-xl transition-all hover:-translate-y-1">
-                                    <Phone className="mr-2 h-5 w-5" />
-                                    Talk to Us
-                                </Button>
-                                <Link href="/referral">
+                                <TalkToUsButton />
+                                <Link href="/consultations">
                                     <Button size="lg" className="h-14 px-8 rounded-full bg-primary hover:bg-primary/90 text-[#1A202C] text-lg font-bold shadow-lg hover:shadow-xl transition-all hover:-translate-y-1">
                                         Free Referral <ArrowRight className="ml-2 h-5 w-5" />
                                     </Button>
@@ -309,22 +307,43 @@ const SupportCoordination = () => {
             <section className="py-20 lg:py-32 bg-white relative overflow-hidden">
                 <div className="absolute inset-0 bg-primary/5 -z-10" />
                 <div className="container-8xl relative z-10">
+                    <motion.div
+                        initial={{ opacity: 0, y: 30 }}
+                        whileInView={{ opacity: 1, y: 0 }}
+                        viewport={{ once: true }}
+                        transition={{ duration: 0.8 }}
+                        className="bg-[#2D3748] rounded-[3rem] p-10 md:p-16 text-center shadow-2xl max-w-5xl mx-auto text-white"
+                    >
+                        <h2 className="text-3xl md:text-5xl font-black mb-6 leading-tight text-white">
+                            Ready to Take Control of <span className="text-primary">Your NDIS Plan?</span>
+                        </h2>
+                        <p className="text-xl text-gray-300 mb-10 max-w-2xl mx-auto leading-relaxed">
+                            Don't let your funding sit unused. Let's build a support network that helps you thrive.
+                        </p>
+
+                        <div className="flex flex-col md:flex-row gap-4 justify-center items-center">
+                            <Button asChild size="lg" className="h-16 px-8 rounded-full bg-white hover:bg-gray-100 text-[#2D3748] text-lg font-bold shadow-lg hover:shadow-xl transition-all hover:-translate-y-1">
+                                <a href="tel:1300572464">
+                                    <Phone className="mr-2 h-5 w-5" />
+                                    Call Now
+                                </a>
+                            </Button>
+                            <Link href="/contact-us">
+                                <Button size="lg" className="h-16 px-8 rounded-full bg-primary hover:bg-primary/90 text-[#1A202C] text-lg font-bold shadow-lg hover:shadow-xl transition-all hover:-translate-y-1">
+                                    Get in Touch <ArrowRight className="ml-2 h-5 w-5" />
+                                </Button>
+                            </Link>
+                            <Link href="/consultations">
+                                <Button variant="outline" size="lg" className="h-16 px-8 rounded-full border-2 border-white text-primary hover:bg-white hover:text-[#2D3748] text-lg font-bold shadow-sm hover:shadow-md transition-all hover:-translate-y-1">
+                                    Consultations
+                                </Button>
+                            </Link>
+                        </div>
+                    </motion.div>
                 </div>
             </section>
 
-            {/* Mid-page CTA */}
-            <ServiceCTA
-              heading="Ready to Take Control of Your NDIS Plan?"
-              subheading="Fill out our quick form below and our team will be in touch within 24 hours."
-            />
-
-            {/* Inline Form Section */}
-            <ServiceFormSection
-              source="service_page"
-              sourcePage="/support-coordination"
-              defaultService="Support Coordination"
-            />
-</main>
+        </main>
     );
 };
 
