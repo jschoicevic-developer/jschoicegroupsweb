@@ -99,7 +99,7 @@ const PsychosocialRecoveryCoach = () => {
             />
 
             {/* Hero Section */}
-            <section className="py-16 lg:py-24 bg-white overflow-hidden">
+            <section className="py-10 lg:py-14 bg-white overflow-hidden">
                 <div className="container-8xl px-4 md:px-6 lg:px-8 mx-auto">
                     <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-20 items-center">
                         {/* Left: Image */}
@@ -151,10 +151,10 @@ const PsychosocialRecoveryCoach = () => {
             </section>
 
             {/* What Does a Recovery Coach Do? */}
-            <section className="py-20 lg:py-28 relative">
+            <section className="py-10 lg:py-14 relative">
                 <div className="absolute top-0 right-0 w-1/3 h-full bg-[#ABB3F1]/10 -skew-x-12 -z-10" />
                 <div className="container-8xl px-4 md:px-6 lg:px-8 mx-auto">
-                    <div className="text-center max-w-4xl mx-auto mb-16 space-y-6">
+                    <div className="text-center max-w-4xl mx-auto mb-8 space-y-6">
                         <h2 className="text-3xl lg:text-5xl font-black text-[#2D3748] leading-tight">
                             What Does a Recovery <span className="text-[#F1ABAB]">Coach Do?</span>
                         </h2>
@@ -184,7 +184,7 @@ const PsychosocialRecoveryCoach = () => {
             </section>
 
             {/* Lived Experience */}
-            <section className="py-20 lg:py-28 bg-white overflow-hidden border-t border-gray-100">
+            <section className="py-10 lg:py-14 bg-white overflow-hidden border-t border-gray-100">
                 <div className="container-8xl px-4 md:px-6 lg:px-8 mx-auto">
                     <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-20 items-center">
                         <motion.div
@@ -226,9 +226,9 @@ const PsychosocialRecoveryCoach = () => {
             </section>
 
             {/* FAQs */}
-            <section className="py-20 lg:py-28 bg-gray-50 relative">
+            <section className="py-10 lg:py-14 bg-gray-50 relative">
                 <div className="container-8xl px-4 md:px-6 lg:px-8 mx-auto">
-                    <h2 className="text-3xl lg:text-5xl font-black text-[#2D3748] mb-16 text-center">
+                    <h2 className="text-3xl lg:text-5xl font-black text-[#2D3748] mb-8 text-center">
                         Frequently Asked <span className="text-[#F1ABAB]">Questions</span>
                     </h2>
 
@@ -284,7 +284,7 @@ const PsychosocialRecoveryCoach = () => {
             </section>
 
             {/* Choosing the Right Coach */}
-            <section className="py-20 lg:py-28 bg-white overflow-hidden">
+            <section className="py-10 lg:py-14 bg-white overflow-hidden">
                 <div className="container-8xl px-4 md:px-6 lg:px-8 mx-auto">
                     <div className="max-w-5xl mx-auto space-y-12">
                         <div className="text-center space-y-6">
@@ -314,7 +314,7 @@ const PsychosocialRecoveryCoach = () => {
             </section>
 
             {/* CTA Section */}
-            <section className="py-20 lg:py-32 bg-[#F8FAFC] relative overflow-hidden">
+            <section className="py-10 lg:py-14 bg-[#F8FAFC] relative overflow-hidden">
                 <div className="container-8xl px-4 md:px-6 lg:px-8 mx-auto relative z-10">
                     <motion.div
                         initial={{ opacity: 0, y: 30 }}

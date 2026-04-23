@@ -149,7 +149,7 @@ const NdisProvidersEpping = () => {
             />
 
             {/* Intro Section */}
-            <section className="py-20 lg:py-28 overflow-hidden">
+            <section className="py-10 lg:py-14 overflow-hidden">
                 <div className="container-8xl">
                     <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-20 items-center">
                         <motion.div
@@ -193,7 +193,7 @@ const NdisProvidersEpping = () => {
                                     Our dedicated team of support workers ensures that each participant receives respectful care that promotes independence and inclusivity. Whether it’s assistance with daily life, nursing care, or allied health assistance, we are committed to improving the lives of our participants. Our aim is to create a safe, supportive, and non-judgemental environment for all participants, fostering personal growth and autonomy at every stage of life.
                                 </p>
                             </div>
-                            <div className="flex gap-4 pt-4">
+                            <div className="flex flex-col sm:flex-row gap-4 pt-4">
                                 <Link href="/referral">
                                     <Button size="lg" className="h-14 px-8 rounded-full bg-primary hover:bg-primary/90 text-[#1A202C] text-lg font-bold shadow-lg hover:shadow-xl transition-all hover:-translate-y-1">
                                         Free Referral <ArrowRight className="ml-2 h-5 w-5" />
@@ -211,7 +211,7 @@ const NdisProvidersEpping = () => {
             </section>
 
             {/* CTA 1 */}
-            <section className="py-20 bg-[#2D3748] text-white overflow-hidden relative">
+            <section className="py-10 bg-[#2D3748] text-white overflow-hidden relative">
                 <div className="absolute top-0 left-0 w-1/3 h-full bg-primary/5 -skew-x-12 pointer-events-none" />
                 <div className="container-8xl relative z-10 text-center">
                     <motion.div
@@ -250,7 +250,7 @@ const NdisProvidersEpping = () => {
             </section>
 
             {/* Why Choose Us */}
-            <section className="py-20 bg-white relative">
+            <section className="py-10 bg-white relative">
                 <div className="container-8xl">
                     <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
                         <motion.div
@@ -299,7 +299,7 @@ const NdisProvidersEpping = () => {
             </section>
 
             {/* What's Covered Section */}
-            <section className="py-20 bg-gray-50 relative">
+            <section className="py-10 bg-gray-50 relative">
                 <div className="container-8xl">
                     <div className="grid grid-cols-1 lg:grid-cols-2 gap-16">
                         <div className="lg:order-2 space-y-10">
@@ -337,7 +337,7 @@ const NdisProvidersEpping = () => {
             </section>
 
             {/* Bottom CTA */}
-            <section className="py-20 lg:py-32 bg-[#2D3748] text-white relative overflow-hidden">
+            <section className="py-10 lg:py-14 bg-[#2D3748] text-white relative overflow-hidden">
                 <div className="container-8xl relative z-10 text-center">
                     <motion.div
                         initial={{ opacity: 0, y: 30 }}
@@ -380,7 +380,7 @@ const NdisProvidersEpping = () => {
             </section>
 
             {/* FAQ Section */}
-            <section className="py-20 bg-white">
+            <section className="py-10 bg-white">
                 <div className="container-8xl max-w-4xl mx-auto">
                     <div className="text-center mb-12">
                         <h2 className="text-3xl md:text-4xl font-black text-[#2D3748]">

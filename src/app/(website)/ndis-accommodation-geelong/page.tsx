@@ -130,7 +130,7 @@ const NdisAccommodationGeelong = () => {
             />
 
             {/* Intro Section */}
-            <section className="py-20 lg:py-28 overflow-hidden">
+            <section className="py-10 lg:py-14 overflow-hidden">
                 <div className="container-8xl">
                     <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-20 items-center">
                         <motion.div
@@ -182,7 +182,7 @@ const NdisAccommodationGeelong = () => {
                                     We at <strong>Js Choice – Care and Support</strong> offer a variety of disability-friendly accommodation choices, each tailored to support the individual needs of the participants. Whether you’re looking for a short-term stay or a long-term living solution, we provide NDIS accommodation support in Geelong that helps individuals thrive in a safe and secure environment.
                                 </p>
                             </div>
-                            <div className="flex gap-4 pt-4">
+                            <div className="flex flex-col sm:flex-row gap-4 pt-4">
                                 <Link href="/referral">
                                     <Button size="lg" className="h-14 px-8 rounded-full bg-primary hover:bg-primary/90 text-[#1A202C] text-lg font-bold shadow-lg hover:shadow-xl transition-all hover:-translate-y-1">
                                         Free Referral <ArrowRight className="ml-2 h-5 w-5" />
@@ -200,7 +200,7 @@ const NdisAccommodationGeelong = () => {
             </section>
 
             {/* CTA 1 */}
-            <section className="py-20 bg-[#2D3748] text-white overflow-hidden relative">
+            <section className="py-10 bg-[#2D3748] text-white overflow-hidden relative">
                 <div className="absolute top-0 left-0 w-1/3 h-full bg-primary/5 -skew-x-12 pointer-events-none" />
                 <div className="container-8xl relative z-10 text-center">
                     <motion.div
@@ -232,7 +232,7 @@ const NdisAccommodationGeelong = () => {
             </section>
 
             {/* STA Section */}
-            <section className="py-20 bg-white relative">
+            <section className="py-10 bg-white relative">
                 <div className="container-8xl">
                     <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
                         <motion.div
@@ -312,7 +312,7 @@ const NdisAccommodationGeelong = () => {
             </section>
 
             {/* MTA Section */}
-            <section className="py-20 bg-gray-50 relative">
+            <section className="py-10 bg-gray-50 relative">
                 <div className="container-8xl">
                     <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
                         <div className="lg:order-2">
@@ -380,7 +380,7 @@ const NdisAccommodationGeelong = () => {
             </section>
 
             {/* SIL Section */}
-            <section className="py-20 bg-gray-50 relative">
+            <section className="py-10 bg-gray-50 relative">
                 <div className="container-8xl">
                     <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
                         <div className="">
@@ -431,7 +431,7 @@ const NdisAccommodationGeelong = () => {
             </section>
 
             {/* CTA 4 SIL */}
-            <section className="py-20 lg:py-32 bg-[#2D3748] text-white relative overflow-hidden">
+            <section className="py-10 lg:py-14 bg-[#2D3748] text-white relative overflow-hidden">
                 <div className="container-8xl relative z-10 text-center">
                     <motion.div
                         initial={{ opacity: 0, y: 30 }}
@@ -461,9 +461,9 @@ const NdisAccommodationGeelong = () => {
             </section>
 
             {/* Features / Why Choose Us Grid */}
-            <section className="py-20 bg-white">
+            <section className="py-10 bg-white">
                 <div className="container-8xl">
-                    <div className="text-center max-w-3xl mx-auto mb-16">
+                    <div className="text-center max-w-3xl mx-auto mb-8">
                         <h2 className="text-3xl md:text-4xl font-black text-[#2D3748] mb-4">
                             What Sets Us Apart As An NDIS Accommodation Provider?
                         </h2>
@@ -487,7 +487,7 @@ const NdisAccommodationGeelong = () => {
             </section>
 
             {/* FAQ Section */}
-            <section className="py-20 bg-gray-50">
+            <section className="py-10 bg-gray-50">
                 <div className="container-8xl max-w-4xl mx-auto">
                     <div className="text-center mb-12">
                         <h2 className="text-3xl md:text-4xl font-black text-[#2D3748]">

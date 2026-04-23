@@ -144,7 +144,7 @@ const AccessToCommunityActivities = () => {
             />
 
             {/* Hero Section */}
-            <section className="py-20 lg:py-28 overflow-hidden">
+            <section className="py-10 lg:py-14 overflow-hidden">
                 <div className="container-8xl">
                     <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-20 items-center">
                         <motion.div
@@ -188,7 +188,7 @@ const AccessToCommunityActivities = () => {
                                     We provide specialised Community Participation Support designed to help you engage with the world on your own terms. Whether you want to join a local club, volunteer, attend cultural events, or simply enjoy a coffee at a local cafe, our support workers are here to make it happen safely and seamlessly.
                                 </p>
                             </div>
-                            <div className="flex gap-4 pt-4">
+                            <div className="flex flex-col sm:flex-row gap-4 pt-4">
                                 <Link href="/referral">
                                     <Button size="lg" className="h-14 px-8 rounded-full bg-primary hover:bg-primary/90 text-[#1A202C] text-lg font-bold shadow-lg hover:shadow-xl transition-all hover:-translate-y-1">
                                         Free Referral <ArrowRight className="ml-2 h-5 w-5" />
@@ -202,9 +202,9 @@ const AccessToCommunityActivities = () => {
             </section>
 
             {/* How We Support Your Participation */}
-            <section className="py-20 bg-white relative overflow-hidden">
+            <section className="py-10 bg-white relative overflow-hidden">
                 <div className="container-8xl">
-                    <div className="text-center max-w-3xl mx-auto mb-16 space-y-4">
+                    <div className="text-center max-w-3xl mx-auto mb-8 space-y-4">
                         <h2 className="text-3xl md:text-5xl font-black text-[#2D3748]">
                             How We Support <span className="text-secondary">Your Participation</span>
                         </h2>
@@ -237,9 +237,9 @@ const AccessToCommunityActivities = () => {
             </section>
 
             {/* What Activities Can We Assist With? */}
-            <section className="py-20 lg:py-28 bg-[#2D3748] text-white">
+            <section className="py-10 lg:py-14 bg-[#2D3748] text-white">
                 <div className="container-8xl">
-                    <div className="text-center max-w-3xl mx-auto mb-16 space-y-4">
+                    <div className="text-center max-w-3xl mx-auto mb-8 space-y-4">
                         <h2 className="text-3xl md:text-5xl font-black text-white">
                             What Activities Can <span className="text-primary">We Assist With?</span>
                         </h2>
@@ -270,7 +270,7 @@ const AccessToCommunityActivities = () => {
             </section>
 
             {/* Neuro-Affirming Approach */}
-            <section className="py-20 lg:py-28 bg-white relative overflow-hidden">
+            <section className="py-10 lg:py-14 bg-white relative overflow-hidden">
                 <div className="container-8xl">
                     <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
                         <motion.div
@@ -321,9 +321,9 @@ const AccessToCommunityActivities = () => {
             </section>
 
             {/* Benefits */}
-            <section className="py-20 bg-gray-50">
+            <section className="py-10 bg-gray-50">
                 <div className="container-8xl">
-                    <div className="text-center max-w-3xl mx-auto mb-16 space-y-4">
+                    <div className="text-center max-w-3xl mx-auto mb-8 space-y-4">
                         <h2 className="text-3xl md:text-5xl font-black text-[#2D3748]">
                             The Benefits of <span className="text-primary">Community Participation</span>
                         </h2>
@@ -355,7 +355,7 @@ const AccessToCommunityActivities = () => {
             </section>
 
             {/* Why Choose Us */}
-            <section className="py-20 lg:py-28 relative bg-white">
+            <section className="py-10 lg:py-14 relative bg-white">
                 <div className="container-8xl">
                     <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
                         <motion.div
@@ -404,7 +404,7 @@ const AccessToCommunityActivities = () => {
             </section>
 
             {/* CTA Section */}
-            <section className="py-20 lg:py-32 bg-gray-50 relative overflow-hidden">
+            <section className="py-10 lg:py-14 bg-gray-50 relative overflow-hidden">
                 <div className="container-8xl relative z-10">
                     <motion.div
                         initial={{ opacity: 0, y: 30 }}

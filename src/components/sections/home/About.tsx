@@ -234,18 +234,7 @@ const About = () => {
                             />
                         </div>
 
-                        {/* Secondary Image - Closer overlap, desktop only to avoid mobile overflow */}
-                        <div className="hidden lg:block w-[70%] aspect-square absolute -left-[20%] -bottom-10 z-20 overflow-hidden shadow-[0_20px_60px_rgba(0,0,0,0.25)] border-[10px] border-white transition-transform duration-700 hover:scale-[1.05]"
-                            style={{ borderRadius: '60% 40% 70% 30% / 40% 70% 30% 60%' }}>
-                            <Image quality={80}
-                                src="/images/home/about-3.webp"
-                                alt="Support session"
-                                fill
-                                className="object-cover"
-                            />
-                        </div>
-
-                        {/* Decorative floating badge - Better positioning */}
+{/* Decorative floating badge - Better positioning */}
                         <div className="absolute top-[10%] right-0 -translate-y-1/2 z-30 hidden lg:block">
                             <motion.div
                                 animate={{ y: [0, -15, 0] }}

@@ -116,7 +116,7 @@ const SupportCoordination = () => {
             />
 
             {/* Hero Section */}
-            <section className="py-20 lg:py-28 overflow-hidden">
+            <section className="py-10 lg:py-14 overflow-hidden">
                 <div className="container-8xl">
                     <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-20 items-center">
                         <motion.div
@@ -160,7 +160,7 @@ const SupportCoordination = () => {
                                     Think of your NDIS plan as the roadmap and your Support Coordinator as the experienced guide. We help you navigate the system, understand your budget, and connect you with the very best providers in Melbourne. Our goal is simple: to help you build the capacity to manage your own supports, giving you full control over your life and your future.
                                 </p>
                             </div>
-                            <div className="flex gap-4 pt-4">
+                            <div className="flex flex-col sm:flex-row gap-4 pt-4">
                                 <TalkToUsButton />
                                 <Link href="/consultations">
                                     <Button size="lg" className="h-14 px-8 rounded-full bg-primary hover:bg-primary/90 text-[#1A202C] text-lg font-bold shadow-lg hover:shadow-xl transition-all hover:-translate-y-1">
@@ -174,10 +174,10 @@ const SupportCoordination = () => {
             </section>
 
             {/* What Does a Support Coordinator Do? */}
-            <section className="py-20 bg-white relative">
+            <section className="py-10 bg-white relative">
                 <div className="absolute top-0 right-0 w-1/3 h-full bg-gray-50 -skew-x-12 -z-10" />
                 <div className="container-8xl">
-                    <div className="text-center max-w-3xl mx-auto mb-16 space-y-4">
+                    <div className="text-center max-w-3xl mx-auto mb-8 space-y-4">
                         <h2 className="text-3xl md:text-5xl font-black text-[#2D3748]">
                             What Does a <span className="text-secondary">Support Coordinator Do?</span>
                         </h2>
@@ -223,7 +223,7 @@ const SupportCoordination = () => {
             </section>
 
             {/* Why Choose JS Choice */}
-            <section className="py-20 lg:py-28 relative bg-[#2D3748] text-white overflow-hidden">
+            <section className="py-10 lg:py-14 relative bg-[#2D3748] text-white overflow-hidden">
                 <div className="container-8xl">
                     <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
                         <motion.div
@@ -278,7 +278,7 @@ const SupportCoordination = () => {
             </section>
 
             {/* FAQ Section */}
-            <section className="py-20 bg-gray-50">
+            <section className="py-10 bg-gray-50">
                 <div className="container-8xl max-w-4xl mx-auto">
                     <div className="text-center mb-12">
                         <h2 className="text-3xl md:text-4xl font-black text-[#2D3748] mb-4">
@@ -304,7 +304,7 @@ const SupportCoordination = () => {
             </section>
 
             {/* CTA Section */}
-            <section className="py-20 lg:py-32 bg-white relative overflow-hidden">
+            <section className="py-10 lg:py-14 bg-white relative overflow-hidden">
                 <div className="absolute inset-0 bg-primary/5 -z-10" />
                 <div className="container-8xl relative z-10">
                     <motion.div

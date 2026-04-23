@@ -90,7 +90,7 @@ const ClientFamilyAdvocacy = () => {
             />
 
             {/* Hero Section */}
-            <section className="py-20 lg:py-28 overflow-hidden">
+            <section className="py-10 lg:py-14 overflow-hidden">
                 <div className="container-8xl">
                     <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-20 items-center">
                         <motion.div
@@ -134,7 +134,7 @@ const ClientFamilyAdvocacy = () => {
                                     Our Client and Family Advocacy service is here to stand beside you. We represent your interests, help you understand your rights, and ensure you have the confidence to navigate the NDIS landscape, whether you are applying for access, resolving a dispute, or simply trying to get the most out of your plan.
                                 </p>
                             </div>
-                            <div className="flex gap-4 pt-4">
+                            <div className="flex flex-col sm:flex-row gap-4 pt-4">
                                 <Button size="lg" className="h-14 px-8 rounded-full bg-[#2D3748] hover:bg-black text-white text-lg font-bold shadow-lg hover:shadow-xl transition-all hover:-translate-y-1">
                                     <Phone className="mr-2 h-5 w-5" />
                                     Talk to Us
@@ -151,10 +151,10 @@ const ClientFamilyAdvocacy = () => {
             </section>
 
             {/* How We Advocate For You (Services) */}
-            <section className="py-20 bg-white relative">
+            <section className="py-10 bg-white relative">
                 <div className="absolute top-0 left-0 w-1/3 h-full bg-gray-50 skew-x-12 -z-10" />
                 <div className="container-8xl">
-                    <div className="text-center max-w-3xl mx-auto mb-16 space-y-4">
+                    <div className="text-center max-w-3xl mx-auto mb-8 space-y-4">
                         <h2 className="text-3xl md:text-5xl font-black text-[#2D3748]">
                             How We Advocate <span className="text-secondary">For You</span>
                         </h2>
@@ -189,9 +189,9 @@ const ClientFamilyAdvocacy = () => {
             </section>
 
             {/* Why Is Advocacy Important? */}
-            <section className="py-20 lg:py-28 bg-[#2D3748] text-white overflow-hidden">
+            <section className="py-10 lg:py-14 bg-[#2D3748] text-white overflow-hidden">
                 <div className="container-8xl">
-                    <div className="text-center max-w-3xl mx-auto mb-16 space-y-4">
+                    <div className="text-center max-w-3xl mx-auto mb-8 space-y-4">
                         <h2 className="text-3xl md:text-5xl font-black text-white">
                             Why Is Advocacy <span className="text-primary">Important?</span>
                         </h2>
@@ -224,7 +224,7 @@ const ClientFamilyAdvocacy = () => {
             </section>
 
             {/* When Should You Reach Out? */}
-            <section className="py-20 bg-white">
+            <section className="py-10 bg-white">
                 <div className="container-8xl">
                     <div className="bg-gray-50 rounded-[3rem] p-10 md:p-16 border border-gray-100 shadow-sm flex flex-col lg:flex-row items-center gap-12">
                         <div className="flex-1 space-y-6">
@@ -267,7 +267,7 @@ const ClientFamilyAdvocacy = () => {
             </section>
 
             {/* CTA Section */}
-            <section className="py-20 lg:py-32 bg-gray-50 relative overflow-hidden">
+            <section className="py-10 lg:py-14 bg-gray-50 relative overflow-hidden">
                 <div className="container-8xl relative z-10">
                     <motion.div
                         initial={{ opacity: 0, y: 30 }}

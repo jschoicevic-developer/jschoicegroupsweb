@@ -1,4 +1,4 @@
-"use client";
+﻿"use client";
 
 import { motion } from "framer-motion";
 import PageHeader from "@/components/ui/PageHeader";
@@ -99,7 +99,7 @@ const EmergencyRespite = () => {
             />
 
             {/* Intro Section */}
-            <section className="py-20 lg:py-28 overflow-hidden">
+            <section className="py-10 lg:py-14 overflow-hidden">
                 <div className="container-8xl">
                     <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-20 items-center">
                         <motion.div
@@ -144,7 +144,7 @@ const EmergencyRespite = () => {
                                     Whether it's in-home support or a stay at our short-term accommodation, our team is ready to respond. We prioritise the safety and well-being of NDIS participants, ensuring continuity of care even in crisis situations.
                                 </p>
                             </div>
-                            <div className="flex gap-4 pt-4">
+                            <div className="flex flex-col sm:flex-row gap-4 pt-4">
                                 <Link href="/referral">
                                     <Button size="lg" className="h-14 px-8 rounded-full bg-primary hover:bg-primary/90 text-[#1A202C] text-lg font-bold shadow-lg hover:shadow-xl transition-all hover:-translate-y-1">
                                         Free Referral <ArrowRight className="ml-2 h-5 w-5" />
@@ -162,7 +162,7 @@ const EmergencyRespite = () => {
             </section>
 
             {/* What is Emergency Respite */}
-            <section className="py-20 bg-white relative">
+            <section className="py-10 bg-white relative">
                 <div className="absolute top-0 right-0 w-1/3 h-full bg-gray-50 -skew-x-12 -z-10" />
                 <div className="container-8xl">
                     <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-20 items-center">
@@ -208,7 +208,7 @@ const EmergencyRespite = () => {
             </section>
 
             {/* How It Works */}
-            <section className="py-20 lg:py-28 overflow-hidden">
+            <section className="py-10 lg:py-14 overflow-hidden">
                 <div className="container-8xl">
                     <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
                         <motion.div
@@ -262,7 +262,7 @@ const EmergencyRespite = () => {
             </section>
 
             {/* Services Included */}
-            <section className="py-20 bg-[#2D3748] text-white overflow-hidden">
+            <section className="py-10 bg-[#2D3748] text-white overflow-hidden">
                 <div className="container-8xl">
                     <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
                         <motion.div
@@ -325,9 +325,9 @@ const EmergencyRespite = () => {
             />
 
             {/* Why Choose Us & CTA */}
-            <section className="py-20 lg:py-32 relative overflow-hidden bg-white">
+            <section className="py-10 lg:py-14 relative overflow-hidden bg-white">
                 <div className="container-8xl">
-                    <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center mb-20">
+                    <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center mb-10">
                         <motion.div
                             initial={{ opacity: 0, x: -50 }}
                             whileInView={{ opacity: 1, x: 0 }}

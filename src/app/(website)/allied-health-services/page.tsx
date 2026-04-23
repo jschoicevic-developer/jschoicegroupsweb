@@ -103,7 +103,7 @@ const AlliedHealthAssistance = () => {
             />
 
             {/* Hero Section */}
-            <section className="py-20 lg:py-28 overflow-hidden">
+            <section className="py-10 lg:py-14 overflow-hidden">
                 <div className="container-8xl">
                     <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-20 items-center">
                         <motion.div
@@ -150,7 +150,7 @@ const AlliedHealthAssistance = () => {
                                     By using an AHA, you can increase the frequency of your support sessions for a fraction of the cost, ensuring you reach your goals faster.
                                 </p>
                             </div>
-                            <div className="flex gap-4 pt-4">
+                            <div className="flex flex-col sm:flex-row gap-4 pt-4">
                                 <TalkToUsButton />
                                 <Link href="/consultations">
                                     <Button size="lg" className="h-14 px-8 rounded-full bg-primary hover:bg-primary/90 text-[#1A202C] text-lg font-bold shadow-lg hover:shadow-xl transition-all hover:-translate-y-1">
@@ -164,7 +164,7 @@ const AlliedHealthAssistance = () => {
             </section>
 
             {/* What Does an AHA Do? */}
-            <section className="py-20 bg-white relative">
+            <section className="py-10 bg-white relative">
                 <div className="absolute top-0 right-0 w-1/3 h-full bg-gray-50 -skew-x-12 -z-10" />
                 <div className="container-8xl">
                     <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
@@ -219,9 +219,9 @@ const AlliedHealthAssistance = () => {
             </section>
 
             {/* Conditions We Support */}
-            <section className="py-20 bg-gray-50">
+            <section className="py-10 bg-gray-50">
                 <div className="container-8xl">
-                    <div className="text-center max-w-3xl mx-auto mb-16 space-y-4">
+                    <div className="text-center max-w-3xl mx-auto mb-8 space-y-4">
                         <h2 className="text-3xl md:text-5xl font-black text-[#2D3748]">
                             Conditions <span className="text-secondary">We Support</span>
                         </h2>
@@ -248,7 +248,7 @@ const AlliedHealthAssistance = () => {
             </section>
 
             {/* Benefits of Hiring an AHA */}
-            <section className="py-20 lg:py-28 overflow-hidden bg-[#2D3748] text-white">
+            <section className="py-10 lg:py-14 overflow-hidden bg-[#2D3748] text-white">
                 <div className="container-8xl">
                     <div className="grid grid-cols-1 lg:grid-cols-2 gap-20 items-center">
                         <motion.div
@@ -303,7 +303,7 @@ const AlliedHealthAssistance = () => {
             </section>
 
             {/* Why Choose Us */}
-            <section className="py-20 bg-white">
+            <section className="py-10 bg-white">
                 <div className="container-8xl">
                     <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
                         <div className="space-y-10">
@@ -341,7 +341,7 @@ const AlliedHealthAssistance = () => {
             </section>
 
             {/* CTA Section */}
-            <section className="py-20 lg:py-32 bg-gray-50 relative overflow-hidden">
+            <section className="py-10 lg:py-14 bg-gray-50 relative overflow-hidden">
                 <div className="container-8xl relative z-10">
                     <motion.div
                         initial={{ opacity: 0, y: 30 }}
