@@ -1,4 +1,4 @@
-"use client";
+﻿"use client";
 
 import { motion } from "framer-motion";
 import PageHeader from "@/components/ui/PageHeader";
@@ -100,7 +100,7 @@ const AssistanceWithNursingCare = () => {
             />
 
             {/* Intro Section */}
-            <section className="py-20 lg:py-28 overflow-hidden">
+            <section className="py-10 lg:py-14 overflow-hidden">
                 <div className="container-8xl">
                     <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-20 items-center">
                         <motion.div
@@ -145,7 +145,7 @@ const AssistanceWithNursingCare = () => {
                                     Our skilled professionals have vast experience and expertise in the industry. Whether you or your loved one requires the best assistance and community nursing service, we are always ready to provide quality results.
                                 </p>
                             </div>
-                            <div className="flex gap-4 pt-4">
+                            <div className="flex flex-col sm:flex-row gap-4 pt-4">
                                 <Link href="/referral">
                                     <Button size="lg" className="h-14 px-8 rounded-full bg-primary hover:bg-primary/90 text-[#1A202C] text-lg font-bold shadow-lg hover:shadow-xl transition-all hover:-translate-y-1">
                                         Free Referral <ArrowRight className="ml-2 h-5 w-5" />
@@ -163,7 +163,7 @@ const AssistanceWithNursingCare = () => {
             </section>
 
             {/* What is Community Nursing Care */}
-            <section className="py-20 bg-white relative">
+            <section className="py-10 bg-white relative">
                 <div className="absolute top-0 right-0 w-1/3 h-full bg-gray-50 -skew-x-12 -z-10" />
                 <div className="container-8xl">
                     <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-20 items-center">
@@ -209,12 +209,12 @@ const AssistanceWithNursingCare = () => {
             </section>
 
             {/* How It Works */}
-            <section className="py-20 lg:py-28 overflow-hidden">
+            <section className="py-10 lg:py-14 overflow-hidden">
                 <div className="container-8xl">
                     <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
                         <motion.div
-                            initial={{ opacity: 0, display: "none" }}
-                            whileInView={{ opacity: 1, display: "block" }}
+                            initial={{ opacity: 0, x: -50 }}
+                            whileInView={{ opacity: 1, x: 0 }}
                             viewport={{ once: true }}
                             transition={{ duration: 0.8 }}
                             className="hidden lg:block relative"
@@ -263,40 +263,46 @@ const AssistanceWithNursingCare = () => {
             </section>
 
             {/* Services Included */}
-            <section className="py-20 bg-[#2D3748] text-white overflow-hidden">
+            <section className="py-10 bg-[#2D3748] text-white overflow-hidden">
                 <div className="container-8xl">
-                    <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
+                    {/* Centered heading */}
+                    <motion.div
+                        initial={{ opacity: 0, y: 20 }}
+                        whileInView={{ opacity: 1, y: 0 }}
+                        viewport={{ once: true }}
+                        transition={{ duration: 0.6 }}
+                        className="text-center max-w-3xl mx-auto mb-10"
+                    >
+                        <h2 className="text-4xl lg:text-5xl font-black mb-4 text-white">
+                            Services Included in <span className="text-primary">Nursing Care</span>
+                        </h2>
+                        <p className="text-gray-300 text-lg">
+                            At JS Choice – Care and Support, our NDIS community nursing care services in Melbourne include:
+                        </p>
+                    </motion.div>
+
+                    {/* Cards + Image side by side, image matches cards height */}
+                    <div className="grid grid-cols-1 lg:grid-cols-2 gap-10 items-stretch">
                         <motion.div
                             initial={{ opacity: 0, x: -50 }}
                             whileInView={{ opacity: 1, x: 0 }}
                             viewport={{ once: true }}
                             transition={{ duration: 0.8 }}
-                            className="space-y-10"
+                            className="grid gap-6 content-start"
                         >
-                            <div>
-                                <h2 className="text-4xl lg:text-5xl font-black mb-6 text-white">
-                                    Services Included in <span className="text-primary">Nursing Care</span>
-                                </h2>
-                                <p className="text-gray-300 text-lg">
-                                    At JS Choice – Care and Support, our NDIS community nursing care services in Melbourne include:
-                                </p>
-                            </div>
-
-                            <div className="grid gap-6">
-                                {includedServices.map((service, index) => (
-                                    <div key={index} className="bg-white/5 border border-white/10 p-6 rounded-2xl hover:bg-white/10 transition-colors duration-300">
-                                        <div className="flex items-start gap-4">
-                                            <div className="mt-1 text-primary">
-                                                <service.icon size={24} />
-                                            </div>
-                                            <div>
-                                                <h4 className="text-xl font-bold mb-2 text-white">{service.title}</h4>
-                                                <p className="text-gray-300 text-sm leading-relaxed">{service.description}</p>
-                                            </div>
+                            {includedServices.map((service, index) => (
+                                <div key={index} className="bg-white/5 border border-white/10 p-6 rounded-2xl hover:bg-white/10 transition-colors duration-300">
+                                    <div className="flex items-start gap-4">
+                                        <div className="mt-1 text-primary">
+                                            <service.icon size={24} />
+                                        </div>
+                                        <div>
+                                            <h4 className="text-xl font-bold mb-2 text-white">{service.title}</h4>
+                                            <p className="text-gray-300 text-sm leading-relaxed">{service.description}</p>
                                         </div>
                                     </div>
-                                ))}
-                            </div>
+                                </div>
+                            ))}
                         </motion.div>
 
                         <motion.div
@@ -304,9 +310,9 @@ const AssistanceWithNursingCare = () => {
                             whileInView={{ opacity: 1, x: 0 }}
                             viewport={{ once: true }}
                             transition={{ duration: 0.8 }}
-                            className="relative order-first lg:order-last"
+                            className="relative hidden lg:block"
                         >
-                            <div className="relative w-full h-[500px]">
+                            <div className="relative w-full h-full">
                                 <Image quality={80}
                                     src="/images/nursing/nursing-care-img04.webp"
                                     alt="Services Included"
@@ -320,9 +326,9 @@ const AssistanceWithNursingCare = () => {
             </section>
 
             {/* Why Choose Us & CTA */}
-            <section className="py-20 lg:py-32 relative overflow-hidden bg-white">
+            <section className="py-10 lg:py-14 relative overflow-hidden bg-white">
                 <div className="container-8xl">
-                    <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center mb-20">
+                    <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center mb-10">
                         <motion.div
                             initial={{ opacity: 0, x: -50 }}
                             whileInView={{ opacity: 1, x: 0 }}
@@ -399,9 +405,9 @@ const AssistanceWithNursingCare = () => {
             <ServiceCTA />
 
             <ServiceFormSection
-              source="service_page"
-              sourcePage="/assistance-with-nursing-care"
-              defaultService="Community Nursing Care"
+                source="service_page"
+                sourcePage="/assistance-with-nursing-care"
+                defaultService="Community Nursing Care"
             />
 
         </main>

@@ -60,7 +60,7 @@ const AssistanceWithDailyLife = () => {
             />
 
             {/* Introduction Section */}
-            <section className="py-20 lg:py-28 overflow-hidden">
+            <section className="py-10 lg:py-14 overflow-hidden">
                 <div className="container-8xl">
                     <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-20 items-center">
                         <motion.div
@@ -115,7 +115,7 @@ const AssistanceWithDailyLife = () => {
             </section>
 
             {/* What Comprises Section */}
-            <section className="py-20 lg:py-28 bg-white relative">
+            <section className="py-10 lg:py-14 bg-white relative">
                 <div className="absolute top-0 right-0 w-1/2 h-full bg-gray-50 skew-x-12 -z-10" />
                 <div className="container-8xl">
                     <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-20 items-center">
@@ -165,7 +165,7 @@ const AssistanceWithDailyLife = () => {
             </section>
 
             {/* Image Breaker */}
-            <section className="py-20">
+            <section className="py-10">
                 <div className="container-8xl">
                     <motion.div
                         initial={{ opacity: 0, y: 30 }}
@@ -191,7 +191,7 @@ const AssistanceWithDailyLife = () => {
             </section>
 
             {/* Why Choose Us */}
-            <section className="py-20 lg:py-28 bg-[#2D3748] text-white overflow-hidden">
+            <section className="py-10 lg:py-14 bg-[#2D3748] text-white overflow-hidden">
                 <div className="container-8xl">
                     <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
                         <motion.div
@@ -244,7 +244,7 @@ const AssistanceWithDailyLife = () => {
             </section>
 
             {/* CTA Section */}
-            <section className="py-20 lg:py-32 bg-gray-50 relative overflow-hidden">
+            <section className="py-10 lg:py-14 bg-gray-50 relative overflow-hidden">
                 <div className="absolute top-0 left-0 w-full h-full bg-[radial-gradient(#ABB3F1_0.5px,transparent_0.5px)] [background-size:24px_24px] opacity-20" />
 
                 <div className="container-8xl relative z-10">

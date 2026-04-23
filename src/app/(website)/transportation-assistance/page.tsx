@@ -123,7 +123,7 @@ const TransportationAssistance = () => {
             />
 
             {/* Hero Section */}
-            <section className="py-20 lg:py-28 overflow-hidden">
+            <section className="py-10 lg:py-14 overflow-hidden">
                 <div className="container-8xl">
                     <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-20 items-center">
                         <motion.div
@@ -167,7 +167,7 @@ const TransportationAssistance = () => {
                                     For many NDIS participants, public transport or rideshare apps can be stressful or inaccessible. Our Transportation Assistance service bridges that gap. We provide a door-to-door service that removes the anxiety of travel, ensuring you can access your community with confidence.
                                 </p>
                             </div>
-                            <div className="flex gap-4 pt-4">
+                            <div className="flex flex-col sm:flex-row gap-4 pt-4">
                                 <Link href="/referral">
                                     <Button size="lg" className="h-14 px-8 rounded-full bg-primary hover:bg-primary/90 text-[#1A202C] text-lg font-bold shadow-lg hover:shadow-xl transition-all hover:-translate-y-1">
                                         Free Referral <ArrowRight className="ml-2 h-5 w-5" />
@@ -181,7 +181,7 @@ const TransportationAssistance = () => {
             </section>
 
             {/* More Than Just a Driver */}
-            <section className="py-20 bg-white relative">
+            <section className="py-10 bg-white relative">
                 <div className="absolute top-0 right-0 w-1/3 h-full bg-gray-50 -skew-x-12 -z-10" />
                 <div className="container-8xl">
                     <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
@@ -236,9 +236,9 @@ const TransportationAssistance = () => {
             </section>
 
             {/* Our Transport Services (Grid) */}
-            <section className="py-20 lg:py-28 bg-[#2D3748] text-white overflow-hidden">
+            <section className="py-10 lg:py-14 bg-[#2D3748] text-white overflow-hidden">
                 <div className="container-8xl">
-                    <div className="text-center max-w-3xl mx-auto mb-16 space-y-4">
+                    <div className="text-center max-w-3xl mx-auto mb-8 space-y-4">
                         <h2 className="text-3xl md:text-5xl font-black text-white">
                             Our Transport <span className="text-primary">Services</span>
                         </h2>
@@ -272,7 +272,7 @@ const TransportationAssistance = () => {
 
 
             {/* Why Choose Us */}
-            <section className="py-20 lg:py-28 relative bg-white">
+            <section className="py-10 lg:py-14 relative bg-white">
                 <div className="absolute top-0 left-0 w-1/3 h-full bg-gray-50 skew-x-12 -z-10" />
                 <div className="container-8xl">
                     <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
@@ -322,7 +322,7 @@ const TransportationAssistance = () => {
             </section>
 
             {/* FAQ Section */}
-            <section className="py-20 bg-gray-50">
+            <section className="py-10 bg-gray-50">
                 <div className="container-8xl max-w-4xl mx-auto">
                     <div className="text-center mb-12">
                         <h2 className="text-3xl md:text-4xl font-black text-[#2D3748] mb-4">
@@ -345,7 +345,7 @@ const TransportationAssistance = () => {
             </section>
 
             {/* CTA Section */}
-            <section className="py-20 lg:py-32 bg-white relative overflow-hidden">
+            <section className="py-10 lg:py-14 bg-white relative overflow-hidden">
                 <div className="absolute inset-0 bg-primary/5 -z-10" />
                 <div className="container-8xl relative z-10">
                     <motion.div

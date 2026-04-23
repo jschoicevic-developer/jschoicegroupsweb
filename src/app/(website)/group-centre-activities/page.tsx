@@ -1,4 +1,4 @@
-"use client";
+﻿"use client";
 
 import { motion } from "framer-motion";
 import PageHeader from "@/components/ui/PageHeader";
@@ -98,7 +98,7 @@ const GroupCentreActivities = () => {
             />
 
             {/* Intro Section */}
-            <section className="py-20 lg:py-28 overflow-hidden">
+            <section className="py-10 lg:py-14 overflow-hidden">
                 <div className="container-8xl">
                     <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-20 items-center">
                         <motion.div
@@ -145,7 +145,7 @@ const GroupCentreActivities = () => {
                                     We believe that community participation looks different for everyone. Whether you love hands-on creative projects, want to master cooking, or simply enjoy being around others in a low-pressure environment, our programmes are designed to foster independence and combat social isolation.
                                 </p>
                             </div>
-                            <div className="flex gap-4 pt-4">
+                            <div className="flex flex-col sm:flex-row gap-4 pt-4">
                                 <Link href="/referral">
                                     <Button size="lg" className="h-14 px-8 rounded-full bg-primary hover:bg-primary/90 text-[#1A202C] text-lg font-bold shadow-lg hover:shadow-xl transition-all hover:-translate-y-1">
                                         Free Referral <ArrowRight className="ml-2 h-5 w-5" />
@@ -179,7 +179,7 @@ const GroupCentreActivities = () => {
             </section>
 
             {/* Activity Categories */}
-            <section className="py-20 bg-gray-50">
+            <section className="py-10 bg-gray-50">
                 <div className="container-8xl">
                     <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
                         {activityCategories.map((category, index) => (
@@ -211,7 +211,7 @@ const GroupCentreActivities = () => {
             </section>
 
             {/* Why Choose Us */}
-            <section className="py-20 lg:py-28 relative overflow-hidden bg-white">
+            <section className="py-10 lg:py-14 relative overflow-hidden bg-white">
                 <div className="container-8xl">
                     <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-20 items-center">
                         <motion.div
@@ -264,7 +264,7 @@ const GroupCentreActivities = () => {
             </section>
 
             {/* What to Expect */}
-            <section className="py-20 lg:py-28 overflow-hidden bg-[#2D3748] text-white">
+            <section className="py-10 lg:py-14 overflow-hidden bg-[#2D3748] text-white">
                 <div className="container-8xl">
                     <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
                         <motion.div
@@ -313,7 +313,7 @@ const GroupCentreActivities = () => {
             </section>
 
             {/* CTA Section */}
-            <section className="py-20 lg:py-32 bg-gray-50 relative overflow-hidden">
+            <section className="py-10 lg:py-14 bg-gray-50 relative overflow-hidden">
                 <div className="container-8xl relative z-10">
                     <motion.div
                         initial={{ opacity: 0, y: 30 }}

@@ -1,4 +1,4 @@
-"use client";
+﻿"use client";
 
 import { motion } from "framer-motion";
 import PageHeader from "@/components/ui/PageHeader";
@@ -88,7 +88,7 @@ const EmploymentEducationPage = () => {
             />
 
             {/* Hero Section */}
-            <section className="py-20 lg:py-28 overflow-hidden">
+            <section className="py-10 lg:py-14 overflow-hidden">
                 <div className="container-8xl">
                     <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-20 items-center">
                         <motion.div
@@ -132,7 +132,7 @@ const EmploymentEducationPage = () => {
                                     Whether you're looking for your first job, returning to work, or wanting to study, our dedicated specialists work closely with you. We tailor our support to your unique strengths, ensuring you have every opportunity to thrive in the workplace and the classroom.
                                 </p>
                             </div>
-                            <div className="flex gap-4 pt-4">
+                            <div className="flex flex-col sm:flex-row gap-4 pt-4">
                                 <Button size="lg" className="h-14 px-8 rounded-full bg-[#2D3748] hover:bg-black text-white text-lg font-bold shadow-lg hover:shadow-xl transition-all hover:-translate-y-1">
                                     <Phone className="mr-2 h-5 w-5" />
                                     Talk to a Specialist
@@ -149,10 +149,10 @@ const EmploymentEducationPage = () => {
             </section>
 
             {/* How We Support Your Journey */}
-            <section className="py-20 bg-white relative">
+            <section className="py-10 bg-white relative">
                 <div className="absolute top-0 left-0 w-1/3 h-full bg-gray-50 skew-x-12 -z-10" />
                 <div className="container-8xl">
-                    <div className="text-center max-w-3xl mx-auto mb-16 space-y-4">
+                    <div className="text-center max-w-3xl mx-auto mb-8 space-y-4">
                         <h2 className="text-3xl md:text-5xl font-black text-[#2D3748]">
                             How We Support <span className="text-secondary">Your Journey</span>
                         </h2>
@@ -187,9 +187,9 @@ const EmploymentEducationPage = () => {
             </section>
 
             {/* Why Is Career & Growth Important? */}
-            <section className="py-20 lg:py-28 bg-[#2D3748] text-white overflow-hidden">
+            <section className="py-10 lg:py-14 bg-[#2D3748] text-white overflow-hidden">
                 <div className="container-8xl">
-                    <div className="text-center max-w-3xl mx-auto mb-16 space-y-4">
+                    <div className="text-center max-w-3xl mx-auto mb-8 space-y-4">
                         <h2 className="text-3xl md:text-5xl font-black text-white">
                             Why Focus on <span className="text-primary">Growth?</span>
                         </h2>
@@ -222,7 +222,7 @@ const EmploymentEducationPage = () => {
             </section>
 
             {/* Are You Ready? */}
-            <section className="py-20 bg-white">
+            <section className="py-10 bg-white">
                 <div className="container-8xl">
                     <div className="bg-gray-50 rounded-[3rem] p-10 md:p-16 border border-gray-100 shadow-sm flex flex-col lg:flex-row items-center gap-12">
                         <div className="flex-1 space-y-6">
@@ -264,7 +264,7 @@ const EmploymentEducationPage = () => {
             </section>
 
             {/* CTA Section */}
-            <section className="py-20 lg:py-32 bg-gray-50 relative overflow-hidden">
+            <section className="py-10 lg:py-14 bg-gray-50 relative overflow-hidden">
                 <div className="container-8xl relative z-10">
                     <motion.div
                         initial={{ opacity: 0, y: 30 }}
