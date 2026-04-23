@@ -264,38 +264,44 @@ const EmergencyRespite = () => {
             {/* Services Included */}
             <section className="py-10 bg-[#2D3748] text-white overflow-hidden">
                 <div className="container-8xl">
-                    <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
+                    {/* Centered heading */}
+                    <motion.div
+                        initial={{ opacity: 0, y: 20 }}
+                        whileInView={{ opacity: 1, y: 0 }}
+                        viewport={{ once: true }}
+                        transition={{ duration: 0.6 }}
+                        className="text-center max-w-3xl mx-auto mb-10"
+                    >
+                        <h2 className="text-4xl lg:text-5xl font-black mb-4 text-white">
+                            Services Included in <span className="text-primary">Respite Care</span>
+                        </h2>
+                        <p className="text-gray-300 text-lg">
+                            We offer comprehensive respite options to suit different needs and situations:
+                        </p>
+                    </motion.div>
+
+                    {/* Cards left + Image right, image matches card height */}
+                    <div className="grid grid-cols-1 lg:grid-cols-2 gap-10 items-stretch">
                         <motion.div
                             initial={{ opacity: 0, x: -50 }}
                             whileInView={{ opacity: 1, x: 0 }}
                             viewport={{ once: true }}
                             transition={{ duration: 0.8 }}
-                            className="space-y-10"
+                            className="grid gap-6 content-start"
                         >
-                            <div>
-                                <h2 className="text-4xl lg:text-5xl font-black mb-6 text-white">
-                                    Services Included in <span className="text-primary">Respite Care</span>
-                                </h2>
-                                <p className="text-gray-300 text-lg">
-                                    We offer comprehensive respite options to suit different needs and situations:
-                                </p>
-                            </div>
-
-                            <div className="grid gap-6">
-                                {includedServices.map((service, index) => (
-                                    <div key={index} className="bg-white/5 border border-white/10 p-6 rounded-2xl hover:bg-white/10 transition-colors duration-300">
-                                        <div className="flex items-start gap-4">
-                                            <div className="mt-1 text-primary">
-                                                <service.icon size={24} />
-                                            </div>
-                                            <div>
-                                                <h4 className="text-xl font-bold mb-2 text-white">{service.title}</h4>
-                                                <p className="text-gray-300 text-sm leading-relaxed">{service.description}</p>
-                                            </div>
+                            {includedServices.map((service, index) => (
+                                <div key={index} className="bg-white/5 border border-white/10 p-6 rounded-2xl hover:bg-white/10 transition-colors duration-300">
+                                    <div className="flex items-start gap-4">
+                                        <div className="mt-1 text-primary">
+                                            <service.icon size={24} />
+                                        </div>
+                                        <div>
+                                            <h4 className="text-xl font-bold mb-2 text-white">{service.title}</h4>
+                                            <p className="text-gray-300 text-sm leading-relaxed">{service.description}</p>
                                         </div>
                                     </div>
-                                ))}
-                            </div>
+                                </div>
+                            ))}
                         </motion.div>
 
                         <motion.div
@@ -303,9 +309,9 @@ const EmergencyRespite = () => {
                             whileInView={{ opacity: 1, x: 0 }}
                             viewport={{ once: true }}
                             transition={{ duration: 0.8 }}
-                            className="relative order-first lg:order-last"
+                            className="relative hidden lg:block"
                         >
-                            <div className="relative w-full h-[500px]">
+                            <div className="relative w-full h-full">
                                 <Image quality={80}
                                     src="/images/emergency-respite/respite-4.webp"
                                     alt="Services Included"

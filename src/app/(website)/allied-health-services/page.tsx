@@ -250,22 +250,42 @@ const AlliedHealthAssistance = () => {
             {/* Benefits of Hiring an AHA */}
             <section className="py-10 lg:py-14 overflow-hidden bg-[#2D3748] text-white">
                 <div className="container-8xl">
-                    <div className="grid grid-cols-1 lg:grid-cols-2 gap-20 items-center">
+                    {/* Centered heading */}
+                    <motion.div
+                        initial={{ opacity: 0, y: 20 }}
+                        whileInView={{ opacity: 1, y: 0 }}
+                        viewport={{ once: true }}
+                        transition={{ duration: 0.6 }}
+                        className="text-center max-w-3xl mx-auto mb-10"
+                    >
+                        <h2 className="text-4xl font-black mb-4 text-white">
+                            The Benefits of <span className="text-primary">Hiring an AHA</span>
+                        </h2>
+                        <p className="text-gray-300 text-lg">
+                            Why add an Allied Health Assistant to your NDIS team?
+                        </p>
+                    </motion.div>
+
+                    {/* Cards left + Image right, image matches card height */}
+                    <div className="grid grid-cols-1 lg:grid-cols-2 gap-10 items-stretch">
                         <motion.div
                             initial={{ opacity: 0, x: -50 }}
                             whileInView={{ opacity: 1, x: 0 }}
                             viewport={{ once: true }}
                             transition={{ duration: 0.8 }}
-                            className="order-2 lg:order-1 relative"
+                            className="grid gap-6 content-start"
                         >
-                            <div className="relative w-full h-[500px]">
-                                <Image quality={80}
-                                    src="/images/allied-health/img35.webp"
-                                    alt="Benefits of Hiring AHA"
-                                    fill
-                                    className="rounded-[2.5rem] shadow-2xl border-8 border-white/10 object-cover"
-                                />
-                            </div>
+                            {benefits.map((benefit, index) => (
+                                <div key={index} className="bg-white/5 border border-white/10 p-6 rounded-2xl flex gap-4 hover:bg-white/10 transition-colors group">
+                                    <div className="mt-1 flex-shrink-0">
+                                        <benefit.icon className="w-8 h-8 text-primary group-hover:scale-110 transition-transform" />
+                                    </div>
+                                    <div>
+                                        <h3 className="font-bold text-lg mb-2 text-white">{benefit.title}</h3>
+                                        <p className="text-gray-400 text-sm leading-relaxed">{benefit.description}</p>
+                                    </div>
+                                </div>
+                            ))}
                         </motion.div>
 
                         <motion.div
@@ -273,29 +293,15 @@ const AlliedHealthAssistance = () => {
                             whileInView={{ opacity: 1, x: 0 }}
                             viewport={{ once: true }}
                             transition={{ duration: 0.8 }}
-                            className="order-1 lg:order-2 space-y-10"
+                            className="relative hidden lg:block"
                         >
-                            <div>
-                                <h2 className="text-4xl font-black mb-6 text-white">
-                                    The Benefits of <span className="text-primary">Hiring an AHA</span>
-                                </h2>
-                                <p className="text-gray-300 text-lg mb-8">
-                                    Why add an Allied Health Assistant to your NDIS team?
-                                </p>
-                            </div>
-
-                            <div className="grid gap-6">
-                                {benefits.map((benefit, index) => (
-                                    <div key={index} className="bg-white/5 border border-white/10 p-6 rounded-2xl flex gap-4 hover:bg-white/10 transition-colors group">
-                                        <div className="mt-1 flex-shrink-0">
-                                            <benefit.icon className="w-8 h-8 text-primary group-hover:scale-110 transition-transform" />
-                                        </div>
-                                        <div>
-                                            <h3 className="font-bold text-lg mb-2 text-white">{benefit.title}</h3>
-                                            <p className="text-gray-400 text-sm leading-relaxed">{benefit.description}</p>
-                                        </div>
-                                    </div>
-                                ))}
+                            <div className="relative w-full h-full">
+                                <Image quality={80}
+                                    src="/images/allied-health/img35.webp"
+                                    alt="Benefits of Hiring AHA"
+                                    fill
+                                    className="rounded-[2.5rem] shadow-2xl border-8 border-white/10 object-cover"
+                                />
                             </div>
                         </motion.div>
                     </div>
