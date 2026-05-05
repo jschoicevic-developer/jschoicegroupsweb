@@ -147,7 +147,7 @@ const NdisAccommodation = () => {
                             </div>
                             <div className="flex flex-col sm:flex-row gap-4 pt-4">
                                 <TalkToUsButton />
-                                <Link href="/consultations">
+                                <Link href="/referral">
                                     <Button size="lg" className="h-14 px-8 rounded-full bg-primary hover:bg-primary/90 text-[#1A202C] text-lg font-bold shadow-lg hover:shadow-xl transition-all hover:-translate-y-1">
                                         Free Referral <ArrowRight className="ml-2 h-5 w-5" />
                                     </Button>

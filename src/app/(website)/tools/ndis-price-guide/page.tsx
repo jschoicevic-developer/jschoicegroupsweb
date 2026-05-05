@@ -4,7 +4,7 @@ import Link from 'next/link';
 import type { Metadata } from 'next';
 
 export const metadata: Metadata = {
-  title: 'NDIS Price Guide Navigator | JS Choice Group',
+  title: 'NDIS Price Guide Navigator',
   description: 'Search NDIS support item prices by name or code. Compare regional pricing and view detailed claim requirements for all NDIS services.',
 };
 

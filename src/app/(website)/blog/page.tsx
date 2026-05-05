@@ -6,7 +6,7 @@ export const metadata: Metadata = {
     title: "Blog | JS Choice Care & Support",
     description: "Discover professional insights, NDIS resources, and comprehensive care strategies from the JS Choice Care & Support team.",
     alternates: {
-        canonical: "/blog",
+        canonical: "https://jschoicegroup.com.au/blog",
     },
 };
 
