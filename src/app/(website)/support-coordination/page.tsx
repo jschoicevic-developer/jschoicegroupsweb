@@ -8,6 +8,7 @@ import Link from "next/link";
 import Image from "next/image";
 import ServiceCTA from "@/components/ui/ServiceCTA";
 import ServiceFormSection from "@/components/ui/ServiceFormSection";
+import JsonLd from "@/components/schema/JsonLd";
 import {
     Phone,
     ArrowRight,
@@ -104,9 +105,41 @@ const faqs = [
     }
 ];
 
+const serviceSchemas = [
+    {
+        "@context": "https://schema.org",
+        "@type": "Service",
+        "@id": "https://jschoicegroup.com.au/support-coordination#service",
+        name: "Support Coordination",
+        description: "NDIS Support Coordination services in Melbourne — helping participants understand their plan, build a support team, and achieve their goals.",
+        url: "https://jschoicegroup.com.au/support-coordination",
+        provider: { "@id": "https://jschoicegroup.com.au/#organization" },
+        serviceType: "NDIS Support Coordination",
+        areaServed: { "@type": "State", name: "Victoria", addressCountry: "AU" },
+    },
+    {
+        "@context": "https://schema.org",
+        "@type": "BreadcrumbList",
+        itemListElement: [
+            { "@type": "ListItem", position: 1, name: "Home", item: "https://jschoicegroup.com.au" },
+            { "@type": "ListItem", position: 2, name: "Support Coordination", item: "https://jschoicegroup.com.au/support-coordination" },
+        ],
+    },
+    {
+        "@context": "https://schema.org",
+        "@type": "FAQPage",
+        mainEntity: faqs.map(faq => ({
+            "@type": "Question",
+            name: faq.question,
+            acceptedAnswer: { "@type": "Answer", text: faq.answer },
+        })),
+    },
+];
+
 const SupportCoordination = () => {
     return (
         <main className="bg-gray-50/50">
+            <JsonLd data={serviceSchemas} />
             <PageHeader
                 title="Support Coordination"
                 breadcrumb={[

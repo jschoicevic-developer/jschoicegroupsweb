@@ -30,6 +30,7 @@ import {
 } from "@/components/ui/accordion";
 import ServiceCTA from "@/components/ui/ServiceCTA";
 import ServiceFormSection from "@/components/ui/ServiceFormSection";
+import JsonLd from "@/components/schema/JsonLd";
 
 
 const moreThanJustADriver = [
@@ -111,9 +112,41 @@ const faqs = [
     }
 ];
 
+const serviceSchemas = [
+    {
+        "@context": "https://schema.org",
+        "@type": "Service",
+        "@id": "https://jschoicegroup.com.au/transportation-assistance#service",
+        name: "Transportation Assistance",
+        description: "NDIS transportation support services in Melbourne — helping participants travel to appointments, social activities, and community events.",
+        url: "https://jschoicegroup.com.au/transportation-assistance",
+        provider: { "@id": "https://jschoicegroup.com.au/#organization" },
+        serviceType: "NDIS Transportation Assistance",
+        areaServed: { "@type": "State", name: "Victoria", addressCountry: "AU" },
+    },
+    {
+        "@context": "https://schema.org",
+        "@type": "BreadcrumbList",
+        itemListElement: [
+            { "@type": "ListItem", position: 1, name: "Home", item: "https://jschoicegroup.com.au" },
+            { "@type": "ListItem", position: 2, name: "Transportation Assistance", item: "https://jschoicegroup.com.au/transportation-assistance" },
+        ],
+    },
+    {
+        "@context": "https://schema.org",
+        "@type": "FAQPage",
+        mainEntity: faqs.map(faq => ({
+            "@type": "Question",
+            name: faq.question,
+            acceptedAnswer: { "@type": "Answer", text: faq.answer },
+        })),
+    },
+];
+
 const TransportationAssistance = () => {
     return (
         <main className="bg-gray-50/50">
+            <JsonLd data={serviceSchemas} />
             <PageHeader
                 title="Transportation Assistance"
                 breadcrumb={[

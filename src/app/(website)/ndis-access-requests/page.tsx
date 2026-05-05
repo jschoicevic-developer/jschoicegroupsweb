@@ -19,6 +19,7 @@ import {
 } from "lucide-react";
 import ServiceCTA from "@/components/ui/ServiceCTA";
 import ServiceFormSection from "@/components/ui/ServiceFormSection";
+import JsonLd from "@/components/schema/JsonLd";
 
 
 /**
@@ -80,9 +81,32 @@ const whyAskForHelp = [
     }
 ];
 
+const serviceSchemas = [
+    {
+        "@context": "https://schema.org",
+        "@type": "Service",
+        "@id": "https://jschoicegroup.com.au/ndis-access-requests#service",
+        name: "NDIS Access Requests",
+        description: "NDIS access request support in Melbourne — helping participants apply for NDIS access and navigate the eligibility process.",
+        url: "https://jschoicegroup.com.au/ndis-access-requests",
+        provider: { "@id": "https://jschoicegroup.com.au/#organization" },
+        serviceType: "NDIS Access Requests",
+        areaServed: { "@type": "State", name: "Victoria", addressCountry: "AU" },
+    },
+    {
+        "@context": "https://schema.org",
+        "@type": "BreadcrumbList",
+        itemListElement: [
+            { "@type": "ListItem", position: 1, name: "Home", item: "https://jschoicegroup.com.au" },
+            { "@type": "ListItem", position: 2, name: "NDIS Access Requests", item: "https://jschoicegroup.com.au/ndis-access-requests" },
+        ],
+    },
+];
+
 const NdisAccessRequests = () => {
     return (
         <main className="bg-gray-50/50">
+            <JsonLd data={serviceSchemas} />
             <PageHeader
                 title="NDIS Access Requests"
                 breadcrumb={[

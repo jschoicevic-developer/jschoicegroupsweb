@@ -20,6 +20,7 @@ import {
 } from "lucide-react";
 import ServiceCTA from "@/components/ui/ServiceCTA";
 import ServiceFormSection from "@/components/ui/ServiceFormSection";
+import JsonLd from "@/components/schema/JsonLd";
 
 
 // Data content extracted from user request
@@ -88,9 +89,32 @@ const whyChooseUs = [
     }
 ];
 
+const serviceSchemas = [
+    {
+        "@context": "https://schema.org",
+        "@type": "Service",
+        "@id": "https://jschoicegroup.com.au/assistance-with-nursing-care#service",
+        name: "Assistance with Nursing Care",
+        description: "NDIS nursing care services in Melbourne — medication management, health monitoring, and personal care for participants with complex medical needs.",
+        url: "https://jschoicegroup.com.au/assistance-with-nursing-care",
+        provider: { "@id": "https://jschoicegroup.com.au/#organization" },
+        serviceType: "NDIS Nursing Care",
+        areaServed: { "@type": "State", name: "Victoria", addressCountry: "AU" },
+    },
+    {
+        "@context": "https://schema.org",
+        "@type": "BreadcrumbList",
+        itemListElement: [
+            { "@type": "ListItem", position: 1, name: "Home", item: "https://jschoicegroup.com.au" },
+            { "@type": "ListItem", position: 2, name: "Assistance with Nursing Care", item: "https://jschoicegroup.com.au/assistance-with-nursing-care" },
+        ],
+    },
+];
+
 const AssistanceWithNursingCare = () => {
     return (
         <main className="bg-gray-50/50">
+            <JsonLd data={serviceSchemas} />
             <PageHeader
                 title="Assistance With Nursing Care"
                 breadcrumb={[

@@ -21,6 +21,7 @@ import {
 } from "lucide-react";
 import ServiceCTA from "@/components/ui/ServiceCTA";
 import ServiceFormSection from "@/components/ui/ServiceFormSection";
+import JsonLd from "@/components/schema/JsonLd";
 
 
 /**
@@ -78,9 +79,32 @@ const whyAdvocacyImportant = [
     }
 ];
 
+const serviceSchemas = [
+    {
+        "@context": "https://schema.org",
+        "@type": "Service",
+        "@id": "https://jschoicegroup.com.au/client-and-family-advocacy-for-ndis-participants-only#service",
+        name: "Client and Family Advocacy",
+        description: "NDIS client and family advocacy services in Melbourne — supporting participants and their families to understand rights and navigate the NDIS system.",
+        url: "https://jschoicegroup.com.au/client-and-family-advocacy-for-ndis-participants-only",
+        provider: { "@id": "https://jschoicegroup.com.au/#organization" },
+        serviceType: "NDIS Client Advocacy",
+        areaServed: { "@type": "State", name: "Victoria", addressCountry: "AU" },
+    },
+    {
+        "@context": "https://schema.org",
+        "@type": "BreadcrumbList",
+        itemListElement: [
+            { "@type": "ListItem", position: 1, name: "Home", item: "https://jschoicegroup.com.au" },
+            { "@type": "ListItem", position: 2, name: "Client and Family Advocacy", item: "https://jschoicegroup.com.au/client-and-family-advocacy-for-ndis-participants-only" },
+        ],
+    },
+];
+
 const ClientFamilyAdvocacy = () => {
     return (
         <main className="bg-gray-50/50">
+            <JsonLd data={serviceSchemas} />
             <PageHeader
                 title="Client And Family Advocacy For NDIS Participants Only"
                 breadcrumb={[

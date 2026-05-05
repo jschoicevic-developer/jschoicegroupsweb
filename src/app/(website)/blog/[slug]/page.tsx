@@ -3,6 +3,7 @@ import Image from 'next/image';
 import Link from 'next/link';
 import { Calendar, User, Tag, ChevronLeft, ChevronRight, Clock, FileDown, ExternalLink } from 'lucide-react';
 import type { Metadata } from 'next';
+import JsonLd from '@/components/schema/JsonLd';
 
 import BlogTableOfContents from '@/components/blog/BlogTableOfContents';
 import BlogFaqAccordion from '@/components/blog/BlogFaqAccordion';
@@ -166,9 +167,39 @@ export default async function BlogPostPage({ params, searchParams }: BlogPostPag
     const relatedPosts = await getRelatedPosts(slug);
     const readTime = calcReadTime(post.content);
 
+    const canonicalUrl = `https://jschoicegroup.com.au/blog/${slug}`;
+    const blogPostSchema = {
+        "@context": "https://schema.org",
+        "@type": "BlogPosting",
+        "@id": canonicalUrl,
+        headline: post.title,
+        description: post.excerpt,
+        url: canonicalUrl,
+        datePublished: post.published_at || post.created_at,
+        dateModified: post.published_at || post.created_at,
+        author: { "@type": "Person", name: post.author_name },
+        publisher: { "@id": "https://jschoicegroup.com.au/#organization" },
+        image:
+            post.featured_image && isValidImageUrl(post.featured_image)
+                ? post.featured_image
+                : "https://jschoicegroup.com.au/JCGLogo.png",
+        inLanguage: "en-AU",
+        isPartOf: { "@id": "https://jschoicegroup.com.au/blog#webpage" },
+    };
+
+    const breadcrumbSchema = {
+        "@context": "https://schema.org",
+        "@type": "BreadcrumbList",
+        itemListElement: [
+            { "@type": "ListItem", position: 1, name: "Home", item: "https://jschoicegroup.com.au" },
+            { "@type": "ListItem", position: 2, name: "Blog", item: "https://jschoicegroup.com.au/blog" },
+            { "@type": "ListItem", position: 3, name: post.title, item: canonicalUrl },
+        ],
+    };
+
     return (
             <main className="flex flex-col min-h-screen w-full bg-gray-50">
-
+                <JsonLd data={[blogPostSchema, breadcrumbSchema]} />
                 {/* ── HERO — keep exactly as-is ─────────────────────────────────── */}
                 <div className="w-full bg-gradient-to-br from-[#1A202C] via-[#2D3748] to-primary py-14 md:py-20">
                     <div className="max-w-7xl mx-auto px-4 md:px-6 lg:px-8">

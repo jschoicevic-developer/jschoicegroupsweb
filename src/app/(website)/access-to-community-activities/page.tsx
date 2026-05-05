@@ -26,6 +26,7 @@ import {
 } from "lucide-react";
 import ServiceCTA from "@/components/ui/ServiceCTA";
 import ServiceFormSection from "@/components/ui/ServiceFormSection";
+import JsonLd from "@/components/schema/JsonLd";
 
 
 const howWeSupport = [
@@ -132,9 +133,32 @@ const whyChooseUs = [
     }
 ];
 
+const serviceSchemas = [
+    {
+        "@context": "https://schema.org",
+        "@type": "Service",
+        "@id": "https://jschoicegroup.com.au/access-to-community-activities#service",
+        name: "Access to Community Activities",
+        description: "NDIS community access services in Melbourne — helping participants engage in community events, social activities, and develop new skills.",
+        url: "https://jschoicegroup.com.au/access-to-community-activities",
+        provider: { "@id": "https://jschoicegroup.com.au/#organization" },
+        serviceType: "NDIS Community Access",
+        areaServed: { "@type": "State", name: "Victoria", addressCountry: "AU" },
+    },
+    {
+        "@context": "https://schema.org",
+        "@type": "BreadcrumbList",
+        itemListElement: [
+            { "@type": "ListItem", position: 1, name: "Home", item: "https://jschoicegroup.com.au" },
+            { "@type": "ListItem", position: 2, name: "Access to Community Activities", item: "https://jschoicegroup.com.au/access-to-community-activities" },
+        ],
+    },
+];
+
 const AccessToCommunityActivities = () => {
     return (
         <main className="bg-gray-50/50">
+            <JsonLd data={serviceSchemas} />
             <PageHeader
                 title="Access To Community Activities"
                 breadcrumb={[

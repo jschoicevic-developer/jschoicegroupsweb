@@ -23,6 +23,7 @@ import {
 } from "lucide-react";
 import ServiceCTA from "@/components/ui/ServiceCTA";
 import ServiceFormSection from "@/components/ui/ServiceFormSection";
+import JsonLd from "@/components/schema/JsonLd";
 
 // Data content extracted from user request
 const howItWorks = [
@@ -87,9 +88,32 @@ const whyChooseUs = [
 
 import { Moon } from "lucide-react";
 
+const serviceSchemas = [
+    {
+        "@context": "https://schema.org",
+        "@type": "Service",
+        "@id": "https://jschoicegroup.com.au/emergency-respite#service",
+        name: "Emergency Respite",
+        description: "NDIS emergency respite services in Melbourne — temporary relief for families and carers, ensuring participants receive quality care in a safe environment.",
+        url: "https://jschoicegroup.com.au/emergency-respite",
+        provider: { "@id": "https://jschoicegroup.com.au/#organization" },
+        serviceType: "NDIS Emergency Respite",
+        areaServed: { "@type": "State", name: "Victoria", addressCountry: "AU" },
+    },
+    {
+        "@context": "https://schema.org",
+        "@type": "BreadcrumbList",
+        itemListElement: [
+            { "@type": "ListItem", position: 1, name: "Home", item: "https://jschoicegroup.com.au" },
+            { "@type": "ListItem", position: 2, name: "Emergency Respite", item: "https://jschoicegroup.com.au/emergency-respite" },
+        ],
+    },
+];
+
 const EmergencyRespite = () => {
     return (
         <main className="bg-gray-50/50">
+            <JsonLd data={serviceSchemas} />
             <PageHeader
                 title="Emergency Respite"
                 breadcrumb={[

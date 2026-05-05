@@ -1,5 +1,6 @@
 import PageHeader from "@/components/ui/PageHeader";
 import ContactContent from "@/components/sections/contact/ContactContent";
+import JsonLd from "@/components/schema/JsonLd";
 import type { Metadata } from "next";
 
 export const metadata: Metadata = {
@@ -7,9 +8,29 @@ export const metadata: Metadata = {
     description: "Get in touch with JS Choice Care & Support. We are here to answer your questions and provide the support you need.",
 };
 
+const contactPageSchema = {
+    "@context": "https://schema.org",
+    "@type": "ContactPage",
+    "@id": "https://jschoicegroup.com.au/contact-us#webpage",
+    url: "https://jschoicegroup.com.au/contact-us",
+    name: "Contact Us | JS Choice Group",
+    description:
+        "Get in touch with JS Choice Group. We are here to answer your questions and provide NDIS disability support across Melbourne.",
+    isPartOf: { "@id": "https://jschoicegroup.com.au/#website" },
+    about: { "@id": "https://jschoicegroup.com.au/#organization" },
+    breadcrumb: {
+        "@type": "BreadcrumbList",
+        itemListElement: [
+            { "@type": "ListItem", position: 1, name: "Home", item: "https://jschoicegroup.com.au" },
+            { "@type": "ListItem", position: 2, name: "Contact Us", item: "https://jschoicegroup.com.au/contact-us" },
+        ],
+    },
+};
+
 export default function ContactPage() {
     return (
         <main className="flex flex-col min-h-screen w-full overflow-x-hidden">
+            <JsonLd data={contactPageSchema} />
             <PageHeader
                 title="Contact Us"
                 breadcrumb={[

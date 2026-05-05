@@ -20,6 +20,7 @@ import {
 } from "lucide-react";
 import ServiceCTA from "@/components/ui/ServiceCTA";
 import ServiceFormSection from "@/components/ui/ServiceFormSection";
+import JsonLd from "@/components/schema/JsonLd";
 
 
 /**
@@ -76,9 +77,32 @@ const whyEducationImportant = [
     }
 ];
 
+const serviceSchemas = [
+    {
+        "@context": "https://schema.org",
+        "@type": "Service",
+        "@id": "https://jschoicegroup.com.au/employment-education#service",
+        name: "Employment & Education Support",
+        description: "NDIS employment and education support services in Melbourne — helping participants build skills, access training, and achieve workplace goals.",
+        url: "https://jschoicegroup.com.au/employment-education",
+        provider: { "@id": "https://jschoicegroup.com.au/#organization" },
+        serviceType: "NDIS Employment and Education Support",
+        areaServed: { "@type": "State", name: "Victoria", addressCountry: "AU" },
+    },
+    {
+        "@context": "https://schema.org",
+        "@type": "BreadcrumbList",
+        itemListElement: [
+            { "@type": "ListItem", position: 1, name: "Home", item: "https://jschoicegroup.com.au" },
+            { "@type": "ListItem", position: 2, name: "Employment & Education", item: "https://jschoicegroup.com.au/employment-education" },
+        ],
+    },
+];
+
 const EmploymentEducationPage = () => {
     return (
         <main className="bg-gray-50/50">
+            <JsonLd data={serviceSchemas} />
             <PageHeader
                 title="Assist with Employment/Education"
                 breadcrumb={[

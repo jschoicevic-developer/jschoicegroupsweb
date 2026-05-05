@@ -25,6 +25,7 @@ import {
 } from "lucide-react";
 import ServiceCTA from "@/components/ui/ServiceCTA";
 import ServiceFormSection from "@/components/ui/ServiceFormSection";
+import JsonLd from "@/components/schema/JsonLd";
 
 
 /**
@@ -137,9 +138,50 @@ const faqs = [
     },
 ];
 
+const locationSchemas = [
+    {
+        "@context": "https://schema.org",
+        "@type": "LocalBusiness",
+        "@id": "https://jschoicegroup.com.au/ndis-providers-craigieburn#localbusiness",
+        name: "JS Choice Group - NDIS Providers Craigieburn",
+        description: "NDIS provider in Craigieburn offering personalised disability support services across Melbourne.",
+        url: "https://jschoicegroup.com.au/ndis-providers-craigieburn",
+        telephone: "+611300572464",
+        image: "https://jschoicegroup.com.au/JCGLogo.png",
+        address: {
+            "@type": "PostalAddress",
+            addressLocality: "Craigieburn",
+            addressRegion: "VIC",
+            addressCountry: "AU",
+        },
+        parentOrganization: { "@id": "https://jschoicegroup.com.au/#organization" },
+        areaServed: { "@type": "City", name: "Craigieburn" },
+        serviceType: "NDIS Disability Support Services",
+        priceRange: "NDIS Funded",
+    },
+    {
+        "@context": "https://schema.org",
+        "@type": "BreadcrumbList",
+        itemListElement: [
+            { "@type": "ListItem", position: 1, name: "Home", item: "https://jschoicegroup.com.au" },
+            { "@type": "ListItem", position: 2, name: "NDIS Providers Craigieburn", item: "https://jschoicegroup.com.au/ndis-providers-craigieburn" },
+        ],
+    },
+    {
+        "@context": "https://schema.org",
+        "@type": "FAQPage",
+        mainEntity: faqs.map(faq => ({
+            "@type": "Question",
+            name: faq.question,
+            acceptedAnswer: { "@type": "Answer", text: faq.answer },
+        })),
+    },
+];
+
 const NdisProvidersCraigieburn = () => {
     return (
         <main className="bg-gray-50/50">
+            <JsonLd data={locationSchemas} />
             <PageHeader
                 title="NDIS Providers Craigieburn"
                 breadcrumb={[

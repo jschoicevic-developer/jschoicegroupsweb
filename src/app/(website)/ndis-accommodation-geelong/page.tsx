@@ -27,6 +27,7 @@ import {
 import SeamlessNDIS from "@/components/sections/home/SeamlessNDIS";
 import ServiceCTA from "@/components/ui/ServiceCTA";
 import ServiceFormSection from "@/components/ui/ServiceFormSection";
+import JsonLd from "@/components/schema/JsonLd";
 
 
 /**
@@ -118,9 +119,41 @@ const features = [
     }
 ];
 
+const serviceSchemas = [
+    {
+        "@context": "https://schema.org",
+        "@type": "Service",
+        "@id": "https://jschoicegroup.com.au/ndis-accommodation-geelong#service",
+        name: "NDIS Accommodation Geelong",
+        description: "NDIS accommodation support services in Geelong — SDA housing, SIL, and specialised disability accommodation for NDIS participants.",
+        url: "https://jschoicegroup.com.au/ndis-accommodation-geelong",
+        provider: { "@id": "https://jschoicegroup.com.au/#organization" },
+        serviceType: "NDIS Accommodation",
+        areaServed: { "@type": "City", name: "Geelong", addressCountry: "AU" },
+    },
+    {
+        "@context": "https://schema.org",
+        "@type": "BreadcrumbList",
+        itemListElement: [
+            { "@type": "ListItem", position: 1, name: "Home", item: "https://jschoicegroup.com.au" },
+            { "@type": "ListItem", position: 2, name: "NDIS Accommodation Geelong", item: "https://jschoicegroup.com.au/ndis-accommodation-geelong" },
+        ],
+    },
+    {
+        "@context": "https://schema.org",
+        "@type": "FAQPage",
+        mainEntity: faqs.map(faq => ({
+            "@type": "Question",
+            name: faq.question,
+            acceptedAnswer: { "@type": "Answer", text: faq.answer },
+        })),
+    },
+];
+
 const NdisAccommodationGeelong = () => {
     return (
         <main className="bg-gray-50/50">
+            <JsonLd data={serviceSchemas} />
             <PageHeader
                 title="NDIS Accommodation Geelong"
                 breadcrumb={[
