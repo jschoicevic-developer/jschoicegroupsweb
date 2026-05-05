@@ -21,6 +21,7 @@ import {
 } from "lucide-react";
 import ServiceCTA from "@/components/ui/ServiceCTA";
 import ServiceFormSection from "@/components/ui/ServiceFormSection";
+import JsonLd from "@/components/schema/JsonLd";
 
 
 const activityCategories = [
@@ -86,9 +87,32 @@ const whatToExpect = [
     }
 ];
 
+const serviceSchemas = [
+    {
+        "@context": "https://schema.org",
+        "@type": "Service",
+        "@id": "https://jschoicegroup.com.au/group-centre-activities#service",
+        name: "Group & Centre Activities",
+        description: "NDIS group and centre activities in Melbourne — engaging group programs for socialisation, skill development, and community connection.",
+        url: "https://jschoicegroup.com.au/group-centre-activities",
+        provider: { "@id": "https://jschoicegroup.com.au/#organization" },
+        serviceType: "NDIS Group Activities",
+        areaServed: { "@type": "State", name: "Victoria", addressCountry: "AU" },
+    },
+    {
+        "@context": "https://schema.org",
+        "@type": "BreadcrumbList",
+        itemListElement: [
+            { "@type": "ListItem", position: 1, name: "Home", item: "https://jschoicegroup.com.au" },
+            { "@type": "ListItem", position: 2, name: "Group & Centre Activities", item: "https://jschoicegroup.com.au/group-centre-activities" },
+        ],
+    },
+];
+
 const GroupCentreActivities = () => {
     return (
         <main className="bg-gray-50/50">
+            <JsonLd data={serviceSchemas} />
             <PageHeader
                 title="Group / Centre Activities"
                 breadcrumb={[

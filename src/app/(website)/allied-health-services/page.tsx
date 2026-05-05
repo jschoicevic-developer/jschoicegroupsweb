@@ -89,11 +89,35 @@ const whyChooseUs = [
 import { MessageCircle } from "lucide-react";
 import ServiceCTA from "@/components/ui/ServiceCTA";
 import ServiceFormSection from "@/components/ui/ServiceFormSection";
+import JsonLd from "@/components/schema/JsonLd";
 
+
+const serviceSchemas = [
+    {
+        "@context": "https://schema.org",
+        "@type": "Service",
+        "@id": "https://jschoicegroup.com.au/allied-health-services#service",
+        name: "Allied Health Services",
+        description: "NDIS allied health services in Melbourne — physiotherapy, occupational therapy, speech therapy, and dietetics support for NDIS participants.",
+        url: "https://jschoicegroup.com.au/allied-health-services",
+        provider: { "@id": "https://jschoicegroup.com.au/#organization" },
+        serviceType: "NDIS Allied Health Services",
+        areaServed: { "@type": "State", name: "Victoria", addressCountry: "AU" },
+    },
+    {
+        "@context": "https://schema.org",
+        "@type": "BreadcrumbList",
+        itemListElement: [
+            { "@type": "ListItem", position: 1, name: "Home", item: "https://jschoicegroup.com.au" },
+            { "@type": "ListItem", position: 2, name: "Allied Health Services", item: "https://jschoicegroup.com.au/allied-health-services" },
+        ],
+    },
+];
 
 const AlliedHealthAssistance = () => {
     return (
         <main className="bg-gray-50/50">
+            <JsonLd data={serviceSchemas} />
             <PageHeader
                 title="Allied Health Services"
                 breadcrumb={[

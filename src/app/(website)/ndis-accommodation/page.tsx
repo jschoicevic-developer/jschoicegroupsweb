@@ -20,6 +20,7 @@ import {
 } from "lucide-react";
 import ServiceCTA from "@/components/ui/ServiceCTA";
 import ServiceFormSection from "@/components/ui/ServiceFormSection";
+import JsonLd from "@/components/schema/JsonLd";
 
 
 /**
@@ -89,9 +90,32 @@ const whyChooseUs = [
     }
 ];
 
+const serviceSchemas = [
+    {
+        "@context": "https://schema.org",
+        "@type": "Service",
+        "@id": "https://jschoicegroup.com.au/ndis-accommodation#service",
+        name: "NDIS Accommodation",
+        description: "NDIS accommodation services in Melbourne — SDA housing, SIL, and specialised disability accommodation for NDIS participants across Victoria.",
+        url: "https://jschoicegroup.com.au/ndis-accommodation",
+        provider: { "@id": "https://jschoicegroup.com.au/#organization" },
+        serviceType: "NDIS Accommodation",
+        areaServed: { "@type": "State", name: "Victoria", addressCountry: "AU" },
+    },
+    {
+        "@context": "https://schema.org",
+        "@type": "BreadcrumbList",
+        itemListElement: [
+            { "@type": "ListItem", position: 1, name: "Home", item: "https://jschoicegroup.com.au" },
+            { "@type": "ListItem", position: 2, name: "NDIS Accommodation", item: "https://jschoicegroup.com.au/ndis-accommodation" },
+        ],
+    },
+];
+
 const NdisAccommodation = () => {
     return (
         <main className="bg-gray-50/50">
+            <JsonLd data={serviceSchemas} />
             <PageHeader
                 title="NDIS Accommodation"
                 breadcrumb={[

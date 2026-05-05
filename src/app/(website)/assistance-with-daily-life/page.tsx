@@ -9,6 +9,7 @@ import Image from "next/image";
 import { CheckCircle2, Phone, Mail, ArrowRight } from "lucide-react";
 import ServiceCTA from "@/components/ui/ServiceCTA";
 import ServiceFormSection from "@/components/ui/ServiceFormSection";
+import JsonLd from "@/components/schema/JsonLd";
 
 const services = [
     {
@@ -48,9 +49,32 @@ const whyChooseUs = [
     }
 ];
 
+const serviceSchemas = [
+    {
+        "@context": "https://schema.org",
+        "@type": "Service",
+        "@id": "https://jschoicegroup.com.au/assistance-with-daily-life#service",
+        name: "Assistance with Daily Life",
+        description: "NDIS assistance with daily life services in Melbourne — personal care, housekeeping, and meal preparation support for NDIS participants.",
+        url: "https://jschoicegroup.com.au/assistance-with-daily-life",
+        provider: { "@id": "https://jschoicegroup.com.au/#organization" },
+        serviceType: "NDIS Assistance with Daily Life",
+        areaServed: { "@type": "State", name: "Victoria", addressCountry: "AU" },
+    },
+    {
+        "@context": "https://schema.org",
+        "@type": "BreadcrumbList",
+        itemListElement: [
+            { "@type": "ListItem", position: 1, name: "Home", item: "https://jschoicegroup.com.au" },
+            { "@type": "ListItem", position: 2, name: "Assistance with Daily Life", item: "https://jschoicegroup.com.au/assistance-with-daily-life" },
+        ],
+    },
+];
+
 const AssistanceWithDailyLife = () => {
     return (
         <main className="bg-gray-50/50">
+            <JsonLd data={serviceSchemas} />
             <PageHeader
                 title="Assistance With Daily Life"
                 breadcrumb={[

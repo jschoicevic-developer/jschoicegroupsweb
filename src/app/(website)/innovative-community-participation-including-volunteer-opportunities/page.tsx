@@ -116,11 +116,35 @@ const whyChooseUs = [
 import { Users } from "lucide-react";
 import ServiceCTA from "@/components/ui/ServiceCTA";
 import ServiceFormSection from "@/components/ui/ServiceFormSection";
+import JsonLd from "@/components/schema/JsonLd";
 
+
+const serviceSchemas = [
+    {
+        "@context": "https://schema.org",
+        "@type": "Service",
+        "@id": "https://jschoicegroup.com.au/innovative-community-participation-including-volunteer-opportunities#service",
+        name: "Innovative Community Participation",
+        description: "NDIS innovative community participation services in Melbourne — volunteer opportunities and programs to build skills and community connections.",
+        url: "https://jschoicegroup.com.au/innovative-community-participation-including-volunteer-opportunities",
+        provider: { "@id": "https://jschoicegroup.com.au/#organization" },
+        serviceType: "NDIS Innovative Community Participation",
+        areaServed: { "@type": "State", name: "Victoria", addressCountry: "AU" },
+    },
+    {
+        "@context": "https://schema.org",
+        "@type": "BreadcrumbList",
+        itemListElement: [
+            { "@type": "ListItem", position: 1, name: "Home", item: "https://jschoicegroup.com.au" },
+            { "@type": "ListItem", position: 2, name: "Innovative Community Participation", item: "https://jschoicegroup.com.au/innovative-community-participation-including-volunteer-opportunities" },
+        ],
+    },
+];
 
 const InnovativeCommunityParticipation = () => {
     return (
         <main className="bg-gray-50/50">
+            <JsonLd data={serviceSchemas} />
             <PageHeader
                 title="Innovative Community Participation"
                 breadcrumb={[

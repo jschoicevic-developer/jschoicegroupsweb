@@ -1,7 +1,9 @@
+
 User-agent: *
 Allow: /
 
 Disallow: /admin/
 Disallow: /api/
-
+Disallow: /_next/static/
+Allow: /_next/image/
 Sitemap: https://jschoicegroup.com.au/sitemap.xml

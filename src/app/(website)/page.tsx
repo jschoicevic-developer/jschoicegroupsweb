@@ -6,6 +6,7 @@ import GettingStarted from "@/components/sections/home/GettingStarted";
 import Faq from "@/components/sections/home/Faq";
 import AreasServed from "@/components/sections/home/AreasServed";
 import SeamlessNDIS from "@/components/sections/home/SeamlessNDIS";
+import JsonLd from "@/components/schema/JsonLd";
 import type { Metadata } from "next";
 
 export const metadata: Metadata = {
@@ -14,9 +15,40 @@ export const metadata: Metadata = {
   },
 };
 
+const websiteSchema = {
+  "@context": "https://schema.org",
+  "@type": "WebSite",
+  "@id": "https://jschoicegroup.com.au/#website",
+  url: "https://jschoicegroup.com.au",
+  name: "JS Choice Group",
+  description:
+    "Registered NDIS Provider in Melbourne delivering disability support services across Victoria",
+  publisher: { "@id": "https://jschoicegroup.com.au/#organization" },
+  inLanguage: "en-AU",
+};
+
+const homePageSchema = {
+  "@context": "https://schema.org",
+  "@type": "WebPage",
+  "@id": "https://jschoicegroup.com.au/#webpage",
+  url: "https://jschoicegroup.com.au",
+  name: "JS Choice Group | Registered NDIS Provider in Melbourne",
+  description:
+    "JS Choice Group is a registered NDIS provider delivering compassionate disability support services across Melbourne and Victoria.",
+  isPartOf: { "@id": "https://jschoicegroup.com.au/#website" },
+  about: { "@id": "https://jschoicegroup.com.au/#organization" },
+  breadcrumb: {
+    "@type": "BreadcrumbList",
+    itemListElement: [
+      { "@type": "ListItem", position: 1, name: "Home", item: "https://jschoicegroup.com.au" },
+    ],
+  },
+};
+
 export default function Home() {
   return (
     <main className="flex flex-col min-h-screen w-full overflow-x-hidden">
+      <JsonLd data={[websiteSchema, homePageSchema]} />
       <Hero />
       <About />
       <Services />
