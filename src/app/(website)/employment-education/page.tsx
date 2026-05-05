@@ -104,6 +104,7 @@ const EmploymentEducationPage = () => {
                                     src="https://images.unsplash.com/photo-1521737604893-d14cc237f11d?q=80&w=1484&auto=format&fit=crop"
                                     alt="Employment and Education Support"
                                     fill
+                                    sizes="(max-width: 1024px) 100vw, 50vw"
                                     className="rounded-[2.5rem] shadow-2xl object-cover"
                                 />
                             </div>

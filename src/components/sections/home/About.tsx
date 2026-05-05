@@ -230,6 +230,7 @@ const About = () => {
                                 src="/images/home/about-2.webp"
                                 alt="Care worker"
                                 fill
+                                sizes="(max-width: 1024px) 100vw, 50vw"
                                 className="object-cover"
                             />
                         </div>

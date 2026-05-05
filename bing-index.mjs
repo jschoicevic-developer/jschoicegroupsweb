@@ -27,10 +27,10 @@ try {
   // .env not found — rely on environment variables already set
 }
 
-const BING_API_KEY = "bad9369f308045d09f48b8fef075e4af";
+const BING_API_KEY = "c84a2c8beb96449fad69c51ceaba4e05";
 const BING_API_URL = "https://ssl.bing.com/webmaster/api.svc/json/SubmitUrlbatch";
 const BASE_URL = "https://jschoicegroup.com.au";
-const DAILY_LIMIT = 100;
+const DAILY_LIMIT = 10000;
 
 // ── Static URLs ────────────────────────────────────────────────────────────────
 const STATIC_URLS = [
@@ -143,15 +143,11 @@ async function submitToBing(urls) {
 async function main() {
   console.log("🔍 Preparing URLs for Bing submission...\n");
 
-  const staticUrls = STATIC_URLS.slice(0, DAILY_LIMIT);
-  const remaining = DAILY_LIMIT - staticUrls.length;
+  const staticUrls = STATIC_URLS;
 
-  let blogUrls = [];
-  if (remaining > 0) {
-    console.log(`📰 Fetching up to ${remaining} blog post URLs from Supabase...`);
-    blogUrls = await fetchBlogUrls(remaining);
-    console.log(`   Found ${blogUrls.length} blog posts.\n`);
-  }
+  console.log(`📰 Fetching ALL blog post URLs from Supabase...`);
+  const blogUrls = await fetchBlogUrls(DAILY_LIMIT);
+  console.log(`   Found ${blogUrls.length} blog posts.\n`);
 
   const allUrls = [...staticUrls, ...blogUrls].slice(0, DAILY_LIMIT);
 

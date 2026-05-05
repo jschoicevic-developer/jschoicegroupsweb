@@ -374,7 +374,7 @@ const TransportationAssistance = () => {
                                     Get in Touch <ArrowRight className="ml-2 h-5 w-5" />
                                 </Button>
                             </Link>
-                            <Link href="/consultations">
+                            <Link href="/referral">
                                 <Button variant="outline" size="lg" className="h-16 px-8 rounded-full border-2 border-white text-black hover:bg-white hover:text-[#2D3748] text-lg font-bold shadow-sm hover:shadow-md transition-all hover:-translate-y-1">
                                     Consultations
                                 </Button>

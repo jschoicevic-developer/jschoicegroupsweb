@@ -73,9 +73,34 @@ export async function generateMetadata({ params }: BlogPostPageProps): Promise<M
     const { slug } = await params;
     const post = await getBlogPost(slug);
     if (!post) return { title: 'Blog Post Not Found' };
+
+    const canonicalUrl = `https://jschoicegroup.com.au/blog/${slug}`;
+    const ogImage = post.featured_image && !post.featured_image.startsWith('data:') && post.featured_image.trim()
+        ? [{ url: post.featured_image, alt: post.title }]
+        : [{ url: 'https://jschoicegroup.com.au/JCGLogo.png', alt: 'JS Choice Group' }];
+
     return {
         title: `${post.title} | JS Choice Group`,
         description: post.excerpt,
+        alternates: {
+            canonical: canonicalUrl,
+        },
+        openGraph: {
+            title: post.title,
+            description: post.excerpt,
+            url: canonicalUrl,
+            type: 'article',
+            publishedTime: post.published_at || post.created_at,
+            authors: [post.author_name],
+            siteName: 'JS Choice Group',
+            images: ogImage,
+        },
+        twitter: {
+            card: 'summary_large_image',
+            title: post.title,
+            description: post.excerpt,
+            images: ogImage.map(img => img.url),
+        },
     };
 }
 

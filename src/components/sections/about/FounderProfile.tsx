@@ -74,6 +74,7 @@ const FounderProfile = () => {
                                 src="/JanImage.jpeg"
                                 alt="Jan Fardowsi – Founder & Director"
                                 fill
+                                sizes="170px"
                                 className="object-cover object-top"
                             />
                         </div>

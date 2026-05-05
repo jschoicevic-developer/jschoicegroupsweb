@@ -137,7 +137,7 @@ export default function BudgetCalculator({ categories = [] }: BudgetCalculatorPr
           {/* Question 1: Region */}
           <div className="bg-white rounded-[2rem] shadow-sm border border-gray-100 p-8 relative overflow-hidden group hover:shadow-md transition-shadow">
             <div className={`absolute top-0 left-0 w-2 h-full ${region ? 'bg-[#38B2AC]' : 'bg-gray-200'}`} />
-            <h2 className="text-xl font-bold text-[#2D3748] mb-2">Question 1: Which state/region do you live in?</h2>
+            <p className="text-xl font-bold text-[#2D3748] mb-2">Question 1: Which state/region do you live in?</p>
             <p className="text-gray-500 text-sm mb-6">Why does this matter? NDIS price limits vary depending on where you live.</p>
 
             <div className="relative max-w-md">
