@@ -85,15 +85,20 @@ export async function PATCH(
         // Always fetch existing post to verify ownership and preserve published_at
         const { data: existingPost } = await supabase
             .from('blog_posts')
-            .select('author_id, published_at, created_at, status')
+            .select('author_id, author_name, published_at, created_at, status')
             .eq('slug', oldSlug)
             .single();
 
-        if (body.author_id && existingPost?.author_id && existingPost.author_id !== body.author_id) {
-            return NextResponse.json(
-                { success: false, error: 'You do not have permission to edit this post' },
-                { status: 403 }
-            );
+        // Block edit only if the requester is neither the uploader nor the credited author
+        if (body.author_id && existingPost?.author_id) {
+            const isUploader = existingPost.author_id === body.author_id;
+            const isCreditedAuthor = body.author_name && existingPost.author_name === body.author_name;
+            if (!isUploader && !isCreditedAuthor) {
+                return NextResponse.json(
+                    { success: false, error: 'You do not have permission to edit this post' },
+                    { status: 403 }
+                );
+            }
         }
 
         // Prepare update data
@@ -175,16 +180,20 @@ export async function DELETE(
         const { slug } = await context.params;
         const supabase = createServerClient();
 
-        // Ownership check via query param (sent by blogger's delete action)
+        // Ownership check via query params (sent by blogger's delete action)
         const authorId = request.nextUrl.searchParams.get('author_id');
+        const authorName = request.nextUrl.searchParams.get('author_name');
         if (authorId) {
             const { data: existing } = await supabase
                 .from('blog_posts')
-                .select('author_id')
+                .select('author_id, author_name')
                 .eq('slug', slug)
                 .single();
 
-            if (existing && existing.author_id && existing.author_id !== authorId) {
+            const isUploader = existing?.author_id && existing.author_id === authorId;
+            const isCreditedAuthor = authorName && existing?.author_name === authorName;
+
+            if (existing && !isUploader && !isCreditedAuthor) {
                 return NextResponse.json(
                     { success: false, error: 'You do not have permission to delete this post' },
                     { status: 403 }

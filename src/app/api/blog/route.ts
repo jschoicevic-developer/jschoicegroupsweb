@@ -29,6 +29,7 @@ export async function GET(request: NextRequest): Promise<NextResponse<PaginatedR
         const status = searchParams.get('status');
         const search = searchParams.get('search');
         const authorId = searchParams.get('author_id');
+        const authorName = searchParams.get('author_name');
         const page = parseInt(searchParams.get('page') || '1');
         const limit = parseInt(searchParams.get('limit') || '10');
         const offset = (page - 1) * limit;
@@ -84,8 +85,13 @@ export async function GET(request: NextRequest): Promise<NextResponse<PaginatedR
             query = query.or(`title.ilike.%${search}%,excerpt.ilike.%${search}%`);
         }
 
-        if (authorId) {
+        // Filter by author: show posts where the user is the uploader (author_id) OR is the credited author (author_name)
+        if (authorId && authorName) {
+            query = query.or(`author_id.eq.${authorId},author_name.eq.${authorName}`);
+        } else if (authorId) {
             query = query.eq('author_id', authorId);
+        } else if (authorName) {
+            query = query.eq('author_name', authorName);
         }
 
         // ========================================
