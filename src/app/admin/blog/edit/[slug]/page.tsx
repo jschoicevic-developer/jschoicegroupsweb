@@ -12,6 +12,11 @@ import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
 import WysiwygEditor from "@/components/admin/RichTextEditor";
 
+interface Blogger {
+    id: string;
+    name: string;
+}
+
 interface EditBlogPageProps {
     params: Promise<{ slug: string }>;
 }
@@ -21,6 +26,7 @@ export default function EditBlogPostPage({ params }: EditBlogPageProps) {
     const router = useRouter();
     const [loading, setLoading] = useState(true);
     const [saving, setSaving] = useState(false);
+    const [bloggers, setBloggers] = useState<Blogger[]>([]);
     const [formData, setFormData] = useState({
         id: "",
         title: "",
@@ -37,6 +43,19 @@ export default function EditBlogPostPage({ params }: EditBlogPageProps) {
         tags: "",
         category: "",
     });
+
+    useEffect(() => {
+        const fetchBloggers = async () => {
+            try {
+                const res = await fetch('/api/bloggers');
+                const data = await res.json();
+                if (data.success) setBloggers(data.data);
+            } catch {
+                // silently ignore
+            }
+        };
+        fetchBloggers();
+    }, []);
 
     useEffect(() => {
         fetchPost();
@@ -276,6 +295,23 @@ export default function EditBlogPostPage({ params }: EditBlogPageProps) {
                             <h2 className="text-xl font-bold text-gray-900">Meta Details</h2>
 
                             <div className="space-y-4">
+                                <div>
+                                    <label className="block text-sm font-bold text-gray-700 mb-2">Author</label>
+                                    <select
+                                        value={formData.author_name}
+                                        onChange={(e) => setFormData({ ...formData, author_name: e.target.value })}
+                                        className="w-full h-12 px-4 rounded-xl border border-gray-200 bg-white text-gray-700 font-medium focus:outline-none focus:ring-2 focus:ring-primary"
+                                    >
+                                        {bloggers.length > 0 ? (
+                                            bloggers.map((b) => (
+                                                <option key={b.id} value={b.name}>{b.name}</option>
+                                            ))
+                                        ) : (
+                                            <option value={formData.author_name}>{formData.author_name}</option>
+                                        )}
+                                    </select>
+                                </div>
+
                                 <div>
                                     <label className="block text-sm font-bold text-gray-700 mb-2">Category</label>
                                     <Input

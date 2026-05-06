@@ -1,7 +1,7 @@
 
 "use client";
 
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { useRouter } from "next/navigation";
 import { motion, AnimatePresence } from "framer-motion";
 import { ArrowLeft, Save, Eye, Calendar, Clock } from "lucide-react";
@@ -14,9 +14,15 @@ import WysiwygEditor from "@/components/admin/RichTextEditor";
 
 type BlogStatus = 'draft' | 'published' | 'scheduled';
 
+interface Blogger {
+    id: string;
+    name: string;
+}
+
 export default function NewBlogPostPage() {
     const router = useRouter();
     const [loading, setLoading] = useState(false);
+    const [bloggers, setBloggers] = useState<Blogger[]>([]);
     const [formData, setFormData] = useState({
         title: "",
         slug: "",
@@ -32,6 +38,19 @@ export default function NewBlogPostPage() {
         tags: "",
         category: "",
     });
+
+    useEffect(() => {
+        const fetchBloggers = async () => {
+            try {
+                const res = await fetch('/api/bloggers');
+                const data = await res.json();
+                if (data.success) setBloggers(data.data);
+            } catch {
+                // silently ignore
+            }
+        };
+        fetchBloggers();
+    }, []);
 
     const handleSubmit = async (e: React.FormEvent, statusOverride?: BlogStatus) => {
         e.preventDefault();
@@ -339,12 +358,19 @@ export default function NewBlogPostPage() {
 
                             <div>
                                 <label className="block text-sm font-bold text-gray-700 mb-2">Author</label>
-                                <Input
+                                <select
                                     value={formData.author_name}
                                     onChange={(e) => setFormData({ ...formData, author_name: e.target.value })}
-                                    placeholder="Author name"
-                                    className="h-12"
-                                />
+                                    className="w-full h-12 px-4 rounded-xl border border-gray-200 bg-white text-gray-700 font-medium focus:outline-none focus:ring-2 focus:ring-primary"
+                                >
+                                    {bloggers.length > 0 ? (
+                                        bloggers.map((b) => (
+                                            <option key={b.id} value={b.name}>{b.name}</option>
+                                        ))
+                                    ) : (
+                                        <option value={formData.author_name}>{formData.author_name}</option>
+                                    )}
+                                </select>
                             </div>
                         </div>
                     </div>
