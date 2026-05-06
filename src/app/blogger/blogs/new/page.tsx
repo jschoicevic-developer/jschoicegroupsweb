@@ -2,7 +2,7 @@
 
 export const dynamic = 'force-dynamic';
 
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { useRouter } from "next/navigation";
 import { motion } from "framer-motion";
 import { ArrowLeft, Save, Eye, Clock } from "lucide-react";
@@ -18,10 +18,17 @@ import { Sparkles } from "lucide-react";
 
 type BlogStatus = 'draft' | 'published' | 'scheduled';
 
+interface Blogger {
+    id: string;
+    name: string;
+}
+
 export default function NewBloggerPostPage() {
     const router = useRouter();
     const { user } = useAuth();
     const [loading, setLoading] = useState(false);
+    const [bloggers, setBloggers] = useState<Blogger[]>([]);
+    const [selectedAuthorName, setSelectedAuthorName] = useState('');
     const [formData, setFormData] = useState({
         title: "",
         slug: "",
@@ -35,6 +42,27 @@ export default function NewBloggerPostPage() {
         status: "draft" as BlogStatus,
         scheduled_for: "",
     });
+
+    useEffect(() => {
+        const fetchBloggers = async () => {
+            try {
+                const res = await fetch('/api/bloggers');
+                const data = await res.json();
+                if (data.success) {
+                    setBloggers(data.data);
+                }
+            } catch {
+                // silently ignore
+            }
+        };
+        fetchBloggers();
+    }, []);
+
+    useEffect(() => {
+        if (user && !selectedAuthorName) {
+            setSelectedAuthorName(user.user_metadata?.name || user.email || 'Blogger');
+        }
+    }, [user]);
 
     const generateSlug = (title: string) => {
         return title
@@ -93,7 +121,7 @@ export default function NewBloggerPostPage() {
                 tags: tagsArray,
                 status,
                 author_id: user.id,
-                author_name: user.user_metadata?.name || user.email || 'Blogger',
+                author_name: selectedAuthorName || user.user_metadata?.name || user.email || 'Blogger',
                 published_at: status === 'published' ? new Date().toISOString() : null,
                 scheduled_for: status === 'scheduled' ? new Date(formData.scheduled_for).toISOString() : null,
             };
@@ -258,13 +286,22 @@ export default function NewBloggerPostPage() {
                             </div>
                         )}
 
-                        {/* Author info (read-only) */}
-                        <div className="p-4 bg-primary/5 rounded-2xl border border-primary/10">
-                            <p className="text-xs font-bold text-primary uppercase tracking-wider mb-1">Author</p>
-                            <p className="text-sm font-bold text-gray-900">
-                                {user?.user_metadata?.name || user?.email}
-                            </p>
-                            <p className="text-xs text-gray-500 mt-0.5">{user?.email}</p>
+                        {/* Author dropdown */}
+                        <div>
+                            <label className="block text-sm font-bold text-gray-700 mb-2">Author</label>
+                            <select
+                                value={selectedAuthorName}
+                                onChange={(e) => setSelectedAuthorName(e.target.value)}
+                                className="w-full h-12 px-4 rounded-xl border border-gray-200 bg-white text-gray-700 font-medium focus:outline-none focus:ring-2 focus:ring-primary"
+                            >
+                                {bloggers.length > 0 ? (
+                                    bloggers.map((b) => (
+                                        <option key={b.id} value={b.name}>{b.name}</option>
+                                    ))
+                                ) : (
+                                    <option value={selectedAuthorName}>{selectedAuthorName}</option>
+                                )}
+                            </select>
                         </div>
                     </div>
 
