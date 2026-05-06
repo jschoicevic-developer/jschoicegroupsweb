@@ -50,10 +50,15 @@ export default function BloggerBlogsPage() {
         if (!user?.id) return;
         try {
             setLoading(true);
+            // Pass both author_id (who uploaded) and author_name (who is credited)
+            // The API uses OR logic so the blogger sees posts they uploaded
+            // AND posts where their name is the credited author
+            const authorName = user.user_metadata?.name || '';
             const params = new URLSearchParams({
                 limit: '200',
                 admin: 'true',
                 author_id: user.id,
+                ...(authorName ? { author_name: authorName } : {}),
             });
 
             if (statusFilter !== 'all') {
@@ -85,7 +90,10 @@ export default function BloggerBlogsPage() {
         if (!postToDelete) return;
 
         try {
-            const response = await fetch(`/api/blog/${postToDelete.slug}?author_id=${user?.id}`, {
+            const authorName = user?.user_metadata?.name || '';
+            const deleteParams = new URLSearchParams({ author_id: user?.id || '' });
+            if (authorName) deleteParams.append('author_name', authorName);
+            const response = await fetch(`/api/blog/${postToDelete.slug}?${deleteParams}`, {
                 method: 'DELETE',
             });
 
@@ -240,7 +248,14 @@ export default function BloggerBlogsPage() {
                                         >
                                             <td className="px-6 py-4">
                                                 <div className="flex flex-col">
-                                                    <span className="font-bold text-gray-900 line-clamp-1">{post.title}</span>
+                                                    <div className="flex items-center gap-2 flex-wrap">
+                                                        <span className="font-bold text-gray-900 line-clamp-1">{post.title}</span>
+                                                        {post.author_id !== user?.id && (
+                                                            <span className="inline-flex items-center px-2 py-0.5 rounded-full text-[10px] font-bold uppercase tracking-wide bg-purple-100 text-purple-700 border border-purple-200 whitespace-nowrap">
+                                                                Guest Post
+                                                            </span>
+                                                        )}
+                                                    </div>
                                                     <span className="text-sm text-gray-500 line-clamp-1">{post.excerpt}</span>
                                                     {post.tags && post.tags.length > 0 && (
                                                         <div className="flex items-center gap-1 mt-1">
@@ -314,7 +329,14 @@ export default function BloggerBlogsPage() {
                                 >
                                     <div className="flex justify-between items-start gap-4">
                                         <div className="flex-1">
-                                            <h3 className="font-bold text-gray-900 leading-tight mb-1">{post.title}</h3>
+                                            <div className="flex items-center gap-2 flex-wrap mb-1">
+                                                <h3 className="font-bold text-gray-900 leading-tight">{post.title}</h3>
+                                                {post.author_id !== user?.id && (
+                                                    <span className="inline-flex items-center px-2 py-0.5 rounded-full text-[10px] font-bold uppercase tracking-wide bg-purple-100 text-purple-700 border border-purple-200 whitespace-nowrap">
+                                                        Guest Post
+                                                    </span>
+                                                )}
+                                            </div>
                                             <p className="text-sm text-gray-500 line-clamp-2">{post.excerpt}</p>
                                         </div>
                                         <span className={cn("shrink-0 inline-flex px-2 py-0.5 rounded-full text-[10px] font-bold uppercase", getStatusColor(post.status))}>
