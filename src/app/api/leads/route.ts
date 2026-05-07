@@ -24,20 +24,22 @@ export async function POST(request: NextRequest): Promise<NextResponse<ApiRespon
         // VALIDATION
         // ========================================
 
-        if (!body.first_name || !body.email) {
+        if (!body.first_name || (!body.email && !body.phone)) {
             return NextResponse.json(
-                { success: false, error: 'First name and email are required' },
+                { success: false, error: 'First name and email or phone are required' },
                 { status: 400 }
             );
         }
 
-        // Email format validation
-        const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-        if (!emailRegex.test(body.email)) {
-            return NextResponse.json(
-                { success: false, error: 'Invalid email format' },
-                { status: 400 }
-            );
+        // Email format validation (only if email provided)
+        if (body.email) {
+            const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+            if (!emailRegex.test(body.email)) {
+                return NextResponse.json(
+                    { success: false, error: 'Invalid email format' },
+                    { status: 400 }
+                );
+            }
         }
 
         // ========================================
