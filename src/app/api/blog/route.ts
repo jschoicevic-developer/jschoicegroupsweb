@@ -194,6 +194,14 @@ export async function POST(request: NextRequest): Promise<NextResponse<ApiRespon
             status: body.status || 'draft',
             allow_comments: body.allow_comments ?? true,
             is_featured: body.is_featured ?? false,
+            faqs: Array.isArray(body.faqs)
+                ? body.faqs
+                    .filter((f: any) => f && (f.question?.trim() || f.answer?.trim()))
+                    .map((f: any) => ({
+                        question: String(f.question || '').trim(),
+                        answer: String(f.answer || '').trim(),
+                    }))
+                : [],
             published_at: null,
             scheduled_for: null,
         };

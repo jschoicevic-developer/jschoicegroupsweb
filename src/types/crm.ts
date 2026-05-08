@@ -175,8 +175,14 @@ export interface BlogPost {
     view_count: number;
     allow_comments: boolean;
     is_featured: boolean;
+    faqs: BlogFaq[] | null;
     created_at: string;
     updated_at: string;
+}
+
+export interface BlogFaq {
+    question: string;
+    answer: string;
 }
 
 export interface BlogCategory {

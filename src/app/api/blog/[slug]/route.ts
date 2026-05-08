@@ -117,6 +117,18 @@ export async function PATCH(
             }
         });
 
+        // FAQs: normalise array of { question, answer }, drop empty rows
+        if (body.faqs !== undefined) {
+            updateData.faqs = Array.isArray(body.faqs)
+                ? body.faqs
+                    .filter((f: any) => f && (f.question?.trim() || f.answer?.trim()))
+                    .map((f: any) => ({
+                        question: String(f.question || '').trim(),
+                        answer: String(f.answer || '').trim(),
+                    }))
+                : [];
+        }
+
         // Handle status transitions
         if (updateData.status === 'published') {
             if (existingPost?.published_at) {

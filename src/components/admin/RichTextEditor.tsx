@@ -2,6 +2,7 @@
 
 import { useEditor, EditorContent } from '@tiptap/react';
 import { BubbleMenu } from '@tiptap/react/menus';
+import { Node as TiptapNode, mergeAttributes } from '@tiptap/core';
 import StarterKit from '@tiptap/starter-kit';
 import Link from '@tiptap/extension-link';
 import Image from '@tiptap/extension-image';
@@ -47,6 +48,7 @@ import {
   Table as TableIcon,
   Plus,
   Minus,
+  Lightbulb,
 } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import { cn } from '@/lib/utils';
@@ -121,6 +123,45 @@ function truncateUrl(url: string, max = 50) {
   return url.slice(0, max) + '…';
 }
 
+/**
+ * Pro Tip block — a stand-out callout the writer can drop anywhere in the article.
+ * Stored in the saved HTML as `<div data-pro-tip class="pro-tip-callout">…</div>`,
+ * styled via globals.css so the editor and the published blog page render identically.
+ */
+const ProTip = TiptapNode.create({
+  name: 'proTip',
+  group: 'block',
+  content: 'inline*',
+  defining: true,
+
+  parseHTML() {
+    return [
+      { tag: 'div[data-pro-tip]' },
+      { tag: 'div.pro-tip-callout' },
+    ];
+  },
+
+  renderHTML({ HTMLAttributes }) {
+    return [
+      'div',
+      mergeAttributes(HTMLAttributes, {
+        'data-pro-tip': '',
+        class: 'pro-tip-callout',
+      }),
+      0,
+    ];
+  },
+
+  addCommands() {
+    return {
+      toggleProTip:
+        () =>
+        ({ commands }: { commands: any }) =>
+          commands.toggleNode('proTip', 'paragraph'),
+    } as any;
+  },
+});
+
 export default function RichTextEditor({
   value,
   onChange,
@@ -186,6 +227,7 @@ export default function RichTextEditor({
       TableRow,
       TableHeader,
       TableCell,
+      ProTip,
     ],
     immediatelyRender: false,
     content: value,
@@ -375,7 +417,7 @@ export default function RichTextEditor({
   const editorLinks = showLinkPanel ? getEditorLinks() : [];
 
   return (
-    <div className="w-full rounded-[2rem] bg-white shadow-sm ring-1 ring-gray-200/50 overflow-hidden flex flex-col">
+    <div className="w-full rounded-[2rem] bg-white shadow-sm ring-1 ring-gray-200/50 overflow-hidden flex flex-col min-h-[500px] max-h-[calc(100dvh-10rem)]">
 
       {/* ── Bubble Menu — shown when cursor is inside a link ── */}
       <BubbleMenu
@@ -456,8 +498,8 @@ export default function RichTextEditor({
         </div>
       </BubbleMenu>
 
-      {/* ── Toolbar — sticky at top of editor ── */}
-      <div className="sticky top-0 z-30 bg-white/95 backdrop-blur-sm border-b border-gray-100 px-4 py-3">
+      {/* ── Toolbar — fixed at top of editor's internal scroll ── */}
+      <div className="shrink-0 z-30 bg-white/95 backdrop-blur-sm border-b border-gray-100 px-4 py-3">
         <div className="flex flex-wrap items-center gap-x-1 gap-y-2">
 
           {/* Undo / Redo */}
@@ -591,6 +633,24 @@ export default function RichTextEditor({
             <MenuButton onClick={() => editor.chain().focus().toggleOrderedList().run()} isActive={editor.isActive('orderedList')} title="Ordered List"><ListOrdered size={18} /></MenuButton>
             <MenuButton onClick={() => editor.chain().focus().toggleBlockquote().run()} isActive={editor.isActive('blockquote')} title="Blockquote"><Quote size={18} /></MenuButton>
             <MenuButton onClick={() => editor.chain().focus().toggleCodeBlock().run()} isActive={editor.isActive('codeBlock')} title="Code Block"><Code size={18} /></MenuButton>
+          </div>
+
+          {/* Pro Tip — stand-out callout block */}
+          <div className="flex items-center gap-1 px-2 border-r border-gray-200">
+            <button
+              type="button"
+              title="Pro Tip — insert a highlighted callout"
+              onClick={() => (editor.chain().focus() as any).toggleProTip().run()}
+              className={cn(
+                'flex items-center gap-1.5 px-2.5 h-9 rounded-lg text-xs font-bold transition-all',
+                editor.isActive('proTip')
+                  ? 'bg-amber-100 text-amber-700 hover:bg-amber-200'
+                  : 'text-amber-600 hover:bg-amber-50'
+              )}
+            >
+              <Lightbulb size={15} />
+              <span>Pro Tip</span>
+            </button>
           </div>
 
           {/* Link & Image */}
@@ -753,7 +813,7 @@ export default function RichTextEditor({
 
       {/* ── Inline Link Input Bar ── */}
       {showLinkInput && (
-        <div className="border-b border-gray-100 bg-blue-50/60 px-4 py-2.5 flex items-center gap-2">
+        <div className="shrink-0 border-b border-gray-100 bg-blue-50/60 px-4 py-2.5 flex items-center gap-2">
           <LinkIcon size={15} className="text-blue-500 shrink-0" />
           <input
             ref={linkInputRef}
@@ -788,7 +848,7 @@ export default function RichTextEditor({
 
       {/* ── Links Panel ── */}
       {showLinkPanel && (
-        <div className="border-b border-gray-100 bg-gray-50/70">
+        <div className="shrink-0 border-b border-gray-100 bg-gray-50/70">
           <div className="px-4 py-2 flex items-center justify-between">
             <span className="text-xs font-semibold text-gray-500 uppercase tracking-wider">
               Links in document
@@ -841,10 +901,10 @@ export default function RichTextEditor({
         </div>
       )}
 
-      {/* ── Editor Content ── */}
+      {/* ── Editor Content (scrolls independently while toolbar stays fixed) ── */}
       <div
         className={cn(
-          'editor-container bg-white flex-1',
+          'editor-container bg-white flex-1 min-h-0 overflow-y-auto overscroll-contain',
           highlightLinks && 'links-highlighted'
         )}
       >
@@ -898,6 +958,51 @@ export default function RichTextEditor({
             width: 4px;
             background-color: #6366f1;
             pointer-events: none;
+          }
+          /* ── Pro Tip callout (must match globals.css public styles) ── */
+          .ProseMirror .pro-tip-callout {
+            position: relative;
+            margin: 1.75rem 0;
+            padding: 1.25rem 1.5rem 1.25rem 3.25rem;
+            background: linear-gradient(135deg, #fffbeb 0%, #fef3c7 100%);
+            border: 1px solid #fcd34d;
+            border-left: 5px solid #f59e0b;
+            border-radius: 14px;
+            color: #78350f;
+            font-weight: 600;
+            font-size: 1rem;
+            line-height: 1.65;
+            box-shadow: 0 1px 2px rgba(245, 158, 11, 0.08);
+          }
+          .ProseMirror .pro-tip-callout::before {
+            content: '💡 PRO TIP';
+            position: absolute;
+            top: -0.65rem;
+            left: 1rem;
+            padding: 0.15rem 0.6rem;
+            background: #f59e0b;
+            color: #fff;
+            font-size: 0.65rem;
+            font-weight: 800;
+            letter-spacing: 0.12em;
+            border-radius: 999px;
+            text-transform: uppercase;
+            box-shadow: 0 2px 4px rgba(245, 158, 11, 0.3);
+          }
+          .ProseMirror .pro-tip-callout::after {
+            content: '';
+            position: absolute;
+            top: 50%;
+            left: 1.1rem;
+            transform: translateY(-50%);
+            width: 1.5rem;
+            height: 1.5rem;
+            background-image: url("data:image/svg+xml;utf8,%3Csvg xmlns='http://www.w3.org/2000/svg' width='24' height='24' viewBox='0 0 24 24' fill='none' stroke='%23d97706' stroke-width='2.5' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M15 14c.2-1 .7-1.7 1.5-2.5 1-.9 1.5-2.2 1.5-3.5A6 6 0 0 0 6 8c0 1 .2 2.2 1.5 3.5.7.7 1.3 1.5 1.5 2.5'/%3E%3Cpath d='M9 18h6'/%3E%3Cpath d='M10 22h4'/%3E%3C/svg%3E");
+            background-repeat: no-repeat;
+            background-size: contain;
+          }
+          .ProseMirror .pro-tip-callout strong {
+            color: #92400e;
           }
         `}</style>
         <EditorContent editor={editor} />
