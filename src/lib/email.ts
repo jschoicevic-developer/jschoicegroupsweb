@@ -66,6 +66,10 @@ export async function sendNewLeadNotification(lead: Lead): Promise<void> {
  * Send confirmation email to client
  */
 export async function sendClientConfirmation(lead: Lead): Promise<void> {
+  if (!lead.email) {
+    console.log(`ℹ️  Skipping client confirmation: no email on lead ${lead.id} (phone-only)`);
+    return;
+  }
   const fullName = `${lead.first_name} ${lead.last_name || ''}`.trim();
   const adminEmail = process.env.ADMIN_EMAIL || 'jschoice.au@gmail.com';
 

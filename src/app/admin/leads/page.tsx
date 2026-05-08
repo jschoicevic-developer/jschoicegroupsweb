@@ -198,9 +198,9 @@ function LeadsList() {
         const search = searchQuery.toLowerCase();
         return (
             fullName.includes(search) ||
-            lead.email.toLowerCase().includes(search) ||
-            lead.phone?.toLowerCase().includes(search) ||
-            lead.location?.toLowerCase().includes(search)
+            (lead.email?.toLowerCase().includes(search) ?? false) ||
+            (lead.phone?.toLowerCase().includes(search) ?? false) ||
+            (lead.location?.toLowerCase().includes(search) ?? false)
         );
     });
 

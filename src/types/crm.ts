@@ -31,7 +31,7 @@ export interface Lead {
     // Contact Information
     first_name: string;
     last_name: string | null;
-    email: string;
+    email: string | null;
     phone: string | null;
 
     // Source Tracking
