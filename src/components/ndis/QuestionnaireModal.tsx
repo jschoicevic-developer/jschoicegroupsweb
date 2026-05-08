@@ -150,7 +150,8 @@ export default function QuestionnaireModal({
     planManagement: '', agedCareProgram: '', frequency: '',
   });
   const [name, setName] = useState('');
-  const [reach, setReach] = useState('');
+  const [emailInput, setEmailInput] = useState('');
+  const [phoneInput, setPhoneInput] = useState('');
   const [contactError, setContactError] = useState('');
   const [loading, setLoading] = useState(false);
   const [success, setSuccess] = useState(false);
@@ -175,7 +176,7 @@ export default function QuestionnaireModal({
     setTimeout(() => {
       setStepIndex(0);
       setAnswers({ who: '', urgency: '', service: '', funding: '', planManagement: '', agedCareProgram: '', frequency: '' });
-      setName(''); setReach(''); setContactError(''); setSuccess(false);
+      setName(''); setEmailInput(''); setPhoneInput(''); setContactError(''); setSuccess(false);
     }, 300);
   }, [onClose]);
 
@@ -210,18 +211,42 @@ export default function QuestionnaireModal({
     if (stepIndex > 0) setStepIndex(stepIndex - 1);
   }
 
-  const reachValid = isValidEmail(reach) || isValidPhone(reach);
-  const contactReady = name.trim().length > 0 && reachValid;
+  const emailTrimmed = emailInput.trim();
+  const phoneTrimmed = phoneInput.trim();
+  const emailFilled = emailTrimmed.length > 0;
+  const phoneFilled = phoneTrimmed.length > 0;
+  const emailOk = emailFilled && isValidEmail(emailTrimmed);
+  const phoneOk = phoneFilled && isValidPhone(phoneTrimmed);
+  const contactReady =
+    name.trim().length > 0 &&
+    (emailOk || phoneOk) &&
+    (!emailFilled || emailOk) &&
+    (!phoneFilled || phoneOk);
 
   async function handleSubmit() {
-    if (!contactReady) { setContactError('Please enter a valid email address or phone number.'); return; }
+    if (name.trim().length === 0) {
+      setContactError('Please enter your name.');
+      return;
+    }
+    if (!emailFilled && !phoneFilled) {
+      setContactError('Please enter your email address or phone number.');
+      return;
+    }
+    if (emailFilled && !emailOk) {
+      setContactError('Please enter a valid email address.');
+      return;
+    }
+    if (phoneFilled && !phoneOk) {
+      setContactError('Please enter a valid phone number.');
+      return;
+    }
     setContactError('');
     setLoading(true);
     const nameParts = name.trim().split(/\s+/);
     const firstName = nameParts[0];
     const lastName = nameParts.slice(1).join(' ') || null;
-    const email = isValidEmail(reach) ? reach.trim() : null;
-    const phone = !email && isValidPhone(reach) ? reach.trim() : null;
+    const email = emailOk ? emailTrimmed : null;
+    const phone = phoneOk ? phoneTrimmed : null;
     try {
       const res = await fetch('/api/leads', {
         method: 'POST',
@@ -239,8 +264,16 @@ export default function QuestionnaireModal({
             aged_care_program: answers.agedCareProgram || null,
             frequency: answers.frequency,
           },
-          source_details: answers.who,
-          preferred_contact: email ? 'email' : 'phone',
+          source_details: {
+            who: answers.who,
+            urgency: answers.urgency,
+            service: answers.service,
+            funding: answers.funding,
+            plan_management: answers.planManagement || null,
+            aged_care_program: answers.agedCareProgram || null,
+            frequency: answers.frequency,
+          },
+          preferred_contact: email && phone ? 'either' : email ? 'email' : 'phone',
           state: 'VIC',
         }),
       });
@@ -334,17 +367,33 @@ export default function QuestionnaireModal({
           autoComplete="name"
           className={inputBase}
         />
-        <label htmlFor="contact-reach" className="sr-only">Email or phone number</label>
+        <label htmlFor="contact-email" className="sr-only">Email address</label>
         <input
-          id="contact-reach"
-          type="text"
-          placeholder="Email or phone number"
-          value={reach}
-          onChange={(e) => setReach(e.target.value)}
+          id="contact-email"
+          type="email"
+          placeholder="Email address"
+          value={emailInput}
+          onChange={(e) => setEmailInput(e.target.value)}
           aria-describedby="contact-error"
           autoComplete="email"
+          inputMode="email"
           className={inputBase}
         />
+        <label htmlFor="contact-phone" className="sr-only">Phone number</label>
+        <input
+          id="contact-phone"
+          type="tel"
+          placeholder="Phone number"
+          value={phoneInput}
+          onChange={(e) => setPhoneInput(e.target.value)}
+          aria-describedby="contact-error"
+          autoComplete="tel"
+          inputMode="tel"
+          className={inputBase}
+        />
+        <p className="text-[11px] text-gray-400 leading-snug">
+          Provide at least one — email or phone. Both are welcome.
+        </p>
       </fieldset>
 
       {contactError && (

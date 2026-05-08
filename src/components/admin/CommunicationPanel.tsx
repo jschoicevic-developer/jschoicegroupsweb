@@ -12,7 +12,7 @@ interface Lead {
     id: string;
     first_name: string;
     last_name: string | null;
-    email: string;
+    email: string | null;
 }
 
 interface CommunicationPanelProps {

@@ -50,7 +50,7 @@ export async function POST(request: NextRequest): Promise<NextResponse<ApiRespon
             // Contact Information
             first_name: body.first_name.trim(),
             last_name: body.last_name?.trim() || null,
-            email: body.email.toLowerCase().trim(),
+            email: body.email ? body.email.toLowerCase().trim() : null,
             phone: body.phone?.trim() || null,
 
             // Source Tracking
