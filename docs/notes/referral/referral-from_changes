@@ -1,0 +1,143 @@
+Session Changes — Referral Form & Admin Display                                                     
+                                                                                                      
+  Context                                                                                             
+                                                                                                        Yesterday's commit d3697d9 ("referral from update") replaced the old multi-step ReferralForm with   
+  the new QuestionnaireModal. This broke admin display (old field names) and silently broke phone-only
+   submissions (API crash). Today's session fixes those issues and adds a separate phone field to the
+  form.
+
+  ---
+  Issue 1 — API crashed on phone-only submissions
+
+  File: src/app/api/leads/route.ts:53
+
+  The new form allows submitting with email OR phone, but the API ran body.email.toLowerCase().trim() 
+  unconditionally — throwing when email was null.
+
+  // Before
+  email: body.email.toLowerCase().trim(),
+  // After
+  email: body.email ? body.email.toLowerCase().trim() : null,
+
+  ---
+  Issue 2 — source_details was a string, not an object
+
+  File: src/components/ndis/QuestionnaireModal.tsx (handleSubmit)
+
+  The form sent source_details: answers.who (a single string like "myself"). The admin View modal does
+   Object.entries(source_details) — iterating a string yielded [["0","m"],["1","y"],…] (the "weird    
+  data showing up"). Changed to a proper object containing all questionnaire answers (mirrors
+  service_matcher_answers).
+
+  source_details: {
+    who, urgency, service, funding,
+    plan_management, aged_care_program, frequency,
+  }
+
+  ---
+  Issue 3 — Admin "View" modal didn't show new questionnaire fields
+
+  File: src/app/admin/referrals/page.tsx
+
+  The admin page was looking at legacy fields (source_details.referrerType,
+  source_details.primaryService) that no longer exist. The new questionnaire data lives in dedicated  
+  columns: service_matcher_answers, interested_services, ndis_participant, ndis_status,
+  preferred_contact.
+
+  Changes:
+  - Extended the Lead interface with ndis_participant, ndis_status, ndis_number, interested_services, 
+  service_matcher_answers, preferred_contact, state. Made email nullable; source_details now
+  Record<string, any> | string | null.
+  - Added ANSWER_LABELS map (turns codes like "yes-ndis" → "NDIS", "few-hours" → "A few hours a week",
+   etc.) covering all 7 question groups + legacy form fields.
+  - Added FIELD_LABELS map for both new keys (who, urgency, service…) and legacy keys (referrerType,  
+  primaryService…).
+  - Added labelize(key) and labelizeValue(val) helpers (handle arrays/booleans/nulls).
+  - Added getWhoFor(lead) and getPrimaryService(lead) helpers — both have legacy fallbacks so old     
+  referrals still render correctly.
+  - Updated table rows & mobile cards: now show "Care for" badge from getWhoFor, primary service from 
+  interested_services first then legacy fields. Email cell guards on null.
+  - Updated View modal:
+    - Core info grid: null-safe email, plus new "Preferred Contact" and "State" cells.
+    - Referral Answers section: merges service_matcher_answers + source_details (object), labelized.  
+    - NDIS Information block: ndis_participant, ndis_status, ndis_number.
+    - Interested Services chips.
+    - Filter rendering preserves message handling.
+  - Search filter (filteredLeads): null-safe email/phone with ?? false.
+
+  ---
+  Issue 4 — Same null-email crash in broader leads admin page
+
+  File: src/app/admin/leads/page.tsx:201
+
+  Search filter would crash on phone-only leads. Made null-safe with optional chaining + ?? false.    
+
+  ---
+  Issue 5 — sendClientConfirmation would error on phone-only leads
+
+  File: src/lib/email.ts
+
+  Added early return when lead.email is null — phone-only leads now skip the client confirmation email
+   cleanly (admin notification still fires).
+
+  if (!lead.email) {
+    console.log(`ℹ️  Skipping client confirmation: no email on lead ${lead.id} (phone-only)`);        
+    return;
+  }
+
+  ---
+  Issue 6 — Type definitions out of sync with schema reality
+
+  Files: src/types/crm.ts, src/components/admin/CommunicationPanel.tsx
+
+  Changed email: string → email: string | null on both the canonical Lead type and
+  CommunicationPanel's local interface — to match the new reality that phone-only leads exist.        
+
+  ---
+  Issue 7 — Form: split combined "Email or phone" into separate fields
+
+  File: src/components/ndis/QuestionnaireModal.tsx
+
+  User requested an explicit phone-number field so both email AND phone can be captured.
+
+  Changes:
+  - State: replaced single reach with emailInput + phoneInput.
+  - Reset cleanup updated in handleClose.
+  - Validation: contactReady requires name + at least one of (email, phone) valid; if a field is      
+  filled it must pass its format check (so users can't put "abc" in email and skip).
+  - handleSubmit: granular error messages — empty name / both empty / invalid email / invalid phone.  
+  - Submission payload sends email and phone independently (not "either-or").
+  - preferred_contact: 'either' when both supplied, else 'email' or 'phone'.
+  - UI: three inputs (Name, Email, Phone) with proper type/autoComplete/inputMode. Helper hint:       
+  "Provide at least one — email or phone. Both are welcome."
+
+  ---
+  Files Touched (7 total)
+
+  ┌─────────────────────────────────────────────┬──────────────────────────────────────────────────┐  
+  │                    File                     │                       Why                        │  
+  ├─────────────────────────────────────────────┼──────────────────────────────────────────────────┤  
+  │ src/app/api/leads/route.ts                  │ Null-safe email persistence                      │  
+  ├─────────────────────────────────────────────┼──────────────────────────────────────────────────┤  
+  │ src/components/ndis/QuestionnaireModal.tsx  │ source_details object shape + split email/phone  │  
+  │                                             │ fields                                           │  
+  ├─────────────────────────────────────────────┼──────────────────────────────────────────────────┤  
+  │ src/app/admin/referrals/page.tsx            │ View modal reads new columns; label maps;        │  
+  │                                             │ helpers; null-safe rendering                     │  
+  ├─────────────────────────────────────────────┼──────────────────────────────────────────────────┤  
+  │ src/app/admin/leads/page.tsx                │ Null-safe search filter                          │  
+  ├─────────────────────────────────────────────┼──────────────────────────────────────────────────┤  
+  │ src/lib/email.ts                            │ Skip client confirmation when no email           │  
+  ├─────────────────────────────────────────────┼──────────────────────────────────────────────────┤  
+  │ src/types/crm.ts                            │ Lead.email → nullable                            │  
+  ├─────────────────────────────────────────────┼──────────────────────────────────────────────────┤  
+  │ src/components/admin/CommunicationPanel.tsx │ Local Lead.email → nullable                      │  
+  └─────────────────────────────────────────────┴──────────────────────────────────────────────────┘  
+
+  Verification
+
+  - npx tsc --noEmit — passes clean.
+  - DB schema unchanged (target columns already existed).
+  - Backwards compatible: legacy referrals (with referrerType, primaryService, etc. inside
+  source_details) still render correctly via fallbacks in getWhoFor, getPrimaryService, and
+  FIELD_LABELS.
