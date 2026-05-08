@@ -10,6 +10,11 @@ import BlogFaqAccordion from '@/components/blog/BlogFaqAccordion';
 import BlogShareButtons from '@/components/blog/BlogShareButtons';
 import BlogNewsletterCta from '@/components/blog/BlogNewsletterCta';
 
+interface BlogFaq {
+    question: string;
+    answer: string;
+}
+
 interface BlogPost {
     id: string;
     title: string;
@@ -24,6 +29,7 @@ interface BlogPost {
     published_at: string | null;
     tags: string[];
     category: string | null;
+    faqs: BlogFaq[] | null;
     created_at: string;
 }
 
@@ -132,30 +138,6 @@ const authorInitials = (name: string) =>
         .join('')
         .toUpperCase();
 
-// Static FAQ placeholder — replace with dynamic data when available
-const PLACEHOLDER_FAQS = [
-    {
-        question: 'What is Specialist Disability Accommodation (SDA)?',
-        answer:
-            'SDA is a type of NDIS funding for people with extreme functional impairment or very high support needs. It covers the cost of purpose-built or modified housing that enables participants to live more independently.',
-    },
-    {
-        question: 'Am I eligible for SDA funding through the NDIS?',
-        answer:
-            'To be eligible for SDA, you must be an NDIS participant with extreme functional impairment or very high support needs, and the NDIA must determine that SDA funding is reasonable and necessary for you.',
-    },
-    {
-        question: 'How long does the SDA application process take?',
-        answer:
-            'The process varies, but typically takes 3–6 months from gathering supporting evidence to receiving an SDA decision in your NDIS plan. JS Choice can help guide you through each step.',
-    },
-    {
-        question: 'What support does JS Choice Group offer?',
-        answer:
-            'JS Choice Group provides a range of NDIS support services including SDA housing, daily life assistance, community participation, support coordination, allied health referrals, and more across Victoria.',
-    },
-];
-
 export default async function BlogPostPage({ params, searchParams }: BlogPostPageProps) {
     const { slug } = await params;
     const { preview } = await searchParams;
@@ -166,6 +148,9 @@ export default async function BlogPostPage({ params, searchParams }: BlogPostPag
 
     const relatedPosts = await getRelatedPosts(slug);
     const readTime = calcReadTime(post.content);
+    const postFaqs: BlogFaq[] = Array.isArray(post.faqs)
+        ? post.faqs.filter((f) => f && f.question?.trim() && f.answer?.trim())
+        : [];
 
     const canonicalUrl = `https://jschoicegroup.com.au/blog/${slug}`;
     const blogPostSchema = {
@@ -197,9 +182,23 @@ export default async function BlogPostPage({ params, searchParams }: BlogPostPag
         ],
     };
 
+    const faqSchema = postFaqs.length > 0 ? {
+        "@context": "https://schema.org",
+        "@type": "FAQPage",
+        mainEntity: postFaqs.map((f) => ({
+            "@type": "Question",
+            name: f.question,
+            acceptedAnswer: { "@type": "Answer", text: f.answer },
+        })),
+    } : null;
+
+    const schemaPayload = faqSchema
+        ? [blogPostSchema, breadcrumbSchema, faqSchema]
+        : [blogPostSchema, breadcrumbSchema];
+
     return (
             <main className="flex flex-col min-h-screen w-full bg-gray-50">
-                <JsonLd data={[blogPostSchema, breadcrumbSchema]} />
+                <JsonLd data={schemaPayload} />
                 {/* ── HERO — keep exactly as-is ─────────────────────────────────── */}
                 <div className="w-full bg-gradient-to-br from-[#1A202C] via-[#2D3748] to-primary py-14 md:py-20">
                     <div className="max-w-7xl mx-auto px-4 md:px-6 lg:px-8">
@@ -345,10 +344,12 @@ export default async function BlogPostPage({ params, searchParams }: BlogPostPag
                                 </div>
                             </div>
 
-                            {/* ── 5. FAQ Section ─────────────────────────────────── */}
-                            <div className="mt-10">
-                                <BlogFaqAccordion items={PLACEHOLDER_FAQS} />
-                            </div>
+                            {/* ── 5. FAQ Section — only when the writer has added FAQs ── */}
+                            {postFaqs.length > 0 && (
+                                <div className="mt-10">
+                                    <BlogFaqAccordion items={postFaqs} />
+                                </div>
+                            )}
 
                             {/* ── 6. Related Blog Posts ──────────────────────────── */}
                             {relatedPosts.length > 0 && (

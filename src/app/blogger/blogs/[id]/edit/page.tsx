@@ -9,6 +9,7 @@ import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
 import WysiwygEditor from "@/components/admin/RichTextEditor";
+import BlogFaqEditor, { type FaqItem } from "@/components/admin/BlogFaqEditor";
 import { createClient } from "@/lib/supabase";
 import { useAuth } from "@/hooks/useAuth";
 import { generateTableOfContents } from "@/lib/utils";
@@ -36,6 +37,7 @@ interface BlogPost {
     scheduled_for: string | null;
     author_id: string;
     author_name: string;
+    faqs: FaqItem[] | null;
 }
 
 export default function EditBloggerPostPage() {
@@ -48,6 +50,7 @@ export default function EditBloggerPostPage() {
     const [fetchingPost, setFetchingPost] = useState(true);
     const [bloggers, setBloggers] = useState<Blogger[]>([]);
     const [selectedAuthorName, setSelectedAuthorName] = useState('');
+    const [faqs, setFaqs] = useState<FaqItem[]>([]);
     const [formData, setFormData] = useState({
         title: "",
         slug: "",
@@ -108,6 +111,7 @@ export default function EditBloggerPostPage() {
                 });
                 setSelectedAuthorName(post.author_name);
                 setOriginalSlug(post.slug);
+                setFaqs(Array.isArray(post.faqs) ? post.faqs : []);
             } catch (error) {
                 console.error('Error fetching post:', error);
                 alert('Failed to load blog post');
@@ -177,6 +181,7 @@ export default function EditBloggerPostPage() {
                 featured_image: formData.featured_image,
                 category: formData.category,
                 tags: tagsArray,
+                faqs,
                 status,
                 author_id: user.id,
                 author_name: selectedAuthorName || user.user_metadata?.name || user.email || 'Blogger',
@@ -299,15 +304,15 @@ export default function EditBloggerPostPage() {
                         </div>
 
                         <div>
-                            <label className="block text-sm font-bold text-gray-700 mb-2">Description</label>
+                            <label className="block text-sm font-bold text-gray-700 mb-2">Overview</label>
                             <Textarea
                                 value={formData.description}
                                 onChange={(e) => setFormData({ ...formData, description: e.target.value })}
-                                placeholder="A detailed description displayed at the top of the blog post page..."
+                                placeholder="A short overview that introduces the article..."
                                 rows={5}
                                 className="resize-none"
                             />
-                            <p className="text-xs text-gray-500 mt-2">This appears as a highlighted overview section on the published blog post, right before the main content.</p>
+                            <p className="text-xs text-gray-500 mt-2">Shown as a highlighted Overview block at the top of the blog post, right after the featured image.</p>
                         </div>
 
                         <div>
@@ -317,6 +322,15 @@ export default function EditBloggerPostPage() {
                                 onChange={(content: string) => setFormData({ ...formData, content })}
                             />
                         </div>
+                    </div>
+
+                    {/* FAQ Section */}
+                    <div className="glass-card p-8 rounded-[2rem] space-y-4">
+                        <div className="border-b border-gray-100 pb-4">
+                            <h2 className="text-xl font-bold text-gray-900">FAQ Section</h2>
+                            <p className="text-xs text-gray-500 mt-1">Frequently asked questions displayed at the end of the blog post. Leave empty to hide the section.</p>
+                        </div>
+                        <BlogFaqEditor value={faqs} onChange={setFaqs} />
                     </div>
                 </div>
 
