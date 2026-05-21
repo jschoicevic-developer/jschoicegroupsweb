@@ -104,7 +104,7 @@ const EmploymentEducationPage = () => {
         <main className="bg-gray-50/50">
             <JsonLd data={serviceSchemas} />
             <PageHeader
-                title="Assist with Employment/Education"
+                title="Assist with Employment and Education"
                 breadcrumb={[
                     { label: "Home", href: "/" },
                     { label: "Employment & Education" }
@@ -146,12 +146,12 @@ const EmploymentEducationPage = () => {
                                     Empowerment Through Learning
                                 </span>
                                 <h2 className="text-4xl lg:text-5xl font-black text-[#2D3748] leading-tight">
-                                    Unlock Your Potential, <span className="text-primary block mt-2">Build Your Future.</span>
+                                    Assist with Employment and Education — <span className="text-primary block mt-2">Build Your Future.</span>
                                 </h2>
                             </div>
                             <div className="space-y-6 text-lg text-gray-600 leading-relaxed">
                                 <p>
-                                    At Js Choice – Care and Support, we believe that disability should never be a barrier to professional success or educational achievement. Our mission is to empower you with the tools, skills, and confidence to pursue your career goals and lifelong learning.
+                                    Our Assist with Employment and Education service is built on the belief that disability should never be a barrier to professional success or educational achievement. At Js Choice – Care and Support, our mission is to empower you with the tools, skills, and confidence to pursue your career goals and lifelong learning.
                                 </p>
                                 <p>
                                     Whether you're looking for your first job, returning to work, or wanting to study, our dedicated specialists work closely with you. We tailor our support to your unique strengths, ensuring you have every opportunity to thrive in the workplace and the classroom.

@@ -160,12 +160,12 @@ const AlliedHealthAssistance = () => {
                                     Therapy Support
                                 </span>
                                 <h2 className="text-4xl lg:text-5xl font-black text-[#2D3748] leading-tight">
-                                    Extending Your Therapy, <span className="text-secondary block mt-2">Maximizing Your Budget</span>
+                                    Allied Health Services That Extend Your Therapy, <span className="text-secondary block mt-2">Maximizing Your Budget</span>
                                 </h2>
                             </div>
                             <div className="space-y-6 text-lg text-gray-600 leading-relaxed">
                                 <p>
-                                    Therapy is most effective when it is consistent. However, seeing a qualified Occupational Therapist (OT), Physiotherapist, or Speech Pathologist every week can quickly use up your NDIS funding.
+                                    Our Allied Health Services help make therapy most effective by keeping it consistent. However, seeing a qualified Occupational Therapist (OT), Physiotherapist, or Speech Pathologist every week can quickly use up your NDIS funding.
                                 </p>
                                 <p>
                                     At Js Choice – Care and Support, our Allied Health Assistants (AHAs) offer a smart solution. They are qualified support professionals who work under the supervision of your treating therapist to help you practice your exercises and therapy goals in between your major appointments.

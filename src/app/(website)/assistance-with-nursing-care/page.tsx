@@ -157,13 +157,13 @@ const AssistanceWithNursingCare = () => {
                                     Community Nursing
                                 </span>
                                 <h2 className="text-4xl lg:text-5xl font-black text-[#2D3748] leading-tight">
-                                    Community Nursing Care <span className="block text-primary mt-2">in Melbourne</span>
+                                    Assistance with Nursing Care <span className="block text-primary mt-2">in Melbourne</span>
                                 </h2>
                             </div>
                             <div className="space-y-6 text-lg text-gray-600 leading-relaxed">
                                 <h3 className="text-2xl font-bold text-[#2D3748]">Get the Best Support & Live Independently</h3>
                                 <p>
-                                    At JS Choice – Care and Support, we understand the vital role that community nursing care plays in improving the quality of life for individuals with special needs. Hence, our dedicated team is highly committed to offering the best nursing care assistance in Melbourne.
+                                    At JS Choice – Care and Support, our Assistance with Nursing Care service recognises the vital role community nursing plays in improving the quality of life for individuals with special needs. Our dedicated team is highly committed to offering the best nursing care assistance in Melbourne.
                                 </p>
                                 <p>
                                     Our skilled professionals have vast experience and expertise in the industry. Whether you or your loved one requires the best assistance and community nursing service, we are always ready to provide quality results.
@@ -321,7 +321,7 @@ const AssistanceWithNursingCare = () => {
                                             <service.icon size={24} />
                                         </div>
                                         <div>
-                                            <h4 className="text-xl font-bold mb-2 text-white">{service.title}</h4>
+                                            <h3 className="text-xl font-bold mb-2 text-white">{service.title}</h3>
                                             <p className="text-gray-300 text-sm leading-relaxed">{service.description}</p>
                                         </div>
                                     </div>

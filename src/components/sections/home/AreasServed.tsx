@@ -48,7 +48,7 @@ const AreasServed = () => {
                         transition={{ duration: 0.6 }}
                     >
                         <h2 className="text-3xl md:text-5xl lg:text-6xl font-black text-[#2D3748] leading-[1.1] tracking-tighter mb-6">
-                            Areas We <span className="text-[#F1ABAB]">Serve</span>
+                            Areas We <span className="text-[#F1ABAB]">Serve</span> Across Melbourne
                         </h2>
                         <p className="text-lg md:text-xl text-gray-600 leading-relaxed font-medium">
                             Based in Point Cook, <span className="text-[#2D3748] font-bold">Js Choice – Care and Support</span> proudly supports participants across Melbourne's Western and Northern suburbs, as well as regional outreach where possible.

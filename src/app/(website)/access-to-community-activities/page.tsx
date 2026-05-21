@@ -201,12 +201,12 @@ const AccessToCommunityActivities = () => {
                                     Community & Connection
                                 </span>
                                 <h2 className="text-4xl lg:text-5xl font-black text-[#2D3748] leading-tight">
-                                    Your Community, <span className="text-primary block mt-2">Your Way</span>
+                                    Access to Community Activities, <span className="text-primary block mt-2">Your Way</span>
                                 </h2>
                             </div>
                             <div className="space-y-6 text-lg text-gray-600 leading-relaxed">
                                 <p>
-                                    At JS Choice – Care and Support, we believe that being part of the community is a fundamental human right. It is about more than just "getting out of the house"; it is about belonging, finding purpose, and connecting with the vibrant culture Melbourne has to offer.
+                                    At JS Choice – Care and Support, our Access to Community Activities service is built on the belief that being part of the community is a fundamental human right. It is about more than just "getting out of the house"; it is about belonging, finding purpose, and connecting with the vibrant culture Melbourne has to offer.
                                 </p>
                                 <p>
                                     We provide specialised Community Participation Support designed to help you engage with the world on your own terms. Whether you want to join a local club, volunteer, attend cultural events, or simply enjoy a coffee at a local cafe, our support workers are here to make it happen safely and seamlessly.

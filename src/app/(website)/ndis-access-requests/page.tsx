@@ -149,12 +149,12 @@ const NdisAccessRequests = () => {
                                     Application Support
                                 </span>
                                 <h2 className="text-4xl lg:text-5xl font-black text-[#2D3748] leading-tight">
-                                    Your Gateway to <span className="text-primary block mt-2">NDIS Support</span>
+                                    NDIS Access Requests — Your Gateway to <span className="text-primary block mt-2">NDIS Support</span>
                                 </h2>
                             </div>
                             <div className="space-y-6 text-lg text-gray-600 leading-relaxed">
                                 <p>
-                                    Applying for the National Disability Insurance Scheme (NDIS) is the first step toward getting the support you need, but the application process can be confusing and paperwork-heavy.
+                                    NDIS Access Requests are the first step toward getting the support you need from the National Disability Insurance Scheme, but the application process can be confusing and paperwork-heavy.
                                 </p>
                                 <p>
                                     At Js Choice – Care and Support, we believe that complexity shouldn't stop you from accessing help. As experienced Melbourne NDIS providers, we offer guidance to help eligible individuals navigate the Access Request process. We help you understand the requirements, gather the right evidence, and submit a strong application.

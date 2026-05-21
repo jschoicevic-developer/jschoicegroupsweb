@@ -1,8 +1,8 @@
 import type { Metadata } from 'next';
 
 export const metadata: Metadata = {
-    title: "Assistance with Nursing Care",
-    description: "JS Choice Group provides professional nursing care assistance for NDIS participants across Melbourne. Expert, compassionate support for complex needs.",
+    title: { absolute: "Assistance with Nursing Care Melbourne | JS Choice" },
+    description: "NDIS Assistance with Nursing Care in Melbourne — expert clinical support at home.",
     alternates: { canonical: 'https://jschoicegroup.com.au/assistance-with-nursing-care' }
 };
 

@@ -1,8 +1,8 @@
 import type { Metadata } from 'next';
 
 export const metadata: Metadata = {
-    title: "Emergency Respite Services",
-    description: "JS Choice Group provides reliable NDIS emergency respite services across Melbourne. Support carers and participants with compassionate short-term care.",
+    title: { absolute: "NDIS Emergency Respite Care in Melbourne | JS Choice" },
+    description: "NDIS Emergency Respite in Melbourne — rapid short-term care when you need it most.",
     alternates: { canonical: 'https://jschoicegroup.com.au/emergency-respite' }
 };
 

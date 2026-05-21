@@ -113,12 +113,12 @@ const AssistanceWithDailyLife = () => {
                         >
                             <div className="space-y-4">
                                 <h2 className="text-4xl lg:text-5xl font-black text-[#2D3748] leading-tight">
-                                    Reliable Daily Life Support <span className="text-primary mt-2">at Home in Melbourne</span>
+                                    Reliable Assistance with Daily Life <span className="text-primary mt-2">at Home in Melbourne</span>
                                 </h2>
                             </div>
                             <div className="space-y-6 text-lg text-gray-600 leading-relaxed">
                                 <p>
-                                    At JS Choice – Care and Support, we understand that managing daily tasks can sometimes feel overwhelming. We are here to change that. As a trusted name in the Melbourne disability sector, we provide specialised, culturally safe support designed to simplify your routine and help you feel in control of your environment.
+                                    At JS Choice – Care and Support, our Assistance with Daily Life service is built for those moments when managing daily tasks feels overwhelming. As a trusted name in the Melbourne disability sector, we provide specialised, culturally safe support designed to simplify your routine and help you feel in control of your environment.
                                 </p>
                                 <p>
                                     Our goal is not just to complete tasks for you, but to work alongside you. Whether you need support with personal care, household management, or maintaining your property, our approach is tailored to your unique needs, helping you achieve greater autonomy and comfort in your own home.

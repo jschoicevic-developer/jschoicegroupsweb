@@ -31,7 +31,7 @@ const SeamlessNDIS = () => {
                     className="max-w-4xl mx-auto"
                 >
                     <h2 className="text-3xl md:text-5xl lg:text-6xl font-black text-white mb-12 leading-[1.1] tracking-tight uppercase">
-                        Together, let’s make the NDIS work <span className="text-[#2D3748]">seamlessly</span> for your future of continued independence.
+                        Supporting Your <span className="text-[#2D3748]">Independence</span> Through Quality NDIS Care
                     </h2>
 
                     <div className="flex flex-col sm:flex-row items-center justify-center gap-6 mt-10">
