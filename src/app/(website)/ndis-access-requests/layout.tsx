@@ -1,8 +1,8 @@
 import type { Metadata } from 'next';
 
 export const metadata: Metadata = {
-    title: "NDIS Access Requests",
-    description: "Get expert help with NDIS access requests from JS Choice Group. Our team guides you through eligibility checks and applications across Melbourne and Victoria.",
+    title: { absolute: "NDIS Access Requests Support Melbourne | JS Choice" },
+    description: "NDIS Access Requests help in Melbourne — guidance from eligibility to approval.",
     alternates: { canonical: 'https://jschoicegroup.com.au/ndis-access-requests' }
 };
 

@@ -120,9 +120,9 @@ const About = () => {
                                 <span className="h-px w-8 bg-secondary" />
                                 Your Local Melbourne Partner
                             </div>
-                            <h2 className="text-3xl md:text-5xl lg:text-6xl font-black text-foreground leading-[1.1] tracking-tight uppercase">
+                            <p className="text-3xl md:text-5xl lg:text-6xl font-black text-foreground leading-[1.1] tracking-tight uppercase">
                                 NDIS Service Providers in <span className="text-primary">Melbourne</span>
-                            </h2>
+                            </p>
                         </div>
                         <div className="space-y-4 text-lg text-gray-600 leading-relaxed font-medium">
                             <p>
@@ -162,7 +162,7 @@ const About = () => {
                                 Committed to Inclusion
                             </div>
                             <h2 className="text-3xl md:text-5xl lg:text-6xl font-black text-foreground relative z-10 leading-[1.1] tracking-tight uppercase">
-                                Serving the Melbourne <span className="text-secondary">Community</span>
+                                Serving the Melbourne <span className="text-secondary">Community</span> with Compassionate NDIS Care
                             </h2>
                         </div>
                         <div className="space-y-4 text-lg text-gray-600 leading-relaxed font-medium">

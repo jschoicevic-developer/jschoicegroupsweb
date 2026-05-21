@@ -141,10 +141,10 @@ const SupportCoordination = () => {
         <main className="bg-gray-50/50">
             <JsonLd data={serviceSchemas} />
             <PageHeader
-                title="Support Coordination"
+                title="NDIS Support Coordination"
                 breadcrumb={[
                     { label: "Home", href: "/" },
-                    { label: "Support Coordination" }
+                    { label: "NDIS Support Coordination" }
                 ]}
             />
 
@@ -182,12 +182,12 @@ const SupportCoordination = () => {
                                     Guidance & Mentorship
                                 </span>
                                 <h2 className="text-4xl lg:text-5xl font-black text-[#2D3748] leading-tight">
-                                    Turning Your NDIS Plan <span className="text-primary block mt-2">into Action</span>
+                                    NDIS Support Coordination — Turning Your NDIS Plan <span className="text-primary block mt-2">into Action</span>
                                 </h2>
                             </div>
                             <div className="space-y-6 text-lg text-gray-600 leading-relaxed">
                                 <p>
-                                    Receiving your NDIS plan is an exciting milestone, but understanding how to use it can be overwhelming. That is where JS Choice - Care and Support comes in.
+                                    Receiving your NDIS plan is an exciting milestone, but understanding how to use it can be overwhelming. That is where JS Choice - Care and Support and our NDIS Support Coordination service come in.
                                 </p>
                                 <p>
                                     Think of your NDIS plan as the roadmap and your Support Coordinator as the experienced guide. We help you navigate the system, understand your budget, and connect you with the very best providers in Melbourne. Our goal is simple: to help you build the capacity to manage your own supports, giving you full control over your life and your future.

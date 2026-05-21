@@ -55,7 +55,7 @@ const Faq = () => {
                             Help Centre
                         </div>
                         <h2 className="text-3xl md:text-5xl lg:text-6xl font-black text-[#2D3748] leading-tight uppercase tracking-tighter">
-                            Frequently Asked <span className="text-[#ABB3F1]">Question</span>
+                            Frequently Asked <span className="text-[#ABB3F1]">Questions</span>
                         </h2>
                         <div className="w-16 h-1 bg-[#ABB3F1] mx-auto rounded-full" />
                     </motion.div>

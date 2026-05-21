@@ -62,7 +62,7 @@ const WhyChooseUs = () => {
                                     Distinguished Support
                                 </div>
                                 <h2 className="text-4xl sm:text-5xl lg:text-6xl font-black text-white leading-[1.1] tracking-tight uppercase drop-shadow-xl mb-6">
-                                    Why Melbourne Families Choose JS Choice?
+                                    Why Melbourne Families Choose JS Choice
                                 </h2>
                                 <p className="text-lg text-white/90 font-medium leading-relaxed max-w-xl">
                                     JS Choice – Care and Support is a trusted choice for NDIS participants across Melbourne because we prioritise people, always.
@@ -87,8 +87,8 @@ const WhyChooseUs = () => {
                     <div className="grid grid-cols-1 sm:grid-cols-2 gap-5">
                         {[
                             { icon: Brain, title: "Neuro-Affirming Approach", desc: "We embrace all diversity. We understand neurodivergence (ASD, ADHD, PDA) and adapt our communication and support styles to suit you.", color: "text-[#ABB3F1]", bg: "bg-[#ABB3F1]" },
-                            { icon: Globe, title: "Culturally Inclusive", desc: "We respect your background, traditions, and language, ensuring your care feels like home.", color: "text-pink-400", bg: "bg-pink-500" },
-                            { icon: Sparkles, title: "Capacity Building", desc: "We coordinate with you to build your skills for the future.", color: "text-blue-400", bg: "bg-blue-500" },
+                            { icon: Globe, title: "Culturally Inclusive Support", desc: "We respect your background, traditions, and language, ensuring your care feels like home.", color: "text-pink-400", bg: "bg-pink-500" },
+                            { icon: Sparkles, title: "Capacity Building Focus", desc: "We coordinate with you to build your skills for the future.", color: "text-blue-400", bg: "bg-blue-500" },
                             { icon: ShieldCheck, title: "Compliance & Trust", desc: "Fully NDIS registered and compliant, ensuring your safety and quality of care are never compromised.", color: "text-green-400", bg: "bg-green-500" }
                         ].map((feature, idx) => (
                             <motion.div
@@ -102,9 +102,9 @@ const WhyChooseUs = () => {
                                 <div className={`h-12 w-12 rounded-xl ${feature.bg}/20 flex items-center justify-center ${feature.color} mb-4 group-hover:scale-110 transition-transform`}>
                                     <feature.icon size={24} strokeWidth={2.5} />
                                 </div>
-                                <h4 className="text-base font-bold text-white uppercase tracking-wider leading-tight mb-2">
+                                <h3 className="text-base font-bold text-white uppercase tracking-wider leading-tight mb-2">
                                     {feature.title}
-                                </h4>
+                                </h3>
                                 <p className="text-sm text-white/70 font-medium leading-relaxed">
                                     {feature.desc}
                                 </p>

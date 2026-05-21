@@ -1,8 +1,8 @@
 import type { Metadata } from 'next';
 
 export const metadata: Metadata = {
-    title: "Employment & Education Support",
-    description: "JS Choice Group helps NDIS participants find employment and pursue education. Expert support to build skills, confidence and independence in Victoria.",
+    title: { absolute: "NDIS Assist with Employment & Education | JS Choice" },
+    description: "NDIS Assist with Employment and Education in Melbourne — skills, training, and jobs.",
     alternates: { canonical: 'https://jschoicegroup.com.au/employment-education' }
 };
 

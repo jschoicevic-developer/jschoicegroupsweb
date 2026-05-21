@@ -320,7 +320,7 @@ const EmergencyRespite = () => {
                                             <service.icon size={24} />
                                         </div>
                                         <div>
-                                            <h4 className="text-xl font-bold mb-2 text-white">{service.title}</h4>
+                                            <h3 className="text-xl font-bold mb-2 text-white">{service.title}</h3>
                                             <p className="text-gray-300 text-sm leading-relaxed">{service.description}</p>
                                         </div>
                                     </div>

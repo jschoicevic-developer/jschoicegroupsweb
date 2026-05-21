@@ -114,10 +114,10 @@ const GroupCentreActivities = () => {
         <main className="bg-gray-50/50">
             <JsonLd data={serviceSchemas} />
             <PageHeader
-                title="Group / Centre Activities"
+                title="Group and Centre Activities"
                 breadcrumb={[
                     { label: "Home", href: "/" },
-                    { label: "Group / Centre Activities" }
+                    { label: "Group and Centre Activities" }
                 ]}
             />
 
@@ -155,12 +155,12 @@ const GroupCentreActivities = () => {
                                     Community & Connection
                                 </span>
                                 <h2 className="text-4xl lg:text-5xl font-black text-[#2D3748] leading-tight">
-                                    Connect, Create, and <span className="text-primary block mt-2">Belong in a Safe Space</span>
+                                    Group and Centre Activities — Connect, Create, and <span className="text-primary block mt-2">Belong in a Safe Space</span>
                                 </h2>
                             </div>
                             <div className="space-y-6 text-lg text-gray-600 leading-relaxed">
                                 <p className="font-bold text-[#2D3748]">
-                                    Socializing doesn't have to be stressful.
+                                    Group and Centre Activities — socializing doesn't have to be stressful.
                                 </p>
                                 <p>
                                     At JS Choice – Care and Support, we provide structured, engaging, and culturally safe group activities across Melbourne designed to help you build friendships and learn new skills at your own pace.

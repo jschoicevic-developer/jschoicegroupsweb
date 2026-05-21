@@ -155,10 +155,10 @@ const NdisAccommodationGeelong = () => {
         <main className="bg-gray-50/50">
             <JsonLd data={serviceSchemas} />
             <PageHeader
-                title="NDIS Accommodation Geelong"
+                title="NDIS Accommodation in Geelong"
                 breadcrumb={[
                     { label: "Home", href: "/" },
-                    { label: "NDIS Accommodation Geelong" }
+                    { label: "NDIS Accommodation in Geelong" }
                 ]}
             />
 
@@ -201,7 +201,7 @@ const NdisAccommodationGeelong = () => {
                             </div>
                             <div className="space-y-6 text-lg text-gray-600 leading-relaxed">
                                 <p>
-                                    As an NDIS support provider, we at Js Choice – Care and Support are committed to providing safe and secured NDIS accommodation to individuals with disabilities in Geelong. As an experienced NDIS accommodation provider in Geelong, we understand the importance of ensuring that each participant’s housing needs are met with respect and care.
+                                    Our NDIS Accommodation in Geelong is delivered with one promise: as an NDIS support provider, we at Js Choice – Care and Support are committed to providing safe and secured housing to individuals with disabilities. As an experienced NDIS accommodation provider in Geelong, we understand the importance of ensuring that each participant’s housing needs are met with respect and care.
                                 </p>
                                 <p>
                                     We offer a range of accommodation options that promote independence and provide a safe, supportive environment. Our goal is to empower participants by offering housing that aligns with their needs, goals, and aspirations.

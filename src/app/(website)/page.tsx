@@ -10,8 +10,26 @@ import JsonLd from "@/components/schema/JsonLd";
 import type { Metadata } from "next";
 
 export const metadata: Metadata = {
+  title: {
+    absolute: "NDIS Service Providers in Melbourne | JS Choice",
+  },
+  description:
+    "NDIS Service Providers in Melbourne offering compassionate disability support.",
   alternates: {
     canonical: "/",
+  },
+  openGraph: {
+    title: "NDIS Service Providers in Melbourne | JS Choice",
+    description:
+      "NDIS Service Providers in Melbourne offering compassionate disability support.",
+    url: "https://jschoicegroup.com.au",
+    type: "website",
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "NDIS Service Providers in Melbourne | JS Choice",
+    description:
+      "NDIS Service Providers in Melbourne offering compassionate disability support.",
   },
 };
 
@@ -32,9 +50,9 @@ const homePageSchema = {
   "@type": "WebPage",
   "@id": "https://jschoicegroup.com.au/#webpage",
   url: "https://jschoicegroup.com.au",
-  name: "JS Choice Group | Registered NDIS Provider in Melbourne",
+  name: "NDIS Service Providers in Melbourne | JS Choice Care and Support",
   description:
-    "JS Choice Group is a registered NDIS provider delivering compassionate disability support services across Melbourne and Victoria.",
+    "JS Choice Group are trusted NDIS Service Providers in Melbourne, delivering compassionate, participant-led disability support across Victoria.",
   isPartOf: { "@id": "https://jschoicegroup.com.au/#website" },
   about: { "@id": "https://jschoicegroup.com.au/#organization" },
   breadcrumb: {

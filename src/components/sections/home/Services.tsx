@@ -86,7 +86,7 @@ const Services = () => {
                         transition={{ duration: 0.8 }}
                     >
                         <h2 className="text-3xl md:text-5xl lg:text-6xl font-black text-[#2D3748] leading-tight uppercase tracking-tighter mb-4">
-                            Tailored NDIS Support Services <span className="text-[var(--primary)]">In Melbourne</span>
+                            Trusted NDIS Support Services <span className="text-[var(--primary)]">In Melbourne</span>
                         </h2>
                         <div className="h-1 w-24 bg-[var(--primary)] mx-auto mb-6 rounded-full" />
                         <p className="text-lg text-gray-700 font-bold leading-relaxed max-w-3xl mx-auto">
@@ -99,7 +99,7 @@ const Services = () => {
                 <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
                     {[
                         {
-                            title: "Assistance with daily life",
+                            title: "Assistance with Daily Life",
                             description: "Build independence at home. We support you with household tasks, personal care, and daily routines, ensuring you feel comfortable and in control of your environment.",
                             icon: "/images/home/service-icon-1.webp",
                             href: "/assistance-with-daily-life"
@@ -129,7 +129,7 @@ const Services = () => {
                             href: "/access-to-community-activities"
                         },
                         {
-                            title: "Group/Centre Activities",
+                            title: "Group & Centre Activities",
                             description: "Get out and about! We help you access community resources, attend events, and develop social connections to reduce isolation and build confidence.",
                             icon: "/images/home/service-icon-2.webp",
                             href: "/group-centre-activities"

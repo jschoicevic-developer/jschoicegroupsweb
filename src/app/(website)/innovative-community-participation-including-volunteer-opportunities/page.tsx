@@ -187,7 +187,7 @@ const InnovativeCommunityParticipation = () => {
                                     Build Skills & Confidence
                                 </span>
                                 <h2 className="text-4xl lg:text-5xl font-black text-[#2D3748] leading-tight">
-                                    Redefining What's Possible: <span className="text-primary block mt-2">Build Skills, Confidence & Connections</span>
+                                    Innovative Community Participation — Redefining What's Possible: <span className="text-primary block mt-2">Build Skills, Confidence & Connections</span>
                                 </h2>
                             </div>
                             <div className="space-y-6 text-lg text-gray-600 leading-relaxed">

@@ -106,10 +106,10 @@ const ClientFamilyAdvocacy = () => {
         <main className="bg-gray-50/50">
             <JsonLd data={serviceSchemas} />
             <PageHeader
-                title="Client And Family Advocacy For NDIS Participants Only"
+                title="NDIS Family Advocacy for Participants"
                 breadcrumb={[
                     { label: "Home", href: "/" },
-                    { label: "Client And Family Advocacy For NDIS Participants Only" }
+                    { label: "NDIS Family Advocacy for Participants" }
                 ]}
             />
 
@@ -147,12 +147,12 @@ const ClientFamilyAdvocacy = () => {
                                     Advocacy & Support
                                 </span>
                                 <h2 className="text-4xl lg:text-5xl font-black text-[#2D3748] leading-tight">
-                                    Your Voice, <span className="text-primary block mt-2">Your Rights, Your Choice.</span>
+                                    NDIS Family Advocacy for Participants — <span className="text-primary block mt-2">Your Rights, Your Choice.</span>
                                 </h2>
                             </div>
                             <div className="space-y-6 text-lg text-gray-600 leading-relaxed">
                                 <p>
-                                    Navigating the NDIS can be complex, and sometimes, it feels like your voice isn't being heard. At Js Choice – Care and Support, we believe that every participant deserves to have their rights respected and their needs met without compromise.
+                                    Our NDIS Family Advocacy for Participants service exists because navigating the NDIS can be complex, and sometimes, it feels like your voice isn't being heard. At Js Choice – Care and Support, we believe that every participant deserves to have their rights respected and their needs met without compromise.
                                 </p>
                                 <p>
                                     Our Client and Family Advocacy service is here to stand beside you. We represent your interests, help you understand your rights, and ensure you have the confidence to navigate the NDIS landscape, whether you are applying for access, resolving a dispute, or simply trying to get the most out of your plan.

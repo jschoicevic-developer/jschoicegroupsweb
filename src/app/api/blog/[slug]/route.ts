@@ -117,6 +117,20 @@ export async function PATCH(
             }
         });
 
+        // Guard: slug is part of a published post's public URL. Silently changing it
+        // breaks all existing links and Google indexing, so block the change on
+        // already-published posts (drafts/scheduled can still be renamed).
+        if (
+            updateData.slug !== undefined &&
+            updateData.slug !== oldSlug &&
+            existingPost?.status === 'published'
+        ) {
+            console.warn(
+                `[blog PATCH] Refused slug change on published post "${oldSlug}" -> "${updateData.slug}"`
+            );
+            delete updateData.slug;
+        }
+
         // FAQs: normalise array of { question, answer }, drop empty rows
         if (body.faqs !== undefined) {
             updateData.faqs = Array.isArray(body.faqs)

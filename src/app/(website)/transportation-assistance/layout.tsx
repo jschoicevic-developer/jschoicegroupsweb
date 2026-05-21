@@ -1,8 +1,8 @@
 import type { Metadata } from 'next';
 
 export const metadata: Metadata = {
-    title: "Transportation Assistance",
-    description: "JS Choice Group provides reliable NDIS transportation assistance across Melbourne and Victoria. Expert support for disability transport needs.",
+    title: { absolute: "NDIS Transportation Assistance Melbourne | JS Choice" },
+    description: "NDIS Transportation Assistance in Melbourne — safe, supported door-to-door travel.",
     alternates: { canonical: 'https://jschoicegroup.com.au/transportation-assistance' }
 };
 

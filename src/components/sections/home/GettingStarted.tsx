@@ -51,7 +51,7 @@ const GettingStarted = () => {
                             <span className="h-px w-8 bg-[#ABB3F1]" />
                         </div>
                         <h2 className="text-3xl md:text-5xl lg:text-6xl font-black text-[#2D3748] leading-tight uppercase tracking-tighter">
-                            Getting Started is <span className="text-[#F1ABAB]">Easy</span>
+                            Getting Started with Our <span className="text-[#F1ABAB]">Melbourne NDIS Services</span>
                         </h2>
                     </motion.div>
                 </div>

@@ -134,6 +134,12 @@ export default function EditBloggerPostPage() {
     };
 
     const handleTitleChange = (title: string) => {
+        // If the post already has a saved slug, don't auto-regenerate from the title —
+        // that would silently change the public URL and 404 existing links.
+        if (originalSlug) {
+            setFormData({ ...formData, title });
+            return;
+        }
         setFormData({
             ...formData,
             title,

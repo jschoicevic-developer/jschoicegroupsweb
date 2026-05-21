@@ -117,10 +117,10 @@ const NdisAccommodation = () => {
         <main className="bg-gray-50/50">
             <JsonLd data={serviceSchemas} />
             <PageHeader
-                title="NDIS Accommodation"
+                title="NDIS Accommodation in Melbourne"
                 breadcrumb={[
                     { label: "Home", href: "/" },
-                    { label: "NDIS Accommodation" }
+                    { label: "NDIS Accommodation in Melbourne" }
                 ]}
             />
 
@@ -158,12 +158,12 @@ const NdisAccommodation = () => {
                                     A Place to Call Home
                                 </span>
                                 <h2 className="text-4xl lg:text-5xl font-black text-[#2D3748] leading-tight">
-                                    More Than a Roof Overhead: <span className="text-primary block mt-2">A Place to Call Home</span>
+                                    NDIS Accommodation in Melbourne — More Than a Roof Overhead: <span className="text-primary block mt-2">A Place to Call Home</span>
                                 </h2>
                             </div>
                             <div className="space-y-6 text-lg text-gray-600 leading-relaxed">
                                 <p>
-                                    Your home should be your sanctuary, a place where you feel safe, supported, and free to be yourself. But sometimes, your current living situation just doesn't match your support needs.
+                                    Our NDIS Accommodation in Melbourne is built on the idea that your home should be your sanctuary — a place where you feel safe, supported, and free to be yourself. But sometimes, your current living situation just doesn't match your support needs.
                                 </p>
                                 <p>
                                     At Js Choice – Care and Support, we offer high quality NDIS accommodation options across Melbourne designed to support your independence. Whether you are looking for a permanent home (SIL), a transitional solution (MTA), or a short break (STA), we provide welcoming, culturally safe environments where you can live life on your terms.

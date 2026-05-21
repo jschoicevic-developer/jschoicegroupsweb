@@ -160,7 +160,7 @@ const PsychosocialRecoveryCoach = () => {
                             className="space-y-8"
                         >
                             <h2 className="text-3xl lg:text-5xl font-black text-[#2D3748] leading-[1.2]">
-                                Reclaiming Your Path to <span className="text-[#ABB3F1]">Wellness & Independence</span>
+                                Psychosocial Recovery Coach — Reclaiming Your Path to <span className="text-[#ABB3F1]">Wellness & Independence</span>
                             </h2>
                             <div className="space-y-6 text-lg text-gray-600 leading-relaxed font-medium">
                                 <p>

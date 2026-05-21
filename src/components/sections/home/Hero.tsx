@@ -80,6 +80,7 @@ const Hero = () => {
                         transition={{ delay: 0.4 }}
                         className="text-5xl sm:text-6xl lg:text-7xl font-black text-white leading-[1.1] tracking-tight drop-shadow-xl"
                     >
+                        <span className="sr-only">NDIS Service Providers in Melbourne – </span>
                         Care And <span className="text-[#ABB3F1]">Support</span>
                     </motion.h1>
 

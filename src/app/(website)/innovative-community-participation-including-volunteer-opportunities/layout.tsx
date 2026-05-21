@@ -1,8 +1,8 @@
 import type { Metadata } from 'next';
 
 export const metadata: Metadata = {
-    title: "Innovative Community Participation",
-    description: "Explore innovative community participation and volunteering opportunities with JS Choice Group's expert NDIS disability support services in Victoria.",
+    title: { absolute: "NDIS Innovative Community Participation | JS Choice" },
+    description: "NDIS Innovative Community Participation in Melbourne — skills, growth, and purpose.",
     alternates: { canonical: 'https://jschoicegroup.com.au/innovative-community-participation-including-volunteer-opportunities' }
 };
 
