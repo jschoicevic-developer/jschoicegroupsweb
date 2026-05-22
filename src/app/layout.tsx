@@ -136,6 +136,9 @@ export default function RootLayout({
   return (
     <html lang="en-AU" suppressHydrationWarning>
       <head suppressHydrationWarning>
+        {/* Strips attributes injected by browser extensions (Bitdefender, Grammarly,
+            Dark Reader, etc.) before React hydration to prevent mismatch errors. */}
+        <script suppressHydrationWarning src="/strip-extension-attrs.js" />
         {/* Google Ads gtag (AW-17860915820) loaded directly so window.gtag is reliably */}
         {/* available to React code for conversion tracking on form submission. */}
         <script

@@ -3,6 +3,7 @@ import type { Metadata } from 'next';
 export const metadata: Metadata = {
     title: "Ads | JS Choice Care & Support",
     description: "Discover Ads services from expert support workers. JS Choice Group provides comprehensive disability support and NDIS assistance.",
+    keywords: ["NDIS Support Services Ad Melbourne"],
     alternates: { canonical: 'https://jschoicegroup.com.au/ads' }
 };
 

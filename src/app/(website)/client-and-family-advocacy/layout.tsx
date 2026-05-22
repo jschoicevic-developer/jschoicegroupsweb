@@ -3,6 +3,7 @@ import type { Metadata } from 'next';
 export const metadata: Metadata = {
     title: { absolute: "NDIS Client & Family Advocacy Melbourne | JS Choice" },
     description: "NDIS Client and Family Advocacy in Melbourne — guidance and support for participants.",
+    keywords: ["NDIS Family Advocacy Melbourne"],
     alternates: { canonical: 'https://jschoicegroup.com.au/client-and-family-advocacy' }
 };
 
