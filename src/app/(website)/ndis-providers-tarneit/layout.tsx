@@ -3,6 +3,7 @@ import type { Metadata } from 'next';
 export const metadata: Metadata = {
     title: "NDIS Providers in Tarneit",
     description: "Find trusted NDIS providers in Tarneit. JS Choice Group delivers personalised disability support and NDIS services across Melbourne's western suburbs.",
+    keywords: ["NDIS Provider Tarneit"],
     alternates: { canonical: 'https://jschoicegroup.com.au/ndis-providers-tarneit' }
 };
 

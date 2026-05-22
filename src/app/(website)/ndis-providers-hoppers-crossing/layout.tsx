@@ -3,6 +3,7 @@ import type { Metadata } from 'next';
 export const metadata: Metadata = {
     title: "NDIS Providers in Hoppers Crossing",
     description: "Find trusted NDIS providers in Hoppers Crossing. JS Choice Group delivers personalised disability support and NDIS services across Melbourne.",
+    keywords: ["NDIS Provider Hoppers Crossing"],
     alternates: { canonical: 'https://jschoicegroup.com.au/ndis-providers-hoppers-crossing' }
 };
 

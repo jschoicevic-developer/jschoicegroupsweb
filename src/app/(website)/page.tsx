@@ -15,6 +15,7 @@ export const metadata: Metadata = {
   },
   description:
     "NDIS Service Providers in Melbourne offering compassionate disability support.",
+  keywords: ["NDIS Provider Melbourne"],
   alternates: {
     canonical: "/",
   },

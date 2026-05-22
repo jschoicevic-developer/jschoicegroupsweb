@@ -3,6 +3,7 @@ import type { Metadata } from 'next';
 export const metadata: Metadata = {
     title: { absolute: "Assistance with Nursing Care Melbourne | JS Choice" },
     description: "NDIS Assistance with Nursing Care in Melbourne — expert clinical support at home.",
+    keywords: ["NDIS Nursing Care Melbourne"],
     alternates: { canonical: 'https://jschoicegroup.com.au/assistance-with-nursing-care' }
 };
 
