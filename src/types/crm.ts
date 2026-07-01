@@ -17,7 +17,9 @@ export type LeadSource =
     | 'referral'
     | 'phone'
     | 'walk_in'
-    | 'other';
+    | 'other'
+    | 'ndis_provider_melbourne'
+    | 'google_ads_landing';
 
 export type NdisStatus = 'funded' | 'pending' | 'applying' | 'not_sure';
 

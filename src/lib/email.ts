@@ -19,6 +19,7 @@ const SOURCE_LABELS: Record<string, string> = {
   phone: 'Phone',
   walk_in: 'Walk-in',
   other: 'Other',
+  ndis_provider_melbourne: 'NDIS Provider Melbourne (Paid Ads)',
 };
 
 // Brand Colors
@@ -51,6 +52,7 @@ export async function sendNewLeadNotification(lead: Lead): Promise<void> {
     await getResend().emails.send({
       from: 'JS Choice CRM <info@jschoicegroup.com.au>',
       to: adminEmails,
+      bcc: lead.source === 'ndis_provider_melbourne' ? ['gdaypaidads@gmail.com'] : undefined,
       subject: `🔔 New Lead: ${fullName} from ${sourceLabel}`,
       html: generateNewLeadEmailHtml(lead, appUrl, sourceLabel, fullName),
     });
