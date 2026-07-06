@@ -148,7 +148,7 @@ const ConsultationServices = () => {
                 onClick={scrollToForm}
                 className="inline-flex items-center justify-center h-12 px-10 rounded-full bg-[#ABB3F1] text-black text-xs font-black uppercase tracking-widest hover:bg-[#9DA5E2] hover:shadow-lg transition-all"
               >
-                Get in Touch
+                Learn More
               </button>
             </motion.div>
           ))}
