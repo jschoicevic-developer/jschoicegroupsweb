@@ -1,12 +1,13 @@
 "use client";
 
-import { useState, useEffect, useRef } from "react";
+import { useState, useEffect, useRef, useCallback } from "react";
 import { useRouter } from "next/navigation";
 import { motion } from "framer-motion";
 import { Phone, Mail, MapPin, Clock, CheckCircle, AlertCircle } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
+import TurnstileWidget, { type TurnstileWidgetHandle } from "@/components/ui/TurnstileWidget";
 
 const contactInfo = [
     {
@@ -62,6 +63,22 @@ const ContactContent = () => {
     const [loading, setLoading] = useState(false);
     const [success, setSuccess] = useState(false);
     const [error, setError] = useState("");
+    const [turnstileToken, setTurnstileToken] = useState("");
+    const turnstileRef = useRef<TurnstileWidgetHandle>(null);
+    const turnstileEnabled = Boolean(process.env.NEXT_PUBLIC_TURNSTILE_SITE_KEY);
+
+    const handleTurnstileVerify = useCallback((token: string) => {
+        setTurnstileToken(token);
+    }, []);
+
+    const handleTurnstileExpire = useCallback(() => {
+        setTurnstileToken("");
+    }, []);
+
+    const handleTurnstileError = useCallback(() => {
+        setTurnstileToken("");
+        setError("Security verification failed to load. Please refresh the page and try again.");
+    }, []);
 
     const [mapStatus, setMapStatus] = useState<"loading" | "loaded" | "fallback">("loading");
     const mapTimeoutRef = useRef<ReturnType<typeof setTimeout>>(undefined);
@@ -89,6 +106,12 @@ const ContactContent = () => {
         setError("");
         setSuccess(false);
 
+        if (turnstileEnabled && !turnstileToken) {
+            setError("Please complete the security verification before submitting.");
+            setLoading(false);
+            return;
+        }
+
         try {
             // Split name into first and last name
             const nameParts = formData.name.trim().split(" ");
@@ -109,6 +132,7 @@ const ContactContent = () => {
                     message: formData.message,
                     source: "contact_form",
                     source_page: "/contact-us",
+                    turnstile_token: turnstileToken || undefined,
                 }),
             });
 
@@ -127,10 +151,14 @@ const ContactContent = () => {
                 router.push("/thank-you");
             } else {
                 setError(data.error || "Failed to submit form. Please try again.");
+                turnstileRef.current?.reset();
+                setTurnstileToken("");
             }
         } catch (err) {
             console.error("Error submitting form:", err);
             setError("An error occurred. Please try again later.");
+            turnstileRef.current?.reset();
+            setTurnstileToken("");
         } finally {
             setLoading(false);
         }
@@ -264,9 +292,17 @@ const ContactContent = () => {
                                 className="min-h-[160px] p-6 rounded-2xl bg-white border-gray-200 focus:border-secondary transition-all text-base resize-none"
                             />
 
+                            <TurnstileWidget
+                                ref={turnstileRef}
+                                onVerify={handleTurnstileVerify}
+                                onExpire={handleTurnstileExpire}
+                                onError={handleTurnstileError}
+                                className="min-h-[65px]"
+                            />
+
                             <Button
                                 type="submit"
-                                disabled={loading}
+                                disabled={loading || (turnstileEnabled && !turnstileToken)}
                                 className="h-14 w-full rounded-full bg-secondary hover:brightness-110 text-white font-black text-sm uppercase tracking-[0.2em] shadow-xl hover:shadow-2xl hover:-translate-y-1 transition-all duration-300 disabled:opacity-50 disabled:cursor-not-allowed"
                             >
                                 {loading ? (

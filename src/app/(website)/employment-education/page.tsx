@@ -125,7 +125,7 @@ const EmploymentEducationPage = () => {
                             <div className="absolute inset-0 bg-primary/20 translate-x-4 translate-y-4 rounded-[2.5rem] -z-10 group-hover:translate-x-2 group-hover:translate-y-2 transition-transform duration-500" />
                             <div className="relative h-[500px] w-full">
                                 <Image quality={80}
-                                    src="https://images.unsplash.com/photo-1521737604893-d14cc237f11d?q=80&w=1484&auto=format&fit=crop"
+                                    src="/images/employment-education.webp"
                                     alt="Employment and Education Support"
                                     fill
                                     sizes="(max-width: 1024px) 100vw, 50vw"

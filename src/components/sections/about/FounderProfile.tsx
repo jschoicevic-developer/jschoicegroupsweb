@@ -71,7 +71,7 @@ const FounderProfile = () => {
                         <div className="relative z-10 w-[170px] h-[210px] rounded-[18px] border-4 border-white/25 overflow-hidden shadow-2xl">
                             <Image
                                 quality={85}
-                                src="/JanImage.jpeg"
+                                src="/JanImage.webp"
                                 alt="Jan Fardowsi – Founder & Director"
                                 fill
                                 sizes="170px"

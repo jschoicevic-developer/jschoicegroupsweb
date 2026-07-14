@@ -1,8 +1,8 @@
 import type { Metadata } from 'next';
 
 export const metadata: Metadata = {
-    title: { absolute: "Assistance with Daily Life in Melbourne | JS Choice" },
-    description: "NDIS Assistance with Daily Life in Melbourne — personal care, meals, and home support.",
+    title: { absolute: "Assistance with Daily Life Melbourne | Daily Living Support" },
+    description: "Receive personalised assistance with daily life in Melbourne. JS Choice Group provides daily living support, personal care, meal preparation, housekeeping and home maintenance to help you live independently.",
     keywords: ["Daily Living Support Melbourne"],
     alternates: { canonical: 'https://jschoicegroup.com.au/assistance-with-daily-life' }
 };

@@ -1,8 +1,8 @@
 import type { Metadata } from 'next';
 
 export const metadata: Metadata = {
-    title: { absolute: "NDIS Support Coordination in Melbourne | JS Choice" },
-    description: "NDIS Support Coordination in Melbourne — turn your plan into the right supports.",
+    title: { absolute: "Support Coordination Melbourne | NDIS Plan Management Support" },
+    description: "Get expert support coordination in Melbourne with JS Choice Group. We help you understand your NDIS plan, connect with providers, manage services and build independence to achieve your goals.",
     keywords: ["NDIS Support Coordination Melbourne"],
     alternates: { canonical: 'https://jschoicegroup.com.au/support-coordination' }
 };

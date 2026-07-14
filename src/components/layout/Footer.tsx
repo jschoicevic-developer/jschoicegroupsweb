@@ -10,6 +10,7 @@ const Footer = () => {
         { name: "Assistance with nursing care", href: "https://jschoicegroup.com.au/assistance-with-nursing-care" },
         { name: "Transportation Assistance", href: "https://jschoicegroup.com.au/transportation-assistance" },
         { name: "Access To Community Activities", href: "https://jschoicegroup.com.au/access-to-community-activities" },
+        { name: "Group and Centre Activities", href: "https://jschoicegroup.com.au/group-centre-activities" },
         { name: "NDIS Accommodation", href: "https://jschoicegroup.com.au/ndis-accommodation" },
     ];
 
@@ -248,9 +249,14 @@ const Footer = () => {
                                 <div className="p-1 shrink-0 relative w-6 h-6">
                                     <Image quality={80} src="/images/footer/location.webp" alt="Loc" fill className="object-contain" />
                                 </div>
-                                <p className="pt-1 text-xs md:text-sm font-bold text-gray-400 leading-relaxed">
-                                    Suite 104, Level 1, C5, 2 Main Street, Point Cook VIC 3030
-                                </p>
+                                <a
+                                    href={CONTACT_DETAILS.address.mapUrl}
+                                    target="_blank"
+                                    rel="noopener noreferrer"
+                                    className="pt-1 text-xs md:text-sm font-bold text-gray-400 hover:text-white transition-colors leading-relaxed"
+                                >
+                                    {CONTACT_DETAILS.address.full}
+                                </a>
                             </li>
                             <li className="flex items-start gap-4">
                                 <div className="p-1 shrink-0 relative w-6 h-6">

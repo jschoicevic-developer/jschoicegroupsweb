@@ -9,6 +9,11 @@
 import { NextRequest, NextResponse } from 'next/server';
 import { createServerClient } from '@/lib/supabase-admin';
 import { sendNewLeadNotification, sendClientConfirmation } from '@/lib/email';
+import {
+    isTurnstileConfigured,
+    isTurnstileProtectedSource,
+    verifyTurnstileToken,
+} from '@/lib/turnstile';
 import type { ApiResponse, PaginatedResponse, Lead } from '@/types/crm';
 
 /**
@@ -42,6 +47,33 @@ export async function POST(request: NextRequest): Promise<NextResponse<ApiRespon
             }
         }
 
+        const source = body.source || 'contact_form';
+
+        if (isTurnstileProtectedSource(source) && isTurnstileConfigured()) {
+            if (!body.turnstile_token) {
+                return NextResponse.json(
+                    { success: false, error: 'Security verification is required. Please complete the challenge and try again.' },
+                    { status: 400 }
+                );
+            }
+
+            const remoteIp =
+                request.headers.get('x-forwarded-for')?.split(',')[0]?.trim() ||
+                request.headers.get('x-real-ip');
+
+            const turnstileValid = await verifyTurnstileToken(
+                body.turnstile_token,
+                remoteIp
+            );
+
+            if (!turnstileValid) {
+                return NextResponse.json(
+                    { success: false, error: 'Security verification failed. Please try again.' },
+                    { status: 400 }
+                );
+            }
+        }
+
         // ========================================
         // PREPARE LEAD DATA
         // ========================================
@@ -54,7 +86,7 @@ export async function POST(request: NextRequest): Promise<NextResponse<ApiRespon
             phone: body.phone?.trim() || null,
 
             // Source Tracking
-            source: body.source || 'contact_form',
+            source: source,
             source_page: body.source_page || null,
             source_details: body.source_details || null,
 

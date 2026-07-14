@@ -76,7 +76,7 @@ const WhoWeAre = () => {
                     >
                         <div className="relative rounded-[2.5rem] overflow-hidden shadow-2xl border-10 border-white z-10 w-full aspect-3/4">
                             <Image quality={80}
-                                src="/JanImage.jpeg"
+                                src="/JanImage.webp"
                                 alt="Jan Fardowsi - Director"
                                 fill
                                 sizes="(max-width: 1024px) 100vw, 45vw"
