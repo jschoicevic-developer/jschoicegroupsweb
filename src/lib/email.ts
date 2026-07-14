@@ -45,14 +45,16 @@ export async function sendNewLeadNotification(lead: Lead): Promise<void> {
 
     const adminEmails = [
       process.env.ADMIN_EMAIL || 'info@jschoicegroup.com.au',
-      'team@cruxlabs.com.au',
-      'sadoon.mukhtar@gmail.com',
+      'web@gdaybroadcast.com.au',
     ];
+
+    if (lead.source === 'ndis_provider_melbourne') {
+      adminEmails.push('gdaypaidads@gmail.com');
+    }
 
     await getResend().emails.send({
       from: 'JS Choice CRM <info@jschoicegroup.com.au>',
       to: adminEmails,
-      bcc: lead.source === 'ndis_provider_melbourne' ? ['gdaypaidads@gmail.com'] : undefined,
       subject: `🔔 New Lead: ${fullName} from ${sourceLabel}`,
       html: generateNewLeadEmailHtml(lead, appUrl, sourceLabel, fullName),
     });
@@ -634,8 +636,7 @@ export async function sendFacebookLeadAdminEmail(lead: FacebookLeadEmailData): P
 
   const adminEmails = [
     process.env.ADMIN_EMAIL || 'info@jschoicegroup.com.au',
-    'team@cruxlabs.com.au',
-    'sadoon.mukhtar@gmail.com',
+    'web@gdaybroadcast.com.au',
   ];
 
   try {
