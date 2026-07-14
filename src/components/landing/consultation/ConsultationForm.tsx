@@ -11,6 +11,7 @@ export default function ConsultationForm() {
   const [formData, setFormData] = useState({
     fullName: "",
     phone: "",
+    postcode: "",
     email: "",
     supportFor: "",
     suburb: "",
@@ -22,13 +23,38 @@ export default function ConsultationForm() {
   const handleChange = (
     e: React.ChangeEvent<HTMLInputElement | HTMLSelectElement | HTMLTextAreaElement>
   ) => {
-    setFormData((prev) => ({ ...prev, [e.target.name]: e.target.value }));
+    const { name, value } = e.target;
+    if (name === "postcode") {
+      setFormData((prev) => ({ ...prev, postcode: value.replace(/\D/g, "").slice(0, 4) }));
+      return;
+    }
+    setFormData((prev) => ({ ...prev, [name]: value }));
+  };
+
+  const isValidAustralianPhone = (phone: string) => {
+    const digits = phone.replace(/\D/g, "");
+    if (digits.startsWith("61")) {
+      return /^61[2-478]\d{8}$/.test(digits);
+    }
+    return /^0[2-478]\d{8}$/.test(digits);
   };
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     setLoading(true);
     setError(null);
+
+    if (!isValidAustralianPhone(formData.phone)) {
+      setError("Please enter a valid Australian phone number (e.g. 04xx xxx xxx).");
+      setLoading(false);
+      return;
+    }
+
+    if (!/^\d{4}$/.test(formData.postcode)) {
+      setError("Please enter a valid 4-digit Australian postcode.");
+      setLoading(false);
+      return;
+    }
 
     const nameParts = formData.fullName.trim().split(" ");
     const firstName = nameParts[0];
@@ -39,8 +65,9 @@ export default function ConsultationForm() {
       last_name: lastName || null,
       email: formData.email,
       phone: formData.phone,
-      location: formData.suburb,
+      location: `${formData.suburb}, ${formData.postcode}`,
       message: formData.supportNeeded || null,
+      source_details: { postcode: formData.postcode, suburb: formData.suburb },
       source: "ndis_provider_melbourne",
       source_page: "/ndis-provider-melbourne",
       interested_services: formData.supportFor ? [formData.supportFor] : [],
@@ -138,7 +165,7 @@ export default function ConsultationForm() {
           />
         </div>
 
-        {/* Phone + Email side by side */}
+        {/* Phone + Postcode side by side */}
         <div className="grid grid-cols-2 gap-3">
           <div>
             <label className="block text-xs font-bold text-gray-600 mb-1">
@@ -156,18 +183,37 @@ export default function ConsultationForm() {
           </div>
           <div>
             <label className="block text-xs font-bold text-gray-600 mb-1">
-              Email <span className="text-red-500">*</span>
+              Postcode <span className="text-red-500">*</span>
             </label>
             <input
-              type="email"
-              name="email"
+              type="text"
+              name="postcode"
               required
-              placeholder="jane@email.com"
-              value={formData.email}
+              inputMode="numeric"
+              pattern="\d{4}"
+              maxLength={4}
+              placeholder="e.g. 3030"
+              value={formData.postcode}
               onChange={handleChange}
               className={inputClass}
             />
           </div>
+        </div>
+
+        {/* Email */}
+        <div>
+          <label className="block text-xs font-bold text-gray-600 mb-1">
+            Email <span className="text-red-500">*</span>
+          </label>
+          <input
+            type="email"
+            name="email"
+            required
+            placeholder="jane@email.com"
+            value={formData.email}
+            onChange={handleChange}
+            className={inputClass}
+          />
         </div>
 
         {/* Who is this support for */}
