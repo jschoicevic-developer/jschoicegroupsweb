@@ -8,6 +8,7 @@ import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
 import TurnstileWidget, { type TurnstileWidgetHandle } from "@/components/ui/TurnstileWidget";
+import { CONTACT_DETAILS } from "@/config/contact";
 
 const contactInfo = [
     {
@@ -37,12 +38,27 @@ const contactInfo = [
     {
         icon: MapPin,
         title: "Address",
-        content: "Suite 104, Level 1, C5, 2 Main Street, Point Cook VIC 3030"
+        content: (
+            <a
+                href={CONTACT_DETAILS.address.mapUrl}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="hover:text-primary transition-colors"
+            >
+                <span className="block">{CONTACT_DETAILS.address.line1}</span>
+                <span className="block">{CONTACT_DETAILS.address.line2}</span>
+            </a>
+        ),
     },
     {
         icon: Mail,
         title: "Mailing Address",
-        content: "PO Box 6282 Point Cook 3030 Victoria"
+        content: (
+            <>
+                <span className="block">PO Box 6282 Point Cook 3030</span>
+                <span className="block">Victoria</span>
+            </>
+        ),
     },
     {
         icon: Clock,
@@ -189,11 +205,16 @@ const ContactContent = () => {
 
                         <div className="space-y-8">
                             {contactInfo.map((item, index) => (
-                                <div key={index} className="flex items-start gap-6 group">
+                                <div
+                                    key={index}
+                                    className={`flex gap-6 group ${
+                                        item.title === "Call Us" ? "items-start" : "items-center"
+                                    }`}
+                                >
                                     <div className="w-14 h-14 rounded-2xl bg-gray-50 flex items-center justify-center shrink-0 border border-gray-100 group-hover:bg-primary/10 group-hover:border-primary/20 transition-all duration-300">
                                         <item.icon size={26} className="text-[#2D3748] group-hover:text-primary transition-colors stroke-[1.5]" />
                                     </div>
-                                    <div>
+                                    <div className="flex-1 min-w-0">
                                         <h3 className="text-lg font-black text-[#2D3748] uppercase tracking-wide mb-1 leading-tight">
                                             {item.title}
                                         </h3>
