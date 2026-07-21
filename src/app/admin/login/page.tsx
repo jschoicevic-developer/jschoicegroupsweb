@@ -2,7 +2,7 @@
 
 import { useState, useEffect, Suspense } from "react";
 import { motion } from "framer-motion";
-import { User, Lock, Eye, EyeOff, ArrowLeft, AlertCircle } from "lucide-react";
+import { User, Lock, Eye, EyeOff, ArrowLeft, AlertCircle, CheckCircle2 } from "lucide-react";
 import { useRouter, useSearchParams } from "next/navigation";
 import Link from "next/link";
 import { Button } from "@/components/ui/button";
@@ -18,8 +18,17 @@ function LoginContent() {
     const [isSubmitting, setIsSubmitting] = useState(false);
     const [rememberMe, setRememberMe] = useState(false);
     const [error, setError] = useState("");
+    const [successMessage, setSuccessMessage] = useState("");
     const router = useRouter();
     const searchParams = useSearchParams();
+
+    useEffect(() => {
+        if (searchParams.get("reset") === "success") {
+            setSuccessMessage("Your password has been updated. You can log in now.");
+        } else if (searchParams.get("error") === "auth_callback_error") {
+            setError("Password reset link expired or is invalid. Please try again.");
+        }
+    }, [searchParams]);
 
     const handleSubmit = async (e: React.FormEvent) => {
         e.preventDefault();
@@ -152,6 +161,16 @@ function LoginContent() {
                             className="space-y-6"
                         >
                             {/* Error Message */}
+                            {successMessage && (
+                                <motion.div
+                                    initial={{ opacity: 0, y: -10 }}
+                                    animate={{ opacity: 1, y: 0 }}
+                                    className="flex items-center gap-3 p-4 bg-green-50 border border-green-200 rounded-xl text-green-700"
+                                >
+                                    <CheckCircle2 className="h-5 w-5 flex-shrink-0" />
+                                    <p className="text-sm font-medium">{successMessage}</p>
+                                </motion.div>
+                            )}
                             {error && (
                                 <motion.div
                                     initial={{ opacity: 0, y: -10 }}
@@ -166,7 +185,7 @@ function LoginContent() {
                             <div className="relative group">
                                 <User className="absolute left-5 top-1/2 -translate-y-1/2 h-5 w-5 text-gray-400 transition-colors" />
                                 <Input
-                                    type="text"
+                                    type="email"
                                     placeholder="Enter your email here..."
                                     value={email}
                                     onChange={(e) => setEmail(e.target.value)}
@@ -211,8 +230,8 @@ function LoginContent() {
                                     </div>
                                     <span className="text-sm text-gray-600 font-medium">Remember me</span>
                                 </button>
-                                <Link href="#" className="text-sm text-gray-400 hover:text-primary transition-colors font-medium">
-                                    Forget Password?
+                                <Link href="/auth/forgot-password?portal=admin" className="text-sm text-gray-400 hover:text-primary transition-colors font-medium">
+                                    Forgot Password?
                                 </Link>
                             </div>
 

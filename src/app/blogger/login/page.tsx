@@ -1,8 +1,8 @@
 "use client";
 
-import { useState, Suspense } from "react";
+import { useState, Suspense, useEffect } from "react";
 import { motion } from "framer-motion";
-import { User, Lock, Eye, EyeOff, ArrowLeft, AlertCircle, PenSquare } from "lucide-react";
+import { User, Lock, Eye, EyeOff, ArrowLeft, AlertCircle, CheckCircle2, PenSquare } from "lucide-react";
 import { useRouter, useSearchParams } from "next/navigation";
 import Link from "next/link";
 import { Button } from "@/components/ui/button";
@@ -17,8 +17,17 @@ function BloggerLoginContent() {
     const [showPassword, setShowPassword] = useState(false);
     const [isSubmitting, setIsSubmitting] = useState(false);
     const [error, setError]           = useState("");
+    const [successMessage, setSuccessMessage] = useState("");
     const router       = useRouter();
     const searchParams = useSearchParams();
+
+    useEffect(() => {
+        if (searchParams.get("reset") === "success") {
+            setSuccessMessage("Your password has been updated. You can log in now.");
+        } else if (searchParams.get("error") === "auth_callback_error") {
+            setError("Password reset link expired or is invalid. Please try again.");
+        }
+    }, [searchParams]);
 
     const handleSubmit = async (e: React.FormEvent) => {
         e.preventDefault();
@@ -140,6 +149,16 @@ function BloggerLoginContent() {
                             className="space-y-6"
                         >
                             {/* Error */}
+                            {successMessage && (
+                                <motion.div
+                                    initial={{ opacity: 0, y: -10 }}
+                                    animate={{ opacity: 1, y: 0 }}
+                                    className="flex items-center gap-3 p-4 bg-green-50 border border-green-200 rounded-xl text-green-700"
+                                >
+                                    <CheckCircle2 className="h-5 w-5 flex-shrink-0" />
+                                    <p className="text-sm font-medium">{successMessage}</p>
+                                </motion.div>
+                            )}
                             {error && (
                                 <motion.div
                                     initial={{ opacity: 0, y: -10 }}
@@ -189,7 +208,7 @@ function BloggerLoginContent() {
                                 <Link href="/admin/login" className="text-sm text-gray-400 hover:text-primary transition-colors font-medium">
                                     Admin login instead?
                                 </Link>
-                                <Link href="#" className="text-sm text-gray-400 hover:text-primary transition-colors font-medium">
+                                <Link href="/auth/forgot-password?portal=blogger" className="text-sm text-gray-400 hover:text-primary transition-colors font-medium">
                                     Forgot Password?
                                 </Link>
                             </div>
