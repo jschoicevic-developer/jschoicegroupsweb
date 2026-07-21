@@ -1,0 +1,32 @@
+# Supabase recovery email template (Reset Password)
+
+Paste this into **Supabase Dashboard → Authentication → Email Templates → Reset Password**.
+
+Subject (optional — keep default or use):
+```
+Reset your password
+```
+
+Body:
+```html
+<h2>Reset your password</h2>
+<p>We received a request to reset your password for {{ .Email }}.</p>
+
+<p>Your verification code:</p>
+<p style="font-size: 28px; font-weight: bold; letter-spacing: 0.3em; margin: 16px 0;">{{ .Token }}</p>
+
+<p>Enter this code on the website, or click the link below:</p>
+<p><a href="{{ .ConfirmationURL }}">Reset password</a></p>
+
+<p>If you didn't request this, you can safely ignore this email.</p>
+```
+
+## URL configuration (same dashboard → Authentication → URL Configuration)
+
+| Setting | Value |
+|---------|-------|
+| Site URL | `https://jschoicegroup.com.au` |
+| Redirect URLs | `https://jschoicegroup.com.au/auth/callback` |
+| | `https://www.jschoicegroup.com.au/auth/callback` |
+
+After saving the template, request a new reset email to see the 6-digit code.

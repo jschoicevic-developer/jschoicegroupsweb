@@ -111,7 +111,7 @@ function VerifyOtpContent() {
     return (
         <AuthShell
             title="Verify Code"
-            subtitle={`Enter the 6-digit code sent to ${email}`}
+            subtitle={`Enter the 6-digit code sent to ${email}, or use the Reset password link in the email.`}
             backHref={authPath("/auth/forgot-password", portal)}
             backLabel="Change email"
             error={error}

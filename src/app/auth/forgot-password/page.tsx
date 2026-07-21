@@ -60,7 +60,7 @@ function ForgotPasswordContent() {
             }
 
             sessionStorage.setItem(RESET_EMAIL_KEY, email.trim());
-            setSuccess("If an account exists for that email, we sent a verification code.");
+            setSuccess("If an account exists for that email, we sent a verification code and reset link.");
             setTimeout(() => {
                 router.push(authPath("/auth/verify-otp", portal));
             }, 1500);
@@ -73,7 +73,7 @@ function ForgotPasswordContent() {
     return (
         <AuthShell
             title="Forgot Password"
-            subtitle="Enter your email and we'll send a verification code."
+            subtitle="Enter your email. We'll send a 6-digit code and a reset link."
             backHref={getLoginUrl(portal)}
             error={error}
             success={success}
