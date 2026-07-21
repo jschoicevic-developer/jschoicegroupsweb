@@ -2,18 +2,17 @@
 
 import { Suspense, useEffect, useState } from "react";
 import { useRouter, useSearchParams } from "next/navigation";
-import { User } from "lucide-react";
+import Link from "next/link";
+import { User, Mail } from "lucide-react";
 import AuthShell from "@/components/auth/AuthShell";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { createClient } from "@/lib/supabase";
 import {
-    authPath,
     getDashboardUrl,
     getLoginUrl,
     getSiteUrl,
     parsePortal,
-    RESET_EMAIL_KEY,
 } from "@/lib/auth/portal";
 
 function ForgotPasswordContent() {
@@ -24,7 +23,7 @@ function ForgotPasswordContent() {
     const [email, setEmail] = useState("");
     const [isSubmitting, setIsSubmitting] = useState(false);
     const [error, setError] = useState("");
-    const [success, setSuccess] = useState("");
+    const [success, setSuccess] = useState(false);
 
     useEffect(() => {
         const checkSession = async () => {
@@ -42,7 +41,7 @@ function ForgotPasswordContent() {
         e.preventDefault();
         setIsSubmitting(true);
         setError("");
-        setSuccess("");
+        setSuccess(false);
 
         try {
             const supabase = createClient();
@@ -59,24 +58,48 @@ function ForgotPasswordContent() {
                 return;
             }
 
-            sessionStorage.setItem(RESET_EMAIL_KEY, email.trim());
-            setSuccess("If an account exists for that email, we sent a verification code and reset link.");
-            setTimeout(() => {
-                router.push(authPath("/auth/verify-otp", portal));
-            }, 1500);
+            // Magic-link flow only (OTP verify step disabled for now)
+            setSuccess(true);
+            setIsSubmitting(false);
         } catch {
             setError("An unexpected error occurred. Please try again.");
             setIsSubmitting(false);
         }
     };
 
+    if (success) {
+        return (
+            <AuthShell
+                title="Check Your Email"
+                subtitle={`If an account exists for ${email}, we sent a password reset link.`}
+                backHref={getLoginUrl(portal)}
+            >
+                <div className="space-y-6">
+                    <div className="flex items-start gap-3 p-4 bg-[#F5F3FA] rounded-2xl text-gray-700">
+                        <Mail className="h-5 w-5 flex-shrink-0 mt-0.5 text-primary" />
+                        <p className="text-sm leading-relaxed">
+                            Open the email and click <strong>Reset password</strong>. That link will take you to a page where you can choose a new password.
+                        </p>
+                    </div>
+                    <Link href={getLoginUrl(portal)}>
+                        <Button
+                            type="button"
+                            className="w-full h-14 rounded-full btn-primary font-bold text-base"
+                        >
+                            Back to Login
+                        </Button>
+                    </Link>
+                </div>
+            </AuthShell>
+        );
+    }
+
     return (
         <AuthShell
             title="Forgot Password"
-            subtitle="Enter your email. We'll send a 6-digit code and a reset link."
+            subtitle="Enter your email and we'll send a reset link."
             backHref={getLoginUrl(portal)}
             error={error}
-            success={success}
         >
             <form onSubmit={handleSubmit} className="space-y-6">
                 <div className="relative">
@@ -94,13 +117,13 @@ function ForgotPasswordContent() {
 
                 <Button
                     type="submit"
-                    disabled={isSubmitting || !!success}
+                    disabled={isSubmitting}
                     className="w-full h-14 rounded-full btn-primary font-bold text-base hover:shadow-xl hover:shadow-primary/30 transition-all duration-300"
                 >
                     {isSubmitting ? (
                         <div className="h-5 w-5 border-2 border-gray-800 border-t-transparent rounded-full animate-spin" />
                     ) : (
-                        "Send Verification Code"
+                        "Send Reset Link"
                     )}
                 </Button>
             </form>

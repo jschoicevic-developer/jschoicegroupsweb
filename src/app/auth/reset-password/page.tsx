@@ -11,7 +11,6 @@ import {
     authPath,
     getLoginUrl,
     parsePortal,
-    RESET_EMAIL_KEY,
 } from "@/lib/auth/portal";
 
 function ResetPasswordContent() {
@@ -79,7 +78,6 @@ function ResetPasswordContent() {
                 return;
             }
 
-            sessionStorage.removeItem(RESET_EMAIL_KEY);
             await supabase.auth.signOut();
 
             const loginUrl = `${getLoginUrl(portal)}?reset=success`;
