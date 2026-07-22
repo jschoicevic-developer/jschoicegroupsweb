@@ -11,6 +11,9 @@ Go to **Authentication → URL Configuration**:
 | Site URL | `https://jschoicegroup.com.au` (production) |
 | Redirect URLs | `http://localhost:3000/auth/callback` |
 | | `https://jschoicegroup.com.au/auth/callback` |
+| | `https://www.jschoicegroup.com.au/auth/callback` |
+
+**Important:** If `/auth/callback` is missing from Redirect URLs, Supabase sends users to the homepage with `?code=...` instead of the reset-password page. The app middleware forwards those to `/auth/callback`, but you should still add the callback URLs above.
 
 ## 2. Reset Password Email Template
 

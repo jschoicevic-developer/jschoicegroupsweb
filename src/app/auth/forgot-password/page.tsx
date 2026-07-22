@@ -53,7 +53,15 @@ function ForgotPasswordContent() {
             });
 
             if (resetError) {
-                setError(resetError.message);
+                const isRateLimited =
+                    resetError.message.toLowerCase().includes("rate limit") ||
+                    resetError.message.includes("over_email_send_rate_limit");
+
+                setError(
+                    isRateLimited
+                        ? "Too many reset emails were sent recently. Check your inbox (and spam) for an earlier link, or wait about an hour before trying again."
+                        : resetError.message
+                );
                 setIsSubmitting(false);
                 return;
             }

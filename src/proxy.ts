@@ -7,7 +7,40 @@
 import { createServerClient } from '@supabase/ssr';
 import { NextResponse, type NextRequest } from 'next/server';
 
+function redirectAuthCallbackIfNeeded(request: NextRequest) {
+    const { pathname, searchParams } = request.nextUrl;
+
+    if (pathname.startsWith('/auth/callback')) {
+        return null;
+    }
+
+    const code = searchParams.get('code');
+    const tokenHash = searchParams.get('token_hash');
+    const type = searchParams.get('type');
+
+    if (!code && !(tokenHash && type)) {
+        return null;
+    }
+
+    const url = request.nextUrl.clone();
+    url.pathname = '/auth/callback';
+
+    if (!url.searchParams.has('next')) {
+        url.searchParams.set('next', '/auth/reset-password');
+    }
+    if (!url.searchParams.has('portal')) {
+        url.searchParams.set('portal', searchParams.get('portal') ?? 'admin');
+    }
+
+    return NextResponse.redirect(url);
+}
+
 export async function proxy(request: NextRequest) {
+    const authRedirect = redirectAuthCallbackIfNeeded(request);
+    if (authRedirect) {
+        return authRedirect;
+    }
+
     let response = NextResponse.next({
         request: { headers: request.headers },
     });
@@ -89,5 +122,5 @@ export async function proxy(request: NextRequest) {
 }
 
 export const config = {
-    matcher: ['/admin/:path*', '/blogger/:path*'],
+    matcher: ['/', '/admin/:path*', '/blogger/:path*', '/auth/:path*'],
 };
