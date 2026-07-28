@@ -16,11 +16,7 @@ const contactInfo = [
         title: "Call Us",
         content: (
             <div className="flex flex-col gap-1.5 pt-1">
-                <span className="text-xs text-gray-500 italic mb-1">
-                    People forget numbers, so we use &quot;alphabet-style numbers&quot; to help them remember.
-                </span>
-                <span className="text-lg font-black text-primary mb-1">1300 JS CHOICE</span>
-                <a href="tel:1300572464" className="hover:text-primary transition-colors font-bold text-base">1300 572 464 (National)</a>
+                <a href="tel:1300572464" className="text-lg font-black text-primary mb-1 hover:text-primary/80 transition-colors">1300 572 464 (National)</a>
                 <a href="tel:0393953746" className="hover:text-primary transition-colors font-bold text-base">03 9395 3746 (Landline)</a>
                 <a href="tel:0421622262" className="hover:text-primary transition-colors font-bold text-base">0421 622 262 (Mobile)</a>
             </div>
