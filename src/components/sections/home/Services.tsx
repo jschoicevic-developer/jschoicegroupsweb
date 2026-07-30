@@ -106,7 +106,7 @@ const Services = () => {
                         },
                         {
                             title: "Transport Assistance",
-                            description: "Connect and create. Join our engaging group sessions designed to improve mental well-being, foster friendships, and build new skills in a safe, supportive space.",
+                            description: "Freedom to move. Whether it’s medical appointments, shopping, or social visits, our team ensures you get from A to B safely with reliable transport support.",
                             icon: "/images/home/service-icon-6.webp",
                             href: "/transportation-assistance"
                         },
@@ -124,7 +124,7 @@ const Services = () => {
                         },
                         {
                             title: "Social & Community Participation",
-                            description: "Build independence at home. We support you with household tasks, personal care, and daily routines, ensuring you feel comfortable and in control of your environment.",
+                            description: "Connect and Create. Join our engaging group sessions designed to improve mental well-being, foster friendships, and build new skills in a safe, supportive space.",
                             icon: "/images/home/service-icon-5.webp",
                             href: "/access-to-community-activities"
                         },
@@ -136,7 +136,7 @@ const Services = () => {
                         },
                         {
                             title: "Emergency Respite",
-                            description: "Freedom to move. Whether it’s medical appointments, shopping, or social visits, our team ensures you get from A to B safely with reliable transport support.",
+                            description: "Urgent short-term respite care providing safe, reliable support for participants while giving families and carers the relief they need during unexpected situations.",
                             icon: "/images/home/service-icon-3.webp",
                             href: "/emergency-respite"
                         },

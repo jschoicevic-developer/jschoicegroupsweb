@@ -19,7 +19,7 @@ const blogSchema = {
     name: "Blog | JS Choice Group",
     description:
         "Discover professional insights, NDIS resources, and comprehensive care strategies from the JS Choice Group team.",
-    publisher: { "@id": "https://jschoicegroup.com.au/#organization" },
+    publisher: { "@id": "https://www.jschoicegroup.com.au/#organization" },
     isPartOf: { "@id": "https://jschoicegroup.com.au/#website" },
     inLanguage: "en-AU",
     breadcrumb: {

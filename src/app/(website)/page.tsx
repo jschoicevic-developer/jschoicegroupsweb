@@ -45,7 +45,7 @@ const websiteSchema = {
   name: "JS Choice Group",
   description:
     "Registered NDIS Provider in Melbourne delivering disability support services across Victoria",
-  publisher: { "@id": "https://jschoicegroup.com.au/#organization" },
+  publisher: { "@id": "https://www.jschoicegroup.com.au/#organization" },
   inLanguage: "en-AU",
 };
 
@@ -58,7 +58,7 @@ const homePageSchema = {
   description:
     "JS Choice Group are trusted NDIS Service Providers in Melbourne, delivering compassionate, participant-led disability support across Victoria.",
   isPartOf: { "@id": "https://jschoicegroup.com.au/#website" },
-  about: { "@id": "https://jschoicegroup.com.au/#organization" },
+  about: { "@id": "https://www.jschoicegroup.com.au/#organization" },
   breadcrumb: {
     "@type": "BreadcrumbList",
     itemListElement: [

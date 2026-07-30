@@ -1,4 +1,4 @@
-﻿"use client";
+"use client";
 
 import { motion } from "framer-motion";
 import PageHeader from "@/components/ui/PageHeader";
@@ -127,7 +127,7 @@ const serviceSchemas = [
         name: "NDIS Accommodation Geelong",
         description: "NDIS accommodation support services in Geelong — SDA housing, SIL, and specialised disability accommodation for NDIS participants.",
         url: "https://jschoicegroup.com.au/ndis-accommodation-geelong",
-        provider: { "@id": "https://jschoicegroup.com.au/#organization" },
+        provider: { "@id": "https://www.jschoicegroup.com.au/#organization" },
         serviceType: "NDIS Accommodation",
         areaServed: { "@type": "City", name: "Geelong", addressCountry: "AU" },
     },

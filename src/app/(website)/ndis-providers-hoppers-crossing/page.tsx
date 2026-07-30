@@ -1,4 +1,4 @@
-﻿"use client";
+"use client";
 
 import { motion } from "framer-motion";
 import PageHeader from "@/components/ui/PageHeader";
@@ -154,7 +154,7 @@ const locationSchemas = [
             addressRegion: "VIC",
             addressCountry: "AU",
         },
-        parentOrganization: { "@id": "https://jschoicegroup.com.au/#organization" },
+        parentOrganization: { "@id": "https://www.jschoicegroup.com.au/#organization" },
         areaServed: { "@type": "City", name: "Hoppers Crossing" },
         serviceType: "NDIS Disability Support Services",
         priceRange: "NDIS Funded",

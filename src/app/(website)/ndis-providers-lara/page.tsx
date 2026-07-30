@@ -1,4 +1,4 @@
-﻿"use client";
+"use client";
 
 import SeamlessNDIS from "@/components/sections/home/SeamlessNDIS";
 
@@ -156,7 +156,7 @@ const locationSchemas = [
             addressRegion: "VIC",
             addressCountry: "AU",
         },
-        parentOrganization: { "@id": "https://jschoicegroup.com.au/#organization" },
+        parentOrganization: { "@id": "https://www.jschoicegroup.com.au/#organization" },
         areaServed: { "@type": "City", name: "Lara" },
         serviceType: "NDIS Disability Support Services",
         priceRange: "NDIS Funded",

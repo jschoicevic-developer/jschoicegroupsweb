@@ -1,4 +1,4 @@
-﻿"use client";
+"use client";
 
 import { motion } from "framer-motion";
 import PageHeader from "@/components/ui/PageHeader";
@@ -87,7 +87,7 @@ const serviceSchemas = [
         name: "Client and Family Advocacy",
         description: "NDIS client and family advocacy services in Melbourne — supporting participants and their families to understand rights and navigate the NDIS system.",
         url: "https://jschoicegroup.com.au/client-and-family-advocacy-for-ndis-participants-only",
-        provider: { "@id": "https://jschoicegroup.com.au/#organization" },
+        provider: { "@id": "https://www.jschoicegroup.com.au/#organization" },
         serviceType: "NDIS Client Advocacy",
         areaServed: { "@type": "State", name: "Victoria", addressCountry: "AU" },
     },

@@ -163,7 +163,7 @@ export default async function BlogPostPage({ params, searchParams }: BlogPostPag
         datePublished: post.published_at || post.created_at,
         dateModified: post.published_at || post.created_at,
         author: { "@type": "Person", name: post.author_name },
-        publisher: { "@id": "https://jschoicegroup.com.au/#organization" },
+        publisher: { "@id": "https://www.jschoicegroup.com.au/#organization" },
         image:
             post.featured_image && isValidImageUrl(post.featured_image)
                 ? post.featured_image

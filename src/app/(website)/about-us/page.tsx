@@ -21,7 +21,7 @@ const aboutPageSchema = {
     description:
         "JS Choice Group is a family-led NDIS provider in Melbourne, delivering ethical, culturally responsive and participant-centred disability support.",
     isPartOf: { "@id": "https://jschoicegroup.com.au/#website" },
-    about: { "@id": "https://jschoicegroup.com.au/#organization" },
+    about: { "@id": "https://www.jschoicegroup.com.au/#organization" },
     breadcrumb: {
         "@type": "BreadcrumbList",
         itemListElement: [
@@ -36,7 +36,7 @@ const founderSchema = {
     "@type": "Person",
     name: "Jan Fardowsi",
     jobTitle: "Founder & Director",
-    worksFor: { "@id": "https://jschoicegroup.com.au/#organization" },
+    worksFor: { "@id": "https://www.jschoicegroup.com.au/#organization" },
     url: "https://jschoicegroup.com.au/about-us",
 };
 

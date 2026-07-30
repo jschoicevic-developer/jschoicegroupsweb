@@ -17,7 +17,7 @@ const contactPageSchema = {
     description:
         "Get in touch with JS Choice Group. We are here to answer your questions and provide NDIS disability support across Melbourne.",
     isPartOf: { "@id": "https://jschoicegroup.com.au/#website" },
-    about: { "@id": "https://jschoicegroup.com.au/#organization" },
+    about: { "@id": "https://www.jschoicegroup.com.au/#organization" },
     breadcrumb: {
         "@type": "BreadcrumbList",
         itemListElement: [

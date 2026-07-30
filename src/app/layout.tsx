@@ -83,17 +83,54 @@ export const metadata: Metadata = {
 
 const organizationSchema = {
   "@context": "https://schema.org",
-  "@type": "LocalBusiness",
-  "@id": "https://jschoicegroup.com.au/#organization",
-  name: "JS Choice Group Pty Ltd",
+  "@type": "Organization",
+  "@id": "https://www.jschoicegroup.com.au/#organization",
+  name: "JS Choice - Care and Support",
   legalName: "JS Choice Group Pty Ltd",
-  url: "https://jschoicegroup.com.au",
-  logo: "https://jschoicegroup.com.au/JCGLogo.png",
-  image: "https://jschoicegroup.com.au/JCGLogo.png",
+  alternateName: "JS Choice Group",
+  url: "https://www.jschoicegroup.com.au",
+  logo: "https://www.jschoicegroup.com.au/JCGLogo.png",
+  image: "https://www.jschoicegroup.com.au/JCGLogo.png",
   description:
-    "JS Choice Group is a registered NDIS provider delivering compassionate, participant-centred disability support services across Melbourne and Victoria.",
+    "JS Choice - Care and Support is a registered NDIS provider delivering personalised disability support services across Melbourne, helping participants achieve greater independence and quality of life.",
   telephone: "+611300572464",
   email: "info@jschoicegroup.com.au",
+  sameAs: [
+    "https://www.facebook.com/profile.php?id=100091940106564",
+    "https://www.instagram.com/jschoicegroup",
+  ],
+  areaServed: {
+    "@type": "State",
+    name: "Victoria",
+    addressCountry: "AU",
+  },
+  knowsAbout: [
+    "NDIS Services",
+    "Disability Support",
+    "Support Coordination",
+    "Community Nursing Care",
+    "Psychosocial Recovery Coaching",
+    "Transport Assistance",
+    "Assistance with Daily Living",
+    "Group & Centre Activities",
+    "Community Participation",
+    "NDIS Accommodation",
+  ],
+};
+
+const localBusinessSchema = {
+  "@context": "https://schema.org",
+  "@type": "LocalBusiness",
+  "@id": "https://www.jschoicegroup.com.au/#localbusiness",
+  name: "JS Choice - Care and Support",
+  legalName: "JS Choice Group Pty Ltd",
+  image: "https://www.jschoicegroup.com.au/JCGLogo.png",
+  url: "https://www.jschoicegroup.com.au",
+  telephone: "+611300572464",
+  email: "info@jschoicegroup.com.au",
+  priceRange: "NDIS Funded",
+  description:
+    "JS Choice - Care and Support is a trusted NDIS provider offering personalised disability support services throughout Melbourne and surrounding suburbs.",
   address: {
     "@type": "PostalAddress",
     streetAddress: "Suite 104, Level 1, C5, 2 Main Street",
@@ -114,18 +151,23 @@ const organizationSchema = {
       opens: "08:00",
       closes: "18:00",
     },
+    {
+      "@type": "OpeningHoursSpecification",
+      dayOfWeek: ["Saturday", "Sunday"],
+      opens: "09:00",
+      closes: "17:00",
+    },
   ],
   sameAs: [
     "https://www.facebook.com/profile.php?id=100091940106564",
     "https://www.instagram.com/jschoicegroup",
   ],
-  areaServed: {
-    "@type": "State",
-    name: "Victoria",
-    addressCountry: "AU",
-  },
+  areaServed: [
+    { "@type": "City", name: "Melbourne" },
+    { "@type": "State", name: "Victoria", addressCountry: "AU" },
+  ],
   serviceType: "NDIS Disability Support Services",
-  priceRange: "NDIS Funded",
+  hasMap: "https://maps.google.com/?q=-37.8841432,144.7353927",
 };
 
 export default function RootLayout({
@@ -173,7 +215,9 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
         <script
           suppressHydrationWarning
           type="application/ld+json"
-          dangerouslySetInnerHTML={{ __html: JSON.stringify(organizationSchema) }}
+          dangerouslySetInnerHTML={{
+            __html: JSON.stringify([organizationSchema, localBusinessSchema]),
+          }}
         />
         {/* Meta Pixel */}
         <script
