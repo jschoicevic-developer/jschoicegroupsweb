@@ -27,7 +27,7 @@ import JsonLd from "@/components/schema/JsonLd";
 const activityCategories = [
     {
         title: "Life Skills & Independence",
-        description: "Learn practical skills in a supportive group setting where making mistakes is part of the learning process.",
+        description: "Our NDIS life skills programs teach practical skills in a supportive group setting where making mistakes is part of the learning process.",
         items: ["Cooking Classes", "Budgeting Workshops", "Travel Training"],
         icon: UserCheck
     },
@@ -140,7 +140,7 @@ const GroupCentreActivities = () => {
         <main className="bg-gray-50/50">
             <JsonLd data={serviceSchemas} />
             <PageHeader
-                title="Group and Centre Activities"
+                title="NDIS Group and Centre Based Activities"
                 breadcrumb={[
                     { label: "Home", href: "/" },
                     { label: "Group and Centre Activities" }
@@ -181,15 +181,15 @@ const GroupCentreActivities = () => {
                                     Community & Connection
                                 </span>
                                 <h2 className="text-4xl lg:text-5xl font-black text-[#2D3748] leading-tight">
-                                    Group and Centre Activities — Connect, Create, and <span className="text-primary block mt-2">Belong in a Safe Space</span>
+                                    NDIS Group and Centre Based Activities — Connect, Create, and <span className="text-primary block mt-2">Belong in a Safe Space</span>
                                 </h2>
                             </div>
                             <div className="space-y-6 text-lg text-gray-600 leading-relaxed">
                                 <p className="font-bold text-[#2D3748]">
-                                    Group and Centre Activities — socializing doesn't have to be stressful.
+                                    NDIS Group Activities Melbourne style — socializing doesn't have to be stressful.
                                 </p>
                                 <p>
-                                    At JS Choice – Care and Support, we provide structured, engaging, and culturally safe group activities across Melbourne designed to help you build friendships and learn new skills at your own pace.
+                                    At JS Choice – Care and Support, we provide structured, engaging, and culturally safe disability social groups Melbourne participants love, designed to help you build friendships and learn new skills at your own pace.
                                 </p>
                                 <p>
                                     We believe that community participation looks different for everyone. Whether you love hands-on creative projects, want to master cooking, or simply enjoy being around others in a low-pressure environment, our programmes are designed to foster independence and combat social isolation.
@@ -222,7 +222,7 @@ const GroupCentreActivities = () => {
                             More Than Just "Activities" — <span className="text-secondary">It's Capacity Building</span>
                         </h2>
                         <p className="text-lg text-gray-600 leading-relaxed">
-                            Our group programmes are not just about passing time; they are about Capacity Building. We use fun, engaging activities as a vehicle to teach vital life skills that you can use at home and in the community.
+                            Our group programmes are not just about passing time; they are about NDIS capacity building. We use fun, engaging activities as part of our NDIS life skills programs to teach vital skills that you can use at home and in the community.
                         </p>
                     </motion.div>
                 </div>

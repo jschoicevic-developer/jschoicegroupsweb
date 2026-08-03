@@ -34,7 +34,7 @@ const whatDoesAHADo = [
     },
     {
         title: "Speech Therapy Support",
-        description: "Practice communication strategies and speech exercises in a relaxed environment.",
+        description: "Our NDIS speech therapy support helps you practice communication strategies and speech exercises in a relaxed environment.",
         icon: MessageCircle
     },
     {
@@ -196,7 +196,7 @@ const AlliedHealthAssistance = () => {
                                     Our Allied Health Services help make therapy most effective by keeping it consistent. However, seeing a qualified Occupational Therapist (OT), Physiotherapist, or Speech Pathologist every week can quickly use up your NDIS funding.
                                 </p>
                                 <p>
-                                    At Js Choice – Care and Support, our Allied Health Assistants (AHAs) offer a smart solution. They are qualified support professionals who work under the supervision of your treating therapist to help you practice your exercises and therapy goals in between your major appointments.
+                                    At Js Choice – Care and Support, our NDIS allied health assistant team offers a smart solution. As qualified NDIS therapy assistant professionals, they work under the supervision of your treating therapist to help you practice your exercises and therapy goals in between your major appointments.
                                 </p>
                                 <p>
                                     By using an AHA, you can increase the frequency of your support sessions for a fraction of the cost, ensuring you reach your goals faster.
@@ -231,7 +231,7 @@ const AlliedHealthAssistance = () => {
                                 What Does an <span className="text-primary">Allied Health Assistant Do?</span>
                             </h2>
                             <p className="text-gray-600 text-lg">
-                                Think of an AHA as the bridge between your clinical appointments and your daily life. They don't write the therapy plan; they help you live it. Working with your primary therapist, our AHAs can:
+                                Think of an NDIS allied health assistant as the bridge between your clinical appointments and your daily life. They don't write the therapy plan; they help you live it. Working with your primary therapist, our NDIS therapy assistant team can:
                             </p>
 
                             <div className="grid gap-6">
@@ -369,7 +369,7 @@ const AlliedHealthAssistance = () => {
                                 Why Choose JS Choice for <span className="text-secondary">Allied Health Support?</span>
                             </h2>
                             <p className="text-gray-600 text-lg">
-                                We take a collaborative and neuro-affirming approach to therapy support.
+                                As one of Melbourne's trusted NDIS allied health providers, we take a collaborative and neuro-affirming approach to therapy support.
                             </p>
                             <div className="space-y-6">
                                 {whyChooseUs.map((item, index) => (

@@ -69,7 +69,7 @@ const transportServices = [
     },
     {
         title: "Travel Training (Capacity Building)",
-        description: "Our goal is to build your independence. If you want to learn how to use public transport safely, our support workers can provide Travel Training.",
+        description: "Our goal is to build your independence. If you want to learn how to use public transport safely, our support workers can provide travel training NDIS participants can build on for the long term.",
         icon: Map
     }
 ];
@@ -77,7 +77,7 @@ const transportServices = [
 const whyChooseUs = [
     {
         title: "Wheelchair Accessible Vehicles",
-        description: "Our fleet includes vehicles equipped to accommodate wheelchairs and mobility aids safely.",
+        description: "Our NDIS wheelchair accessible transport fleet includes vehicles equipped to accommodate wheelchairs and mobility aids safely.",
         icon: Accessibility
     },
     {
@@ -220,7 +220,7 @@ const TransportationAssistance = () => {
                             </div>
                             <div className="space-y-6 text-lg text-gray-600 leading-relaxed">
                                 <p>
-                                    At JS Choice – Care and Support, our Transportation Assistance service is built on the belief that mobility is the key to independence. Whether it's attending a medical appointment, visiting friends, or simply doing the weekly shop, you deserve to get there safely, comfortably, and on time.
+                                    At JS Choice – Care and Support, our disability transport Melbourne service is built on the belief that mobility is the key to independence. Whether it's attending a medical appointment, visiting friends, or simply doing the weekly shop, you deserve to get there safely, comfortably, and on time.
                                 </p>
                                 <p>
                                     For many NDIS participants, public transport or rideshare apps can be stressful or inaccessible. Our Transportation Assistance service bridges that gap. We provide a door-to-door service that removes the anxiety of travel, ensuring you can access your community with confidence.

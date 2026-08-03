@@ -51,7 +51,7 @@ const accessSteps = [
 const eligibilityCriteria = [
     {
         title: "Age Requirements",
-        description: "You must be aged between 7 and 65 years old at the time of your application. (Note: Children under 7 may receive support through the Early Childhood Early Intervention approach).",
+        description: "You must be aged between 7 and 65 years old at the time of your application. (Note: Children under 7 may receive support through the NDIS Early Childhood Early Intervention approach).",
         icon: Calendar
     },
     {
@@ -180,10 +180,10 @@ const NdisAccessRequests = () => {
                             </div>
                             <div className="space-y-6 text-lg text-gray-600 leading-relaxed">
                                 <p>
-                                    NDIS Access Requests are the first step toward getting the support you need from the National Disability Insurance Scheme, but the application process can be confusing and paperwork-heavy.
+                                    Wondering how to apply for NDIS support? An NDIS Access Request is the first step toward getting the help you need from the National Disability Insurance Scheme, but the application process can be confusing and paperwork-heavy.
                                 </p>
                                 <p>
-                                    At Js Choice – Care and Support, we believe that complexity shouldn't stop you from accessing help. As experienced Melbourne NDIS providers, we offer guidance to help eligible individuals navigate the Access Request process. We help you understand the requirements, gather the right evidence, and submit a strong application.
+                                    At Js Choice – Care and Support, we believe that complexity shouldn't stop you from accessing help. As experienced Melbourne NDIS providers, we offer NDIS application support to help eligible individuals navigate the Access Request process. We help you understand the NDIS eligibility criteria, gather the right evidence, and submit a strong application.
                                 </p>
                             </div>
                             <div className="flex flex-col sm:flex-row gap-4 pt-4">
@@ -208,7 +208,7 @@ const NdisAccessRequests = () => {
                 <div className="container-8xl">
                     <div className="text-center max-w-3xl mx-auto mb-8 space-y-4">
                         <h2 className="text-3xl md:text-5xl font-black text-[#2D3748]">
-                            Am I Eligible for <span className="text-secondary">the NDIS?</span>
+                            NDIS Eligibility Criteria – Am I Eligible for <span className="text-secondary">the NDIS?</span>
                         </h2>
                         <p className="text-gray-600 text-lg">
                             Before requesting access, you need to meet three main criteria. We can help you determine if you fit these requirements:

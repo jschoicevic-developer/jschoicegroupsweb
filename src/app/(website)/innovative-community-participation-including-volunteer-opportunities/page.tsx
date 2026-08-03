@@ -43,10 +43,10 @@ const whatMakesItInnovative = [
 const innovativePathways = [
     {
         category: "Work Readiness & Volunteering",
-        description: "Bridge the gap between home and the workplace. We assist participants in discovering their strengths and preparing for the world.",
+        description: "Bridge the gap between home and the workplace through NDIS volunteer placements. We assist participants in discovering their strengths and preparing for the world.",
         points: [
             "Employment Counselling: Mock interviews, resume building, and grooming for the workplace.",
-            "Local Volunteering: We partner with Melbourne charities and businesses to provide supported volunteering roles."
+            "Local Volunteering: We partner with Melbourne charities and businesses to provide supported NDIS volunteer roles."
         ],
         icon: HeartHandshake
     },
@@ -173,7 +173,7 @@ const InnovativeCommunityParticipation = () => {
         <main className="bg-gray-50/50">
             <JsonLd data={serviceSchemas} />
             <PageHeader
-                title="Innovative Community Participation"
+                title="Innovative Community Participation NDIS"
                 breadcrumb={[
                     { label: "Home", href: "/" },
                     { label: "Innovative Community Participation" }
@@ -214,7 +214,7 @@ const InnovativeCommunityParticipation = () => {
                                     Build Skills & Confidence
                                 </span>
                                 <h2 className="text-4xl lg:text-5xl font-black text-[#2D3748] leading-tight">
-                                    Innovative Community Participation — Redefining What's Possible: <span className="text-primary block mt-2">Build Skills, Confidence & Connections</span>
+                                    Innovative Community Participation NDIS — Redefining What's Possible: <span className="text-primary block mt-2">Build Skills, Confidence & Connections</span>
                                 </h2>
                             </div>
                             <div className="space-y-6 text-lg text-gray-600 leading-relaxed">
@@ -222,7 +222,7 @@ const InnovativeCommunityParticipation = () => {
                                     Standard community access is about getting out of the house. Innovative Community Participation is about building the skills you need to thrive once you are there.
                                 </p>
                                 <p>
-                                    At Js Choice – Care and Support, we look beyond traditional day programmes. We use creative, technology-driven, and nature-based activities to help NDIS participants in Melbourne develop resilience, emotional regulation, and work readiness skills.
+                                    At Js Choice – Care and Support, we look beyond traditional day programmes. We use creative, technology-driven, and nature-based activities – including NDIS social skills groups – to help NDIS participants in Melbourne develop resilience, emotional regulation, and work readiness skills.
                                 </p>
                                 <p>
                                     Whether you want to become an artist, prepare for a job, or simply navigate social situations with more confidence, our innovative programmes are the stepping stone to a bigger life.
@@ -260,7 +260,7 @@ const InnovativeCommunityParticipation = () => {
                                 What Makes It <span className="text-secondary">"Innovative"?</span>
                             </h2>
                             <p className="text-gray-600 text-lg">
-                                Unlike standard recreational activities, this support item focuses on Capacity Building. We don't just "do" activities; we use them as tools to teach:
+                                Unlike standard recreational activities, this support item focuses on NDIS capacity building. We don't just "do" activities; we use them as tools to teach:
                             </p>
 
                             <div className="grid gap-6">

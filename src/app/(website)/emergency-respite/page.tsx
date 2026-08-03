@@ -47,12 +47,12 @@ const howItWorks = [
 const includedServices = [
     {
         title: "In-Home Respite",
-        description: "Professional care delivered in your own home, maintaining familiar routines and comfort.",
+        description: "In-home respite care Melbourne families choose for professional care delivered in your own home, maintaining familiar routines and comfort.",
         icon: Home
     },
     {
         title: "Short-Term Accommodation",
-        description: "Safe and comfortable stays in our fully accessible respite facilities with 24/7 support.",
+        description: "Short term accommodation NDIS participants can access – safe and comfortable stays in our fully accessible respite facilities with 24/7 support.",
         icon: Hotel
     },
     {
@@ -182,16 +182,16 @@ const EmergencyRespite = () => {
                                     24/7 Support Available
                                 </span>
                                 <h2 className="text-4xl lg:text-5xl font-black text-[#2D3748] leading-tight">
-                                    Emergency Respite <span className="block text-primary mt-2">Care & Crisis Support</span>
+                                    NDIS Emergency Respite <span className="block text-primary mt-2">Care & Crisis Support NDIS Services</span>
                                 </h2>
                             </div>
                             <div className="space-y-6 text-lg text-gray-600 leading-relaxed">
                                 <h3 className="text-2xl font-bold text-[#2D3748]">Immediate Relief When You Need It Most</h3>
                                 <p>
-                                    At JS Choice – Care and Support, we understand that life is unpredictable. Caregivers get sick, family emergencies happen, and sometimes you just need urgent support. Our Emergency Respite services are designed to step in quickly, providing a safe, supportive environment for your loved one.
+                                    At JS Choice – Care and Support, we understand that life is unpredictable. Caregivers get sick, family emergencies happen, and sometimes you just need urgent crisis support NDIS participants can rely on. Our NDIS emergency respite services are designed to step in quickly, providing a safe, supportive environment for your loved one.
                                 </p>
                                 <p>
-                                    Whether it's in-home support or a stay at our short-term accommodation, our team is ready to respond. We prioritise the safety and well-being of NDIS participants, ensuring continuity of care even in crisis situations.
+                                    Whether it's in-home respite care Melbourne families trust or a stay at our short term accommodation NDIS facilities, our team is ready to respond. We prioritise the safety and well-being of NDIS participants, ensuring continuity of care even in crisis situations.
                                 </p>
                             </div>
                             <div className="flex flex-col sm:flex-row gap-4 pt-4">
@@ -227,7 +227,7 @@ const EmergencyRespite = () => {
                                 What is <span className="text-secondary">Emergency Respite?</span>
                             </h2>
                             <p className="text-lg text-gray-600 leading-relaxed">
-                                Emergency Respite is immediate, short-term care provided when the usual carer is unavailable or unable to provide support due to unforeseen circumstances. It is designed to prevent the breakdown of the primary care relationship and ensure the participant remains safe and supported.
+                                NDIS emergency respite is immediate, short-term care provided when the usual carer is unavailable or unable to provide support due to unforeseen circumstances. It is designed to prevent the breakdown of the primary care relationship and ensure the participant remains safe and supported.
                             </p>
                             <div className="flex gap-4">
                                 <span className="inline-flex items-center gap-2 px-4 py-2 bg-secondary/10 text-secondary rounded-full font-bold text-sm">

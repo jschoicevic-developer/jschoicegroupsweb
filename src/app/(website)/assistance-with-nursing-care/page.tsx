@@ -50,7 +50,7 @@ const includedServices = [
     },
     {
         title: "Wound Care",
-        description: "We also specialise in offering expert care for wounds. This includes infection control, dressing changes, and wound assessment.",
+        description: "We also specialise in NDIS wound care. This includes infection control, dressing changes, and wound assessment.",
         icon: Syringe
     },
     {
@@ -60,7 +60,7 @@ const includedServices = [
     },
     {
         title: "Chronic Disease Management",
-        description: "Our organisations' expert caregivers and nurses also assist participants in managing chronic conditions such as heart disease, respiratory problems, diabetes, etc.",
+        description: "Our organisations' expert caregivers and nurses also assist participants in managing chronic conditions and complex needs through NDIS high intensity supports, including heart disease, respiratory problems, diabetes, and NDIS palliative care for end-of-life comfort.",
         icon: Heart
     },
     {
@@ -142,7 +142,7 @@ const AssistanceWithNursingCare = () => {
         <main className="bg-gray-50/50">
             <JsonLd data={serviceSchemas} />
             <PageHeader
-                title="Assistance With Nursing Care"
+                title="Assistance With Nursing Care – Essential Nursing and Disability Services"
                 breadcrumb={[
                     { label: "Home", href: "/" },
                     { label: "Assistance With Nursing Care" }
@@ -189,7 +189,7 @@ const AssistanceWithNursingCare = () => {
                             <div className="space-y-6 text-lg text-gray-600 leading-relaxed">
                                 <h3 className="text-2xl font-bold text-[#2D3748]">Get the Best Support & Live Independently</h3>
                                 <p>
-                                    At JS Choice – Care and Support, our Assistance with Nursing Care service recognises the vital role community nursing plays in improving the quality of life for individuals with special needs. Our dedicated team is highly committed to offering the best nursing care assistance in Melbourne.
+                                    At JS Choice – Care and Support, our essential nursing and disability services recognise the vital role in-home nursing care NDIS participants rely on to improve quality of life. Our dedicated team of NDIS registered nurse Melbourne professionals is highly committed to offering the best nursing care assistance in Melbourne.
                                 </p>
                                 <p>
                                     Our skilled professionals have vast experience and expertise in the industry. Whether you or your loved one requires the best assistance and community nursing service, we are always ready to provide quality results.
@@ -228,7 +228,7 @@ const AssistanceWithNursingCare = () => {
                                 What is <span className="text-secondary">Community Nursing Care?</span>
                             </h2>
                             <p className="text-lg text-gray-600 leading-relaxed">
-                                Community nursing care in Melbourne is a specialised service provided by registered nurses and health care professionals to individuals in their home or community settings. The main focus is on offering comprehensive healthcare services and helping the participants recover quickly from injuries, surgery or health-related problems.
+                                Community nursing care in Melbourne is in-home nursing care NDIS participants and families trust, delivered by an NDIS registered nurse Melbourne and allied health professionals in their home or community setting. The main focus is on offering comprehensive healthcare services and helping participants recover quickly from injuries, surgery or health-related problems.
                             </p>
                             <div className="flex gap-4">
                                 <span className="inline-flex items-center gap-2 px-4 py-2 bg-secondary/10 text-secondary rounded-full font-bold text-sm">
@@ -327,7 +327,7 @@ const AssistanceWithNursingCare = () => {
                             Services Included in <span className="text-primary">Nursing Care</span>
                         </h2>
                         <p className="text-gray-300 text-lg">
-                            At JS Choice – Care and Support, our NDIS community nursing care services in Melbourne include:
+                            At JS Choice – Care and Support, our NDIS community nursing care services in Melbourne include NDIS high intensity supports, NDIS palliative care, and:
                         </p>
                     </motion.div>
 

@@ -30,7 +30,7 @@ const accommodationPathways = [
     {
         title: "Supported Independent Living (SIL)",
         subtitle: "Your Home, Your Rules, Our Support",
-        description: "SIL is best for participants who have higher support needs and require 24/7 assistance but want to live independently.",
+        description: "Supported independent living Melbourne is best for participants who have higher support needs and require 24/7 assistance but want to live independently. Ask us about current SIL vacancies Melbourne wide.",
         features: [
             "Shared Living: Live with other like-minded participants. We carefully match housemates based on age, interests, and lifestyle to ensure a harmonious home.",
             "Solo Living: Support provided in your own private residence.",
@@ -55,7 +55,7 @@ const accommodationPathways = [
     {
         title: "Short-Term Accommodation (STA)",
         subtitle: "A Refreshing Break for You and Your Carer",
-        description: "Often called \"Respite,\" STA is a funded break from your usual routine. It's a chance to recharge, try new things, and meet new people.",
+        description: "Often called NDIS respite accommodation, short term accommodation NDIS is a funded break from your usual routine. It's a chance to recharge, try new things, and meet new people.",
         features: [
             "All-Inclusive: Includes accommodation, 24/7 support, meals, and activities.",
             "Developmental: We treat STA as a chance to build capacity; learning to stay away from home, cook a meal, or navigate a new area."
@@ -85,7 +85,7 @@ const whyChooseUs = [
     },
     {
         title: "Quality Properties",
-        description: "Our homes in suburbs like Point Cook, Tarneit, and South Morang are modern, accessible, and well maintained.",
+        description: "Our disability housing Melbourne homes in suburbs like Point Cook, Tarneit, and South Morang are modern, accessible, and well maintained.",
         icon: Armchair
     }
 ];
@@ -194,7 +194,7 @@ const NdisAccommodation = () => {
                                     Our NDIS Accommodation in Melbourne is built on the idea that your home should be your sanctuary — a place where you feel safe, supported, and free to be yourself. But sometimes, your current living situation just doesn't match your support needs.
                                 </p>
                                 <p>
-                                    At Js Choice – Care and Support, we offer high quality NDIS accommodation options across Melbourne designed to support your independence. Whether you are looking for a permanent home (SIL), a transitional solution (MTA), or a short break (STA), we provide welcoming, culturally safe environments where you can live life on your terms.
+                                    At Js Choice – Care and Support, we offer high quality disability housing Melbourne options designed to support your independence. Whether you are looking for supported independent living Melbourne (SIL), a transitional solution (MTA), or a short break (STA), we provide welcoming, culturally safe environments where you can live life on your terms.
                                 </p>
                             </div>
                             <div className="flex flex-col sm:flex-row gap-4 pt-4">

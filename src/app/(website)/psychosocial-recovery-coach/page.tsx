@@ -68,7 +68,7 @@ const faqs = [
         answer: "Recovery Coaching is generally funded in NDIS plans for participants with a primary or secondary diagnosis related to psychosocial disability. If you feel you need this support, we can help you prepare the evidence needed for your next plan review."
     },
     {
-        question: "I Already Have A Support Coordinator. Do I Need A Recovery Coach?",
+        question: "Recovery Coach vs Support Coordinator - I Already Have A Support Coordinator. Do I Need A Recovery Coach?",
         answer: (
             <div className="space-y-4">
                 <p>While both roles help you manage your plan, a Recovery Coach has specific mental health expertise.</p>
@@ -149,7 +149,7 @@ const PsychosocialRecoveryCoach = () => {
         <main className="bg-gray-50/50">
             <JsonLd data={serviceSchemas} />
             <PageHeader
-                title="Psychosocial Recovery Coach"
+                title="NDIS Recovery Coach – Psychosocial Recovery Coaching Melbourne"
                 breadcrumb={[
                     { label: "Home", href: "/" },
                     { label: "Psychosocial Recovery Coach" }
@@ -185,11 +185,11 @@ const PsychosocialRecoveryCoach = () => {
                             className="space-y-8"
                         >
                             <h2 className="text-3xl lg:text-5xl font-black text-[#2D3748] leading-[1.2]">
-                                Psychosocial Recovery Coach — Reclaiming Your Path to <span className="text-[#ABB3F1]">Wellness & Independence</span>
+                                NDIS Recovery Coach — Reclaiming Your Path to <span className="text-[#ABB3F1]">Wellness & Independence</span>
                             </h2>
                             <div className="space-y-6 text-lg text-gray-600 leading-relaxed font-medium">
                                 <p>
-                                    Recovery is a personal journey, not a destination. At JS Choice – Care and Support, our Psychosocial Recovery Coaches are here to walk that path beside you. We provide trauma-informed, neuro-affirming support designed to help you manage mental health challenges and build a life full of hope, resilience, and autonomy.
+                                    Recovery is a personal journey, not a destination. At JS Choice – Care and Support, our NDIS recovery coach team provides psychosocial disability support through trauma-informed, neuro-affirming mental health recovery coaching, designed to help you build a life full of hope, resilience, and autonomy.
                                 </p>
                                 <p>
                                     Whether you are navigating Schizophrenia, PTSD, Anxiety, BPD, or other psychosocial disabilities, our coaches work with you to take control of your NDIS plan and, more importantly, your life.
@@ -218,7 +218,7 @@ const PsychosocialRecoveryCoach = () => {
                         </h2>
                         <div className="space-y-4 text-xl text-gray-600 font-medium">
                             <p>
-                                A Recovery Coach is more than just a support worker; they are a specialist guide with mental health knowledge. Our goal is to move beyond "managing symptoms" to building a meaningful life.
+                                An NDIS recovery coach is more than just a support worker; they are a specialist guide delivering mental health recovery coaching. Our goal is to move beyond "managing symptoms" to building a meaningful life.
                             </p>
                             <p className="text-[#2D3748] font-bold">
                                 We work collaboratively with you, your family, and your clinical team to:

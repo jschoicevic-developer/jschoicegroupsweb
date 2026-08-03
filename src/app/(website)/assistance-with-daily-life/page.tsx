@@ -14,7 +14,7 @@ import JsonLd from "@/components/schema/JsonLd";
 const services = [
     {
         title: "Personal Care & Self-Management",
-        description: "Maintaining personal hygiene is fundamental to dignity and well-being. We provide sensitive, respectful assistance with self-care, morning & evening routines, and bathing."
+        description: "Maintaining personal hygiene is fundamental to dignity and well-being. We provide sensitive, respectful support with these core activities of daily living – self-care, morning & evening routines, and bathing."
     },
     {
         title: "Domestic Housekeeping",
@@ -101,7 +101,7 @@ const AssistanceWithDailyLife = () => {
         <main className="bg-gray-50/50">
             <JsonLd data={serviceSchemas} />
             <PageHeader
-                title="Assistance With Daily Life"
+                title="NDIS Assistance With Daily Life"
                 breadcrumb={[
                     { label: "Home", href: "/" },
                     { label: "Assistance With Daily Life" }
@@ -143,7 +143,7 @@ const AssistanceWithDailyLife = () => {
                             </div>
                             <div className="space-y-6 text-lg text-gray-600 leading-relaxed">
                                 <p>
-                                    At JS Choice – Care and Support, our Assistance with Daily Life service is built for those moments when managing daily tasks feels overwhelming. As a trusted name in the Melbourne disability sector, we provide specialised, culturally safe support designed to simplify your routine and help you feel in control of your environment.
+                                    At JS Choice, our NDIS Assistance with Daily Life service is built for those moments when managing activities of daily living feels overwhelming. Funded under NDIS Core Supports, our NDIS daily living support is designed to simplify your routine and help you feel in control of your environment.
                                 </p>
                                 <p>
                                     Our goal is not just to complete tasks for you, but to work alongside you. Whether you need support with personal care, household management, or maintaining your property, our approach is tailored to your unique needs, helping you achieve greater autonomy and comfort in your own home.
@@ -272,7 +272,7 @@ const AssistanceWithDailyLife = () => {
                                 Why choose JS choice for <span className="text-primary">Daily Living support?</span>
                             </h2>
                             <p className="text-gray-300 text-lg mb-8 leading-relaxed">
-                                When you invite support workers into your home, you need to feel safe, respected, and understood. Here is why Melbourne participants choose us:
+                                When you invite an NDIS support worker Melbourne participants trust into your home, you need to feel safe, respected, and understood. Here is why Melbourne participants choose us:
                             </p>
 
                             <ul className="space-y-6">

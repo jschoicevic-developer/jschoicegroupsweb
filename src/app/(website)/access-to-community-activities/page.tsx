@@ -37,7 +37,7 @@ const howWeSupport = [
     },
     {
         title: "Build Confidence",
-        description: "We accompany you every step of the way, providing a safety net until you feel ready to engage independently.",
+        description: "Your community access support worker accompanies you every step of the way, providing a safety net until you feel ready to engage independently.",
         icon: ShieldCheck
     },
     {
@@ -125,11 +125,11 @@ const whyChooseUs = [
     },
     {
         title: "Local Knowledge",
-        description: "Based in Point Cook, we know the local area, the best inclusive venues, and the hidden gems in Melbourne's west and north."
+        description: "Our NDIS community access Point Cook team knows the local area, the best inclusive venues, and the hidden gems in Melbourne's west and north."
     },
     {
         title: "Reliable & Safe",
-        description: "Our team is trained, screened, and committed to your safety while out in public."
+        description: "Every disability support worker Melbourne families trust on our team is trained, screened, and committed to your safety while out in public."
     }
 ];
 
@@ -234,10 +234,10 @@ const AccessToCommunityActivities = () => {
                             </div>
                             <div className="space-y-6 text-lg text-gray-600 leading-relaxed">
                                 <p>
-                                    At JS Choice – Care and Support, our Access to Community Activities service is built on the belief that being part of the community is a fundamental human right. It is about more than just "getting out of the house"; it is about belonging, finding purpose, and connecting with the vibrant culture Melbourne has to offer.
+                                    At JS Choice – Care and Support, our NDIS community participation Melbourne service is built on the belief that being part of the community is a fundamental human right. It is about more than just "getting out of the house"; it is about belonging, finding purpose, and connecting with the vibrant culture Melbourne has to offer.
                                 </p>
                                 <p>
-                                    We provide specialised Community Participation Support designed to help you engage with the world on your own terms. Whether you want to join a local club, volunteer, attend cultural events, or simply enjoy a coffee at a local cafe, our support workers are here to make it happen safely and seamlessly.
+                                    We provide specialised NDIS social and community participation support designed to help you engage with the world on your own terms. Whether you want to join a local club, volunteer, attend cultural events, or simply enjoy a coffee at a local cafe, your community access support worker is here to make it happen safely and seamlessly.
                                 </p>
                             </div>
                             <div className="flex flex-col sm:flex-row gap-4 pt-4">

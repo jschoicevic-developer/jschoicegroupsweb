@@ -39,12 +39,12 @@ const employmentEducationServices = [
     },
     {
         title: "Job Search Assistance",
-        description: "From resume writing to interview preparation, we provide end-to-end support to help you stand out to employers and land the right role.",
+        description: "As part of our NDIS supported employment approach, we provide end-to-end support from resume writing to interview preparation, helping you stand out to employers and land the right role.",
         icon: Search
     },
     {
         title: "Education Support",
-        description: "Whether you're looking to complete a certificate or enroll in university, we help you navigate enrollment and access the support you need to succeed.",
+        description: "Our NDIS education support helps you navigate enrollment, whether you're completing a certificate or enrolling in university, and access the support you need to succeed.",
         icon: BookOpen
     },
     {
@@ -178,10 +178,10 @@ const EmploymentEducationPage = () => {
                             </div>
                             <div className="space-y-6 text-lg text-gray-600 leading-relaxed">
                                 <p>
-                                    Our Assist with Employment and Education service is built on the belief that disability should never be a barrier to professional success or educational achievement. At Js Choice – Care and Support, our mission is to empower you with the tools, skills, and confidence to pursue your career goals and lifelong learning.
+                                    Our NDIS employment support Melbourne service is built on the belief that disability should never be a barrier to professional success or educational achievement. At Js Choice – Care and Support, our mission is to empower you with the tools, skills, and confidence to pursue your career goals and lifelong learning.
                                 </p>
                                 <p>
-                                    Whether you're looking for your first job, returning to work, or wanting to study, our dedicated specialists work closely with you. We tailor our support to your unique strengths, ensuring you have every opportunity to thrive in the workplace and the classroom.
+                                    Whether you're looking for your first job, returning to work, or wanting to study, our disability employment services NDIS specialists work closely with you. We tailor our support to your unique strengths, ensuring you have every opportunity to thrive in the workplace and the classroom.
                                 </p>
                             </div>
                             <div className="flex flex-col sm:flex-row gap-4 pt-4">

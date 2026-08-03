@@ -57,7 +57,7 @@ const supportRoles = [
     },
     {
         title: "Coordinate & Manage",
-        description: "We negotiate service agreements on your behalf, ensuring you get value for money. If a provider isn't working out, we help you find a new one.",
+        description: "As part of our NDIS specialist support coordination service, we negotiate service agreements on your behalf, ensuring you get value for money. If a provider isn't working out, we help you find a new one.",
         icon: Scale
     },
     {
@@ -92,7 +92,7 @@ const whyChooseUs = [
 
 const faqs = [
     {
-        question: "What Is The Difference Between A Support Coordinator And A Plan Manager?",
+        question: "Support Coordinator vs Plan Manager – What Is The Difference Between A Support Coordinator And A Plan Manager?",
         answer: "Plan Managers are like your accountant; they pay the bills and manage the financial banking of your plan. Support Coordinators are like your project manager; they help you find the service providers (like OTs or support workers) and organise your care."
     },
     {
@@ -214,10 +214,10 @@ const SupportCoordination = () => {
                             </div>
                             <div className="space-y-6 text-lg text-gray-600 leading-relaxed">
                                 <p>
-                                    Receiving your NDIS plan is an exciting milestone, but understanding how to use it can be overwhelming. That is where JS Choice - Care and Support and our NDIS Support Coordination service come in.
+                                    Receiving your NDIS plan is an exciting milestone, but understanding how to use it can be overwhelming. That is where JS Choice - Care and Support and our NDIS support coordinator Melbourne team come in.
                                 </p>
                                 <p>
-                                    Think of your NDIS plan as the roadmap and your Support Coordinator as the experienced guide. We help you navigate the system, understand your budget, and connect you with the very best providers in Melbourne. Our goal is simple: to help you build the capacity to manage your own supports, giving you full control over your life and your future.
+                                    Think of your NDIS plan as the roadmap and your Support Coordinator as the experienced guide. Our level 2 support coordination NDIS service helps you navigate the system, understand your budget, and connect you with the very best providers in Melbourne. Our goal is simple: to help you build the capacity to manage your own supports, giving you full control over your life and your future.
                                 </p>
                             </div>
                             <div className="flex flex-col sm:flex-row gap-4 pt-4">
