@@ -10,6 +10,33 @@ import { CheckCircle2, Phone, Mail, ArrowRight } from "lucide-react";
 import ServiceCTA from "@/components/ui/ServiceCTA";
 import ServiceFormSection from "@/components/ui/ServiceFormSection";
 import JsonLd from "@/components/schema/JsonLd";
+import WhoCanBenefitSection from "@/components/sections/services/WhoCanBenefitSection";
+import DailyLivingTasksSection from "@/components/sections/services/DailyLivingTasksSection";
+import ServiceBenefitsSection from "@/components/sections/services/ServiceBenefitsSection";
+import SupportProcessSection from "@/components/sections/services/SupportProcessSection";
+import QualityOfLifeSection from "@/components/sections/services/QualityOfLifeSection";
+import AreasWeServeSection from "@/components/sections/services/AreasWeServeSection";
+import ServiceFaqSection from "@/components/sections/services/ServiceFaqSection";
+import {
+    whoCanBenefitHeading,
+    whoCanBenefitItems,
+    dailyLivingTasksHeading,
+    dailyLivingTasksImage,
+    dailyLivingTasks,
+    serviceBenefitsHeading,
+    serviceBenefitsBackground,
+    serviceBenefitsItems,
+    supportProcessHeading,
+    supportProcessSteps,
+    supportProcessCta,
+    qualityOfLifeHeading,
+    qualityOfLifeItems,
+    qualityOfLifeImages,
+    qualityOfLifeOverlayIcons,
+    areasWeServeDescription,
+    serviceFaqHeading,
+    serviceFaqItems,
+} from "@/data/daily-living-sections";
 
 const services = [
     {
@@ -93,6 +120,15 @@ const serviceSchemas = [
             { "@type": "ListItem", position: 1, name: "Home", item: "https://jschoicegroup.com.au" },
             { "@type": "ListItem", position: 2, name: "Assistance with Daily Life", item: "https://jschoicegroup.com.au/assistance-with-daily-life" },
         ],
+    },
+    {
+        "@context": "https://schema.org",
+        "@type": "FAQPage",
+        mainEntity: serviceFaqItems.map((faq) => ({
+            "@type": "Question",
+            name: faq.question,
+            acceptedAnswer: { "@type": "Answer", text: faq.answer },
+        })),
     },
 ];
 
@@ -213,31 +249,33 @@ const AssistanceWithDailyLife = () => {
                 </div>
             </section>
 
-            {/* Image Breaker */}
-            <section className="py-10">
-                <div className="container-8xl">
-                    <motion.div
-                        initial={{ opacity: 0, y: 30 }}
-                        whileInView={{ opacity: 1, y: 0 }}
-                        viewport={{ once: true }}
-                        transition={{ duration: 0.8 }}
-                        className="rounded-[3rem] overflow-hidden h-[400px] relative shadow-2xl"
-                    >
-                        <div className="absolute inset-0 bg-black/30 z-10" />
-                        <Image quality={80}
-                            src="/images/daily-life/daily-living-img03.webp"
-                            alt="Lifestyle Support"
-                            fill
-                            className="object-cover"
-                        />
-                        <div className="absolute inset-0 z-20 flex items-center justify-center text-center px-4">
-                            <h3 className="text-3xl md:text-5xl font-black text-white max-w-4xl leading-tight">
-                                Supporting Your Journey Towards Greater Independence
-                            </h3>
-                        </div>
-                    </motion.div>
-                </div>
-            </section>
+            <WhoCanBenefitSection heading={whoCanBenefitHeading} items={whoCanBenefitItems} />
+
+            <DailyLivingTasksSection
+                heading={dailyLivingTasksHeading}
+                imageSrc={dailyLivingTasksImage.src}
+                imageAlt={dailyLivingTasksImage.alt}
+                tasks={dailyLivingTasks}
+            />
+
+            <ServiceBenefitsSection
+                heading={serviceBenefitsHeading}
+                backgroundImage={serviceBenefitsBackground}
+                items={serviceBenefitsItems}
+            />
+
+            <SupportProcessSection
+                heading={supportProcessHeading}
+                steps={supportProcessSteps}
+                cta={supportProcessCta}
+            />
+
+            <QualityOfLifeSection
+                heading={qualityOfLifeHeading}
+                items={qualityOfLifeItems}
+                images={qualityOfLifeImages}
+                overlayIcons={qualityOfLifeOverlayIcons}
+            />
 
             {/* Why Choose Us */}
             <section className="py-10 lg:py-14 bg-[#2D3748] text-white overflow-hidden">
@@ -292,6 +330,10 @@ const AssistanceWithDailyLife = () => {
                 </div>
             </section>
 
+            <AreasWeServeSection description={areasWeServeDescription} />
+
+            <ServiceFaqSection heading={serviceFaqHeading} items={serviceFaqItems} />
+
             {/* CTA Section */}
             <section className="py-10 lg:py-14 bg-gray-50 relative overflow-hidden">
                 <div className="absolute top-0 left-0 w-full h-full bg-[radial-gradient(#ABB3F1_0.5px,transparent_0.5px)] [background-size:24px_24px] opacity-20" />
@@ -332,6 +374,14 @@ const AssistanceWithDailyLife = () => {
                     </motion.div>
                 </div>
             </section>
+
+            <ServiceCTA />
+
+            <ServiceFormSection
+                source="service_page"
+                sourcePage="/assistance-with-daily-life"
+                defaultService="Assistance with Daily Life"
+            />
         </main>
     );
 };

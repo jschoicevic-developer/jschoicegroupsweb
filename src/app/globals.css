@@ -48,6 +48,9 @@
   --color-blue-bg: #f0f9f9;
   --color-purple-link: #7b2d8e;
   --color-table-header: #1a3a4a;
+  --color-heading-lavender: #9f9ae5;
+  --color-heading-coral: #ff7e7e;
+  --color-heading-periwinkle: #a5b4fc;
 
   --radius-sm: calc(var(--radius) - 4px);
   --radius-md: calc(var(--radius) - 2px);
