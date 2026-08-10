@@ -21,6 +21,33 @@ import {
 import ServiceCTA from "@/components/ui/ServiceCTA";
 import ServiceFormSection from "@/components/ui/ServiceFormSection";
 import JsonLd from "@/components/schema/JsonLd";
+import WhoCanBenefitSection from "@/components/sections/services/WhoCanBenefitSection";
+import DailyLivingTasksSection from "@/components/sections/services/DailyLivingTasksSection";
+import ServiceBenefitsSection from "@/components/sections/services/ServiceBenefitsSection";
+import SupportProcessSection from "@/components/sections/services/SupportProcessSection";
+import QualityOfLifeSection from "@/components/sections/services/QualityOfLifeSection";
+import AreasWeServeSection from "@/components/sections/services/AreasWeServeSection";
+import ServiceFaqSection from "@/components/sections/services/ServiceFaqSection";
+import {
+    whoCanBenefitHeading,
+    whoCanBenefitItems,
+    nursingServicesHeading,
+    nursingServicesImage,
+    nursingServicesItems,
+    serviceBenefitsHeading,
+    serviceBenefitsBackground,
+    serviceBenefitsItems,
+    supportProcessHeading,
+    supportProcessSteps,
+    supportProcessCta,
+    qualityOfLifeHeading,
+    qualityOfLifeItems,
+    qualityOfLifeImages,
+    qualityOfLifeOverlayIcons,
+    areasWeServeDescription,
+    serviceFaqHeading,
+    serviceFaqItems,
+} from "@/data/nursing-care-sections";
 
 
 // Data content extracted from user request
@@ -134,6 +161,15 @@ const serviceSchemas = [
             { "@type": "ListItem", position: 1, name: "Home", item: "https://jschoicegroup.com.au" },
             { "@type": "ListItem", position: 2, name: "Assistance with Nursing Care", item: "https://jschoicegroup.com.au/assistance-with-nursing-care" },
         ],
+    },
+    {
+        "@context": "https://schema.org",
+        "@type": "FAQPage",
+        mainEntity: serviceFaqItems.map((faq) => ({
+            "@type": "Question",
+            name: faq.question,
+            acceptedAnswer: { "@type": "Answer", text: faq.answer },
+        })),
     },
 ];
 
@@ -375,10 +411,10 @@ const AssistanceWithNursingCare = () => {
                 </div>
             </section>
 
-            {/* Why Choose Us & CTA */}
+            {/* Why Choose Us */}
             <section className="py-10 lg:py-14 relative overflow-hidden bg-white">
                 <div className="container-8xl">
-                    <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center mb-10">
+                    <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
                         <motion.div
                             initial={{ opacity: 0, x: -50 }}
                             whileInView={{ opacity: 1, x: 0 }}
@@ -421,8 +457,44 @@ const AssistanceWithNursingCare = () => {
                             </ul>
                         </motion.div>
                     </div>
+                </div>
+            </section>
 
-                    {/* CTA Layout */}
+            <WhoCanBenefitSection heading={whoCanBenefitHeading} items={whoCanBenefitItems} />
+
+            <DailyLivingTasksSection
+                heading={nursingServicesHeading}
+                imageSrc={nursingServicesImage.src}
+                imageAlt={nursingServicesImage.alt}
+                tasks={nursingServicesItems}
+            />
+
+            <ServiceBenefitsSection
+                heading={serviceBenefitsHeading}
+                backgroundImage={serviceBenefitsBackground}
+                items={serviceBenefitsItems}
+            />
+
+            <SupportProcessSection
+                heading={supportProcessHeading}
+                steps={supportProcessSteps}
+                cta={supportProcessCta}
+            />
+
+            <QualityOfLifeSection
+                heading={qualityOfLifeHeading}
+                items={qualityOfLifeItems}
+                images={qualityOfLifeImages}
+                overlayIcons={qualityOfLifeOverlayIcons}
+            />
+
+            <AreasWeServeSection description={areasWeServeDescription} />
+
+            <ServiceFaqSection heading={serviceFaqHeading} items={serviceFaqItems} />
+
+            {/* Reach Out CTA */}
+            <section className="py-10 lg:py-14 relative overflow-hidden bg-white">
+                <div className="container-8xl">
                     <motion.div
                         initial={{ opacity: 0, y: 30 }}
                         whileInView={{ opacity: 1, y: 0 }}

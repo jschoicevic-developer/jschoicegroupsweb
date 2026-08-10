@@ -22,6 +22,33 @@ import {
 import ServiceCTA from "@/components/ui/ServiceCTA";
 import ServiceFormSection from "@/components/ui/ServiceFormSection";
 import JsonLd from "@/components/schema/JsonLd";
+import WhoCanBenefitSection from "@/components/sections/services/WhoCanBenefitSection";
+import DailyLivingTasksSection from "@/components/sections/services/DailyLivingTasksSection";
+import ServiceBenefitsSection from "@/components/sections/services/ServiceBenefitsSection";
+import SupportProcessSection from "@/components/sections/services/SupportProcessSection";
+import QualityOfLifeSection from "@/components/sections/services/QualityOfLifeSection";
+import AreasWeServeSection from "@/components/sections/services/AreasWeServeSection";
+import ServiceFaqSection from "@/components/sections/services/ServiceFaqSection";
+import {
+    whoCanBenefitHeading,
+    whoCanBenefitItems,
+    activitiesHeading,
+    activitiesImage,
+    activitiesItems,
+    serviceBenefitsHeading,
+    serviceBenefitsBackground,
+    serviceBenefitsItems,
+    supportProcessHeading,
+    supportProcessSteps,
+    supportProcessCta,
+    qualityOfLifeHeading,
+    qualityOfLifeItems,
+    qualityOfLifeImages,
+    qualityOfLifeOverlayIcons,
+    areasWeServeDescription,
+    serviceFaqHeading,
+    serviceFaqItems,
+} from "@/data/group-centre-sections";
 
 
 const activityCategories = [
@@ -132,6 +159,15 @@ const serviceSchemas = [
             { "@type": "ListItem", position: 1, name: "Home", item: "https://jschoicegroup.com.au" },
             { "@type": "ListItem", position: 2, name: "Group & Centre Activities", item: "https://jschoicegroup.com.au/group-centre-activities" },
         ],
+    },
+    {
+        "@context": "https://schema.org",
+        "@type": "FAQPage",
+        mainEntity: serviceFaqItems.map((faq) => ({
+            "@type": "Question",
+            name: faq.question,
+            acceptedAnswer: { "@type": "Answer", text: faq.answer },
+        })),
     },
 ];
 
@@ -361,6 +397,38 @@ const GroupCentreActivities = () => {
                     </div>
                 </div>
             </section>
+
+            <WhoCanBenefitSection heading={whoCanBenefitHeading} items={whoCanBenefitItems} />
+
+            <DailyLivingTasksSection
+                heading={activitiesHeading}
+                imageSrc={activitiesImage.src}
+                imageAlt={activitiesImage.alt}
+                tasks={activitiesItems}
+            />
+
+            <ServiceBenefitsSection
+                heading={serviceBenefitsHeading}
+                backgroundImage={serviceBenefitsBackground}
+                items={serviceBenefitsItems}
+            />
+
+            <SupportProcessSection
+                heading={supportProcessHeading}
+                steps={supportProcessSteps}
+                cta={supportProcessCta}
+            />
+
+            <QualityOfLifeSection
+                heading={qualityOfLifeHeading}
+                items={qualityOfLifeItems}
+                images={qualityOfLifeImages}
+                overlayIcons={qualityOfLifeOverlayIcons}
+            />
+
+            <AreasWeServeSection description={areasWeServeDescription} />
+
+            <ServiceFaqSection heading={serviceFaqHeading} items={serviceFaqItems} />
 
             {/* CTA Section */}
             <section className="py-10 lg:py-14 bg-gray-50 relative overflow-hidden">
