@@ -21,6 +21,29 @@ import {
 import ServiceCTA from "@/components/ui/ServiceCTA";
 import ServiceFormSection from "@/components/ui/ServiceFormSection";
 import JsonLd from "@/components/schema/JsonLd";
+import WhoCanBenefitSection from "@/components/sections/services/WhoCanBenefitSection";
+import DailyLivingTasksSection from "@/components/sections/services/DailyLivingTasksSection";
+import SupportProcessSection from "@/components/sections/services/SupportProcessSection";
+import QualityOfLifeSection from "@/components/sections/services/QualityOfLifeSection";
+import AreasWeServeSection from "@/components/sections/services/AreasWeServeSection";
+import ServiceFaqSection from "@/components/sections/services/ServiceFaqSection";
+import {
+    whoCanBenefitHeading,
+    whoCanBenefitItems,
+    employmentSupportHeading,
+    employmentSupportImage,
+    employmentSupportItems,
+    supportProcessHeading,
+    supportProcessSteps,
+    supportProcessCta,
+    qualityOfLifeHeading,
+    qualityOfLifeItems,
+    qualityOfLifeImages,
+    qualityOfLifeOverlayIcons,
+    areasWeServeDescription,
+    serviceFaqHeading,
+    serviceFaqItems,
+} from "@/data/employment-education-sections";
 
 
 /**
@@ -123,6 +146,15 @@ const serviceSchemas = [
             { "@type": "ListItem", position: 1, name: "Home", item: "https://jschoicegroup.com.au" },
             { "@type": "ListItem", position: 2, name: "Employment & Education", item: "https://jschoicegroup.com.au/employment-education" },
         ],
+    },
+    {
+        "@context": "https://schema.org",
+        "@type": "FAQPage",
+        mainEntity: serviceFaqItems.map((faq) => ({
+            "@type": "Question",
+            name: faq.question,
+            acceptedAnswer: { "@type": "Answer", text: faq.answer },
+        })),
     },
 ];
 
@@ -238,6 +270,28 @@ const EmploymentEducationPage = () => {
                 </div>
             </section>
 
+            <WhoCanBenefitSection heading={whoCanBenefitHeading} items={whoCanBenefitItems} />
+
+            <DailyLivingTasksSection
+                heading={employmentSupportHeading}
+                imageSrc={employmentSupportImage.src}
+                imageAlt={employmentSupportImage.alt}
+                tasks={employmentSupportItems}
+            />
+
+            <SupportProcessSection
+                heading={supportProcessHeading}
+                steps={supportProcessSteps}
+                cta={supportProcessCta}
+            />
+
+            <QualityOfLifeSection
+                heading={qualityOfLifeHeading}
+                items={qualityOfLifeItems}
+                images={qualityOfLifeImages}
+                overlayIcons={qualityOfLifeOverlayIcons}
+            />
+
             {/* Why Is Career & Growth Important? */}
             <section className="py-10 lg:py-14 bg-[#2D3748] text-white overflow-hidden">
                 <div className="container-8xl">
@@ -272,6 +326,10 @@ const EmploymentEducationPage = () => {
                     </div>
                 </div>
             </section>
+
+            <AreasWeServeSection description={areasWeServeDescription} />
+
+            <ServiceFaqSection heading={serviceFaqHeading} items={serviceFaqItems} />
 
             {/* Are You Ready? */}
             <section className="py-10 bg-white">

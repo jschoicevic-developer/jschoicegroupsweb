@@ -9,6 +9,29 @@ import Image from "next/image";
 import ServiceCTA from "@/components/ui/ServiceCTA";
 import ServiceFormSection from "@/components/ui/ServiceFormSection";
 import JsonLd from "@/components/schema/JsonLd";
+import WhoCanBenefitSection from "@/components/sections/services/WhoCanBenefitSection";
+import DailyLivingTasksSection from "@/components/sections/services/DailyLivingTasksSection";
+import SupportProcessSection from "@/components/sections/services/SupportProcessSection";
+import QualityOfLifeSection from "@/components/sections/services/QualityOfLifeSection";
+import AreasWeServeSection from "@/components/sections/services/AreasWeServeSection";
+import ServiceFaqSection from "@/components/sections/services/ServiceFaqSection";
+import {
+    whoCanBenefitHeading,
+    whoCanBenefitItems,
+    coordinationSupportHeading,
+    coordinationSupportImage,
+    coordinationSupportItems,
+    supportProcessHeading,
+    supportProcessSteps,
+    supportProcessCta,
+    qualityOfLifeHeading,
+    qualityOfLifeItems,
+    qualityOfLifeImages,
+    qualityOfLifeOverlayIcons,
+    areasWeServeDescription,
+    serviceFaqHeading,
+    serviceFaqItems,
+} from "@/data/support-coordination-sections";
 import {
     Phone,
     ArrowRight,
@@ -31,12 +54,6 @@ import {
     Scale,
     AlertTriangle
 } from "lucide-react";
-import {
-    Accordion,
-    AccordionContent,
-    AccordionItem,
-    AccordionTrigger,
-} from "@/components/ui/accordion";
 
 const supportRoles = [
     {
@@ -90,21 +107,6 @@ const whyChooseUs = [
     }
 ];
 
-const faqs = [
-    {
-        question: "Support Coordinator vs Plan Manager – What Is The Difference Between A Support Coordinator And A Plan Manager?",
-        answer: "Plan Managers are like your accountant; they pay the bills and manage the financial banking of your plan. Support Coordinators are like your project manager; they help you find the service providers (like OTs or support workers) and organise your care."
-    },
-    {
-        question: "Can I Choose My Own Providers?",
-        answer: "Absolutely. It is your choice. We provide recommendations based on our experience and your needs, but the final decision is always yours."
-    },
-    {
-        question: "Do You Support Participants With Complex Needs?",
-        answer: "Yes. Our team is experienced in supporting participants with complex physical and psychosocial needs. We can help coordinate Specialist Support Coordination (Level 3) if required."
-    }
-];
-
 const serviceSchemas = [
     {
         "@context": "https://schema.org",
@@ -155,7 +157,7 @@ const serviceSchemas = [
     {
         "@context": "https://schema.org",
         "@type": "FAQPage",
-        mainEntity: faqs.map(faq => ({
+        mainEntity: serviceFaqItems.map((faq) => ({
             "@type": "Question",
             name: faq.question,
             acceptedAnswer: { "@type": "Answer", text: faq.answer },
@@ -282,6 +284,28 @@ const SupportCoordination = () => {
                 </div>
             </section>
 
+            <WhoCanBenefitSection heading={whoCanBenefitHeading} items={whoCanBenefitItems} />
+
+            <DailyLivingTasksSection
+                heading={coordinationSupportHeading}
+                imageSrc={coordinationSupportImage.src}
+                imageAlt={coordinationSupportImage.alt}
+                tasks={coordinationSupportItems}
+            />
+
+            <SupportProcessSection
+                heading={supportProcessHeading}
+                steps={supportProcessSteps}
+                cta={supportProcessCta}
+            />
+
+            <QualityOfLifeSection
+                heading={qualityOfLifeHeading}
+                items={qualityOfLifeItems}
+                images={qualityOfLifeImages}
+                overlayIcons={qualityOfLifeOverlayIcons}
+            />
+
             {/* Why Choose JS Choice */}
             <section className="py-10 lg:py-14 relative bg-[#2D3748] text-white overflow-hidden">
                 <div className="container-8xl">
@@ -337,31 +361,9 @@ const SupportCoordination = () => {
                 </div>
             </section>
 
-            {/* FAQ Section */}
-            <section className="py-10 bg-gray-50">
-                <div className="container-8xl max-w-4xl mx-auto">
-                    <div className="text-center mb-12">
-                        <h2 className="text-3xl md:text-4xl font-black text-[#2D3748] mb-4">
-                            Frequently Asked <span className="text-primary">Questions</span>
-                        </h2>
-                        <p className="text-gray-500 text-sm">
-                            Note: JS Choice can help you understand both, but this page focuses on Coordination.
-                        </p>
-                    </div>
-                    <Accordion type="single" collapsible className="w-full space-y-4">
-                        {faqs.map((faq, index) => (
-                            <AccordionItem key={index} value={`item-${index}`} className="bg-white rounded-2xl border border-gray-100 shadow-sm px-6">
-                                <AccordionTrigger className="text-lg font-bold text-[#2D3748] hover:text-primary py-6 text-left">
-                                    {faq.question}
-                                </AccordionTrigger>
-                                <AccordionContent className="text-gray-600 pb-6 text-base leading-relaxed">
-                                    {faq.answer}
-                                </AccordionContent>
-                            </AccordionItem>
-                        ))}
-                    </Accordion>
-                </div>
-            </section>
+            <AreasWeServeSection description={areasWeServeDescription} />
+
+            <ServiceFaqSection heading={serviceFaqHeading} items={serviceFaqItems} />
 
             {/* CTA Section */}
             <section className="py-10 lg:py-14 bg-white relative overflow-hidden">

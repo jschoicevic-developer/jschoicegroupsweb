@@ -21,6 +21,29 @@ import {
 import ServiceCTA from "@/components/ui/ServiceCTA";
 import ServiceFormSection from "@/components/ui/ServiceFormSection";
 import JsonLd from "@/components/schema/JsonLd";
+import WhoCanBenefitSection from "@/components/sections/services/WhoCanBenefitSection";
+import DailyLivingTasksSection from "@/components/sections/services/DailyLivingTasksSection";
+import SupportProcessSection from "@/components/sections/services/SupportProcessSection";
+import QualityOfLifeSection from "@/components/sections/services/QualityOfLifeSection";
+import AreasWeServeSection from "@/components/sections/services/AreasWeServeSection";
+import ServiceFaqSection from "@/components/sections/services/ServiceFaqSection";
+import {
+    whoCanBenefitHeading,
+    whoCanBenefitItems,
+    accommodationSupportHeading,
+    accommodationSupportImage,
+    accommodationSupportItems,
+    supportProcessHeading,
+    supportProcessSteps,
+    supportProcessCta,
+    qualityOfLifeHeading,
+    qualityOfLifeItems,
+    qualityOfLifeImages,
+    qualityOfLifeOverlayIcons,
+    areasWeServeDescription,
+    serviceFaqHeading,
+    serviceFaqItems,
+} from "@/data/ndis-accommodation-sections";
 
 
 /**
@@ -137,6 +160,15 @@ const serviceSchemas = [
             { "@type": "ListItem", position: 1, name: "Home", item: "https://jschoicegroup.com.au" },
             { "@type": "ListItem", position: 2, name: "NDIS Accommodation", item: "https://jschoicegroup.com.au/ndis-accommodation" },
         ],
+    },
+    {
+        "@context": "https://schema.org",
+        "@type": "FAQPage",
+        mainEntity: serviceFaqItems.map((faq) => ({
+            "@type": "Question",
+            name: faq.question,
+            acceptedAnswer: { "@type": "Answer", text: faq.answer },
+        })),
     },
 ];
 
@@ -272,6 +304,28 @@ const NdisAccommodation = () => {
                 </div>
             </section>
 
+            <WhoCanBenefitSection heading={whoCanBenefitHeading} items={whoCanBenefitItems} />
+
+            <DailyLivingTasksSection
+                heading={accommodationSupportHeading}
+                imageSrc={accommodationSupportImage.src}
+                imageAlt={accommodationSupportImage.alt}
+                tasks={accommodationSupportItems}
+            />
+
+            <SupportProcessSection
+                heading={supportProcessHeading}
+                steps={supportProcessSteps}
+                cta={supportProcessCta}
+            />
+
+            <QualityOfLifeSection
+                heading={qualityOfLifeHeading}
+                items={qualityOfLifeItems}
+                images={qualityOfLifeImages}
+                overlayIcons={qualityOfLifeOverlayIcons}
+            />
+
             {/* Why Choose JS Choice Accommodation? */}
             <section className="py-10 lg:py-14 bg-[#2D3748] text-white">
                 <div className="container-8xl">
@@ -306,6 +360,10 @@ const NdisAccommodation = () => {
                     </div>
                 </div>
             </section>
+
+            <AreasWeServeSection description={areasWeServeDescription} />
+
+            <ServiceFaqSection heading={serviceFaqHeading} items={serviceFaqItems} />
 
             {/* CTA Section */}
             <section className="py-10 lg:py-14 bg-gray-50 relative overflow-hidden">
