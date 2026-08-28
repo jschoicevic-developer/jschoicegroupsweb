@@ -189,6 +189,21 @@ export default function RootLayout({
           src="https://www.googletagmanager.com/gtag/js?id=AW-17860915820"
         />
         <script suppressHydrationWarning src="/gtag-init.js" />
+        {/* Google Analytics (GA4) */}
+        <script
+          suppressHydrationWarning
+          async
+          src="https://www.googletagmanager.com/gtag/js?id=G-H9CNF9E70Q"
+        />
+        <script
+          suppressHydrationWarning
+          dangerouslySetInnerHTML={{
+            __html: `window.dataLayer = window.dataLayer || [];
+function gtag(){dataLayer.push(arguments);}
+gtag('js', new Date());
+gtag('config', 'G-H9CNF9E70Q');`,
+          }}
+        />
         <script
           suppressHydrationWarning
           dangerouslySetInnerHTML={{
