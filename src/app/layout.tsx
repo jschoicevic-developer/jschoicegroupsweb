@@ -1,6 +1,7 @@
 import type { Metadata, Viewport } from "next";
 import { Dosis, Poppins } from "next/font/google";
 import GlobalStickyCTA from "@/components/layout/GlobalStickyCTA";
+import { CONTACT_DETAILS } from "@/config/contact";
 import "./globals.css";
 
 export const viewport: Viewport = {
@@ -133,16 +134,16 @@ const localBusinessSchema = {
     "JS Choice - Care and Support is a trusted NDIS provider offering personalised disability support services throughout Melbourne and surrounding suburbs.",
   address: {
     "@type": "PostalAddress",
-    streetAddress: "Suite 104, Level 1, C5, 2 Main Street",
-    addressLocality: "Point Cook",
-    addressRegion: "VIC",
-    postalCode: "3030",
+    streetAddress: CONTACT_DETAILS.address.line1,
+    addressLocality: CONTACT_DETAILS.address.locality,
+    addressRegion: CONTACT_DETAILS.address.region,
+    postalCode: CONTACT_DETAILS.address.postalCode,
     addressCountry: "AU",
   },
   geo: {
     "@type": "GeoCoordinates",
-    latitude: -37.8841432,
-    longitude: 144.7353927,
+    latitude: CONTACT_DETAILS.address.latitude,
+    longitude: CONTACT_DETAILS.address.longitude,
   },
   openingHoursSpecification: [
     {
@@ -167,7 +168,7 @@ const localBusinessSchema = {
     { "@type": "State", name: "Victoria", addressCountry: "AU" },
   ],
   serviceType: "NDIS Disability Support Services",
-  hasMap: "https://maps.google.com/?q=-37.8841432,144.7353927",
+  hasMap: CONTACT_DETAILS.address.mapUrl,
 };
 
 export default function RootLayout({

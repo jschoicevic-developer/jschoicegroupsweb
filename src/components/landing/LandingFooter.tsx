@@ -1,4 +1,5 @@
 import Link from "next/link";
+import { CONTACT_DETAILS } from "@/config/contact";
 
 const suburbs = [
   "Point Cook",
@@ -29,7 +30,7 @@ export default function LandingFooter() {
             ABN: 54 644 196 270 | Registered NDIS Provider
           </p>
           <p className="mt-1 text-sm">
-            Suite 1, Level 1, 1 Main Street, Point Cook VIC 3030
+            {CONTACT_DETAILS.address.full}
           </p>
           <p className="mt-2 text-sm">
             <a

@@ -77,7 +77,7 @@ const whyAskForHelp = [
     },
     {
         title: "Local Support",
-        description: "If you can't find a Local Area Coordinator (LAC), our team in Point Cook can point you in the right direction."
+        description: "If you can't find a Local Area Coordinator (LAC), our team in Laverton North can point you in the right direction."
     }
 ];
 

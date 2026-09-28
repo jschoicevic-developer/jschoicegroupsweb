@@ -16,9 +16,9 @@ const contactInfo = [
         title: "Call Us",
         content: (
             <div className="flex flex-col gap-1.5 pt-1">
-                <a href="tel:1300572464" className="text-lg font-black text-primary mb-1 hover:text-primary/80 transition-colors">1300 572 464 (National)</a>
-                <a href="tel:0393953746" className="hover:text-primary transition-colors font-bold text-base">03 9395 3746 (Landline)</a>
-                <a href="tel:0421622262" className="hover:text-primary transition-colors font-bold text-base">0421 622 262 (Mobile)</a>
+                <a href={`tel:${CONTACT_DETAILS.national.tel}`} className="text-lg font-black text-primary mb-1 hover:text-primary/80 transition-colors">{CONTACT_DETAILS.national.display} (National)</a>
+                <a href={`tel:${CONTACT_DETAILS.landline.tel}`} className="hover:text-primary transition-colors font-bold text-base">{CONTACT_DETAILS.landline.display} (Landline)</a>
+                <a href={`tel:${CONTACT_DETAILS.mobile.tel}`} className="hover:text-primary transition-colors font-bold text-base">{CONTACT_DETAILS.mobile.display} (Mobile)</a>
             </div>
         )
     },
@@ -345,7 +345,7 @@ const ContactContent = () => {
                 >
                     {mapStatus !== "fallback" && (
                         <iframe
-                            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3185.88242143016!2d144.7353927!3d-37.8841432!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0xabcfe6437b782811%3A0x58ba017b4a222108!2sJs%20Choice%20-%20Care%20and%20Support!5e1!3m2!1sen!2sin!4v1731303057766!5m2!1sen!2sin"
+                            src={CONTACT_DETAILS.address.mapEmbedUrl}
                             width="100%"
                             height="100%"
                             style={{ border: 0 }}
@@ -374,10 +374,10 @@ const ContactContent = () => {
                             </div>
                             <div>
                                 <p className="font-black text-[#2D3748] text-lg mb-1">JS Choice Care and Support</p>
-                                <p className="text-gray-500 text-sm">Suite 104, Level 1, C5, 2 Main Street, Point Cook VIC 3030</p>
+                                <p className="text-gray-500 text-sm">{CONTACT_DETAILS.address.full}</p>
                             </div>
                             <a
-                                href="https://www.google.com/maps/place/Js+Choice+-+Care+and+Support/@-37.8841432,144.7353927,17z"
+                                href={CONTACT_DETAILS.address.mapUrl}
                                 target="_blank"
                                 rel="noopener noreferrer"
                                 className="inline-flex items-center gap-2 px-6 py-3 bg-primary text-white rounded-full font-bold text-sm hover:brightness-110 transition-all duration-300"

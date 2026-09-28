@@ -1,6 +1,7 @@
 import Image from "next/image";
 import Link from "next/link";
 import { Facebook, Instagram } from "lucide-react";
+import { CONTACT_DETAILS } from "@/config/contact";
 
 const socialLinks = [
   {
@@ -120,16 +121,22 @@ const ConsultationFooter = () => {
                 </div>
                 <div className="flex flex-col gap-1.5 pt-0.5">
                   <a
-                    href="tel:1300572464"
+                    href={`tel:${CONTACT_DETAILS.national.tel}`}
                     className="text-sm font-bold text-gray-300 hover:text-white transition-colors"
                   >
-                    1300 572 464 (National)
+                    {CONTACT_DETAILS.national.display} (National)
                   </a>
                   <a
-                    href="tel:0421622262"
+                    href={`tel:${CONTACT_DETAILS.landline.tel}`}
                     className="text-sm font-bold text-gray-300 hover:text-white transition-colors"
                   >
-                    0421 622 262 (Mobile)
+                    {CONTACT_DETAILS.landline.display} (Landline)
+                  </a>
+                  <a
+                    href={`tel:${CONTACT_DETAILS.mobile.tel}`}
+                    className="text-sm font-bold text-gray-300 hover:text-white transition-colors"
+                  >
+                    {CONTACT_DETAILS.mobile.display} (Mobile)
                   </a>
                 </div>
               </li>
@@ -165,7 +172,7 @@ const ConsultationFooter = () => {
                   />
                 </div>
                 <p className="pt-1 text-xs md:text-sm font-bold text-gray-400 leading-relaxed">
-                  Suite 104, Level 1, C5, 2 Main Street, Point Cook VIC 3030
+                  {CONTACT_DETAILS.address.full}
                 </p>
               </li>
 

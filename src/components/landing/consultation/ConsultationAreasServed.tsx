@@ -46,7 +46,7 @@ const ConsultationAreasServed = () => {
               Areas We <span className="text-[#F1ABAB]">Serve</span> Across Melbourne
             </h2>
             <p className="text-lg md:text-xl text-gray-600 leading-relaxed font-medium">
-              Based in Point Cook,{" "}
+              Based in Laverton North,{" "}
               <span className="text-[#2D3748] font-bold">
                 Js Choice – Care and Support
               </span>{" "}

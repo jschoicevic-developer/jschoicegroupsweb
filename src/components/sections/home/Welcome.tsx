@@ -38,7 +38,7 @@ const Welcome = () => {
 
                         <div className="space-y-6 text-gray-700 leading-relaxed text-lg font-medium text-justify">
                             <p>
-                                Based in Point Cook, Js Choice is a registered NDIS provider committed to enhancing the well-being of participants across Melbourne’s Western and Northern suburbs.
+                                Based in Laverton North, Js Choice is a registered NDIS provider committed to enhancing the well-being of participants across Melbourne’s Western and Northern suburbs.
                             </p>
                             <p>
                                 Our focus is simple, enhancing everyday wellbeing through personalised, respectful, and participant-led support. Whether you need help at home, in the community, or with specialist services, our team is here to support you in reaching your goals.

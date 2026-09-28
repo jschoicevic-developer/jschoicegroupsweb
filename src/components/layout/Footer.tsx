@@ -233,8 +233,9 @@ const Footer = () => {
                                         People forget numbers, so we use "alphabet-style numbers" to help them remember.
                                     </span>
                                     <span className="text-lg font-black text-[#ABB3F1] tracking-wide mb-1">1300 JS CHOICE</span>
-                                    <a href="tel:1300572464" className="text-sm font-bold text-gray-300 hover:text-white transition-colors">1300 572 464 (National)</a>
-                                    <a href="tel:0421622262" className="text-sm font-bold text-gray-300 hover:text-white transition-colors">0421 622 262 (Mobile)</a>
+                                    <a href={`tel:${CONTACT_DETAILS.national.tel}`} className="text-sm font-bold text-gray-300 hover:text-white transition-colors">{CONTACT_DETAILS.national.display} (National)</a>
+                                    <a href={`tel:${CONTACT_DETAILS.landline.tel}`} className="text-sm font-bold text-gray-300 hover:text-white transition-colors">{CONTACT_DETAILS.landline.display} (Landline)</a>
+                                    <a href={`tel:${CONTACT_DETAILS.mobile.tel}`} className="text-sm font-bold text-gray-300 hover:text-white transition-colors">{CONTACT_DETAILS.mobile.display} (Mobile)</a>
                                 </div>
                             </li>
                             <li className="flex items-start gap-4">

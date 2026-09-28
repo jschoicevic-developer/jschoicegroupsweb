@@ -65,7 +65,7 @@ const OurStory = () => {
                                 <span className="font-bold text-[#5A67D8]">JS Choice Group</span> was founded on a profound belief: that exceptional disability support begins with genuine understanding. We&apos;re not just another NDIS provider — we&apos;re a family-led organization built by someone who has walked the same path as the families we serve.
                             </p>
                             <p>
-                                Based in Point Cook, Melbourne, <span className="font-bold text-[#2D3748]">JS Choice Group</span> has earned recognition as a trusted registered NDIS provider known for our ethical, culturally responsive, and participant-centred approach. We don&apos;t simply deliver services — we walk alongside individuals and families, advocating for their rights and celebrating their unique strengths every step of the way.
+                                Based in Laverton North, Melbourne, <span className="font-bold text-[#2D3748]">JS Choice Group</span> has earned recognition as a trusted registered NDIS provider known for our ethical, culturally responsive, and participant-centred approach. We don&apos;t simply deliver services — we walk alongside individuals and families, advocating for their rights and celebrating their unique strengths every step of the way.
                             </p>
                         </div>
                     </motion.div>

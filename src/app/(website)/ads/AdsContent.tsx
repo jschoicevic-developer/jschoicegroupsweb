@@ -15,6 +15,7 @@ import {
     MessageCircleQuestion, PhoneCall, Handshake, Rocket, ArrowRight, Send,
     Award, BadgeCheck, Shield, Search, Calculator
 } from "lucide-react";
+import { CONTACT_DETAILS } from "@/config/contact";
 
 /* ──────────────────────── CTA BUTTON (reused everywhere) ──────────────────────── */
 const QuoteCTA = ({ label = "Get a Free Referral", variant = "primary" }: { label?: string; variant?: "primary" | "secondary" | "dark" | "white" }) => {
@@ -411,7 +412,7 @@ const AreasSection = () => (
                         Areas We <span className="text-[#F1ABAB]">Serve</span>
                     </h2>
                     <p className="text-lg text-gray-600 font-medium leading-relaxed">
-                        Based in Point Cook, we proudly support participants across Melbourne&apos;s Western and Northern suburbs.
+                        Based in Laverton North, we proudly support participants across Melbourne&apos;s Western and Northern suburbs.
                     </p>
                 </motion.div>
             </div>
@@ -596,7 +597,7 @@ const ToolsSection = () => (
 const faqs = [
     { q: "What is the NDIS and am I eligible?", a: "The National Disability Insurance Scheme (NDIS) provides funding for Australians under 65 with a permanent and significant disability. If you have an NDIS plan, we can support you immediately. If you're unsure about eligibility, our team can guide you through the access request process." },
     { q: "How do I get started with JS Choice?", a: "Simply fill out the form below or call us. We'll arrange a free consultation to understand your goals, review your NDIS plan, and match you with the right support workers. There are no obligations — just a friendly chat." },
-    { q: "What areas do you cover?", a: "We're based in Point Cook and serve Melbourne's Western and Northern suburbs including Werribee, Tarneit, Hoppers Crossing, Truganina, Craigieburn, Footscray, Altona, Laverton, Epping, South Morang, Geelong, Lara, and Shepparton." },
+    { q: "What areas do you cover?", a: "We're based in Laverton North and serve Melbourne's Western and Northern suburbs including Werribee, Tarneit, Hoppers Crossing, Truganina, Craigieburn, Footscray, Altona, Laverton, Epping, South Morang, Geelong, Lara, and Shepparton." },
     { q: "Are your support workers qualified?", a: "Absolutely. All our support workers undergo thorough background checks, hold valid NDIS Worker Screening, and receive ongoing training in neuro-affirming and culturally sensitive care practices." },
     { q: "Can I choose my own support worker?", a: "Yes! We believe in participant choice and control. We'll match you based on your preferences, cultural background, language needs, and personality — and you can always request a change." },
     { q: "Do you offer 24/7 services?", a: "Yes, our care services are available 24/7 including weekends and public holidays. Our office hours are 8am–6pm for administrative queries, but support is always available when you need it." },
@@ -752,8 +753,9 @@ const QuoteForm = () => {
 
                         <div className="space-y-5">
                             {[
-                                { icon: Phone, label: "Call Us", value: "1300 572 464", href: "tel:1300572464" },
-                                { icon: MapPin, label: "Location", value: "Suite 104, Level 1, 2 Main St, Point Cook VIC 3030" },
+                                { icon: Phone, label: "Call Us", value: CONTACT_DETAILS.national.display, href: `tel:${CONTACT_DETAILS.national.tel}` },
+                                { icon: Phone, label: "Landline", value: CONTACT_DETAILS.landline.display, href: `tel:${CONTACT_DETAILS.landline.tel}` },
+                                { icon: MapPin, label: "Location", value: CONTACT_DETAILS.address.full, href: CONTACT_DETAILS.address.mapUrl },
                                 { icon: Clock, label: "Hours", value: "Office 8am–6pm | Care 24/7" },
                             ].map((info) => (
                                 <div key={info.label} className="flex items-center gap-4 text-white/90">

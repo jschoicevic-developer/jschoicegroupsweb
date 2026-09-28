@@ -126,7 +126,7 @@ const About = () => {
                         </div>
                         <div className="space-y-4 text-lg text-gray-600 leading-relaxed font-medium">
                             <p>
-                                Navigating the NDIS can be complex, but you don’t have to do it alone. Based in Point Cook, <span className="text-[#2D3748] font-bold">Js Choice</span> is a registered NDIS provider committed to enhancing the well-being of participants across Melbourne’s Western and Northern suburbs.
+                                Navigating the NDIS can be complex, but you don’t have to do it alone. Based in Laverton North, <span className="text-[#2D3748] font-bold">Js Choice</span> is a registered NDIS provider committed to enhancing the well-being of participants across Melbourne’s Western and Northern suburbs.
                             </p>
                             <p className="text-gray-500">
                                 Our focus is simple, enhancing everyday wellbeing through personalised, respectful, and participant-led support. Whether you need help at home, in the community, or with specialist services, our team is here to support you in reaching your goals.
@@ -199,7 +199,7 @@ const About = () => {
                                     <MapPin size={24} strokeWidth={1.5} />
                                 </div>
                                 <div className="flex flex-col">
-                                    <span className="text-sm font-bold text-foreground">Point Cook Base</span>
+                                    <span className="text-sm font-bold text-foreground">Laverton North Base</span>
                                     <span className="text-xs text-muted-foreground font-medium">Melbourne Wide</span>
                                 </div>
                             </div>

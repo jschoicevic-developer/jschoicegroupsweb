@@ -7,6 +7,7 @@ import ConsultationAreasServed from "@/components/landing/consultation/Consultat
 import ConsultationFaq from "@/components/landing/consultation/ConsultationFaq";
 import ConsultationFinalCta from "@/components/landing/consultation/ConsultationFinalCta";
 import ConsultationFooter from "@/components/landing/consultation/ConsultationFooter";
+import { CONTACT_DETAILS } from "@/config/contact";
 
 export const metadata: Metadata = {
   title: "NDIS Support Provider in Melbourne | JS Choice Care & Support",
@@ -24,10 +25,10 @@ const localBusinessSchema = {
   email: "info@jschoicegroup.com.au",
   address: {
     "@type": "PostalAddress",
-    streetAddress: "Suite 104, Level 1, C5 2 Main Street",
-    addressLocality: "Point Cook",
-    addressRegion: "VIC",
-    postalCode: "3030",
+    streetAddress: CONTACT_DETAILS.address.line1,
+    addressLocality: CONTACT_DETAILS.address.locality,
+    addressRegion: CONTACT_DETAILS.address.region,
+    postalCode: CONTACT_DETAILS.address.postalCode,
     addressCountry: "AU",
   },
   areaServed: [

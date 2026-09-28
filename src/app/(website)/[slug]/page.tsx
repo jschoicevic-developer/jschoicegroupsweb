@@ -175,7 +175,7 @@ export default function DynamicLocationPage({ params }: PageProps) {
                                 Get a Free Referral <ArrowRight className="ml-2 w-5 h-5" />
                             </Button>
                         </Link>
-                        <Link href="tel:0393953746">
+                        <Link href="tel:1300572464">
                             <Button variant="outline" className="w-full sm:w-auto h-14 px-8 rounded-full border-2 border-white/20 text-white hover:bg-white hover:text-gray-900 font-bold text-lg bg-transparent">
                                 Call 1300 572 464
                             </Button>

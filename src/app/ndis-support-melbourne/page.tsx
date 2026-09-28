@@ -7,6 +7,7 @@ import LandingSupport from "@/components/landing/LandingSupport";
 import LandingFaq from "@/components/landing/LandingFaq";
 import LandingFinalCta from "@/components/landing/LandingFinalCta";
 import LandingFooter from "@/components/landing/LandingFooter";
+import { CONTACT_DETAILS } from "@/config/contact";
 
 const localBusinessSchema = {
   "@context": "https://schema.org",
@@ -17,10 +18,10 @@ const localBusinessSchema = {
   email: "info@jschoicegroup.com.au",
   address: {
     "@type": "PostalAddress",
-    streetAddress: "Suite 104, Level 1, C5 2 Main Street",
-    addressLocality: "Point Cook",
-    addressRegion: "VIC",
-    postalCode: "3030",
+    streetAddress: CONTACT_DETAILS.address.line1,
+    addressLocality: CONTACT_DETAILS.address.locality,
+    addressRegion: CONTACT_DETAILS.address.region,
+    postalCode: CONTACT_DETAILS.address.postalCode,
     addressCountry: "AU",
   },
   areaServed: [

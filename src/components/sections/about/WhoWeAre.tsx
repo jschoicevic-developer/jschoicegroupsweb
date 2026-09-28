@@ -29,7 +29,7 @@ const WhoWeAre = () => {
                                 We have extensive experience working with individuals across various conditions, including Autism Spectrum Disorders, Attention deficit hyperactivity disorder (ADHD), Down Syndrome, Schizophrenia, Post-traumatic stress disorder (PTSD), Pathological Demand Avoidance (PDA), Stroke, Muscular dystrophy etc.
                             </p>
                             <p>
-                                We are based in Point Cook, Melbourne. Over the past years we have been working with participants all over Melbourne. We aim to connect with our wider NDIS community with our neuro-affirming approach and be one of the best care and support provider for our NDIS participants. Let’s collaborate to empower yourselves and your family, ensuring every step is taken with care, expertise, and heartfelt dedication.
+                                We are based in Laverton North, Melbourne. Over the past years we have been working with participants all over Melbourne. We aim to connect with our wider NDIS community with our neuro-affirming approach and be one of the best care and support provider for our NDIS participants. Let’s collaborate to empower yourselves and your family, ensuring every step is taken with care, expertise, and heartfelt dedication.
                             </p>
                         </div>
                     </motion.div>
@@ -108,7 +108,7 @@ const WhoWeAre = () => {
 
                         <div className="space-y-4 text-base md:text-lg text-gray-600 font-medium leading-relaxed">
                             <p>
-                                Jan, is the founder and Director of Js Choice Group Pty Ltd, registered NDIS provider based in Point Cook, Melbourne. Her vision for the organisation is to deliver ethical, culturally responsive and participant-centred disability support services that truly empower individuals and families.
+                                Jan, is the founder and Director of Js Choice Group Pty Ltd, registered NDIS provider based in Laverton North, Melbourne. Her vision for the organisation is to deliver ethical, culturally responsive and participant-centred disability support services that truly empower individuals and families.
                             </p>
                             <p>
                                 Leading a team of experienced and qualified staff members, Jan oversees strategic direction, governance compliance, workforce leadership and service quality. She is adept at navigating the complexities of the NDIS environment, ensuring robust safeguarding practices transparent systems and high care standards. Her values-driven leadership style is rooted in respect, honesty, accountability and continuous improvement.
