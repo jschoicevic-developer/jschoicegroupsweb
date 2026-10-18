@@ -10,6 +10,7 @@ import SeamlessNDIS from "@/components/sections/home/SeamlessNDIS";
 import JsonLd from "@/components/schema/JsonLd";
 import type { Metadata } from "next";
 import { GMB_PROFILE, GMB_REVIEWS } from "@/data/gmb-reviews";
+import { HOME_FAQS } from "@/data/home-faqs";
 import { getDisplayableReviews } from "@/lib/gmb-reviews-utils";
 
 export const metadata: Metadata = {
@@ -69,6 +70,19 @@ const homePageSchema = {
 
 const displayableReviews = getDisplayableReviews(GMB_REVIEWS);
 
+const faqSchema = {
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  mainEntity: HOME_FAQS.map((faq) => ({
+    "@type": "Question",
+    name: faq.question,
+    acceptedAnswer: {
+      "@type": "Answer",
+      text: faq.answer,
+    },
+  })),
+};
+
 const reviewsSchema =
   displayableReviews.length > 0
     ? {
@@ -98,8 +112,8 @@ export default function Home() {
       <JsonLd
         data={
           reviewsSchema
-            ? [websiteSchema, homePageSchema, reviewsSchema]
-            : [websiteSchema, homePageSchema]
+            ? [websiteSchema, homePageSchema, reviewsSchema, faqSchema]
+            : [websiteSchema, homePageSchema, faqSchema]
         }
       />
       <Hero />
