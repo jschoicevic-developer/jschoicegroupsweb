@@ -72,7 +72,7 @@ const Hero = () => {
                         transition={{ delay: 0.3 }}
                         className="text-2xl sm:text-3xl font-bold text-white/80"
                     >
-                        Js Choice
+                        Js Choice Group
                     </motion.p>
                     <motion.h1
                         initial={{ opacity: 0, y: 20 }}

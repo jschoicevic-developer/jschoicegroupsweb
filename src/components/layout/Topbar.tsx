@@ -47,7 +47,7 @@ const Topbar = () => {
                         {/* Office Hours */}
                         <div className="hidden xl:flex items-center gap-2">
                             <Clock size={15} strokeWidth={2} className="text-foreground/80" />
-                            <span>Office: 8am - 6pm</span>
+                            <span>{CONTACT_DETAILS.hours.office}</span>
                         </div>
 
                         {/* Support */}

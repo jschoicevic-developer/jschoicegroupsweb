@@ -3,6 +3,7 @@ import About from "@/components/sections/home/About";
 import Services from "@/components/sections/home/Services";
 import WhyChooseUs from "@/components/sections/home/WhyChooseUs";
 import Reviews from "@/components/sections/home/Reviews";
+import OurParticipants from "@/components/sections/home/OurParticipants";
 import GettingStarted from "@/components/sections/home/GettingStarted";
 import Faq from "@/components/sections/home/Faq";
 import AreasServed from "@/components/sections/home/AreasServed";
@@ -121,6 +122,7 @@ export default function Home() {
       <Services />
       <WhyChooseUs />
       <Reviews />
+      <OurParticipants />
       <GettingStarted />
       <AreasServed />
       <Faq />

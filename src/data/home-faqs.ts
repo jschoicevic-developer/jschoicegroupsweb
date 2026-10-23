@@ -62,6 +62,6 @@ export const HOME_FAQS: HomeFaq[] = [
     },
     {
         question: "Does JS Choice Group provide 24-hour disability support?",
-        answer: "JS Choice Group lists its care services as available 24 hours, while its office operates from 8 am to 6 pm. Participants can contact the team to discuss the availability required for their individual support needs.",
+        answer: "JS Choice Group lists its care services as available 24 hours, while its office is open Monday to Friday, 10 AM to 4 PM. Participants can contact the team to discuss the availability required for their individual support needs.",
     },
 ];

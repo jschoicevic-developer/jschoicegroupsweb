@@ -89,15 +89,29 @@ const ConsultationFooter = () => {
               ))}
             </div>
 
-            {/* NDIS logo */}
-            <div className="pt-4 border-t border-white/10 relative h-24 w-40">
-              <Image
-                quality={80}
-                src="/images/footer/ndis.webp"
-                alt="NDIS Registered Provider"
-                fill
-                className="object-contain object-left"
-              />
+            <div className="pt-4 border-t border-white/10 inline-flex flex-nowrap items-center gap-4">
+              <div className="relative h-24 w-24 shrink-0">
+                <Image
+                  quality={80}
+                  src="/images/footer/ndis.webp"
+                  alt="I love NDIS"
+                  fill
+                  className="object-contain object-left"
+                />
+              </div>
+              <svg
+                viewBox="0 0 180 108"
+                className="h-14 w-[84px] shrink-0 rounded-sm shadow-sm"
+                role="img"
+                aria-label="LGBTQ pride flag"
+              >
+                <rect width="180" height="18" y="0" fill="#E40303" />
+                <rect width="180" height="18" y="18" fill="#FF8C00" />
+                <rect width="180" height="18" y="36" fill="#FFED00" />
+                <rect width="180" height="18" y="54" fill="#008026" />
+                <rect width="180" height="18" y="72" fill="#24408E" />
+                <rect width="180" height="18" y="90" fill="#732982" />
+              </svg>
             </div>
           </div>
 
@@ -124,7 +138,7 @@ const ConsultationFooter = () => {
                     href={`tel:${CONTACT_DETAILS.national.tel}`}
                     className="text-sm font-bold text-gray-300 hover:text-white transition-colors"
                   >
-                    {CONTACT_DETAILS.national.display} (National)
+                    {CONTACT_DETAILS.national.display} (Local)
                   </a>
                   <a
                     href={`tel:${CONTACT_DETAILS.landline.tel}`}

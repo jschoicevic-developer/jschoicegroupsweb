@@ -16,7 +16,7 @@ const contactInfo = [
         title: "Call Us",
         content: (
             <div className="flex flex-col gap-1.5 pt-1">
-                <a href={`tel:${CONTACT_DETAILS.national.tel}`} className="text-lg font-black text-primary mb-1 hover:text-primary/80 transition-colors">{CONTACT_DETAILS.national.display} (National)</a>
+                <a href={`tel:${CONTACT_DETAILS.national.tel}`} className="text-lg font-black text-primary mb-1 hover:text-primary/80 transition-colors">{CONTACT_DETAILS.national.display} (Local)</a>
                 <a href={`tel:${CONTACT_DETAILS.landline.tel}`} className="hover:text-primary transition-colors font-bold text-base">{CONTACT_DETAILS.landline.display} (Landline)</a>
                 <a href={`tel:${CONTACT_DETAILS.mobile.tel}`} className="hover:text-primary transition-colors font-bold text-base">{CONTACT_DETAILS.mobile.display} (Mobile)</a>
             </div>
@@ -59,7 +59,7 @@ const contactInfo = [
     {
         icon: Clock,
         title: "Business Hours",
-        content: "Office – 8 am to 6 pm, Care Services – 24 Hours"
+        content: "Monday to Friday – 10 AM to 4 PM, Care Services – 24 Hours"
     }
 ];
 

@@ -187,7 +187,7 @@ function generateClientConfirmationHtml(lead: Lead, fullName: string): string {
             </div>
 
              <div style="margin-top: 30px; font-size: 14px; color: ${COLORS.textLight};">
-              <p style="margin: 0;"><strong>Office Hours:</strong> 8:00 AM - 6:00 PM</p>
+              <p style="margin: 0;"><strong>Office Hours:</strong> Monday to Friday, 10:00 AM - 4:00 PM</p>
               <p style="margin: 5px 0 0 0;"><strong>Care Services:</strong> 24/7 Available</p>
             </div>
           </td>
@@ -606,7 +606,7 @@ function generateFacebookLeadClientHtml(firstName: string): string {
             </div>
 
             <div style="margin-top: 30px; font-size: 14px; color: ${COLORS.textLight};">
-              <p style="margin: 0;"><strong>Office Hours:</strong> 8:00 AM – 6:00 PM</p>
+              <p style="margin: 0;"><strong>Office Hours:</strong> Monday to Friday, 10:00 AM – 4:00 PM</p>
               <p style="margin: 5px 0 0 0;"><strong>Care Services:</strong> 24/7 Available</p>
             </div>
           </td>

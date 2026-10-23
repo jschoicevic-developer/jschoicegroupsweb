@@ -80,8 +80,8 @@ const Footer = () => {
             <div className="max-w-8xl mx-auto px-4 md:px-6 lg:px-8 relative z-10">
                 <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-12 gap-12 lg:gap-16 mb-8">
 
-                    {/* Brand Section (2 Cols) */}
-                    <div className="lg:col-span-2 space-y-8">
+                    {/* Brand Section */}
+                    <div className="lg:col-span-3 space-y-8">
                         <Link href="https://jschoicegroup.com.au/">
                             <Image quality={80}
                                 src="/JCGLogoWhite.png"
@@ -107,17 +107,32 @@ const Footer = () => {
                             ))}
                         </div>
 
-                        <div className="pt-4 border-t border-white/10 relative h-24 w-40">
-                            <Image quality={80}
-                                src="/images/footer/ndis.webp"
-                                alt="NDIS"
-                                fill
-                                className="object-contain object-left"
-                            />
+                        <div className="pt-4 border-t border-white/10 inline-flex flex-nowrap items-center gap-4">
+                            <div className="relative h-24 w-24 shrink-0">
+                                <Image quality={80}
+                                    src="/images/footer/ndis.webp"
+                                    alt="I love NDIS"
+                                    fill
+                                    className="object-contain object-left"
+                                />
+                            </div>
+                            <svg
+                                viewBox="0 0 180 108"
+                                className="h-14 w-[84px] shrink-0 rounded-sm shadow-sm"
+                                role="img"
+                                aria-label="LGBTQ pride flag"
+                            >
+                                <rect width="180" height="18" y="0" fill="#E40303" />
+                                <rect width="180" height="18" y="18" fill="#FF8C00" />
+                                <rect width="180" height="18" y="36" fill="#FFED00" />
+                                <rect width="180" height="18" y="54" fill="#008026" />
+                                <rect width="180" height="18" y="72" fill="#24408E" />
+                                <rect width="180" height="18" y="90" fill="#732982" />
+                            </svg>
                         </div>
                     </div>
 
-                    {/* Services Section (5 Cols) */}
+                    {/* Services Section */}
                     <div className="lg:col-span-4">
                         <div className="mb-10 text-xl font-black uppercase tracking-[0.2em] text-[#ABB3F1] flex items-center gap-4">
                             Services
@@ -147,8 +162,8 @@ const Footer = () => {
                         </div>
                     </div>
 
-                    {/* Quick Links Section (3 Cols) */}
-                    <div className="lg:col-span-3">
+                    {/* Quick Links Section */}
+                    <div className="lg:col-span-2">
                         <div className="mb-10 text-xl font-black uppercase tracking-[0.2em] text-[#6366F1] flex items-center gap-4">
                             Resources
                             <span className="h-px grow bg-white/10" />
@@ -233,7 +248,7 @@ const Footer = () => {
                                         People forget numbers, so we use "alphabet-style numbers" to help them remember.
                                     </span>
                                     <span className="text-lg font-black text-[#ABB3F1] tracking-wide mb-1">1300 JS CHOICE</span>
-                                    <a href={`tel:${CONTACT_DETAILS.national.tel}`} className="text-sm font-bold text-gray-300 hover:text-white transition-colors">{CONTACT_DETAILS.national.display} (National)</a>
+                                    <a href={`tel:${CONTACT_DETAILS.national.tel}`} className="text-sm font-bold text-gray-300 hover:text-white transition-colors">{CONTACT_DETAILS.national.display} (Local)</a>
                                     <a href={`tel:${CONTACT_DETAILS.landline.tel}`} className="text-sm font-bold text-gray-300 hover:text-white transition-colors">{CONTACT_DETAILS.landline.display} (Landline)</a>
                                     <a href={`tel:${CONTACT_DETAILS.mobile.tel}`} className="text-sm font-bold text-gray-300 hover:text-white transition-colors">{CONTACT_DETAILS.mobile.display} (Mobile)</a>
                                 </div>
@@ -272,7 +287,7 @@ const Footer = () => {
                                     <Image quality={80} src="/images/footer/clock.webp" alt="Clock" fill className="object-contain" />
                                 </div>
                                 <div className="pt-1 text-xs md:text-sm font-black flex flex-col gap-1 text-gray-400">
-                                    <span className="group-hover:text-white transition-colors">Office - 8 am to 6 pm</span>
+                                    <span className="group-hover:text-white transition-colors">{CONTACT_DETAILS.hours.office}</span>
                                     <span className="text-[#F1ABAB]">Care Services - 24 Hours</span>
                                 </div>
                             </li>
@@ -316,12 +331,12 @@ const Footer = () => {
                     </div>
                 </div>
                 <a
-                    href="https://cruxlabs.com.au/"
+                    href="https://gdaybroadcast.com.au/"
                     target="_blank"
                     rel="noopener noreferrer"
                     className="absolute bottom-3 right-4 text-[10px] font-black text-gray-500 uppercase tracking-[0.15em] hover:text-[#ABB3F1] transition-colors"
                 >
-                    Design by <span className="text-[#ABB3F1]">CruxLabs</span>
+                    Powered by <span className="text-[#ABB3F1]">G&apos;Day Broadcast</span>
                 </a>
             </div>
         </footer>

@@ -600,7 +600,7 @@ const faqs = [
     { q: "What areas do you cover?", a: "We're based in Laverton North and serve Melbourne's Western and Northern suburbs including Werribee, Tarneit, Hoppers Crossing, Truganina, Craigieburn, Footscray, Altona, Laverton, Epping, South Morang, Geelong, Lara, and Shepparton." },
     { q: "Are your support workers qualified?", a: "Absolutely. All our support workers undergo thorough background checks, hold valid NDIS Worker Screening, and receive ongoing training in neuro-affirming and culturally sensitive care practices." },
     { q: "Can I choose my own support worker?", a: "Yes! We believe in participant choice and control. We'll match you based on your preferences, cultural background, language needs, and personality — and you can always request a change." },
-    { q: "Do you offer 24/7 services?", a: "Yes, our care services are available 24/7 including weekends and public holidays. Our office hours are 8am–6pm for administrative queries, but support is always available when you need it." },
+    { q: "Do you offer 24/7 services?", a: "Yes, our care services are available 24/7 including weekends and public holidays. Our office is open Monday to Friday, 10 AM to 4 PM for administrative queries, but support is always available when you need it." },
 ];
 
 const FaqSection = () => {
@@ -756,7 +756,7 @@ const QuoteForm = () => {
                                 { icon: Phone, label: "Call Us", value: CONTACT_DETAILS.national.display, href: `tel:${CONTACT_DETAILS.national.tel}` },
                                 { icon: Phone, label: "Landline", value: CONTACT_DETAILS.landline.display, href: `tel:${CONTACT_DETAILS.landline.tel}` },
                                 { icon: MapPin, label: "Location", value: CONTACT_DETAILS.address.full, href: CONTACT_DETAILS.address.mapUrl },
-                                { icon: Clock, label: "Hours", value: "Office 8am–6pm | Care 24/7" },
+                                { icon: Clock, label: "Hours", value: "Mon–Fri 10 AM–4 PM | Care 24/7" },
                             ].map((info) => (
                                 <div key={info.label} className="flex items-center gap-4 text-white/90">
                                     <div className="w-10 h-10 rounded-xl bg-white/10 flex items-center justify-center shrink-0">

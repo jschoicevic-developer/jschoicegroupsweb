@@ -227,11 +227,11 @@ const About = () => {
                         <div className="w-[100%] aspect-[4/4] relative z-10 overflow-hidden shadow-2xl border-[12px] border-white transition-transform duration-700 hover:scale-[1.03]"
                             style={{ borderRadius: '30% 70% 40% 60% / 50% 30% 70% 50%' }}>
                             <Image quality={80}
-                                src="/images/home/about-2.webp"
-                                alt="Care worker"
+                                src="/images/home/jan-fardowsi.webp"
+                                alt="Jan Fardowsi, Director of JS Choice Group"
                                 fill
                                 sizes="(max-width: 1024px) 100vw, 50vw"
-                                className="object-cover"
+                                className="object-cover object-[center_18%]"
                             />
                         </div>
 

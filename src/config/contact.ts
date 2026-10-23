@@ -30,7 +30,7 @@ export const CONTACT_DETAILS = {
         poBox: "PO Box 6282 Point Cook 3030 Victoria"
     },
     hours: {
-        office: "8am - 6pm",
+        office: "Monday to Friday - 10 AM to 4 PM",
         support: "24 Hours"
     }
 };
